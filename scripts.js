@@ -179,3 +179,14 @@ function detectInitialTheme() {
   if (saved === 'light' || saved === 'dark') return saved;
   return 'light'; // default to light when nothing saved
 }
+
+(function scrollProgress(){
+  const bar = document.getElementById('scroll-progress');
+  function onScroll(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop)/(h.scrollHeight - h.clientHeight);
+    bar.style.width = (scrolled*100).toFixed(2) + '%';
+  }
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();

@@ -55,6 +55,16 @@ html {
     scroll-behavior: smooth
 }
 
+#scroll-progress {
+    position: fixed;
+    inset: 0 auto auto 0;
+    height: 3px;
+    width: 0;
+    z-index: 9999;
+    background: linear-gradient(90deg, #6d5dfc, #22c55e, #f59e0b);
+}
+
+
 body {
     margin: 0;
     background: var(--bg);
@@ -546,7 +556,10 @@ section {
     box-shadow: var(--shadow-sm);
 }
 
-[data-theme="light"] .menu a { color: var(--ink); }
+[data-theme="light"] .menu a {
+    color: var(--ink);
+}
+
 /* --- Tooltip for the Resume button --- */
 .tooltip {
     position: relative;
@@ -805,26 +818,35 @@ button.is-loading {
 }
 
 /* Light mode — MOBILE ONLY (<=860px): readable menu on white panel */
-@media (max-width: 860px){
-  html[data-theme="light"] .header nav .menu{
-    background: #fff;                /* panel is white on mobile */
-    border-color: var(--ink);
-  }
-  html[data-theme="light"] .header nav .menu a:not(.btn),
-  html[data-theme="light"] .header nav .menu > li > a:not(.btn),
-  html[data-theme="light"] .header nav .menu .sub a{
-    color: var(--ink);               /* dark text so it's not white-on-white */
-    opacity: 1;
-  }
-  html[data-theme="light"] .header nav .menu a:not(.btn):hover,
-  html[data-theme="light"] .header nav .menu a:not(.btn).active{
-    color: var(--ink);
-  }
+@media (max-width: 860px) {
+    html[data-theme="light"] .header nav .menu {
+        background: #fff;
+        /* panel is white on mobile */
+        border-color: var(--ink);
+    }
 
-  /* compact theme toggle only on mobile */
-  #themeToggle{ width:auto; display:inline-flex; padding:8px 14px; }
+    html[data-theme="light"] .header nav .menu a:not(.btn),
+    html[data-theme="light"] .header nav .menu>li>a:not(.btn),
+    html[data-theme="light"] .header nav .menu .sub a {
+        color: var(--ink);
+        /* dark text so it's not white-on-white */
+        opacity: 1;
+    }
+
+    html[data-theme="light"] .header nav .menu a:not(.btn):hover,
+    html[data-theme="light"] .header nav .menu a:not(.btn).active {
+        color: var(--ink);
+    }
+
+    /* compact theme toggle only on mobile */
+    #themeToggle {
+        width: auto;
+        display: inline-flex;
+        padding: 8px 14px;
+    }
 }
 
 html[data-theme="dark"] #contact .btn {
-  color: #fff !important;      /* make text white */
+    color: #fff !important;
+    /* make text white */
 }
