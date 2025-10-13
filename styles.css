@@ -850,3 +850,17 @@ html[data-theme="dark"] #contact .btn {
     color: #fff !important;
     /* make text white */
 }
+
+#projects .btn,
+#projects .btn:hover,
+#projects .btn:focus,
+#projects .btn:active {
+    box-shadow: none !important;
+    /* kills box-shadow */
+    filter: none !important;
+    /* kills drop-shadow() if used */
+    text-shadow: none !important;
+    /* just in case */
+    transform: none !important;
+    /* stops hover "lift" effects */
+}
