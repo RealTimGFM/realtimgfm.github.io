@@ -4,24 +4,42 @@
 
 # Tim’s Portfolio — `realtimgfm.github.io`
 
-A lightweight personal site hosted on **GitHub Pages**.
+A lightweight personal portfolio site hosted on GitHub Pages.
 
-## Live Site
-https://realtimgfm.github.io
+Live site: <https://realtimgfm.github.io>
 
-## Tech
-- HTML, CSS, and vanilla JavaScript.
+## What’s inside
 
-## Structure
+- Responsive single-page portfolio (mobile + desktop)
+- Light/Dark theme toggle
+- Projects + Experience sections
+- Contact form (EmailJS)
+- LinkedIn badge embed
+- Optional analytics (GA4)
+
+## Tech stack
+
+- HTML
+- CSS
+- Vanilla JavaScript
+- GitHub Pages (deploy)
+- GitHub Actions (CI)
+
+## Project structure
+
 - `index.html` — main page
-- `styles.css` — styles
-- `scripts.js` — interactions
-- `assets/` — images/icons
+- `styles.css` — styling
+- `scripts.js` — interactions (menu, theme toggle, form submission, etc.)
+- `assets/` — images, icons, resume PDF
 
-## Run Locally
-**Option A:** Open `index.html` directly in your browser.  
-**Option B:** Serve with a simple local server:
+## Run locally
+
+Option A: Open `index.html` directly in your browser.
+
+Option B: Serve locally (recommended):
+
 ```bash
 # from the repo root
 python -m http.server 8080
-# then visit http://localhost:8080
+# then open
+# http://localhost:8080
