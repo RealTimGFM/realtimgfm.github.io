@@ -7,6 +7,7 @@ https://realtimgfm.github.io
 
 ## Tech
 - HTML, CSS, and vanilla JavaScript.
+- CI/CD by GitHub Action.
 
 ## Structure
 - `index.html` — main page
