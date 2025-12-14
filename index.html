@@ -15,8 +15,17 @@
         rel="stylesheet" />
 
     <link rel="stylesheet" href="styles.css" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6FYNPRYBW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-Z6FYNPRYBW');
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
     <script defer src="scripts.js"></script>
+    <script data-goatcounter="https://timgfm.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 
 <body>
@@ -61,7 +70,7 @@
                 <div class="hero-hi">Greeting</div>
                 <div class="hero-sub">I AM</div>
                 <div class="hero-inner sticker-sm">
-                    <h1 class="hero-name">VU&nbsp;LUONG&nbsp;QUY</h1>
+                    <h1 class="hero-name">VU LUONG QUY</h1>
                 </div>
             </div>
         </section>
@@ -396,10 +405,39 @@
 
         <!-- CONTACT -->
         <section id="contact" class="wrap section observe">
-            <h2>Contact</h2>
             <div class="contact">
-                <h3 class="splash">Let’s build something together.</h3>
+                <div class="contact-left">
+                    <h3 class="splash">Let’s build something together.</h3>
+
+                    <div class="li-badge-card sticker-sm">
+                        <p class="li-badge-title">Prefer LinkedIn?</p>
+
+                        <div class="li-badges">
+                            <!-- Dark badge (shown only in dark theme) -->
+                            <div class="li-badge li-badge--dark">
+                                <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium"
+                                    data-theme="dark" data-type="VERTICAL" data-vanity="timvu2003" data-version="v1">
+                                    <a class="badge-base__link LI-simple-link"
+                                        href="https://ca.linkedin.com/in/timvu2003?trk=profile-badge">
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Light badge (shown only in light theme) -->
+                            <div class="li-badge li-badge--light">
+                                <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium"
+                                    data-theme="light" data-type="VERTICAL" data-vanity="timvu2003" data-version="v1">
+                                    <a class="badge-base__link LI-simple-link"
+                                        href="https://ca.linkedin.com/in/timvu2003?trk=profile-badge">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <form id="contactForm" novalidate>
+                    <!-- keep your existing form exactly as-is -->
                     <label for="name">Name</label>
                     <input id="name" name="name" required placeholder="Name" />
 
@@ -415,6 +453,7 @@
                     <p id="status" style="margin-top:10px;color:#b8c8db" aria-live="polite"></p>
                 </form>
             </div>
+
         </section>
 
     </main>

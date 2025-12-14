@@ -453,6 +453,57 @@ h2::before {
 }
 
 /*  CONTACT  */
+/* LinkedIn badge in Contact */
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.li-badge-card {
+  background: var(--surface);
+  padding: 14px;
+  max-width: 360px;
+}
+
+.li-badge-title {
+  margin: 0 0 10px 0;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+.li-badges {
+  display: block;
+}
+
+.li-badge {
+  width: 100%;
+}
+
+/* Show the correct LinkedIn badge based on theme */
+.li-badge--dark { display: none; }
+.li-badge--light { display: block; }
+
+html[data-theme="dark"] .li-badge--dark { display: block; }
+html[data-theme="dark"] .li-badge--light { display: none; }
+
+/* Mobile polish: keep it centered and slightly smaller */
+@media (max-width: 600px) {
+  .li-badge-card {
+    max-width: 100%;
+  }
+
+  .li-badges {
+    display: flex;
+    justify-content: center;
+  }
+
+  .li-badge {
+    transform: scale(0.95);
+    transform-origin: top center;
+  }
+}
+
 .contact {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
@@ -714,7 +765,7 @@ button.is-loading {
     .menu {
         display: none;
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 16px;
         padding: 12px;
         margin-top: 8px;
         background: var(--surface);
@@ -765,15 +816,17 @@ button.is-loading {
     }
 
     .hero-card {
-        padding: 20px;
+        padding: 16px;
     }
 
     .hero-inner {
-        padding: 28px 18px;
+        padding: 22px 14px;
     }
 
     .hero-name {
-        font-size: clamp(36px, 12vw, 72px);
+        font-size: clamp(30px, 10.5vw, 60px);
+        letter-spacing: 0.2px;
+        line-height: 0.95;
     }
 }
 
@@ -864,3 +917,25 @@ html[data-theme="dark"] #contact .btn {
     transform: none !important;
     /* stops hover "lift" effects */
 }
+
+@media (max-width: 380px) {
+  .hero-name { font-size: clamp(28px, 10vw, 54px); }
+}
+
+@media (max-width: 600px) {
+  #projects .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  #projects .actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 140px; /* allows 2 per row, wraps nicely */
+    white-space: nowrap;
+  }
+}
+
