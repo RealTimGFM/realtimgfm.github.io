@@ -1,3 +1,7 @@
+![CI](https://github.com/RealTimGFM/realtimgfm.github.io/actions/workflows/ci.yml/badge.svg)
+![Deploy](https://github.com/RealTimGFM/realtimgfm.github.io/actions/workflows/deploy-pages.yml/badge.svg)
+![Link Check](https://github.com/RealTimGFM/realtimgfm.github.io/actions/workflows/link-check.yml/badge.svg)
+
 # Tim’s Portfolio — `realtimgfm.github.io`
 
 A lightweight personal site hosted on **GitHub Pages**.
@@ -7,7 +11,6 @@ https://realtimgfm.github.io
 
 ## Tech
 - HTML, CSS, and vanilla JavaScript.
-- CI/CD by GitHub Action.
 
 ## Structure
 - `index.html` — main page
