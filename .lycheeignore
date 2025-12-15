@@ -1,5 +1,7 @@
-^https?://(www\.)?linkedin\.com/
-^https?://ca\.linkedin\.com/
+# These sites block automated link checkers
+https://www.linkedin.com/in/timvu2003
+https://ca.linkedin.com/in/timvu2003?trk=profile-badge
 
-^https://resumeparser-481l\.onrender\.com/
-^https://facerecog-web\.onrender\.com/
+# These apps may sleep on free hosting and randomly timeout in CI
+https://resumeparser-481l.onrender.com/
+https://facerecog-web.onrender.com/
