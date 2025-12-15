@@ -1,0 +1,5 @@
+^https?://(www\.)?linkedin\.com/
+^https?://ca\.linkedin\.com/
+
+^https://resumeparser-481l\.onrender\.com/
+^https://facerecog-web\.onrender\.com/
