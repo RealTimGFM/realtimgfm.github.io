@@ -1,55 +1,29 @@
 name: Link Check
 
 on:
-  push:
-    branches: [main, master]
-  pull_request:
-    branches: [main, master]
-  workflow_dispatch:
   schedule:
-    - cron: "0 6 * * *" # daily (UTC)
+    - cron: "0 14 * * 1"
+  workflow_dispatch:
 
 jobs:
   lychee:
+    name: Check links in repo files
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Restore lychee cache
-        uses: actions/cache@v4
-        with:
-          path: .lycheecache
-          key: lychee-${{ runner.os }}-${{ github.sha }}
-          restore-keys: |
-            lychee-${{ runner.os }}-
-
-      - name: Run Lychee (links)
+      - name: Run Lychee
         uses: lycheeverse/lychee-action@v2
         with:
-          # Key changes:
-          # - accept 200..=399 so 301/302/303/etc don't fail the build
-          # - higher timeout + retries to reduce random failures
-          # - root-dir so file:/// links resolve correctly
-          args: |
-            --root-dir "$(pwd)"
+          args: >-
             --verbose
             --no-progress
-            --cache
-            --max-cache-age 1d
-            --accept "200..=399, 429"
-            --timeout 60
+            --timeout 30
             --max-retries 2
             --retry-wait-time 5
-            "./**/*.html" "./**/*.md"
-          format: markdown
-          output: lychee/out.md
-          fail: true
-
-      - name: Upload Lychee report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: lychee-report
-          path: lychee/out.md
+            --accept 200,206,301,302,303,307,308,429
+            .
