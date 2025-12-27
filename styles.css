@@ -939,3 +939,38 @@ html[data-theme="dark"] #contact .btn {
   }
 }
 
+/* Project badges (CI / CI-CD) */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 6px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  border: 1px solid rgba(184, 200, 219, 0.25);
+  background: rgba(184, 200, 219, 0.08);
+  color: inherit;
+}
+
+.badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: green;
+  opacity: 0.9;
+}
+
+/* Optional: make badges pop slightly on hover */
+.card:hover .badge {
+  border-color: rgba(184, 200, 219, 0.45);
+  background: rgba(184, 200, 219, 0.12);
+}
