@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/RealTimGFM/realtimgfm.github.io#readme",
   "devDependencies": {
+    "markdownlint-cli2": "^0.20.0",
     "stylelint": "^16.26.1",
     "stylelint-config-standard": "^39.0.1"
   }
