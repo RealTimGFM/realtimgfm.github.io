@@ -24,11 +24,9 @@ html[data-theme="dark"] {
     --paper: #eaf2ff;
     --text: #eaf2ff;
     --muted: #9aa6b2;
-
     --violet: #7c5cff;
     --aqua: #2fdac7;
     --yellow: #ffd24d;
-
     --grad: linear-gradient(135deg, var(--violet), var(--aqua) 65%, var(--yellow));
 }
 
@@ -39,11 +37,9 @@ html[data-theme="light"] {
     --paper: #0b0e12;
     --text: #0b0e12;
     --muted: #4e5d6f;
-
     --violet: #6a5aff;
     --aqua: #18c7b9;
     --yellow: #ffcc4d;
-
     --grad: linear-gradient(135deg, var(--violet), var(--aqua) 65%, var(--yellow));
 }
 
@@ -69,7 +65,7 @@ body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font: 16px/1.6 Manrope, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    font: 16px/1.6 Manrope, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 img {
@@ -103,7 +99,7 @@ hr,
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(10, 13, 17, .7);
+    background: rgb(10 13 17 / 70%);
     backdrop-filter: saturate(140%) blur(8px);
     border-bottom: 1px solid #1f2630;
 }
@@ -146,7 +142,7 @@ hr,
     opacity: 1
 }
 
-.menu a:not(.btn):not(.tooltip)::after {
+.menu a:not(.btn, .tooltip)::after {
     content: "";
     position: absolute;
     left: 0;
@@ -157,7 +153,7 @@ hr,
     transform-origin: left;
     transition: transform .22s ease;
     background: linear-gradient(90deg, var(--violet), var(--aqua), var(--yellow));
-    box-shadow: 0 6px 14px rgba(255, 210, 77, .35);
+    box-shadow: 0 6px 14px rgb(255 210 77 / 35%);
 }
 
 .menu a:not(.btn):hover::after,
@@ -256,7 +252,6 @@ h2::before {
     font-size: clamp(52px, 10vw, 150px);
     line-height: .9;
     background: linear-gradient(90deg, #fff, #ffd24d);
-    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     padding-bottom: 12px;
@@ -270,7 +265,7 @@ h2::before {
     align-items: start
 }
 
-@media (max-width:1000px) {
+@media (width <=1000px) {
     .about-grid {
         grid-template-columns: 1fr
     }
@@ -312,13 +307,13 @@ h2::before {
     gap: 22px
 }
 
-@media (max-width:1100px) {
+@media (width <=1100px) {
     .skills-grid {
         grid-template-columns: repeat(3, 1fr)
     }
 }
 
-@media (max-width:700px) {
+@media (width <=700px) {
     .skills-grid {
         grid-template-columns: repeat(2, 1fr)
     }
@@ -343,8 +338,10 @@ h2::before {
     display: block;
     margin: 6px auto 8px;
     object-fit: contain;
+
     /* This "removes" white rectangles by blending with the yellow card */
     mix-blend-mode: multiply;
+
     /* give the glyph a touch more punch; adjust if needed */
     filter: contrast(1.1);
 }
@@ -384,7 +381,7 @@ h2::before {
     align-items: start;
 }
 
-@media (max-width:800px) {
+@media (width <=800px) {
     .item {
         grid-template-columns: 1fr
     }
@@ -422,7 +419,7 @@ h2::before {
     gap: 22px
 }
 
-@media (max-width:900px) {
+@media (width <=900px) {
     .grid {
         grid-template-columns: 1fr
     }
@@ -440,7 +437,7 @@ h2::before {
 }
 
 .card h3 {
-    margin: 0 0 6px 0;
+    margin: 0 0 6px;
     font-family: "Space Grotesk", sans-serif
 }
 
@@ -453,6 +450,7 @@ h2::before {
 }
 
 /*  CONTACT  */
+
 /* LinkedIn badge in Contact */
 .contact-left {
   display: flex;
@@ -467,7 +465,7 @@ h2::before {
 }
 
 .li-badge-title {
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
   font-weight: 800;
   color: var(--muted);
 }
@@ -488,7 +486,7 @@ html[data-theme="dark"] .li-badge--dark { display: block; }
 html[data-theme="dark"] .li-badge--light { display: none; }
 
 /* Mobile polish: keep it centered and slightly smaller */
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .li-badge-card {
     max-width: 100%;
   }
@@ -511,7 +509,7 @@ html[data-theme="dark"] .li-badge--light { display: none; }
     align-items: start
 }
 
-@media (max-width:1000px) {
+@media (width <=1000px) {
     .contact {
         grid-template-columns: 1fr
     }
@@ -522,7 +520,6 @@ html[data-theme="dark"] .li-badge--light { display: none; }
     letter-spacing: .4px;
     margin: 0;
     background: linear-gradient(90deg, var(--violet), var(--aqua));
-    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     padding-bottom: 10px;
@@ -549,7 +546,7 @@ textarea {
 input:focus,
 textarea:focus {
     border-color: #3b8cff;
-    box-shadow: 0 0 0 3px rgba(59, 140, 255, .15)
+    box-shadow: 0 0 0 3px rgb(59 140 255 / 15%)
 }
 
 small.helper {
@@ -582,7 +579,6 @@ small.helper {
 }
 
 @keyframes floaty {
-
     0%,
     100% {
         transform: translateY(0)
@@ -607,10 +603,6 @@ section {
     box-shadow: var(--shadow-sm);
 }
 
-[data-theme="light"] .menu a {
-    color: var(--ink);
-}
-
 /* --- Tooltip for the Resume button --- */
 .tooltip {
     position: relative;
@@ -628,6 +620,7 @@ button.is-loading {
     position: absolute;
     left: 50%;
     top: calc(100% + 20px);
+
     /* ⬅ below the button */
     bottom: auto;
     transform: translateX(-50%) translateY(-6px) scale(.98);
@@ -648,6 +641,7 @@ button.is-loading {
     position: absolute;
     left: 50%;
     top: calc(100% + 2px);
+
     /* ⬅ just under the button */
     bottom: auto;
     transform: translateX(-50%) translateY(-6px);
@@ -656,6 +650,7 @@ button.is-loading {
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 20px solid #0b0e12;
+
     /* ⬅ triangle pointing up */
     opacity: 0;
     transition: opacity .15s ease, transform .15s ease;
@@ -677,12 +672,6 @@ button.is-loading {
     left: -5000px !important;
 }
 
-/* contact submit loading state */
-button.is-loading {
-    opacity: .7;
-    pointer-events: none;
-}
-
 /* Contact dropdown — no vertical gap, no Y-translate */
 .menu .has-sub {
     position: relative;
@@ -691,11 +680,14 @@ button.is-loading {
 .menu .sub {
     position: absolute;
     top: 130%;
+
     /* sit right under the parent */
     left: 50%;
     transform: translateX(-50%);
+
     /* no vertical translate */
     margin-top: 6px;
+
     /* small visual offset */
     display: grid;
     gap: 6px;
@@ -747,7 +739,7 @@ button.is-loading {
     display: none;
 }
 
-@media (max-width: 860px) {
+@media (width <= 860px) {
     .nav {
         flex-wrap: wrap;
         gap: 10px;
@@ -810,7 +802,7 @@ button.is-loading {
     }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
     .section {
         padding: 56px 0;
     }
@@ -830,13 +822,13 @@ button.is-loading {
     }
 }
 
-@media (max-width: 860px) {
+@media (width <= 860px) {
     #themeToggle {
         width: auto;
+
         /* stop stretching full width */
         display: inline-flex;
-        align-self: start;
-        justify-self: start;
+        place-self: start start;
         padding: 8px 14px;
     }
 
@@ -850,7 +842,7 @@ button.is-loading {
 }
 
 [data-theme="light"] .header {
-    background: rgba(255, 255, 255, .85);
+    background: rgb(255 255 255 / 85%);
 }
 
 [data-theme="light"] .menu {
@@ -858,10 +850,7 @@ button.is-loading {
     border-color: var(--ink);
 }
 
-[data-theme="light"] .menu a {
-    color: var(--ink);
-}
-
+[data-theme="light"] .menu a,
 [data-theme="light"] .menu .sub a {
     color: var(--ink);
 }
@@ -871,9 +860,10 @@ button.is-loading {
 }
 
 /* Light mode — MOBILE ONLY (<=860px): readable menu on white panel */
-@media (max-width: 860px) {
+@media (width <= 860px) {
     html[data-theme="light"] .header nav .menu {
         background: #fff;
+
         /* panel is white on mobile */
         border-color: var(--ink);
     }
@@ -882,6 +872,7 @@ button.is-loading {
     html[data-theme="light"] .header nav .menu>li>a:not(.btn),
     html[data-theme="light"] .header nav .menu .sub a {
         color: var(--ink);
+
         /* dark text so it's not white-on-white */
         opacity: 1;
     }
@@ -901,6 +892,7 @@ button.is-loading {
 
 html[data-theme="dark"] #contact .btn {
     color: #fff !important;
+
     /* make text white */
 }
 
@@ -909,20 +901,24 @@ html[data-theme="dark"] #contact .btn {
 #projects .btn:focus,
 #projects .btn:active {
     box-shadow: none !important;
+
     /* kills box-shadow */
     filter: none !important;
+
     /* kills drop-shadow() if used */
     text-shadow: none !important;
+
     /* just in case */
     transform: none !important;
+
     /* stops hover "lift" effects */
 }
 
-@media (max-width: 380px) {
+@media (width <= 380px) {
   .hero-name { font-size: clamp(28px, 10vw, 54px); }
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
   #projects .actions {
     display: flex;
     flex-wrap: wrap;
@@ -939,3 +935,38 @@ html[data-theme="dark"] #contact .btn {
   }
 }
 
+/* Project badges (CI / CI-CD) */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 6px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  border: 1px solid rgb(184 200 219 / 25%);
+  background: rgb(184 200 219 / 8%);
+  color: inherit;
+}
+
+.badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: green;
+  opacity: 0.9;
+}
+
+/* Optional: make badges pop slightly on hover */
+.card:hover .badge {
+  border-color: rgb(184 200 219 / 45%);
+  background: rgb(184 200 219 / 12%);
+}
