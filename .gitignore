@@ -1,2 +1,5 @@
 dump_project.py
 dump.txt
+node_modules/
+npm-debug.log*
+.DS_Store

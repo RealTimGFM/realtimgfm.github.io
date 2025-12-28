@@ -43,3 +43,12 @@ Option B: Serve locally (recommended):
 python -m http.server 8080
 # then open
 # http://localhost:8080
+```
+
+## Stylelint error
+```bash
+cd C:\Users\User\Documents\GitHub\PersonalWebpage
+npm ci
+npx stylelint "**/*.css" --fix
+npx stylelint "**/*.css"
+```
