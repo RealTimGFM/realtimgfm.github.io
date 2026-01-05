@@ -1,7 +1,7 @@
-# These sites block automated link checkers
-https://www.linkedin.com/in/timvu2003
-https://ca.linkedin.com/in/timvu2003?trk=profile-badge
+# LinkedIn blocks CI link checkers (status 999)
+https://(www\.)?linkedin\.com/in/timvu2003.*
+https://ca\.linkedin\.com/in/timvu2003.*
 
-# These apps may sleep on free hosting and randomly timeout in CI
-https://resumeparser-481l.onrender.com/
-https://facerecog-web.onrender.com/
+# Free hosting can sleep and timeout randomly in CI
+https://resumeparser-481l\.onrender\.com/.*
+https://facerecog-web\.onrender\.com/.*
