@@ -970,3 +970,208 @@ html[data-theme="dark"] #contact .btn {
   border-color: rgb(184 200 219 / 45%);
   background: rgb(184 200 219 / 12%);
 }
+
+/*  SKILLS  */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 22px;
+    overflow: visible;
+}
+
+@media (width <=1100px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (width <=700px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+#skills,
+#skills .wrap,
+#skills.section,
+#skills .skills-grid {
+    overflow: visible;
+}
+
+.skill {
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+    background: var(--yellow);
+    color: #0b0e12;
+    text-align: center;
+    padding: 22px 14px;
+    border: 4px solid var(--paper);
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm);
+    transform: translateZ(0);
+    transition: transform .18s ease, filter .18s ease;
+}
+
+.skill:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.02);
+}
+
+.skill--has-popup {
+    cursor: default;
+}
+
+.skill--has-popup:hover,
+.skill--has-popup:focus,
+.skill--has-popup:focus-within {
+    z-index: 200;
+}
+
+.skill .logo {
+    width: 64px;
+    height: 64px;
+    display: block;
+    margin: 6px auto 8px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    filter: contrast(1.1);
+}
+
+.skill h4 {
+    margin: 0;
+    font: 800 16px/1 Manrope, sans-serif;
+    letter-spacing: .3px;
+}
+
+.skill svg {
+    width: 64px;
+    height: 64px;
+    display: block;
+    margin: 6px auto 8px;
+    fill: #0b0e12;
+}
+
+/* invisible hover bridge so mouse can move from card to popup */
+.skill--has-popup::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 18px;
+}
+
+/* default popup = opens downward */
+.skill-popup {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 12px);
+    width: min(300px, calc(100vw - 32px));
+    padding: 14px 16px;
+    border: 4px solid var(--paper);
+    border-radius: 14px;
+    background: #111720;
+    color: #d7e5ff;
+    box-shadow: var(--shadow);
+    text-align: left;
+    z-index: 300;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -8px);
+    transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+}
+
+.skill-popup::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    width: 14px;
+    height: 14px;
+    background: #111720;
+    border-left: 4px solid var(--paper);
+    border-top: 4px solid var(--paper);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+/* second row = open upward */
+.skill--popup-up::after {
+    top: auto;
+    bottom: 100%;
+}
+
+.skill--popup-up .skill-popup {
+    top: auto;
+    bottom: calc(100% + 12px);
+    transform: translate(-50%, 8px);
+}
+
+.skill--popup-up .skill-popup::before {
+    top: auto;
+    bottom: -10px;
+    border-left: none;
+    border-top: none;
+    border-right: 4px solid var(--paper);
+    border-bottom: 4px solid var(--paper);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.skill--has-popup:hover .skill-popup,
+.skill--has-popup:focus .skill-popup,
+.skill--has-popup:focus-within .skill-popup {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+}
+
+.skill-popup-title {
+    margin: 0 0 10px;
+    font: 800 14px/1.2 Manrope, sans-serif;
+    color: #fff;
+    letter-spacing: .3px;
+}
+
+.skill-popup-links {
+    display: grid;
+    gap: 8px;
+}
+
+.skill-popup-links a {
+    color: #ffd24d;
+    text-decoration: none;
+    font: 700 14px/1.35 Manrope, sans-serif;
+}
+
+.skill-popup-links a:hover,
+.skill-popup-links a:focus-visible {
+    text-decoration: underline;
+}
+
+@media (width <=700px) {
+    .skill-popup {
+        width: min(280px, calc(100vw - 24px));
+    }
+}
+
+.logo-text {
+    width: 64px;
+    height: 64px;
+    display: grid;
+    place-items: center;
+    margin: 6px auto 8px;
+    border-radius: 14px;
+    background: #0b0e12;
+    color: var(--yellow);
+    font: 900 14px/1 Manrope, sans-serif;
+    letter-spacing: .4px;
+}
+
+.popup-item {
+    display: block;
+    color: #d7e5ff;
+    font: 700 14px/1.35 Manrope, sans-serif;
+}
