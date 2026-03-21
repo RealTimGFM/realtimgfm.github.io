@@ -43,13 +43,13 @@ python -m http.server 8080
 
 Then open [http://localhost:8080](http://localhost:8080).
 
-## Stylelint
+## Lint CSS
 
 ```bash
 cd C:\Users\User\Documents\GitHub\PersonalWebpage
 npm ci
-npx stylelint "**/*.css" --fix
-npx stylelint "**/*.css"
+npm run lint:css:fix
+npm run lint
 ```
 
 ## Preflight Checklist
@@ -57,12 +57,10 @@ npx stylelint "**/*.css"
 Run these before pushing changes:
 
 ```bash
-npm install
-npx stylelint "**/*.css" --formatter verbose
-npx markdownlint-cli2 "**/*.md"
+npm ci
+npm run lint
 git diff --check
 git diff --stat
-npx stylelint "styles/**/*.css" --fix
-npx stylelint "styles/**/*.css" --formatter verbose
+npm run lint:css:fix
+npm run lint
 ```
-

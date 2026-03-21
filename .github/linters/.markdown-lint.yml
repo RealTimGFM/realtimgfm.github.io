@@ -1,7 +1,0 @@
-default: true
-
-MD013: false   # line length
-MD033: false   # inline HTML
-MD041: false   # first line in file should be a top-level heading (badges break this)
-MD034: false   # bare URL used
-MD040: false   # fenced code blocks should have a language
