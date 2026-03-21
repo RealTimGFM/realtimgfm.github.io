@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (width <= 768px) {
     .wrap {
         padding-inline: 18px;
     }
@@ -237,7 +237,7 @@
     }
 }
 
-@media (hover: none) and (max-width: 768px) {
+@media (hover: none) and (width <= 768px) {
     .skill--has-popup:hover .skill-popup,
     .skill--has-popup:focus .skill-popup,
     .skill--has-popup:focus-within .skill-popup {
@@ -248,7 +248,7 @@
     }
 }
 
-@media (max-width: 700px) {
+@media (width <= 700px) {
     .skills-row {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -258,7 +258,7 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
     .social-links {
         max-width: 100%;
     }
@@ -272,7 +272,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
     .wrap {
         padding-inline: 14px;
     }
@@ -324,13 +324,13 @@
     }
 }
 
-@media (max-width: 380px) {
+@media (width <= 380px) {
     .hero-name {
         font-size: clamp(28px, 10vw, 54px);
     }
 }
 
-@media (max-width: 360px) {
+@media (width <= 360px) {
     .hero-name {
         font-size: clamp(28px, 11vw, 48px);
     }

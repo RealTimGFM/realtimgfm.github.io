@@ -24,6 +24,7 @@
 .cert-copy p {
     color: var(--muted);
 }
+
 .cert-copy .actions {
     margin-top: 8px;
 }
