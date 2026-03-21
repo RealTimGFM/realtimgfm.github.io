@@ -51,3 +51,15 @@ npm ci
 npx stylelint "**/*.css" --fix
 npx stylelint "**/*.css"
 ```
+
+## Preflight Checklist
+
+Run these before pushing changes:
+
+```bash
+npm install
+npx stylelint "**/*.css" --formatter verbose
+npx markdownlint-cli2 "**/*.md"
+git diff --check
+git diff --stat
+```
