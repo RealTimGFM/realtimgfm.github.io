@@ -137,7 +137,7 @@
     width: 18px;
     height: 2px;
     border-radius: 999px;
-    background: currentColor;
+    background: currentcolor;
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 

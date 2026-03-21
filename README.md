@@ -6,7 +6,7 @@
 
 A lightweight personal portfolio site hosted on GitHub Pages.
 
-Live site: <https://realtimgfm.github.io>
+Live site: [https://realtimgfm.github.io](https://realtimgfm.github.io)
 
 ## What's inside
 
@@ -41,7 +41,7 @@ Because the site now loads HTML partials with `fetch()`, use a local server inst
 python -m http.server 8080
 ```
 
-Then open <http://localhost:8080>.
+Then open [http://localhost:8080](http://localhost:8080).
 
 ## Stylelint
 
@@ -62,4 +62,6 @@ npx stylelint "**/*.css" --formatter verbose
 npx markdownlint-cli2 "**/*.md"
 git diff --check
 git diff --stat
+npx stylelint "styles/**/*.css" --fix
+npx stylelint "styles/**/*.css" --formatter verbose
 ```

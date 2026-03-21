@@ -38,4 +38,4 @@ jobs:
           VALIDATE_MARKDOWN: "true"
 
           # Optional: don't waste time scanning images/assets
-          FILTER_REGEX_EXCLUDE: "assets/.*"
+          FILTER_REGEX_EXCLUDE: "^(assets|node_modules|dist|build)/.*"
