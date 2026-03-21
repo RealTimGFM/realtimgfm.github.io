@@ -57,3 +57,5 @@ function initRevealAnimations() {
     document.querySelectorAll('.observe').forEach((element) => revealObserver.observe(element));
 }
 
+
+

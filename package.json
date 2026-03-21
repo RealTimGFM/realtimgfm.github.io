@@ -4,7 +4,7 @@
   "description": "![CI](https://github.com/RealTimGFM/realtimgfm.github.io/actions/workflows/ci.yml/badge.svg)\r ![Deploy](https://github.com/RealTimGFM/realtimgfm.github.io/actions/workflows/deploy-pages.yml/badge.svg)\r ![Link Check](https://github.com/RealTimGFM/realtimgfm.github.io/actions/workflows/link-check.yml/badge.svg)",
   "main": "scripts.js",
   "scripts": {
-    "lint": "stylelint \"styles/**/*.css\" --formatter verbose",
+    "lint": "npm run lint:css",
     "lint:css": "stylelint \"styles/**/*.css\" --formatter verbose",
     "lint:css:fix": "stylelint \"styles/**/*.css\" --fix"
   },
