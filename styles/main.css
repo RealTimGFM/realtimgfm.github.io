@@ -1,0 +1,14 @@
+@import url("./tokens.css");
+@import url("./base.css");
+@import url("./layout.css");
+@import url("./components/navbar.css");
+@import url("./components/buttons.css");
+@import url("./components/cards.css");
+@import url("./components/popups.css");
+@import url("./sections/hero.css");
+@import url("./sections/about.css");
+@import url("./sections/skills.css");
+@import url("./sections/projects.css");
+@import url("./sections/contact.css");
+@import url("./sections/footer.css");
+@import url("./responsive.css");

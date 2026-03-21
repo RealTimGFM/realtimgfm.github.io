@@ -1,0 +1,332 @@
+@media (width <= 768px) {
+    .wrap {
+        padding-inline: 18px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+        margin-left: auto;
+    }
+
+    .header nav {
+        width: 100%;
+    }
+
+    .menu {
+        display: none;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 14px;
+        margin-top: 8px;
+        background: var(--surface);
+        border: 3px solid var(--paper);
+        border-radius: 12px;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .menu.open {
+        display: grid;
+    }
+
+    .menu > li {
+        width: 100%;
+    }
+
+    .menu a:not(.btn),
+    .menu button {
+        width: 100%;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .menu .btn {
+        width: 100%;
+        min-height: 48px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .menu .has-sub {
+        position: static;
+    }
+
+    .menu .sub {
+        position: static;
+        transform: none;
+        margin: 6px 0 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+        opacity: 1;
+        pointer-events: auto;
+        display: grid;
+        gap: 8px;
+    }
+
+    .menu .sub a {
+        padding: 8px 6px;
+    }
+
+    .header.menu-open .nav-toggle-icon span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .header.menu-open .nav-toggle-icon span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .header.menu-open .nav-toggle-icon span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    #themeToggle {
+        width: auto;
+        display: inline-flex;
+        place-self: start start;
+        padding: 8px 14px;
+    }
+
+    .menu a.btn {
+        width: 100%;
+    }
+
+    .hero-hi {
+        font-size: clamp(20px, 5vw, 30px);
+    }
+
+    .hero-sub {
+        font-size: 14px;
+        letter-spacing: 0.18em;
+    }
+
+    .hero-name {
+        font-size: clamp(38px, 13vw, 84px);
+        line-height: 0.95;
+        word-break: break-word;
+    }
+
+    .about-grid,
+    .contact {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .about-card,
+    .card,
+    .item,
+    #contact form,
+    .li-badge-card {
+        padding: 18px;
+    }
+
+    .photo {
+        margin-inline: auto;
+    }
+
+    .item {
+        gap: 16px;
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .li-badge-card,
+    #contact form {
+        max-width: 100%;
+    }
+
+    .tags {
+        gap: 10px;
+    }
+
+    .tag,
+    .badge {
+        font-size: 12px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .skill {
+        min-height: 170px;
+        padding: 20px 12px;
+    }
+
+    .skill .logo,
+    .skill svg,
+    .logo-text {
+        width: 56px;
+        height: 56px;
+    }
+
+    .contact-left {
+        gap: 18px;
+    }
+
+    .splash {
+        font-size: clamp(34px, 11vw, 64px);
+    }
+
+    html[data-theme="light"] .header nav .menu {
+        background: #fff;
+        border-color: var(--ink);
+    }
+
+    html[data-theme="light"] .header nav .menu a:not(.btn),
+    html[data-theme="light"] .header nav .menu > li > a:not(.btn),
+    html[data-theme="light"] .header nav .menu .sub a {
+        color: var(--ink);
+        opacity: 1;
+    }
+}
+
+@media (hover: none) and (width <= 768px) {
+    .skill--has-popup:hover .skill-popup,
+    .skill--has-popup:focus .skill-popup,
+    .skill--has-popup:focus-within .skill-popup {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translate(-50%, -8px);
+    }
+}
+
+@media (width <= 768px) {
+    .skill--popup-up .skill-popup {
+        top: calc(100% + 12px);
+        bottom: auto;
+        transform: translate(-50%, -8px);
+    }
+
+    .skill--popup-up .skill-popup::before {
+        top: -10px;
+        bottom: auto;
+        border-right: none;
+        border-bottom: none;
+        border-left: 4px solid var(--paper);
+        border-top: 4px solid var(--paper);
+    }
+}
+
+@media (width <= 700px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .skill-popup {
+        width: min(280px, calc(100vw - 24px));
+    }
+}
+
+@media (width <= 600px) {
+    .li-badge-card {
+        max-width: 100%;
+    }
+
+    .li-badges {
+        display: flex;
+        justify-content: center;
+    }
+
+    .li-badge {
+        transform: scale(0.95);
+        transform-origin: top center;
+    }
+
+    #projects .actions .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 1 140px;
+        white-space: nowrap;
+    }
+}
+
+@media (width <= 480px) {
+    .wrap {
+        padding-inline: 14px;
+    }
+
+    .section {
+        padding: 52px 0;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .hero-card {
+        padding: 16px;
+    }
+
+    .hero-inner {
+        margin-top: 18px;
+        padding: 22px 14px;
+    }
+
+    .hero-name {
+        font-size: clamp(30px, 11.5vw, 56px);
+        letter-spacing: 0.2px;
+    }
+
+    .menu {
+        padding: 12px;
+    }
+
+    .skills-grid {
+        gap: 16px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .skill {
+        min-height: 156px;
+        padding: 18px 10px;
+    }
+
+    .skill-popup {
+        width: min(280px, calc(100vw - 28px));
+        left: 50%;
+    }
+
+    .actions .btn,
+    #projects .actions .btn {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+}
+
+@media (width <= 380px) {
+    .hero-name {
+        font-size: clamp(28px, 10vw, 54px);
+    }
+}
+
+@media (width <= 360px) {
+    .hero-name {
+        font-size: clamp(28px, 11vw, 48px);
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-popup {
+        width: min(260px, calc(100vw - 24px));
+    }
+}

@@ -1,0 +1,86 @@
+.skill-popup {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 12px);
+    width: min(300px, calc(100vw - 32px));
+    padding: 14px 16px;
+    border: 4px solid var(--paper);
+    border-radius: 14px;
+    background: #111720;
+    color: #d7e5ff;
+    box-shadow: var(--shadow);
+    text-align: left;
+    z-index: 300;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -8px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+}
+
+.skill-popup::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    width: 14px;
+    height: 14px;
+    background: #111720;
+    border-left: 4px solid var(--paper);
+    border-top: 4px solid var(--paper);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.skill--popup-up::after {
+    top: auto;
+    bottom: 100%;
+}
+
+.skill--popup-up .skill-popup {
+    top: auto;
+    bottom: calc(100% + 12px);
+    transform: translate(-50%, 8px);
+}
+
+.skill--popup-up .skill-popup::before {
+    top: auto;
+    bottom: -10px;
+    border-left: none;
+    border-top: none;
+    border-right: 4px solid var(--paper);
+    border-bottom: 4px solid var(--paper);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.skill--has-popup:hover .skill-popup,
+.skill--has-popup:focus .skill-popup,
+.skill--has-popup:focus-within .skill-popup,
+.skill.is-open .skill-popup {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+}
+
+.skill-popup-links {
+    display: grid;
+    gap: 8px;
+}
+
+.skill-popup-links a {
+    color: #ffd24d;
+    text-decoration: none;
+    font: 700 14px/1.35 Manrope, sans-serif;
+    padding: 6px 0;
+}
+
+.skill-popup-links a:hover,
+.skill-popup-links a:focus-visible {
+    text-decoration: underline;
+}
+
+.popup-item {
+    display: block;
+    color: #d7e5ff;
+    font: 700 14px/1.35 Manrope, sans-serif;
+}

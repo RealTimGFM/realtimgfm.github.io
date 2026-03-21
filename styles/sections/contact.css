@@ -1,0 +1,58 @@
+.contact {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.li-badge-card {
+    background: var(--surface);
+    padding: 14px;
+    max-width: 360px;
+}
+
+.li-badge-title {
+    margin: 0 0 10px;
+    font-weight: 800;
+    color: var(--muted);
+}
+
+.li-badges {
+    display: block;
+}
+
+.li-badge {
+    width: 100%;
+}
+
+.li-badge--dark {
+    display: none;
+}
+
+.li-badge--light {
+    display: block;
+}
+
+html[data-theme="dark"] .li-badge--dark {
+    display: block;
+}
+
+html[data-theme="dark"] .li-badge--light {
+    display: none;
+}
+
+.splash {
+    font: 700 clamp(40px, 7vw, 110px)/0.9 "Space Grotesk", sans-serif;
+    letter-spacing: 0.4px;
+    margin: 0;
+    background: linear-gradient(90deg, var(--violet), var(--aqua));
+    background-clip: text;
+    color: transparent;
+    padding-bottom: 10px;
+}
