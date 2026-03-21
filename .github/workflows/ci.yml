@@ -9,35 +9,23 @@ on:
 
 jobs:
   lint:
-    name: Lint (Super-Linter)
+    name: Lint CSS
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      statuses: write
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          fetch-depth: 0
+          node-version: 20
+          cache: npm
 
-      - name: Run Super-Linter
-        uses: super-linter/super-linter@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BRANCH: main
+      - name: Install dependencies
+        run: npm ci
 
-          # Lint only changed files on PRs/pushes (faster, less noisy)
-          VALIDATE_ALL_CODEBASE: "false"
-
-          # Only what you actually have in this repo
-          VALIDATE_HTML: "true"
-          VALIDATE_CSS: "true"
-          VALIDATE_JAVASCRIPT_ES: "true"
-          VALIDATE_MARKDOWN: "true"
-
-          # Optional: don't waste time scanning images/assets
-          FILTER_REGEX_EXCLUDE: "^(assets|node_modules|dist|build)/.*"
+      - name: Run stylelint
+        run: npm run lint
 
 
