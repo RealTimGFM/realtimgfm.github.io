@@ -140,7 +140,7 @@
 }
 
 
-@keyframes skillGoldShift {
+@keyframes skill-gold-shift {
     0% {
         background-position: 0% 50%;
     }
@@ -162,7 +162,7 @@
     }
 }
 
-@keyframes skillGlow {
+@keyframes skill-glow {
     0%,
     100% {
         box-shadow:
@@ -177,7 +177,7 @@
     }
 }
 
-@keyframes skillLogoFloat {
+@keyframes skill-logo-float {
     0%,
     100% {
         transform: translateY(0);
