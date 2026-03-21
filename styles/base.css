@@ -4,9 +4,13 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow: clip auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
 }
 
 body {
@@ -14,16 +18,10 @@ body {
     background: var(--bg);
     color: var(--text);
     font: 16px/1.6 Manrope, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    overflow-x: clip;
 }
 
-html::-webkit-scrollbar,
-body::-webkit-scrollbar,
-*::-webkit-scrollbar {
-    width: 0;
-    height: 0;
+body::-webkit-scrollbar {
     display: none;
 }
 
@@ -175,3 +173,40 @@ section {
         transform: translateY(-6px);
     }
 }
+
+@keyframes hero-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hero-photo-in {
+    from {
+        opacity: 0;
+        transform: translateX(36px) rotate(4deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+@keyframes cta-pulse {
+    0%,
+    100% {
+        box-shadow: var(--shadow-sm);
+    }
+
+    50% {
+        box-shadow: 8px 8px 0 var(--ink), 0 0 0 6px color-mix(in srgb, var(--yellow), transparent 82%);
+    }
+}
+
+

@@ -22,3 +22,5 @@ if (document.readyState === 'loading') {
     bootstrap().catch((error) => console.error(error));
 }
 
+
+
