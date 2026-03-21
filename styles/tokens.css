@@ -12,6 +12,10 @@
     --radius-sm: 12px;
     --shadow: 12px 12px 0 var(--ink);
     --shadow-sm: 8px 8px 0 var(--ink);
+    --border-subtle: rgb(184 200 219 / 18%);
+    --transition-base: 0.2s ease;
+    --transition-spring: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    --stagger-delay: 60ms;
     --wrap: 1180px;
     --grad: linear-gradient(135deg, var(--violet), var(--aqua) 65%, var(--yellow));
 }
@@ -26,6 +30,7 @@ html[data-theme="dark"] {
     --violet: #7c5cff;
     --aqua: #2fdac7;
     --yellow: #ffd24d;
+    --border-subtle: rgb(184 200 219 / 18%);
     --grad: linear-gradient(135deg, var(--violet), var(--aqua) 65%, var(--yellow));
 }
 
@@ -39,5 +44,7 @@ html[data-theme="light"] {
     --violet: #6a5aff;
     --aqua: #18c7b9;
     --yellow: #ffcc4d;
+    --border-subtle: rgb(11 14 18 / 18%);
     --grad: linear-gradient(135deg, var(--violet), var(--aqua) 65%, var(--yellow));
 }
+

@@ -1,7 +1,7 @@
 <section id="projects" class="wrap section observe">
     <h2>Projects</h2>
     <div class="grid">
-        <div class="card sticker-sm">
+        <div class="card sticker-sm" data-stagger>
             <h3>AI Note Search</h3>
 
             <div class="badges">
@@ -9,24 +9,26 @@
                 <span class="badge"><span class="dot"></span>Scheduled job</span>
             </div>
 
-            <p>
-                A web app using Flask, and Python libraries to categorize and summarize notes for easier look up.
-            </p>
+            <p>Flask app that categorizes and summarizes notes to make searching and reviewing faster.</p>
             <p class="muted">
                 Hosted on Streamlit Community Cloud. CI runs in GitHub Actions, plus a scheduled "wake" job to
                 keep the demo responsive.
             </p>
 
-            <p class="tech">Python | Streamlit | NLP | GitHub Actions</p>
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Streamlit</span>
+                <span class="tag">NLP</span>
+                <span class="tag">GitHub Actions</span>
+            </div>
             <div class="actions">
-                <a class="btn primary" href="https://smartnote.streamlit.app" target="_blank" rel="noopener">Live Demo
-                    -></a>
+                <a class="btn primary" href="https://smartnote.streamlit.app" target="_blank" rel="noopener">Live Demo</a>
                 <a class="btn" href="https://github.com/RealTimGFM/SmartNoteSystem" target="_blank"
                     rel="noopener">GitHub</a>
             </div>
         </div>
 
-        <div class="card sticker-sm">
+        <div class="card sticker-sm" data-stagger>
             <h3>AI Facial Authentication</h3>
 
             <div class="badges">
@@ -35,38 +37,43 @@
                 <span class="badge"><span class="dot"></span>Dependency review</span>
             </div>
 
-            <p>
-                This is a web facial-recognition login with JS face detection, PHP, and PhpMyAdmin, improving security
-                and speed
-            </p>
-            <p>
-                I rebuilt the demo using Python, Flask and SQLite to simplify hosting, and make testing/development
-                easier.
-            </p>
-            <p class="tech">Python | Flask | SQLite | face-api.js | GitHub Actions | Render</p>
+            <p>Facial-recognition login flow rebuilt as a Python and Flask app to simplify hosting, testing, and development.</p>
+            <p>The original version combined JS face detection, PHP, and PhpMyAdmin before I moved it to a lighter stack.</p>
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">face-api.js</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">Render</span>
+            </div>
             <div class="actions">
                 <a class="btn" href="https://www.linkedin.com/feed/update/urn:li:activity:7324262709003194368"
                     target="_blank" rel="noopener">LinkedIn Post</a>
-                <a class="btn" href="https://facerecog-web.onrender.com" target="_blank" rel="noopener">Live Demo
-                    -></a>
+                <a class="btn primary" href="https://facerecog-web.onrender.com" target="_blank" rel="noopener">Live Demo</a>
                 <a class="btn" href="https://github.com/RealTimGFM/FaceRecognitionPython.git" target="_blank"
                     rel="noopener">GitHub</a>
             </div>
         </div>
 
-        <div class="card sticker-sm">
+        <div class="card sticker-sm" data-stagger>
             <h3>Forex Real-time Alert System</h3>
             <p>
                 Monitors currency pairs in real time and sends SMS alerts on configurable thresholds using IBKR market
                 data.
             </p>
-            <p class="tech">C# | IBKR | Twilio | SQL</p>
+            <div class="tags">
+                <span class="tag">C#</span>
+                <span class="tag">IBKR</span>
+                <span class="tag">Twilio</span>
+                <span class="tag">SQL</span>
+            </div>
             <div class="actions">
                 <a class="btn" href="https://github.com/RealTimGFM/ForexAlert" target="_blank" rel="noopener">GitHub</a>
             </div>
         </div>
 
-        <div class="card sticker-sm">
+        <div class="card sticker-sm" data-stagger>
             <h3>Mini ATS - Resume Scanner</h3>
 
             <div class="badges">
@@ -74,44 +81,54 @@
                 <span class="badge"><span class="dot"></span>Render deploy</span>
             </div>
 
-            <p>
-                Upload a PDF resume -> parse sections into structured, editable fields, then save back to SQLite.
-            </p>
+            <p>Upload a PDF resume, parse it into structured editable fields, and save the result back to SQLite.</p>
             <p class="muted">
                 GitHub Actions CI runs checks; successful CI triggers an automated Render deploy hook.
             </p>
-            <p class="tech">Python | Flask | SQLite | GitHub Actions | Render</p>
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">Render</span>
+            </div>
             <div class="actions">
-                <a class="btn" href="https://resumeparser-481l.onrender.com" target="_blank" rel="noopener">Live Demo
-                    -></a>
+                <a class="btn primary" href="https://resumeparser-481l.onrender.com" target="_blank" rel="noopener">Live Demo</a>
                 <a class="btn" href="https://github.com/RealTimGFM/ProjectUnknown" target="_blank"
                     rel="noopener">GitHub</a>
             </div>
         </div>
 
-        <div class="card sticker-sm">
+        <div class="card sticker-sm" data-stagger>
             <h3>Simple Stock Trading (Jakarta EE)</h3>
-            <p>
-                Servlet/JSP app that loads 8 stock CSVs into H2 and lets users log in, view prices, and trade.
-            </p>
-            <p class="tech">Java | Jakarta EE | Tomcat | H2 | JSP</p>
+            <p>Servlet/JSP app that loads 8 stock CSVs into H2 and lets users log in, view prices, and trade.</p>
+            <div class="tags">
+                <span class="tag">Java</span>
+                <span class="tag">Jakarta EE</span>
+                <span class="tag">Tomcat</span>
+                <span class="tag">H2</span>
+                <span class="tag">JSP</span>
+            </div>
             <div class="actions">
                 <a class="btn" href="https://github.com/RealTimGFM/PrjSimpleTrading" target="_blank"
                     rel="noopener">GitHub</a>
             </div>
         </div>
 
-        <div class="card sticker-sm">
+        <div class="card sticker-sm" data-stagger>
             <h3>Bank ATM (C# - First Project)</h3>
             <p>Console ATM simulator with login, deposit/withdraw, and balance checks.</p>
-            <p class="tech">C# | .NET</p>
+            <div class="tags">
+                <span class="tag">C#</span>
+                <span class="tag">.NET</span>
+            </div>
             <div class="actions">
                 <a class="btn" href="https://github.com/RealTimGFM/Winter2024_PrjBankATM" target="_blank"
                     rel="noopener">GitHub</a>
             </div>
         </div>
 
-        <div class="card sticker-sm">
+        <div class="card sticker-sm" data-stagger>
             <h3>Water Reminder</h3>
 
             <div class="badges">
@@ -121,16 +138,22 @@
                 Lightweight daily water-intake tracker with progress, goals, and local storage. This project was built
                 for a friend, for fun.
             </p>
-            <p class="tech">HTML | CSS | JavaScript | Firestore | GitHub Pages</p>
+            <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Firestore</span>
+                <span class="tag">GitHub Pages</span>
+            </div>
             <div class="actions">
                 <a class="btn primary" href="https://realtimgfm.github.io/WaterReminder" target="_blank"
-                    rel="noopener">Live Demo -></a>
+                    rel="noopener">Live Demo</a>
                 <a class="btn" href="https://github.com/RealTimGFM/WaterReminder" target="_blank"
                     rel="noopener">GitHub</a>
             </div>
         </div>
 
-        <div class="card sticker-sm">
+        <div class="card sticker-sm" data-stagger>
             <h3>Personal Website</h3>
 
             <div class="badges">
@@ -139,19 +162,22 @@
                 <span class="badge"><span class="dot"></span>Link checks</span>
             </div>
 
-            <p>
-                Personal website with user analytics, scroll progress, contact form, and view count.
-            </p>
+            <p>Personal website with user analytics, scroll progress, contact form, and view count.</p>
             <p class="muted">
                 GitHub Actions deploys to GitHub Pages on push, plus weekly automated link checking.
             </p>
-            <p class="tech">
-                HTML | CSS | JavaScript | GitHub Pages | GitHub Actions | Google Analytics | GoatCounter |
-                EmailJS
-            </p>
+            <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">GitHub Pages</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">Google Analytics</span>
+                <span class="tag">GoatCounter</span>
+                <span class="tag">EmailJS</span>
+            </div>
             <div class="actions">
-                <a class="btn primary" href="https://realtimgfm.github.io" target="_blank" rel="noopener">Live Demo
-                    -></a>
+                <a class="btn primary" href="https://realtimgfm.github.io" target="_blank" rel="noopener">Live Demo</a>
                 <a class="btn" href="https://github.com/RealTimGFM/realtimgfm.github.io" target="_blank"
                     rel="noopener">GitHub</a>
             </div>
@@ -160,3 +186,4 @@
 </section>
 
 <div class="divider"></div>
+

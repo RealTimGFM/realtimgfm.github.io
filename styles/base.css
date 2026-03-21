@@ -4,7 +4,14 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: clip;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
 }
 
 body {
@@ -12,7 +19,11 @@ body {
     background: var(--bg);
     color: var(--text);
     font: 16px/1.6 Manrope, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    overflow-x: hidden;
+    overflow-x: clip;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 img {
@@ -52,7 +63,7 @@ h2::before {
 hr,
 .divider {
     border: 0;
-    border-top: 1px solid #1f2630;
+    border-top: 1px solid var(--border-subtle);
 }
 
 label {
@@ -64,15 +75,21 @@ label {
 input,
 textarea {
     width: 100%;
-    background: #0f141a;
-    color: #eaf3ff;
-    border: 3px solid #2a3340;
+    background: color-mix(in srgb, var(--surface), var(--bg) 25%);
+    color: var(--text);
+    border: 3px solid color-mix(in srgb, var(--paper), transparent 76%);
     border-radius: 12px;
     padding: 12px 14px;
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base),
+        background-color var(--transition-base), color var(--transition-base);
     font: inherit;
     min-height: 52px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--muted);
 }
 
 textarea {
@@ -82,8 +99,8 @@ textarea {
 
 input:focus,
 textarea:focus {
-    border-color: #3b8cff;
-    box-shadow: 0 0 0 3px rgb(59 140 255 / 15%);
+    border-color: color-mix(in srgb, var(--aqua), white 10%);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--aqua), transparent 80%);
 }
 
 small.helper,
@@ -120,6 +137,23 @@ section {
     transform: none;
 }
 
+[data-stagger] {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.observe[data-inview="true"] [data-stagger] {
+    opacity: 1;
+    transform: none;
+}
+
+#site-content,
+.wrap,
+.section {
+    max-height: none;
+}
+
 @keyframes movegrad {
     0% {
         background-position: 0% 50%;
@@ -131,6 +165,7 @@ section {
 }
 
 @keyframes floaty {
+
     0%,
     100% {
         transform: translateY(0);
@@ -138,5 +173,41 @@ section {
 
     50% {
         transform: translateY(-6px);
+    }
+}
+
+@keyframes hero-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hero-photo-in {
+    from {
+        opacity: 0;
+        transform: translateX(36px) rotate(4deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+@keyframes cta-pulse {
+
+    0%,
+    100% {
+        box-shadow: var(--shadow-sm);
+    }
+
+    50% {
+        box-shadow: 8px 8px 0 var(--ink), 0 0 0 6px color-mix(in srgb, var(--yellow), transparent 82%);
     }
 }

@@ -1,0 +1,129 @@
+.timeline {
+    position: relative;
+    display: grid;
+    gap: 22px;
+    padding-left: 28px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    border-radius: 999px;
+    background: var(--grad);
+}
+
+.timeline-item {
+    position: relative;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 150px 1fr;
+    align-items: start;
+    padding: 22px;
+    background: var(--surface);
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -28px;
+    top: 28px;
+    width: 16px;
+    height: 16px;
+    border: 4px solid var(--paper);
+    border-radius: 999px;
+    background: var(--yellow);
+    box-shadow: 0 0 0 4px var(--bg);
+}
+
+.timeline-item--current {
+    position: relative;
+}
+
+.timeline-item--current::after {
+    content: "Current Role";
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    padding: 6px 10px;
+    border: 2px solid var(--paper);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--aqua), white 10%);
+    color: #0b0e12;
+    font: 800 11px/1 Manrope, sans-serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.timeline-date {
+    display: grid;
+    gap: 4px;
+    padding-top: 2px;
+}
+
+.timeline-date strong {
+    font-size: 15px;
+}
+
+.timeline-body h3,
+.timeline-body h4,
+.timeline-body p,
+.timeline-body ul {
+    margin: 0;
+}
+
+.timeline-body h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 24px;
+    line-height: 1.05;
+}
+
+.timeline-body h4 {
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.timeline-summary {
+    max-width: 68ch;
+    color: var(--muted);
+}
+
+.xp-toggle {
+    margin-top: 4px;
+}
+
+.xp-details {
+    display: grid;
+    gap: 14px;
+    margin-top: 8px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.xp-details[hidden] {
+    display: none;
+}
+
+.xp {
+    display: grid;
+    gap: 10px;
+    padding-left: 20px;
+}
+
+.xp-tags {
+    display: grid;
+    gap: 10px;
+}
+
+.xp-tags h5 {
+    margin: 0;
+    font: 800 13px/1 Manrope, sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+

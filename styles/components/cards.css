@@ -10,30 +10,6 @@
     box-shadow: var(--shadow-sm);
 }
 
-.timeline {
-    display: grid;
-    gap: 18px;
-}
-
-.item {
-    background: var(--surface);
-    padding: 18px;
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 140px 1fr;
-    align-items: start;
-}
-
-.item h3 {
-    margin: 0;
-    font-family: "Space Grotesk", sans-serif;
-}
-
-.item p {
-    margin: 0;
-    color: var(--muted);
-}
-
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -41,12 +17,13 @@
 }
 
 .tag {
-    background: #0f141a;
-    border: 1px solid #2a3340;
-    color: #c9d6ea;
+    background: color-mix(in srgb, var(--surface), var(--bg) 35%);
+    border: 1px solid var(--border-subtle);
+    color: var(--text);
     padding: 6px 10px;
     border-radius: 999px;
     font-size: 12px;
+    font-weight: 700;
 }
 
 .grid {
@@ -58,7 +35,8 @@
 .card {
     background: var(--surface);
     padding: 18px;
-    transition: transform 0.18s ease, filter 0.18s ease, box-shadow 0.18s ease;
+    transition: transform var(--transition-base), filter var(--transition-base),
+        box-shadow var(--transition-base), background-color var(--transition-base);
 }
 
 .card:hover {
@@ -69,14 +47,6 @@
 .card h3 {
     margin: 0 0 6px;
     font-family: "Space Grotesk", sans-serif;
-}
-
-.card .tech {
-    font-size: 12px;
-    color: #acacac;
-    margin-top: 8px;
-    font-weight: bold;
-    font-style: italic;
 }
 
 .badges {
@@ -95,9 +65,9 @@
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.2px;
-    border: 1px solid rgb(184 200 219 / 25%);
-    background: rgb(184 200 219 / 8%);
-    color: inherit;
+    border: 1px solid var(--border-subtle);
+    background: color-mix(in srgb, var(--surface), var(--paper) 8%);
+    color: var(--text);
 }
 
 .badge .dot {
@@ -109,6 +79,7 @@
 }
 
 .card:hover .badge {
-    border-color: rgb(184 200 219 / 45%);
-    background: rgb(184 200 219 / 12%);
+    border-color: color-mix(in srgb, var(--paper), transparent 60%);
+    background: color-mix(in srgb, var(--surface), var(--paper) 12%);
 }
+

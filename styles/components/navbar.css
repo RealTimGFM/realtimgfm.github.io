@@ -4,7 +4,7 @@
     z-index: 50;
     background: rgb(10 13 17 / 70%);
     backdrop-filter: saturate(140%) blur(8px);
-    border-bottom: 1px solid #1f2630;
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .nav {
@@ -120,7 +120,7 @@
 }
 
 .nav-toggle {
-    display: none;
+    display: none !important;
 }
 
 .nav-toggle-label {
@@ -158,3 +158,4 @@
 [data-theme="light"] .menu a:hover {
     opacity: 1;
 }
+

@@ -1,4 +1,8 @@
 .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     font-weight: 800;
     padding: 10px 18px;
     border: 3px solid var(--paper);
@@ -6,10 +10,19 @@
     background: color-mix(in srgb, var(--bg), white 6%);
     box-shadow: var(--shadow-sm);
     cursor: pointer;
+    color: var(--text);
+    transition: transform var(--transition-base), filter var(--transition-base),
+        background-color var(--transition-base), color var(--transition-base);
 }
 
 .btn:hover {
+    transform: translateY(-2px);
     filter: brightness(1.06);
+}
+
+.btn.primary {
+    color: #0b0e12;
+    background: var(--grad);
 }
 
 #themeToggle {
@@ -32,8 +45,8 @@
     left: 50%;
     top: calc(100% + 20px);
     transform: translateX(-50%) translateY(-6px) scale(0.98);
-    background: #0b0e12;
-    color: #fff;
+    background: var(--ink);
+    color: var(--paper);
     padding: 8px 12px;
     border-radius: 10px;
     font-weight: 800;
@@ -53,7 +66,7 @@
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 20px solid #0b0e12;
+    border-bottom: 20px solid var(--ink);
     opacity: 0;
     transition: opacity 0.15s ease, transform 0.15s ease;
     z-index: 100;
@@ -77,10 +90,6 @@ button.is-loading {
     left: -5000px !important;
 }
 
-html[data-theme="dark"] #contact .btn {
-    color: #fff !important;
-}
-
 #projects .btn,
 #projects .btn:hover,
 #projects .btn:focus,
@@ -90,3 +99,4 @@ html[data-theme="dark"] #contact .btn {
     text-shadow: none !important;
     transform: none !important;
 }
+

@@ -1,0 +1,39 @@
+#certifications .cert-card {
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 22px;
+}
+
+.cert-copy {
+    display: grid;
+    gap: 6px;
+}
+
+.cert-copy h3,
+.cert-copy p {
+    margin: 0;
+}
+
+.cert-copy h3 {
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.cert-copy p {
+    color: var(--muted);
+}
+
+.cert-badge {
+    flex: 0 0 auto;
+    padding: 10px 14px;
+    border: 3px solid var(--paper);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--yellow), white 10%);
+    color: #0b0e12;
+    font: 800 12px/1 Manrope, sans-serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+

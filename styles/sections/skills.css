@@ -1,11 +1,29 @@
 #skills,
 #skills .wrap,
 #skills.section,
-#skills .skills-grid {
+#skills .skills-groups {
     overflow: visible;
 }
 
-.skills-grid {
+.skills-groups {
+    display: grid;
+    gap: 26px;
+}
+
+.skills-group {
+    display: grid;
+    gap: 14px;
+}
+
+.skills-label {
+    margin: 0;
+    color: var(--muted);
+    font: 800 12px/1 Manrope, sans-serif;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.skills-row {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 22px;
@@ -24,7 +42,8 @@
     border-radius: 14px;
     box-shadow: var(--shadow-sm);
     transform: translateZ(0);
-    transition: transform 0.18s ease, filter 0.18s ease;
+    transition: transform var(--transition-base), filter var(--transition-base),
+        box-shadow var(--transition-base);
 }
 
 .skill:hover {
@@ -41,6 +60,16 @@
 .skill--has-popup:focus-within,
 .skill.is-open {
     z-index: 220;
+}
+
+.skill--primary {
+    background: color-mix(in srgb, var(--yellow), var(--aqua) 16%);
+    border-color: color-mix(in srgb, var(--paper), var(--aqua) 20%);
+}
+
+.skill--primary:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.04);
 }
 
 .skill .logo,
@@ -88,3 +117,7 @@
     font: 900 14px/1 Manrope, sans-serif;
     letter-spacing: 0.4px;
 }
+
+
+
+// Summary: wrote 44 files, skipped 4331 files.

@@ -126,3 +126,4 @@ function initScrollProgress() {
     document.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 }
+

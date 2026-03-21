@@ -42,6 +42,12 @@ function initRevealAnimations() {
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
                 entry.target.setAttribute('data-inview', 'true');
+
+                const staggerItems = [...entry.target.querySelectorAll('[data-stagger]')];
+                staggerItems.forEach((item, index) => {
+                    item.style.transitionDelay = `${index * 60}ms`;
+                });
+
                 revealObserver.unobserve(entry.target);
             });
         },
@@ -50,3 +56,4 @@ function initRevealAnimations() {
 
     document.querySelectorAll('.observe').forEach((element) => revealObserver.observe(element));
 }
+

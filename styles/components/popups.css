@@ -6,8 +6,8 @@
     padding: 14px 16px;
     border: 4px solid var(--paper);
     border-radius: 14px;
-    background: #111720;
-    color: #d7e5ff;
+    background: color-mix(in srgb, var(--surface), var(--bg) 24%);
+    color: var(--text);
     box-shadow: var(--shadow);
     text-align: left;
     z-index: 300;
@@ -25,30 +25,9 @@
     top: -10px;
     width: 14px;
     height: 14px;
-    background: #111720;
+    background: color-mix(in srgb, var(--surface), var(--bg) 24%);
     border-left: 4px solid var(--paper);
     border-top: 4px solid var(--paper);
-    transform: translateX(-50%) rotate(45deg);
-}
-
-.skill--popup-up::after {
-    top: auto;
-    bottom: 100%;
-}
-
-.skill--popup-up .skill-popup {
-    top: auto;
-    bottom: calc(100% + 12px);
-    transform: translate(-50%, 8px);
-}
-
-.skill--popup-up .skill-popup::before {
-    top: auto;
-    bottom: -10px;
-    border-left: none;
-    border-top: none;
-    border-right: 4px solid var(--paper);
-    border-bottom: 4px solid var(--paper);
     transform: translateX(-50%) rotate(45deg);
 }
 
@@ -81,6 +60,20 @@
 
 .popup-item {
     display: block;
-    color: #d7e5ff;
+    color: var(--text);
     font: 700 14px/1.35 Manrope, sans-serif;
 }
+
+html[data-theme="light"] .skill-popup {
+    background: #fff8ea;
+    color: var(--ink);
+}
+
+html[data-theme="light"] .skill-popup::before {
+    background: #fff8ea;
+}
+
+html[data-theme="light"] .popup-item {
+    color: var(--ink);
+}
+

@@ -8,43 +8,46 @@
 .contact-left {
     display: flex;
     flex-direction: column;
+    gap: 16px;
+}
+
+.social-links {
+    display: grid;
     gap: 14px;
+    max-width: 420px;
 }
 
-.li-badge-card {
+.social-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    align-items: center;
     background: var(--surface);
-    padding: 14px;
-    max-width: 360px;
+    padding: 18px;
 }
 
-.li-badge-title {
-    margin: 0 0 10px;
-    font-weight: 800;
+.social-card img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.social-card strong,
+.social-card p {
+    margin: 0;
+}
+
+.social-card p {
     color: var(--muted);
 }
 
-.li-badges {
-    display: block;
+#contact form {
+    background: var(--surface);
+    padding: 22px;
 }
 
-.li-badge {
-    width: 100%;
-}
-
-.li-badge--dark {
-    display: none;
-}
-
-.li-badge--light {
-    display: block;
-}
-
-html[data-theme="dark"] .li-badge--dark {
-    display: block;
-}
-
-html[data-theme="dark"] .li-badge--light {
-    display: none;
+#status {
+    color: var(--muted);
 }
 
 .splash {
@@ -56,3 +59,4 @@ html[data-theme="dark"] .li-badge--light {
     color: transparent;
     padding-bottom: 10px;
 }
+

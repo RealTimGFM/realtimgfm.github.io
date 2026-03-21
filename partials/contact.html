@@ -3,34 +3,28 @@
         <div class="contact-left">
             <h3 class="splash">Let's build something together.</h3>
 
-            <div class="li-badge-card sticker-sm">
-                <p class="li-badge-title">Prefer LinkedIn?</p>
-
-                <div class="li-badges">
-                    <div class="li-badge li-badge--dark">
-                        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium"
-                            data-theme="dark" data-type="VERTICAL" data-vanity="timvu2003" data-version="v1">
-                            <a class="badge-base__link LI-simple-link"
-                                href="https://ca.linkedin.com/in/timvu2003?trk=profile-badge">
-                                Lương Quý Vũ
-                            </a>
-                        </div>
+            <div class="social-links">
+                <a class="social-card sticker-sm" href="https://www.linkedin.com/in/timvu2003" target="_blank"
+                    rel="me noopener noreferrer">
+                    <img src="assets/socials/linkedin.png" alt="" aria-hidden="true" />
+                    <div>
+                        <strong>LinkedIn</strong>
+                        <p>Connect with me</p>
                     </div>
+                </a>
 
-                    <div class="li-badge li-badge--light">
-                        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium"
-                            data-theme="light" data-type="VERTICAL" data-vanity="timvu2003" data-version="v1">
-                            <a class="badge-base__link LI-simple-link"
-                                href="https://ca.linkedin.com/in/timvu2003?trk=profile-badge">
-                                Lương Quý Vũ
-                            </a>
-                        </div>
+                <a class="social-card sticker-sm" href="https://github.com/RealTimGFM" target="_blank"
+                    rel="me noopener noreferrer">
+                    <img src="assets/socials/git.png" alt="" aria-hidden="true" />
+                    <div>
+                        <strong>GitHub</strong>
+                        <p>See my code</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 
-        <form id="contactForm" novalidate>
+        <form id="contactForm" class="sticker-sm" novalidate>
             <label for="name">Name</label>
             <input id="name" name="name" required placeholder="Name" />
 
@@ -43,7 +37,8 @@
             <input type="text" name="website" class="hp" autocomplete="off" tabindex="-1" aria-hidden="true" />
             <small class="helper">Don't hesitate to contact me.</small>
             <div style="margin-top:12px"><button class="btn" type="submit">Send</button></div>
-            <p id="status" style="margin-top:10px;color:#b8c8db" aria-live="polite"></p>
+            <p id="status" style="margin-top:10px" aria-live="polite"></p>
         </form>
     </div>
 </section>
+
