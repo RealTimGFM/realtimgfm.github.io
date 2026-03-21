@@ -2,53 +2,66 @@
 ![Deploy](https://github.com/RealTimGFM/realtimgfm.github.io/actions/workflows/deploy-pages.yml/badge.svg)
 ![Link Check](https://github.com/RealTimGFM/realtimgfm.github.io/actions/workflows/link-check.yml/badge.svg)
 
-# Tim’s Portfolio — `realtimgfm.github.io`
+# Tim's Portfolio - `realtimgfm.github.io`
 
 A lightweight personal portfolio site hosted on GitHub Pages.
 
-Live site: <https://realtimgfm.github.io>
+Live site: [https://realtimgfm.github.io](https://realtimgfm.github.io)
 
-## What’s inside
+## What's inside
 
-- Responsive single-page portfolio (mobile + desktop)
+- Responsive single-page portfolio
 - Light/Dark theme toggle
-- Projects + Experience sections
-- Contact form (EmailJS)
+- Projects and Experience sections
+- Contact form with EmailJS
 - LinkedIn badge embed
-- Optional analytics (GA4)
+- Optional analytics integrations
 
 ## Tech stack
 
 - HTML
 - CSS
 - Vanilla JavaScript
-- GitHub Pages (deploy)
-- GitHub Actions (CI)
+- GitHub Pages
+- GitHub Actions
 
 ## Project structure
 
-- `index.html` — main page
-- `styles.css` — styling
-- `scripts.js` — interactions (menu, theme toggle, form submission, etc.)
-- `assets/` — images, icons, resume PDF
+- `index.html` - page shell
+- `partials/` - section partials loaded into the page
+- `styles/` - split CSS for tokens, base styles, components, sections, and responsive rules
+- `scripts/` - include loader, main entry, and behavior modules
+- `assets/` - images, icons, logos, and resume PDF
 
 ## Run locally
 
-Option A: Open `index.html` directly in your browser.
-
-Option B: Serve locally (recommended):
+Because the site now loads HTML partials with `fetch()`, use a local server instead of opening `index.html` with `file://`.
 
 ```bash
-# from the repo root
 python -m http.server 8080
-# then open
-# http://localhost:8080
 ```
 
-## Stylelint error
+Then open [http://localhost:8080](http://localhost:8080).
+
+## Stylelint
 
 ```bash
 cd C:\Users\User\Documents\GitHub\PersonalWebpage
 npm ci
 npx stylelint "**/*.css" --fix
 npx stylelint "**/*.css"
+```
+
+## Preflight Checklist
+
+Run these before pushing changes:
+
+```bash
+npm install
+npx stylelint "**/*.css" --formatter verbose
+npx markdownlint-cli2 "**/*.md"
+git diff --check
+git diff --stat
+npx stylelint "styles/**/*.css" --fix
+npx stylelint "styles/**/*.css" --formatter verbose
+```

@@ -1,0 +1,35 @@
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 26px;
+    align-items: start;
+}
+
+.about-card {
+    background: #1a2029;
+    color: #d7e5ff;
+    padding: 24px;
+    font-weight: 700;
+}
+
+.photo-card {
+    background: #0f141a;
+    padding: 14px;
+    display: grid;
+    place-items: center;
+}
+
+.photo {
+    width: min(360px, 100%);
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 6px solid var(--paper);
+    box-shadow: var(--shadow);
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

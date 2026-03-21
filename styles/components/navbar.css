@@ -1,0 +1,160 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgb(10 13 17 / 70%);
+    backdrop-filter: saturate(140%) blur(8px);
+    border-bottom: 1px solid #1f2630;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+
+.brand {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 8px 12px;
+    border: 3px solid var(--paper);
+    border-radius: 10px;
+    background: var(--bg);
+    box-shadow: var(--shadow-sm);
+}
+
+.menu {
+    display: flex;
+    gap: 26px;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    font-weight: 800;
+    position: relative;
+    color: var(--text);
+    opacity: 0.95;
+}
+
+.menu a:hover {
+    opacity: 1;
+}
+
+.menu a:not(.btn, .tooltip)::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.22s ease;
+    background: linear-gradient(90deg, var(--violet), var(--aqua), var(--yellow));
+    box-shadow: 0 6px 14px rgb(255 210 77 / 35%);
+}
+
+.menu a:not(.btn):hover::after,
+.menu a:not(.btn).active::after {
+    transform: scaleX(1);
+}
+
+.menu .has-sub {
+    position: relative;
+}
+
+.menu .has-sub::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 14px;
+}
+
+.menu .sub {
+    position: absolute;
+    top: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 6px;
+    display: grid;
+    gap: 6px;
+    min-width: 180px;
+    padding: 10px 12px;
+    border: 3px solid var(--paper);
+    border-radius: 12px;
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 60;
+}
+
+.menu .has-sub:hover .sub,
+.menu .has-sub:focus-within .sub {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.menu .sub a {
+    color: var(--text);
+    font-weight: 800;
+    padding: 6px 8px;
+    border-radius: 8px;
+    display: block;
+}
+
+.menu .sub a:hover {
+    background: color-mix(in srgb, var(--bg), white 6%);
+}
+
+.header .menu .sub a::after {
+    content: none !important;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: inline-block;
+}
+
+.nav-toggle-icon {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nav-toggle-icon span {
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentcolor;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+[data-theme="light"] .header {
+    background: rgb(255 255 255 / 85%);
+}
+
+[data-theme="light"] .menu {
+    background: transparent;
+    border-color: var(--ink);
+}
+
+[data-theme="light"] .menu a,
+[data-theme="light"] .menu .sub a {
+    color: var(--ink);
+}
+
+[data-theme="light"] .menu a:hover {
+    opacity: 1;
+}

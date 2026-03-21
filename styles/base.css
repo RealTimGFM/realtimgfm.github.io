@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 Manrope, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--aqua), white 15%);
+    outline-offset: 4px;
+}
+
+h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font: 700 38px/1 "Space Grotesk", sans-serif;
+    letter-spacing: 0.2px;
+    margin: 0 0 18px;
+}
+
+h2::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    border: 3px solid var(--paper);
+    background: linear-gradient(135deg, var(--violet), var(--yellow));
+    box-shadow: var(--shadow-sm);
+}
+
+hr,
+.divider {
+    border: 0;
+    border-top: 1px solid #1f2630;
+}
+
+label {
+    display: block;
+    font-weight: 700;
+    margin: 10px 0 8px;
+}
+
+input,
+textarea {
+    width: 100%;
+    background: #0f141a;
+    color: #eaf3ff;
+    border: 3px solid #2a3340;
+    border-radius: 12px;
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font: inherit;
+    min-height: 52px;
+}
+
+textarea {
+    min-height: 170px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #3b8cff;
+    box-shadow: 0 0 0 3px rgb(59 140 255 / 15%);
+}
+
+small.helper,
+.muted {
+    color: var(--muted);
+}
+
+small.helper {
+    display: block;
+    margin-top: 6px;
+}
+
+section {
+    scroll-margin-top: 92px;
+}
+
+#scroll-progress {
+    position: fixed;
+    inset: 0 auto auto 0;
+    height: 3px;
+    width: 0;
+    z-index: 9999;
+    background: linear-gradient(90deg, #6d5dfc, #22c55e, #f59e0b);
+}
+
+.observe {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.observe[data-inview="true"] {
+    opacity: 1;
+    transform: none;
+}
+
+@keyframes movegrad {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes floaty {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
