@@ -35,7 +35,7 @@ Live site: [https://realtimgfm.github.io](https://realtimgfm.github.io)
 
 ## Run locally
 
-Because the site now loads HTML partials with `fetch()`, use a local server instead of opening `index.html` with `file://`.
+Because the site loads HTML partials with `fetch()`, use a local server instead of opening `index.html` with `file://`.
 
 ```bash
 python -m http.server 8080
@@ -58,12 +58,8 @@ Run these before pushing changes:
 
 ```bash
 npm ci
+npm run lint:css:fix
 npm run lint
 git diff --check
 git diff --stat
-npm run lint:css:fix
-npm run lint
 ```
-
-
-
