@@ -43,7 +43,7 @@ python -m http.server 8080
 
 Then open [http://localhost:8080](http://localhost:8080).
 
-## Stylelint
+## Lint CSS
 
 ```bash
 cd C:\Users\User\Documents\GitHub\PersonalWebpage
