@@ -23,6 +23,9 @@
 .btn.primary {
     color: #0b0e12;
     background: var(--grad);
+    background-size: 180% 180%;
+    background-position: 0% 50%;
+    animation: movegrad 12s ease-in-out infinite alternate;
 }
 
 #themeToggle {

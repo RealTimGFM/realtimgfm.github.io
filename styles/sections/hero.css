@@ -71,7 +71,6 @@
     box-shadow: var(--shadow-sm);
     font: 800 12px/1 Manrope, sans-serif;
     letter-spacing: 0.12em;
-    text-transform: uppercase;
 }
 
 .hero-role {
