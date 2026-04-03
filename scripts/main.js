@@ -3,6 +3,7 @@ import { initNav } from './modules/nav.js';
 import { initSkillsPopups } from './modules/skills-popup.js';
 import { initSectionObservers } from './modules/section-observer.js';
 import { initExperienceToggles } from './modules/experience-toggle.js';
+import { initProjectsToggle } from './modules/projects-toggle.js';
 import { initUi } from './modules/ui.js';
 
 async function bootstrap() {
@@ -12,6 +13,7 @@ async function bootstrap() {
     initSkillsPopups();
     initExperienceToggles();
     initSectionObservers();
+    initProjectsToggle();
 }
 
 if (document.readyState === 'loading') {

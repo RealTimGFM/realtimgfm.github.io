@@ -1,32 +1,36 @@
 <section id="projects" class="wrap section observe">
     <h2>Projects</h2>
-    <div class="grid">
+    <div id="projectsGrid" class="grid projects-grid">
         <div class="card sticker-sm" data-stagger>
-            <h3>AI Note Search</h3>
+            <h3>Schedule Booker</h3>
 
             <div class="badges">
-                <span class="badge"><span class="dot"></span>CI</span>
-                <span class="badge"><span class="dot"></span>Scheduled job</span>
+                <span class="badge"><span class="dot"></span>Live app</span>
+                <span class="badge"><span class="dot"></span>Render</span>
             </div>
 
-            <p>Flask app that categorizes and summarizes notes to make searching and reviewing faster.</p>
+            <p>Booking system for a barbershop in Montreal.</p>
             <p class="muted">
-                Hosted on Streamlit Community Cloud. CI runs in GitHub Actions, plus a scheduled "wake" job to
-                keep the demo responsive.
+                Fixed messy manual appointment booking by giving businesses one place to manage schedules, services, and
+                customer reservations.
             </p>
 
             <div class="tags">
                 <span class="tag">Python</span>
-                <span class="tag">Streamlit</span>
-                <span class="tag">NLP</span>
-                <span class="tag">GitHub Actions</span>
+                <span class="tag">Flask</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Render</span>
             </div>
+
             <div class="actions">
-                <a class="btn primary" href="https://smartnote.streamlit.app" target="_blank" rel="noopener">Live Demo</a>
-                <a class="btn" href="https://github.com/RealTimGFM/SmartNoteSystem" target="_blank"
-                    rel="noopener">GitHub</a>
+                <a class="btn primary" href="https://schedulebooker-web.onrender.com" target="_blank"
+                    rel="noopener">Live Demo</a>
             </div>
         </div>
+
 
         <div class="card sticker-sm" data-stagger>
             <h3>AI Facial Authentication</h3>
@@ -37,8 +41,10 @@
                 <span class="badge"><span class="dot"></span>Dependency review</span>
             </div>
 
-            <p>Facial-recognition login flow rebuilt as a Python and Flask app to simplify hosting, testing, and development.</p>
-            <p>The original version combined JS face detection, PHP, and PhpMyAdmin before I moved it to a lighter stack.</p>
+            <p>Facial-recognition login flow rebuilt as a Python and Flask app to simplify hosting, testing, and
+                development.</p>
+            <p>The original version combined JS face detection, PHP, and PhpMyAdmin before I moved it to a lighter
+                stack.</p>
             <div class="tags">
                 <span class="tag">Python</span>
                 <span class="tag">Flask</span>
@@ -50,7 +56,8 @@
             <div class="actions">
                 <a class="btn" href="https://www.linkedin.com/feed/update/urn:li:activity:7324262709003194368"
                     target="_blank" rel="noopener">LinkedIn Post</a>
-                <a class="btn primary" href="https://facerecog-web.onrender.com" target="_blank" rel="noopener">Live Demo</a>
+                <a class="btn primary" href="https://facerecog-web.onrender.com" target="_blank" rel="noopener">Live
+                    Demo</a>
                 <a class="btn" href="https://github.com/RealTimGFM/FaceRecognitionPython.git" target="_blank"
                     rel="noopener">GitHub</a>
             </div>
@@ -93,12 +100,65 @@
                 <span class="tag">Render</span>
             </div>
             <div class="actions">
-                <a class="btn primary" href="https://resumeparser-481l.onrender.com" target="_blank" rel="noopener">Live Demo</a>
+                <a class="btn primary" href="https://resumeparser-481l.onrender.com" target="_blank" rel="noopener">Live
+                    Demo</a>
                 <a class="btn" href="https://github.com/RealTimGFM/ProjectUnknown" target="_blank"
                     rel="noopener">GitHub</a>
             </div>
         </div>
+        <div class="card sticker-sm" data-stagger>
+            <h3>Pomodoro</h3>
 
+            <p>Web app and Chrome extension pomodoro project with built-in music controls, controlling SoundCloud on the web
+                app and YouTube on the extension.</p>
+            <p class="muted">
+                Helps users avoid distraction by keeping focus timing, break flow, and music control in one place
+                instead of switching between multiple tabs and apps.
+            </p>
+
+            <div class="tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Chrome Extension</span>
+            </div>
+
+            <div class="actions">
+                <a class="btn primary" href="https://realtimgfm.github.io/Pomodoro/" target="_blank" rel="noopener">Live
+                    Demo</a>
+                <a class="btn" href="Nothing_Yet" target="_blank" rel="noopener">Extension (Coming
+                    Soon)</a>
+                <a class="btn" href="https://github.com/RealTimGFM/Pomodoro" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+        <div class="card sticker-sm" data-stagger>
+            <h3>AI Note Search</h3>
+
+            <div class="badges">
+                <span class="badge"><span class="dot"></span>CI</span>
+                <span class="badge"><span class="dot"></span>Scheduled job</span>
+            </div>
+
+            <p>Flask app that categorizes and summarizes notes to make searching and reviewing faster.</p>
+            <p class="muted">
+                Hosted on Streamlit Community Cloud. CI runs in GitHub Actions, plus a scheduled "wake" job to
+                keep the demo responsive.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Streamlit</span>
+                <span class="tag">NLP</span>
+                <span class="tag">GitHub Actions</span>
+            </div>
+            <div class="actions">
+                <a class="btn primary" href="https://smartnote.streamlit.app" target="_blank" rel="noopener">Live
+                    Demo</a>
+                <a class="btn" href="https://github.com/RealTimGFM/SmartNoteSystem" target="_blank"
+                    rel="noopener">GitHub</a>
+            </div>
+        </div>
         <div class="card sticker-sm" data-stagger>
             <h3>Simple Stock Trading (Jakarta EE)</h3>
             <p>Servlet/JSP app that loads 8 stock CSVs into H2 and lets users log in, view prices, and trade.</p>
@@ -183,9 +243,11 @@
             </div>
         </div>
     </div>
+
+    <div class="projects-more">
+        <button id="projectsToggle" class="btn primary" type="button" aria-expanded="false"
+            aria-controls="projectsGrid">See More Projects</button>
+    </div>
 </section>
 
 <div class="divider"></div>
-
-
-
