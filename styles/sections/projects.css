@@ -18,5 +18,19 @@
     font-size: 14px;
 }
 
+.projects-grid > .card[hidden] {
+    display: none;
+}
+
+.projects-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.projects-more .btn {
+    width: min(100%, 240px);
+}
+
 
 
