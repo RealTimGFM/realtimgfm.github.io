@@ -5,6 +5,10 @@
     margin-top: 8px;
 }
 
+#projectsToggle[hidden] {
+    display: none;
+}
+
 .actions .btn {
     min-width: 130px;
 }

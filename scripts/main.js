@@ -1,4 +1,3 @@
-import { loadIncludes } from './includes.js';
 import { initNav } from './modules/nav.js';
 import { initSkillsPopups } from './modules/skills-popup.js';
 import { initSectionObservers } from './modules/section-observer.js';
@@ -6,22 +5,21 @@ import { initExperienceToggles } from './modules/experience-toggle.js';
 import { initProjectsToggle } from './modules/projects-toggle.js';
 import { initUi } from './modules/ui.js';
 
-async function bootstrap() {
-    await loadIncludes();
-    initUi();
-    initNav();
-    initSkillsPopups();
-    initExperienceToggles();
-    initSectionObservers();
-    initProjectsToggle();
+function bootstrap() {
+    for (const initialize of [initUi, initNav, initSkillsPopups, initExperienceToggles,
+        initProjectsToggle, initSectionObservers]) {
+        try {
+            initialize();
+        } catch (error) {
+            console.error(`Could not initialize ${initialize.name}:`, error);
+        }
+    }
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        bootstrap().catch((error) => console.error(error));
-    }, { once: true });
+    document.addEventListener('DOMContentLoaded', bootstrap, { once: true });
 } else {
-    bootstrap().catch((error) => console.error(error));
+    bootstrap();
 }
 
 

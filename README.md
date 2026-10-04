@@ -27,21 +27,33 @@ Live site: [https://realtimgfm.github.io](https://realtimgfm.github.io)
 
 ## Project structure
 
-- `index.html` - page shell
-- `partials/` - section partials loaded into the page
+- `index.template.html` - page shell and section order (edit this)
+- `partials/` - section sources (edit these)
+- `index.html` - generated, committed static page; do not edit directly
 - `styles/` - split CSS for tokens, base styles, components, sections, and responsive rules
-- `scripts/` - include loader, main entry, and behavior modules
+- `scripts/` - dependency-free build script, main entry, and behavior modules
 - `assets/` - images, icons, logos, and resume PDF
 
 ## Run locally
 
-Because the site loads HTML partials with `fetch()`, use a local server instead of opening `index.html` with `file://`.
+Requires Node.js 20 or later. After editing the template or partials, rebuild the page,
+then serve it locally so browser JavaScript modules work:
 
 ```bash
+npm run build
 python -m http.server 8080
 ```
 
 Then open [http://localhost:8080](http://localhost:8080).
+
+The initial HTML contains every section. No section fetches are needed, and content
+stays visible without JavaScript. With JavaScript, the first four projects are featured
+and See More reveals the rest. Certifications remain under About.
+
+`npm run build:pages` also creates `_site/` containing only deployable HTML, assets,
+styles, and browser scripts. The existing GitHub Pages workflow runs this command
+before uploading; it needs no build dependencies or paid service. Commit the regenerated
+`index.html` alongside source edits. CI checks that it is current.
 
 ## Lint CSS
 
@@ -58,8 +70,15 @@ Run these before pushing changes:
 
 ```bash
 npm ci
-npm run lint:css:fix
+npm run build
+npm run build:check
 npm run lint
+npm test
 git diff --check
 git diff --stat
 ```
+
+The Node regression tests use a fake EmailJS transport; they never send email.
+Before release, check desktop and mobile navigation, both themes, See More/See Less,
+experience details, and two consecutive real contact messages in one page session.
+Also check invalid email, immediate submission feedback, and a blocked EmailJS request.
