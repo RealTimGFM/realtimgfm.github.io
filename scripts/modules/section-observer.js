@@ -1,4 +1,5 @@
 export function initSectionObservers() {
+    if (!('IntersectionObserver' in window)) return;
     initScrollSpy();
     initRevealAnimations();
 }
@@ -51,10 +52,13 @@ function initRevealAnimations() {
                 revealObserver.unobserve(entry.target);
             });
         },
-        { threshold: 0.12 }
+        { threshold: 0.01 }
     );
 
-    document.querySelectorAll('.observe').forEach((element) => revealObserver.observe(element));
+    document.querySelectorAll('.observe').forEach((element) => {
+        revealObserver.observe(element);
+        element.classList.add('reveal-pending');
+    });
 }
 
 

@@ -1,36 +1,99 @@
 <section id="projects" class="wrap section observe">
-    <h2>Projects</h2>
+    <h2>Featured Projects</h2>
     <div id="projectsGrid" class="grid projects-grid">
         <div class="card sticker-sm" data-stagger>
-            <h3>Schedule Booker</h3>
-
+            <h3>FinCore</h3>
             <div class="badges">
-                <span class="badge"><span class="dot"></span>Live app</span>
-                <span class="badge"><span class="dot"></span>Render</span>
+                <span class="badge">In Development</span>
             </div>
+            <p><strong>Problem:</strong> Keeping financial account balances and lifecycle changes consistent.</p>
+            <p><strong>Built:</strong> A .NET API for account creation, renaming, closing and reopening,
+                with transaction and balance behavior.</p>
+            <p><strong>Engineering:</strong> Separated Domain, Application, Infrastructure and API layers;
+                account rules record status history and reject transactions on closed accounts.</p>
+            <p><strong>Status:</strong> Backend in development, with account and transaction tests in the repository.</p>
+            <div class="tags" aria-label="Tech stack">
+                <span class="tag">C#</span>
+                <span class="tag">ASP.NET Core</span>
+                <span class="tag">EF Core</span>
+                <span class="tag">SQL Server</span>
+                <span class="tag">xUnit</span>
+            </div>
+            <div class="actions">
+                <a class="btn" href="https://github.com/RealTimGFM/FinCore" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
 
-            <p>Booking system for a barbershop in Montreal.</p>
-            <p class="muted">
-                Fixed messy manual appointment booking by giving businesses one place to manage schedules, services, and
-                customer reservations.
-            </p>
+        <div class="card sticker-sm" data-stagger>
+            <h3>ForexAlert</h3>
+            <p><strong>Problem:</strong> Following currency movements without watching prices continuously.</p>
+            <p><strong>Built:</strong> An IBKR market-data monitor that evaluates movement thresholds and delivers
+                alerts through Twilio SMS or a local file.</p>
+            <p><strong>Engineering:</strong> Reconnects with backoff, clears stale state after disconnects, and
+                persists cooldowns and alert fingerprints to limit repeated notifications.</p>
+            <p><strong>Result:</strong> An alert-only monitor with offline tests for connection and notification behavior.</p>
+            <div class="tags" aria-label="Tech stack">
+                <span class="tag">C#</span>
+                <span class="tag">.NET</span>
+                <span class="tag">IBKR</span>
+                <span class="tag">Twilio</span>
+                <span class="tag">JSON persistence</span>
+            </div>
+            <div class="actions">
+                <a class="btn" href="https://github.com/RealTimGFM/ForexAlert" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
 
-            <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">Flask</span>
-                <span class="tag">SQLite</span>
+        <div class="card sticker-sm" data-stagger>
+            <h3>PomodoroYT</h3>
+            <p><strong>Problem:</strong> Switching between a focus timer and YouTube interrupts a work session.</p>
+            <p><strong>Built:</strong> A Chrome extension that controls YouTube playback, mutes ads, and keeps focus
+                and break sessions in sync.</p>
+            <p><strong>Engineering:</strong> Built with TypeScript and Chrome APIs, with configurable timers, themes,
+                tasks, notifications, and saved settings.</p>
+            <p><strong>Result:</strong> A customizable focus tool that combines Pomodoro sessions and YouTube in one workflow.</p>
+            <div class="tags" aria-label="Tech stack">
+                <span class="tag">TypeScript</span>
+                <span class="tag">Chrome Extension</span>
                 <span class="tag">HTML</span>
                 <span class="tag">CSS</span>
+                <span class="tag">Chrome Storage</span>
+            </div>
+            <div class="actions">
+                <a class="btn primary" href="https://chromewebstore.google.com/detail/pomodoroyt/dkhilbkmbjlphkofidchfbnapbmfcnam"
+                    target="_blank" rel="noopener">Extension</a>
+                <a class="btn" href="https://realtimgfm.github.io/Pomodoro/" target="_blank"
+                    rel="noopener">Web Timer (SoundCloud)</a>
+                <a class="btn" href="https://github.com/RealTimGFM/Pomodoro" target="_blank"
+                    rel="noopener">Web Timer Source</a>
+            </div>
+        </div>
+
+        <div class="card sticker-sm" data-stagger>
+            <h3>Schedule Booker</h3>
+            <div class="badges">
+                <span class="badge"><span class="dot"></span>Web app</span>
+                <span class="badge"><span class="dot"></span>Render</span>
+            </div>
+            <p><strong>Problem:</strong> Managing appointments and availability for a multilingual barbershop.</p>
+            <p><strong>Built:</strong> Guest and customer booking, appointment cancellation, and admin calendars.</p>
+            <p><strong>Engineering:</strong> Revalidates availability and assigns an available barber inside one
+                locked database transaction to prevent conflicting bookings.</p>
+            <p><strong>Status:</strong> Core booking flows implemented, with SQLite and PostgreSQL integration tests.</p>
+            <div class="tags" aria-label="Tech stack">
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">SQLite</span>
+                <span class="tag">Jinja</span>
                 <span class="tag">JavaScript</span>
                 <span class="tag">Render</span>
             </div>
-
             <div class="actions">
                 <a class="btn primary" href="https://schedulebooker-web.onrender.com" target="_blank"
                     rel="noopener">Live Demo</a>
             </div>
         </div>
-
 
         <div class="card sticker-sm" data-stagger>
             <h3>AI Facial Authentication</h3>
@@ -64,23 +127,6 @@
         </div>
 
         <div class="card sticker-sm" data-stagger>
-            <h3>Forex Real-time Alert System</h3>
-            <p>
-                Monitors currency pairs in real time and sends SMS alerts on configurable thresholds using IBKR market
-                data.
-            </p>
-            <div class="tags">
-                <span class="tag">C#</span>
-                <span class="tag">IBKR</span>
-                <span class="tag">Twilio</span>
-                <span class="tag">SQL</span>
-            </div>
-            <div class="actions">
-                <a class="btn" href="https://github.com/RealTimGFM/ForexAlert" target="_blank" rel="noopener">GitHub</a>
-            </div>
-        </div>
-
-        <div class="card sticker-sm" data-stagger>
             <h3>Mini ATS - Resume Scanner</h3>
 
             <div class="badges">
@@ -104,31 +150,6 @@
                     Demo</a>
                 <a class="btn" href="https://github.com/RealTimGFM/ProjectUnknown" target="_blank"
                     rel="noopener">GitHub</a>
-            </div>
-        </div>
-        <div class="card sticker-sm" data-stagger>
-            <h3>Pomodoro</h3>
-
-            <p>Web app and Chrome extension pomodoro project with built-in music controls, controlling SoundCloud on the web
-                app and YouTube on the extension.</p>
-            <p class="muted">
-                Helps users avoid distraction by keeping focus timing, break flow, and music control in one place
-                instead of switching between multiple tabs and apps.
-            </p>
-
-            <div class="tags">
-                <span class="tag">JavaScript</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">Chrome Extension</span>
-            </div>
-
-            <div class="actions">
-                <a class="btn primary" href="https://realtimgfm.github.io/Pomodoro/" target="_blank" rel="noopener">Live
-                    Demo (SoundCloud)</a>
-                <a class="btn primary" href="https://chromewebstore.google.com/detail/pomodoroyt/dkhilbkmbjlphkofidchfbnapbmfcnam" target="_blank" rel="noopener">Extension</a>
-                <a class="btn" href="https://github.com/RealTimGFM/Pomodoro" target="_blank" rel="noopener">GitHub</a>
             </div>
         </div>
         <div class="card sticker-sm" data-stagger>
@@ -245,7 +266,7 @@
 
     <div class="projects-more">
         <button id="projectsToggle" class="btn primary" type="button" aria-expanded="false"
-            aria-controls="projectsGrid">See More Projects</button>
+            aria-controls="projectsGrid" hidden>See More Projects</button>
     </div>
 </section>
 

@@ -125,18 +125,18 @@ section {
     background: linear-gradient(90deg, #6d5dfc, #22c55e, #f59e0b);
 }
 
-.observe {
+.observe.reveal-pending {
     opacity: 0;
     transform: translateY(8px);
     transition: opacity 0.55s ease, transform 0.55s ease;
 }
 
-.observe[data-inview="true"] {
+.observe.reveal-pending[data-inview="true"] {
     opacity: 1;
     transform: none;
 }
 
-[data-stagger] {
+.reveal-pending [data-stagger] {
     opacity: 0;
     transform: translateY(14px);
     transition: opacity 0.55s ease, transform 0.55s ease;

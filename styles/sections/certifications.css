@@ -12,13 +12,14 @@
     gap: 6px;
 }
 
-.cert-copy h3,
+.cert-copy h4,
 .cert-copy p {
     margin: 0;
 }
 
-.cert-copy h3 {
+.cert-copy h4 {
     font-family: "Space Grotesk", sans-serif;
+    font-size: 1.17em;
 }
 
 .cert-copy p {

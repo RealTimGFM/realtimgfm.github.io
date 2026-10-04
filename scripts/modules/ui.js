@@ -1,7 +1,7 @@
 export function initUi() {
-    initTheme();
     initContactForm();
     initScrollProgress();
+    initTheme();
 }
 
 function initTheme() {
@@ -48,25 +48,32 @@ function initContactForm() {
     const form = document.getElementById('contactForm');
     const status = document.getElementById('status');
 
-    if (!form || !status) return;
+    if (!form || !status || form.dataset.initialized) return;
+    form.dataset.initialized = 'true';
 
     const EMAILJS_SERVICE_ID = 'service_nadr8zr';
     const EMAILJS_TEMPLATE_ID = 'template_8e39ouv';
     const EMAILJS_PUBLIC_KEY = 'MBOb696Mp80gE40Rf';
 
-    let firstInteractionAt = 0;
-    form.addEventListener('input', () => {
-        if (!firstInteractionAt) firstInteractionAt = Date.now();
-    }, { once: true });
+    let firstInteractionAt = null;
+    let sending = false;
+    const button = form.querySelector('button[type="submit"]');
+    const showStatus = (message, state = 'error') => {
+        status.dataset.state = state;
+        status.textContent = message;
+    };
 
-    if (window.emailjs && !window.__emailjs_inited) {
-        emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-        window.__emailjs_inited = true;
-    }
+    form.addEventListener('input', () => {
+        if (!sending && firstInteractionAt === null) firstInteractionAt = Date.now();
+    });
+    form.addEventListener('reset', () => { firstInteractionAt = null; });
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        status.textContent = '';
+        if (sending) {
+            showStatus('Your message is still sending. Please wait.', 'pending');
+            return;
+        }
 
         const data = Object.fromEntries(new FormData(form));
         const name = (data.name || '').trim();
@@ -74,20 +81,44 @@ function initContactForm() {
         const message = (data.message || '').trim();
         const honeypot = (data.website || '').trim();
 
-        const tookMs = Date.now() - (firstInteractionAt || Date.now());
-        if (honeypot || tookMs < 1200) return;
-
-        if (!name || !email || !message) {
-            status.textContent = 'Please fill in all fields.';
+        if (honeypot) {
+            showStatus('Your message was blocked by the spam check. Please reload and try again.');
             return;
         }
 
-        const button = form.querySelector('button[type="submit"]');
+        if (!name || !email || !message) {
+            showStatus('Please fill in all fields.');
+            return;
+        }
+
+        const emailInput = form.elements.namedItem('email');
+        emailInput.value = email;
+        if (!emailInput.checkValidity()) {
+            showStatus('Please enter a valid email address.');
+            emailInput.focus();
+            return;
+        }
+
+        // Autofill may not emit input; start the same waiting period on submit.
+        if (firstInteractionAt === null) firstInteractionAt = Date.now();
+        if (Date.now() - firstInteractionAt < 1200) {
+            showStatus('Please wait a moment before sending, then try again.');
+            return;
+        }
+
+        sending = true;
         button?.setAttribute('disabled', 'true');
         button?.classList.add('is-loading');
+        form.setAttribute('aria-busy', 'true');
+        showStatus('Sending your message...', 'pending');
 
         try {
-            await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+            if (!window.emailjs) throw new Error('EmailJS is unavailable.');
+            if (!window.__emailjs_inited) {
+                window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+                window.__emailjs_inited = true;
+            }
+            await window.emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
                 name,
                 email,
                 message,
@@ -97,19 +128,21 @@ function initContactForm() {
                 reply_to: email
             });
 
-            status.style.color = '#79e27d';
-            status.textContent = 'Thanks! Your message has been sent.';
+            showStatus('Thanks! Your message has been sent.', 'success');
             form.reset();
-            firstInteractionAt = 0;
         } catch (error) {
             console.error(error);
-            status.style.color = '#ff9b9b';
-            status.textContent = 'Oops, failed to send. Please try again.';
+            showStatus(error?.status === 429
+                ? 'Too many messages. Please wait a minute and try again.'
+                : 'Oops, failed to send. Please try again.');
         } finally {
+            sending = false;
+            form.removeAttribute('aria-busy');
             button?.removeAttribute('disabled');
             button?.classList.remove('is-loading');
         }
     });
+    button?.removeAttribute('disabled');
 }
 
 function initScrollProgress() {

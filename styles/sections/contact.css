@@ -50,6 +50,26 @@
     color: var(--muted);
 }
 
+#status[data-state="error"] {
+    color: #ff9b9b;
+}
+
+#status[data-state="success"] {
+    color: #79e27d;
+}
+
+html[data-theme="light"] #status[data-state="error"] {
+    color: #a31b1b;
+}
+
+html[data-theme="light"] #status[data-state="success"] {
+    color: #176629;
+}
+
+.splash::before {
+    content: none;
+}
+
 .splash {
     font: 700 clamp(40px, 7vw, 110px)/0.9 "Space Grotesk", sans-serif;
     letter-spacing: 0.4px;

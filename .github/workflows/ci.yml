@@ -28,4 +28,10 @@ jobs:
       - name: Run stylelint
         run: npm run lint
 
+      - name: Check generated HTML
+        run: npm run build:check
+
+      - name: Run regression tests
+        run: npm test
+
 
