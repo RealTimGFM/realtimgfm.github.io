@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" fill="none">
+  <title>Pi-hole dashboard placeholder</title>
+  <g stroke="#81909f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m480 143 46 18v40c0 27-23 44-46 55-23-11-46-28-46-55v-40z"/><path d="M456 190h48m-48 15h48m-36 15h24"/>
+  </g>
+</svg>

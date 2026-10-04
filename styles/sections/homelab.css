@@ -1,0 +1,307 @@
+#homelab {
+    padding-inline: 24px;
+}
+
+.homelab-eyebrow {
+    margin: 0 0 12px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+.homelab-intro {
+    max-width: 720px;
+    margin: 0 0 30px;
+}
+
+#homelab h2 {
+    line-height: 1.15;
+}
+
+#homelab h2::before {
+    flex-shrink: 0;
+}
+
+.homelab-study {
+    background: var(--surface);
+    padding: clamp(18px, 3vw, 36px);
+}
+
+.homelab-study h3,
+.homelab-study h4 {
+    font-family: "Space Grotesk", sans-serif;
+    line-height: 1.25;
+    margin: 0 0 16px;
+}
+
+.homelab-study h3 {
+    font-size: clamp(24px, 2.5vw, 30px);
+}
+
+.homelab-study h4 {
+    font-size: 23px;
+}
+
+.homelab-study-header > p:not(.homelab-eyebrow) {
+    max-width: 760px;
+    margin: 0 0 20px;
+}
+
+.homelab-part {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.homelab-toggle {
+    margin-top: 24px;
+    scroll-margin-top: 110px;
+}
+
+.homelab-collapse {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+}
+
+.homelab-toggle[hidden],
+.homelab-collapse .btn[hidden],
+#homelabDetails[hidden] {
+    display: none;
+}
+
+.homelab-split,
+.homelab-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px;
+    align-items: start;
+}
+
+.homelab-gallery {
+    margin-top: 26px;
+}
+
+.homelab-copy p:not(.homelab-eyebrow) {
+    margin: 0 0 16px;
+}
+
+.homelab-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.homelab-list li + li {
+    margin-top: 6px;
+}
+
+.homelab-list li::marker {
+    color: var(--aqua);
+}
+
+.homelab-figure {
+    margin: 0;
+    min-width: 0;
+}
+
+.homelab-media {
+    display: grid;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--surface), var(--bg) 65%);
+}
+
+.homelab-media > * {
+    grid-area: 1 / 1;
+}
+
+.homelab-media img {
+    width: 100%;
+    height: auto;
+    align-self: center;
+}
+
+.homelab-placeholder-label {
+    align-self: end;
+    text-align: center;
+    padding: 12px 16px;
+    margin-bottom: 8%;
+}
+
+.homelab-placeholder-label span {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.homelab-placeholder-label strong {
+    display: block;
+    margin-top: 4px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 16px;
+}
+
+.homelab-figure figcaption {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.homelab-description {
+    max-width: 720px;
+    margin: 0 0 24px;
+}
+
+.homelab-topology {
+    margin: 0 0 26px;
+}
+
+.homelab-network-path,
+.homelab-network-branches {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.homelab-network-path {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.homelab-network-path li + li::before {
+    content: "\2192";
+    color: var(--muted);
+    margin-right: 12px;
+}
+
+.homelab-network-branches {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px;
+    padding-top: 24px;
+}
+
+.homelab-network-branches li {
+    position: relative;
+    padding: 16px;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    text-align: center;
+}
+
+.homelab-network-branches li::before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    height: 24px;
+    width: 1px;
+    background: var(--border-subtle);
+}
+
+.homelab-network-branches span {
+    display: block;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.homelab-media-wide .homelab-placeholder-label {
+    margin-bottom: 2%;
+}
+
+.homelab-lessons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 26px;
+    margin: 24px 0 0;
+}
+
+.homelab-lessons > div {
+    padding-left: 16px;
+    border-left: 3px solid var(--aqua);
+}
+
+.homelab-lessons dt {
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.homelab-lessons dd {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+@media (width <= 768px) {
+    #homelab {
+        padding-inline: 18px;
+    }
+
+    .homelab-split,
+    .homelab-gallery,
+    .homelab-lessons {
+        grid-template-columns: 1fr;
+    }
+
+    .homelab-media-wide {
+        min-height: 180px;
+    }
+
+    .homelab-media-wide img {
+        align-self: start;
+    }
+}
+
+@media (width <= 480px) {
+    #homelab {
+        padding-inline: 14px;
+    }
+
+    .homelab-network-path {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .homelab-network-path li + li::before {
+        content: "\2193";
+        display: block;
+        text-align: center;
+        margin: 0 0 6px;
+    }
+
+    .homelab-network-branches {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        border-left: 1px solid var(--border-subtle);
+        margin-left: 12px;
+        padding: 16px 0 0 16px;
+    }
+
+    .homelab-network-branches li::before {
+        top: 50%;
+        left: -17px;
+        width: 16px;
+        height: 1px;
+    }
+
+    .homelab-placeholder-label {
+        margin-bottom: 0;
+    }
+
+    .homelab-placeholder-label strong {
+        font-size: 14px;
+    }
+}

@@ -9,9 +9,9 @@ import { renderPage } from '../scripts/build.mjs';
 test('static page includes sections once in the intended order and all projects', async () => {
     const html = await renderPage();
     const sections = [...html.matchAll(/<section id="([^"]+)"/g)].map(match => match[1]);
-    assert.deepEqual(sections, ['home', 'experience', 'projects', 'skills', 'about', 'certifications', 'contact']);
+    assert.deepEqual(sections, ['home', 'experience', 'projects', 'homelab', 'skills', 'about', 'certifications', 'contact']);
     assert.ok(!html.includes('data-include='));
-    const projects = html.slice(html.indexOf('<section id="projects"'), html.indexOf('<section id="skills"'));
+    const projects = html.slice(html.indexOf('<section id="projects"'), html.indexOf('<section id="homelab"'));
     const titles = [...projects.matchAll(/<h3>([^<]+)<\/h3>/g)].map(match => match[1]);
     assert.deepEqual(titles.slice(0, 4), ['FinCore', 'ForexAlert', 'PomodoroYT', 'Schedule Booker']);
     assert.equal(titles.length, 11);

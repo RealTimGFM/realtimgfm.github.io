@@ -55,6 +55,29 @@ styles, and browser scripts. The existing GitHub Pages workflow runs this comman
 before uploading; it needs no build dependencies or paid service. Commit the regenerated
 `index.html` alongside source edits. CI checks that it is current.
 
+## Home lab case study
+
+The infrastructure case study follows Featured Projects. Edit `partials/homelab.html`
+and `styles/sections/homelab.css`; its images live in `assets/homelab/`.
+With JavaScript, the introduction and technology labels stay visible while
+**Explore Home Lab** expands the full case study. **Show Less** controls at the top
+and bottom collapse it; the bottom control returns keyboard focus to the top control.
+Without JavaScript, the complete case study remains visible.
+The five SVGs are labeled placeholders, not screenshots or photos:
+
+- `homelab-hardware.svg`
+- `minecraft-server.svg`
+- `server-monitoring.svg`
+- `pihole-dashboard.svg`
+- `homelab-architecture.svg`
+
+To add real images, place them in that directory with the same descriptive basenames
+(for example, `homelab-hardware.webp`) and update each image's `src`, intrinsic `width`
+and `height`, and descriptive `alt` in the partial. Remove the corresponding
+`homelab-placeholder-label` element, retain the captions and lazy loading, then run
+`npm run build`. Images scale to their container while preserving their aspect ratio.
+Keep private addresses and other sensitive details out of screenshots and diagrams.
+
 ## Lint CSS
 
 ```bash
