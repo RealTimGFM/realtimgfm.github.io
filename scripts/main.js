@@ -4,11 +4,12 @@ import { initSectionObservers } from './modules/section-observer.js';
 import { initExperienceToggles } from './modules/experience-toggle.js';
 import { initProjectsToggle } from './modules/projects-toggle.js';
 import { initHomelabToggle } from './modules/homelab-toggle.js';
+import { initHomelabViewers } from './modules/homelab-viewers.js';
 import { initUi } from './modules/ui.js';
 
 function bootstrap() {
     for (const initialize of [initUi, initNav, initSkillsPopups, initExperienceToggles,
-        initProjectsToggle, initHomelabToggle, initSectionObservers]) {
+        initProjectsToggle, initHomelabToggle, initHomelabViewers, initSectionObservers]) {
         try {
             initialize();
         } catch (error) {

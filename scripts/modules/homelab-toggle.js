@@ -10,6 +10,7 @@ export function initHomelabToggle() {
         toggle.setAttribute('aria-expanded', String(expanded));
         collapse.setAttribute('aria-expanded', String(expanded));
         toggle.textContent = expanded ? 'Show Less' : 'Explore Home Lab';
+        if (expanded) details.dispatchEvent(new Event('homelab:expanded'));
     };
 
     toggle.addEventListener('click', () => setExpanded(details.hidden));

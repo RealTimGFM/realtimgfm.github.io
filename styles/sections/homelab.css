@@ -1,17 +1,20 @@
 #homelab {
+    --lab-server: var(--violet);
+    --lab-network: var(--aqua);
+
     padding-inline: 24px;
 }
 
 .homelab-eyebrow {
     margin: 0 0 12px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 800;
-    letter-spacing: 1.6px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
 .homelab-intro {
-    max-width: 720px;
+    max-width: 760px;
     margin: 0 0 30px;
 }
 
@@ -29,137 +32,560 @@
 }
 
 .homelab-study h3,
-.homelab-study h4 {
+.homelab-study h4,
+.homelab-study h5 {
     font-family: "Space Grotesk", sans-serif;
-    line-height: 1.25;
+    line-height: 1.2;
     margin: 0 0 16px;
 }
 
 .homelab-study h3 {
-    font-size: clamp(24px, 2.5vw, 30px);
+    font-size: clamp(28px, 3.4vw, 42px);
+    letter-spacing: -1px;
 }
 
 .homelab-study h4 {
-    font-size: 23px;
+    font-size: clamp(24px, 2.5vw, 30px);
+    letter-spacing: -0.5px;
 }
 
-.homelab-study-header > p:not(.homelab-eyebrow) {
-    max-width: 760px;
-    margin: 0 0 20px;
+.homelab-study h5 {
+    font-size: clamp(20px, 2vw, 24px);
+    margin-bottom: 8px;
 }
 
-.homelab-part {
-    margin-top: 32px;
-    padding-top: 32px;
-    border-top: 1px solid var(--border-subtle);
+.homelab-study h5 span {
+    white-space: nowrap;
 }
 
-.homelab-toggle {
-    margin-top: 24px;
-    scroll-margin-top: 110px;
+#homelab :focus-visible {
+    outline-color: var(--text);
 }
 
-.homelab-collapse {
-    display: flex;
-    justify-content: center;
-    margin-top: 32px;
-}
-
-.homelab-toggle[hidden],
-.homelab-collapse .btn[hidden],
-#homelabDetails[hidden] {
-    display: none;
-}
-
-.homelab-split,
-.homelab-gallery {
+.homelab-study-header {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 26px;
-    align-items: start;
+    grid-template-columns: 1.25fr 1fr;
+    align-items: center;
+    gap: 36px;
 }
 
-.homelab-gallery {
+.homelab-overview-copy > p:not(.homelab-eyebrow) {
+    color: var(--muted);
+    margin: 0 0 22px;
+    font-size: 15px;
+}
+
+.homelab-accent {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.homelab-accent::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--aqua);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--aqua), transparent 87%);
+    flex-shrink: 0;
+}
+
+.homelab-explore {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
     margin-top: 26px;
 }
 
-.homelab-copy p:not(.homelab-eyebrow) {
-    margin: 0 0 16px;
+.homelab-toggle {
+    scroll-margin-top: 110px;
 }
 
-.homelab-list {
+.homelab-explore-note {
+    max-width: 160px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.homelab-overview-map {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 20px 16px 0;
+    background: radial-gradient(ellipse at 30% 40%, color-mix(in srgb, var(--violet), transparent 89%), transparent 65%),
+        radial-gradient(ellipse at 80% 45%, color-mix(in srgb, var(--aqua), transparent 92%), transparent 65%),
+        color-mix(in srgb, var(--bg), var(--surface) 35%);
+}
+
+.homelab-map-label,
+.homelab-map-footer {
     margin: 0;
-    padding-left: 20px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 700;
 }
 
-.homelab-list li + li {
-    margin-top: 6px;
+.homelab-map-label {
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
 }
 
-.homelab-list li::marker {
+.homelab-overview-devices,
+.homelab-overview-roles {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 12px;
+}
+
+.homelab-overview-devices img {
+    height: 170px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.homelab-overview-roles {
+    text-align: center;
+}
+
+.homelab-overview-roles strong {
+    display: block;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 14px;
+}
+
+.homelab-overview-roles span {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.homelab-map-footer {
+    margin-top: 20px;
+    padding: 12px 4px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.homelab-map-footer span {
+    margin-inline: 5px;
     color: var(--aqua);
 }
 
-.homelab-figure {
-    margin: 0;
-    min-width: 0;
+.homelab-part {
+    margin-top: 42px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border-subtle);
 }
 
-.homelab-media {
+.homelab-part-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.homelab-part-heading h4 {
+    margin-bottom: 0;
+}
+
+.homelab-heading-note {
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--muted);
+    text-align: right;
+    margin: 0;
+}
+
+.homelab-hardware-grid {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.homelab-hardware {
+    --device-accent: var(--lab-server);
+
+    min-width: 0;
+    margin: 0;
+    border: 2px solid color-mix(in srgb, var(--paper), transparent 65%);
+    border-top: 4px solid var(--device-accent);
+    border-radius: var(--radius-sm);
     overflow: hidden;
+    background: color-mix(in srgb, var(--bg), var(--surface) 40%);
+}
+
+.homelab-hardware-pi {
+    --device-accent: var(--lab-network);
+}
+
+.homelab-hardware-header {
+    padding: 22px 22px 16px;
+}
+
+.homelab-device-role {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 0 12px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.homelab-device-index {
+    color: var(--muted);
+    font-family: monospace;
+}
+
+.homelab-device-meta {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.homelab-model-stage {
+    position: relative;
+    height: clamp(420px, 36vw, 480px);
+    background: radial-gradient(ellipse at 50% 40%, #394552, #202832 70%);
+}
+
+.homelab-model-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image: linear-gradient(rgb(184 200 219 / 7%) 1px, transparent 1px),
+        linear-gradient(90deg, rgb(184 200 219 / 7%) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: linear-gradient(transparent, #000);
+}
+
+.homelab-model-stage model-viewer {
+    --poster-color: transparent;
+    --progress-bar-color: var(--device-accent);
+
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    touch-action: pan-y;
+}
+
+.homelab-model-fallback {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.homelab-model-fallback img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.homelab-hardware[data-model-state="ready"] model-viewer {
+    opacity: 1;
+}
+
+.homelab-model-stage model-viewer:focus-within {
+    outline: 3px solid var(--text);
+    outline-offset: -5px;
+}
+
+.homelab-model-toolbar {
+    min-height: 82px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.homelab-model-status {
+    margin: 0;
+    color: var(--muted);
+    font-size: 11px;
+    text-align: center;
+}
+
+.homelab-model-tools {
+    display: flex;
+    gap: 6px;
+}
+
+.homelab-model-tools button {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 6px 12px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    color: var(--text);
+    background: var(--surface);
+    font: 700 12px Manrope, sans-serif;
+    cursor: pointer;
+}
+
+.homelab-model-tools button:hover {
+    border-color: var(--device-accent);
+    background: color-mix(in srgb, var(--device-accent), var(--surface) 92%);
+}
+
+.homelab-hardware figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 14px 18px;
+    border-top: 1px solid var(--border-subtle);
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.homelab-hardware figcaption a {
+    color: var(--text);
+    font-weight: 800;
+}
+
+.homelab-hardware-note {
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+}
+
+.homelab-operations-intro {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 36px;
+    align-items: center;
+    margin-bottom: 26px;
+}
+
+.homelab-copy p:not(.homelab-eyebrow) {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.homelab-copy p + p {
+    margin-top: 14px;
+}
+
+.homelab-operation-facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 16px;
+    margin: 0;
+    padding: 22px;
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-sm);
-    background: color-mix(in srgb, var(--surface), var(--bg) 65%);
+    background: color-mix(in srgb, var(--bg), var(--surface) 40%);
 }
 
-.homelab-media > * {
-    grid-area: 1 / 1;
-}
-
-.homelab-media img {
-    width: 100%;
-    height: auto;
-    align-self: center;
-}
-
-.homelab-placeholder-label {
-    align-self: end;
-    text-align: center;
-    padding: 12px 16px;
-    margin-bottom: 8%;
-}
-
-.homelab-placeholder-label span {
-    display: block;
+.homelab-operation-facts dt {
     color: var(--muted);
     font-size: 10px;
     font-weight: 800;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    margin-bottom: 6px;
 }
 
-.homelab-placeholder-label strong {
-    display: block;
-    margin-top: 4px;
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 16px;
-}
-
-.homelab-figure figcaption {
-    margin-top: 10px;
-    color: var(--muted);
+.homelab-operation-facts dd {
+    margin: 0;
     font-size: 13px;
-    line-height: 1.6;
+    font-weight: 700;
+}
+
+.homelab-figure {
+    min-width: 0;
+    margin: 0;
+}
+
+.homelab-capture {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--bg), var(--surface) 35%);
+    overflow: hidden;
+}
+
+.homelab-capture-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 6px 20px;
+    padding: 12px 18px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.homelab-capture-bar > span:first-child {
+    color: var(--text);
+}
+
+.homelab-image-link {
+    display: block;
+}
+
+.homelab-image-link:focus-visible {
+    outline-offset: -5px;
+}
+
+.homelab-figure img {
+    width: 100%;
+    height: auto;
+}
+
+.homelab-capture figcaption {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px 24px;
+    padding: 14px 18px;
+    border-top: 1px solid var(--border-subtle);
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.homelab-capture figcaption a {
+    flex-shrink: 0;
+    color: var(--text);
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-color: var(--border-subtle);
+    text-underline-offset: 4px;
 }
 
 .homelab-description {
-    max-width: 720px;
+    max-width: 860px;
     margin: 0 0 24px;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.homelab-workload-label {
+    padding: 7px 12px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.homelab-world {
+    border: 2px solid color-mix(in srgb, var(--paper), transparent 70%);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--bg);
+}
+
+.homelab-world figcaption {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 20px;
+    padding: 18px 22px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.homelab-world-caption {
+    color: var(--text);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.homelab-workload-points {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    list-style: none;
+    margin: 24px 0 0;
+    padding: 0;
+}
+
+.homelab-workload-points li {
+    padding-left: 14px;
+    border-left: 2px solid var(--yellow);
+}
+
+.homelab-workload-points strong,
+.homelab-workload-points span {
+    display: block;
+    font-size: 13px;
+}
+
+.homelab-workload-points span {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.homelab-dns-summary {
+    border-left: 3px solid var(--aqua);
+    padding-left: 24px;
+}
+
+.homelab-dns-flow {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.homelab-dns-flow li + li {
+    margin-top: 8px;
+}
+
+.homelab-dns-flow li + li::before {
+    content: "\2193";
+    display: inline-block;
+    color: var(--muted);
+    margin-right: 12px;
+}
+
+.homelab-dns-summary > p {
+    margin: 16px 0 0;
+    max-width: 370px;
+    color: var(--muted);
+    font-size: 13px;
 }
 
 .homelab-topology {
-    margin: 0 0 26px;
+    padding: 24px clamp(18px, 5vw, 70px) 32px;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background-color: color-mix(in srgb, var(--bg), var(--surface) 25%);
+    background-image: radial-gradient(var(--border-subtle) 0.6px, transparent 0.6px);
+    background-size: 18px 18px;
+}
+
+.homelab-topology-label {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0 0 24px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .homelab-network-path,
@@ -170,79 +596,206 @@
 }
 
 .homelab-network-path {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    font-size: 14px;
-    font-weight: 800;
-}
-
-.homelab-network-path li + li::before {
-    content: "\2192";
-    color: var(--muted);
-    margin-right: 12px;
-}
-
-.homelab-network-branches {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: center;
     gap: 26px;
-    padding-top: 24px;
 }
 
-.homelab-network-branches li {
+.homelab-network-path li {
     position: relative;
-    padding: 16px;
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-sm);
-    background: var(--bg);
+    width: min(100%, 230px);
+    padding: 10px 20px;
+    border: 1px solid color-mix(in srgb, var(--paper), transparent 70%);
+    border-radius: 8px;
+    background: var(--surface);
     text-align: center;
 }
 
-.homelab-network-branches li::before {
-    content: "";
+.homelab-network-path li + li::before {
+    content: "\2193";
     position: absolute;
-    top: -25px;
+    top: -28px;
     left: 50%;
-    height: 24px;
-    width: 1px;
-    background: var(--border-subtle);
+    transform: translateX(-50%);
+    color: var(--muted);
+    font-size: 16px;
 }
 
-.homelab-network-branches span {
+.homelab-node-kind {
     display: block;
     color: var(--muted);
-    font-size: 13px;
-    margin-top: 4px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    font-weight: 800;
+    text-transform: uppercase;
 }
 
-.homelab-media-wide .homelab-placeholder-label {
-    margin-bottom: 2%;
+.homelab-network-path strong {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 15px;
+}
+
+.homelab-network-branches {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px;
+    padding-top: 48px;
+}
+
+.homelab-network-branches::before {
+    content: "";
+    position: absolute;
+    width: calc(50% + 18px);
+    height: 24px;
+    left: calc(25% - 9px);
+    top: 24px;
+    border: 1px solid var(--muted);
+    border-bottom: 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.homelab-network-branches::after {
+    content: "";
+    position: absolute;
+    height: 24px;
+    width: 1px;
+    left: 50%;
+    top: 0;
+    background: var(--muted);
+}
+
+.homelab-network-branches > li {
+    --branch-accent: var(--lab-server);
+
+    text-align: center;
+    min-width: 0;
+}
+
+.homelab-network-branches > .homelab-branch-pi {
+    --branch-accent: var(--lab-network);
+}
+
+.homelab-network-device,
+.homelab-network-service {
+    padding: 16px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    background: var(--surface);
+}
+
+.homelab-network-device {
+    border-top: 3px solid var(--branch-accent);
+}
+
+.homelab-network-device strong,
+.homelab-network-service strong {
+    display: block;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 17px;
+    margin: 4px 0;
+}
+
+.homelab-network-device > span:last-child,
+.homelab-network-service span {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.homelab-network-service {
+    position: relative;
+    margin-top: 26px;
+    background: color-mix(in srgb, var(--branch-accent), var(--surface) 95%);
+}
+
+.homelab-network-service::before {
+    content: "\2193";
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--muted);
+    font-size: 16px;
 }
 
 .homelab-lessons {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px 26px;
-    margin: 24px 0 0;
+    gap: 30px 36px;
+    margin: 26px 0 0;
+    counter-reset: lesson;
 }
 
 .homelab-lessons > div {
-    padding-left: 16px;
-    border-left: 3px solid var(--aqua);
+    position: relative;
+    padding-left: 42px;
+    counter-increment: lesson;
+}
+
+.homelab-lessons > div::before {
+    content: "0" counter(lesson);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--muted);
+    font: 600 14px/1.6 "Space Grotesk", sans-serif;
+    border-bottom: 2px solid var(--aqua);
 }
 
 .homelab-lessons dt {
     font-weight: 800;
     margin-bottom: 6px;
+    font-size: 15px;
 }
 
 .homelab-lessons dd {
     margin: 0;
     color: var(--muted);
-    font-size: 14px;
+    font-size: 13px;
+}
+
+.homelab-collapse {
+    display: flex;
+    justify-content: center;
+    margin-top: 36px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.homelab-toggle[hidden],
+.homelab-collapse .btn[hidden],
+.homelab-model-tools[hidden],
+.homelab-model-fallback[hidden],
+.homelab-model-stage model-viewer[hidden],
+#homelabDetails[hidden] {
+    display: none;
+}
+
+html[data-theme="light"] .homelab-model-stage {
+    background: radial-gradient(ellipse at 50% 40%, #fafafa, #dfe3e7 75%);
+}
+
+html[data-theme="light"] .homelab-model-stage::before {
+    background-image: linear-gradient(rgb(11 14 18 / 8%) 1px, transparent 1px), linear-gradient(90deg, rgb(11 14 18 / 8%) 1px, transparent 1px);
+}
+
+@media (width <= 1024px) {
+    .homelab-study-header {
+        gap: 24px;
+    }
+
+    .homelab-explore-note {
+        max-width: none;
+    }
+
+    .homelab-hardware-header {
+        padding-inline: 18px;
+    }
+
+    .homelab-operations-intro {
+        gap: 24px;
+    }
 }
 
 @media (width <= 768px) {
@@ -250,18 +803,44 @@
         padding-inline: 18px;
     }
 
-    .homelab-split,
-    .homelab-gallery,
-    .homelab-lessons {
+    .homelab-study-header,
+    .homelab-hardware-grid,
+    .homelab-operations-intro {
         grid-template-columns: 1fr;
     }
 
-    .homelab-media-wide {
-        min-height: 180px;
+    .homelab-overview-map {
+        max-width: 520px;
+        width: 100%;
+        justify-self: center;
     }
 
-    .homelab-media-wide img {
-        align-self: start;
+    .homelab-model-stage {
+        height: clamp(340px, 62vw, 460px);
+    }
+
+    .homelab-part-heading {
+        align-items: flex-start;
+    }
+
+    .homelab-heading-note {
+        max-width: 190px;
+    }
+
+    .homelab-capture figcaption {
+        flex-direction: column;
+    }
+
+    .homelab-workload-points {
+        gap: 16px;
+    }
+
+    .homelab-dns-summary {
+        padding-left: 20px;
+    }
+
+    .homelab-topology {
+        padding-inline: 20px;
     }
 }
 
@@ -270,38 +849,120 @@
         padding-inline: 14px;
     }
 
-    .homelab-network-path {
-        flex-direction: column;
-        gap: 6px;
+    .homelab-study {
+        padding: 18px 14px;
     }
 
-    .homelab-network-path li + li::before {
-        content: "\2193";
-        display: block;
-        text-align: center;
-        margin: 0 0 6px;
+    .homelab-study h3 {
+        letter-spacing: -0.5px;
+    }
+
+    .homelab-part {
+        margin-top: 30px;
+        padding-top: 28px;
+    }
+
+    .homelab-part-heading {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .homelab-heading-note {
+        max-width: none;
+        text-align: left;
+    }
+
+    .homelab-overview-map {
+        padding-inline: 10px;
+    }
+
+    .homelab-overview-devices img {
+        height: 132px;
+    }
+
+    .homelab-device-role {
+        letter-spacing: 0.6px;
+    }
+
+    .homelab-hardware-header {
+        padding: 18px 14px 14px;
+    }
+
+    .homelab-model-stage {
+        height: 320px;
+    }
+
+    .homelab-operation-facts {
+        padding: 18px 14px;
+        gap: 18px 12px;
+    }
+
+    .homelab-capture-bar,
+    .homelab-capture figcaption {
+        padding-inline: 12px;
+    }
+
+    .homelab-workload-points,
+    .homelab-lessons {
+        grid-template-columns: 1fr;
+    }
+
+    .homelab-world figcaption {
+        padding: 16px;
+    }
+
+    .homelab-world-caption {
+        font-size: 16px;
+    }
+
+    .homelab-topology {
+        padding: 18px 14px 24px;
     }
 
     .homelab-network-branches {
         grid-template-columns: 1fr;
-        gap: 16px;
-        border-left: 1px solid var(--border-subtle);
-        margin-left: 12px;
-        padding: 16px 0 0 16px;
+        gap: 22px;
+        padding: 26px 0 0 20px;
+        margin-left: 8px;
+        border-left: 1px solid var(--muted);
     }
 
-    .homelab-network-branches li::before {
-        top: 50%;
-        left: -17px;
-        width: 16px;
+    .homelab-network-branches::before,
+    .homelab-network-branches::after {
+        display: none;
+    }
+
+    .homelab-network-branches::after {
+        display: block;
+        top: 0;
+        left: 0;
+        width: calc(50% - 4px);
         height: 1px;
     }
 
-    .homelab-placeholder-label {
-        margin-bottom: 0;
+    .homelab-network-device {
+        position: relative;
     }
 
-    .homelab-placeholder-label strong {
-        font-size: 14px;
+    .homelab-network-device::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -21px;
+        height: 1px;
+        width: 20px;
+        background: var(--muted);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #homelab .btn {
+        animation: none;
+        transition: none;
+    }
+
+    #homelab .btn:hover {
+        transform: none;
     }
 }

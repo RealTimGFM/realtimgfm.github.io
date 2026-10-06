@@ -58,25 +58,38 @@ before uploading; it needs no build dependencies or paid service. Commit the reg
 ## Home lab case study
 
 The infrastructure case study follows Featured Projects. Edit `partials/homelab.html`
-and `styles/sections/homelab.css`; its images live in `assets/homelab/`.
+and `styles/sections/homelab.css`; production media lives in `assets/homelab/`.
 With JavaScript, the introduction and technology labels stay visible while
 **Explore Home Lab** expands the full case study. **Show Less** controls at the top
 and bottom collapse it; the bottom control returns keyboard focus to the top control.
-Without JavaScript, the complete case study remains visible.
-The five SVGs are labeled placeholders, not screenshots or photos:
+Without JavaScript, the complete case study and hardware previews remain visible.
 
-- `homelab-hardware.svg`
-- `minecraft-server.svg`
-- `server-monitoring.svg`
-- `pihole-dashboard.svg`
-- `homelab-architecture.svg`
+The large ThinkPad T16 Gen 2 and Raspberry Pi 4 viewers use the supplied local
+`model-viewer/model-viewer.min.js` runtime and self-contained GLBs in `models/`.
+The runtime and models load only after expansion as the hardware approaches the
+viewport. Drag or use the keyboard to orbit, scroll/pinch to zoom, or use the
+Zoom in, Zoom out, and Reset view controls. Models do not auto-rotate; reduced motion
+is respected. Static WebP previews remain available during loading and if JavaScript,
+WebGL, or model loading is unavailable. No external viewer CDN is required.
 
-To add real images, place them in that directory with the same descriptive basenames
-(for example, `homelab-hardware.webp`) and update each image's `src`, intrinsic `width`
-and `height`, and descriptive `alt` in the partial. Remove the corresponding
-`homelab-placeholder-label` element, retain the captions and lazy loading, then run
-`npm run build`. Images scale to their container while preserving their aspect ratio.
-Keep private addresses and other sensitive details out of screenshots and diagrams.
+Three real screenshots document the running lab:
+
+- `debian-operations.webp` shows the server console, htop, and playit.gg.
+- `prominence-ii-world.webp` shows the hosted Prominence II multiplayer workload.
+- `pihole-dashboard.webp` shows DNS activity and filtering on the Raspberry Pi.
+
+Each screenshot also has a `-960.webp` responsive variant. The Debian and Pi-hole
+images use lossless WebP to preserve fine text; the Minecraft image uses quality 90.
+All images preserve their aspect ratio and have intrinsic dimensions, descriptive
+alt text, and lazy loading. The network topology is conceptual HTML/CSS without
+addresses. Original privacy redactions are retained; tunnel/resolver identifiers and
+player names are additionally masked, and image metadata is stripped.
+
+When replacing media, retain redactions and inspect both standalone screenshots and
+any embedded model screen textures. Never publish private addresses, hostnames,
+credentials, MAC addresses, or tokens. Keep only production GLBs, previews, images,
+and the viewer runtime/license in the deployed assets; import packages and their QA
+or source files do not belong in the deployment. Run `npm run build` after source edits.
 
 ## Lint CSS
 
