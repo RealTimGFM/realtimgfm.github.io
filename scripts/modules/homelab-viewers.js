@@ -7,6 +7,7 @@ export function initHomelabViewers(loadRuntime = () => import(
 
     const hardware = [...details.querySelectorAll('.homelab-hardware')];
     if (!hardware.length) return;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const startModels = new Map();
     let runtimePromise;
     let observer;
@@ -40,7 +41,55 @@ export function initHomelabViewers(loadRuntime = () => import(
         viewer.inert = true;
         viewer.setAttribute('aria-hidden', 'true');
         viewer.setAttribute('tabindex', '-1');
-        viewer.removeAttribute('auto-rotate');
+
+        const activePointers = new Set();
+        const activeKeys = new Set();
+        let rotationTimer;
+        const updateRotation = () => {
+            if (reducedMotion.matches || activePointers.size || activeKeys.size || rotationTimer) {
+                viewer.removeAttribute('auto-rotate');
+            } else {
+                viewer.setAttribute('auto-rotate', '');
+            }
+        };
+        // Own the resume delay so held gestures and toolbar controls also pause rotation.
+        const pauseRotation = () => {
+            clearTimeout(rotationTimer);
+            rotationTimer = setTimeout(() => {
+                rotationTimer = undefined;
+                updateRotation();
+            }, 3000);
+            updateRotation();
+        };
+        viewer.addEventListener('pointerdown', event => {
+            activePointers.add(event.pointerId);
+            pauseRotation();
+        }, { passive: true });
+        const endPointer = event => {
+            if (activePointers.delete(event.pointerId)) pauseRotation();
+        };
+        window.addEventListener('pointerup', endPointer, { passive: true });
+        window.addEventListener('pointercancel', endPointer, { passive: true });
+        viewer.addEventListener('lostpointercapture', endPointer);
+        window.addEventListener('blur', () => {
+            if (!activePointers.size && !activeKeys.size) return;
+            activePointers.clear();
+            activeKeys.clear();
+            pauseRotation();
+        });
+        viewer.addEventListener('wheel', pauseRotation, { passive: true });
+        viewer.addEventListener('keydown', event => {
+            activeKeys.add(event.key);
+            pauseRotation();
+        });
+        window.addEventListener('keyup', event => {
+            if (activeKeys.delete(event.key)) pauseRotation();
+        });
+        viewer.addEventListener('camera-change', event => {
+            if (event.detail.source === 'user-interaction') pauseRotation();
+        });
+        reducedMotion.addEventListener('change', updateRotation);
+        updateRotation();
 
         const unavailable = () => {
             card.dataset.modelState = 'unavailable';
@@ -67,8 +116,10 @@ export function initHomelabViewers(loadRuntime = () => import(
         for (const button of tools.querySelectorAll('[data-model-action]')) {
             button.addEventListener('click', () => {
                 if (card.dataset.modelState !== 'ready') return;
+                pauseRotation();
                 const action = button.dataset.modelAction;
                 if (action === 'reset') {
+                    viewer.resetTurntableRotation();
                     viewer.cameraOrbit = viewer.dataset.initialOrbit;
                     viewer.jumpCameraToGoal();
                     return;
@@ -76,7 +127,7 @@ export function initHomelabViewers(loadRuntime = () => import(
                 const orbit = viewer.getCameraOrbit();
                 const radius = orbit.radius * (action === 'zoom-in' ? 0.8 : 1.25);
                 viewer.cameraOrbit = `${orbit.theta}rad ${orbit.phi}rad ${radius}m`;
-                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                if (reducedMotion.matches) {
                     viewer.jumpCameraToGoal();
                 }
             });

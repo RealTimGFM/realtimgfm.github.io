@@ -122,7 +122,9 @@ test('Home Lab ships both deferred interactive models and accessible real media 
         assert.match(viewer, /loading="lazy"/);
         assert.match(viewer, /\salt="[^"]+"/);
         assert.match(viewer, /poster="assets\/homelab\/[^"/]+\.webp"/);
-        assert.doesNotMatch(viewer, /\sauto-rotate(?:\s|$)/);
+        assert.match(viewer, /\sauto-rotate(?:\s|$)/);
+        assert.match(viewer, /rotation-per-second="12deg"/);
+        assert.match(viewer, /auto-rotate-delay="0"/);
     }
     const images = [...homelab.matchAll(/<img\b([^>]+)>/g)].map(match => match[1]);
     for (const filename of ['debian-operations.webp', 'prominence-ii-world.webp', 'pihole-dashboard.webp']) {

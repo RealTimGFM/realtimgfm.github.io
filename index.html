@@ -534,56 +534,88 @@
 <div class="divider"></div>
 
         <section id="homelab" class="wrap section observe" aria-labelledby="homelab-heading">
-    <p class="homelab-eyebrow">Beyond software / Infrastructure case study</p>
-    <h2 id="homelab-heading">Home Lab &amp; Infrastructure</h2>
-    <p class="homelab-intro muted">Physical hardware, real workloads, and hands-on practice in Linux administration,
-        networking, DNS, self-hosting, service reliability, and resource management.</p>
+    <p class="homelab-eyebrow">Infrastructure case study</p>
+    <h2 id="homelab-heading">Home Lab / Infrastructure</h2>
 
     <article class="homelab-study sticker-sm" aria-labelledby="homelab-title">
         <header class="homelab-study-header">
             <div class="homelab-overview-copy">
-                <p class="homelab-eyebrow homelab-accent">Built at home. Operated with intent.</p>
-                <h3 id="homelab-title">Two machines.<br>Distinct responsibilities.</h3>
-                <p>A Debian server takes on the heavier workloads. A dedicated Raspberry Pi handles DNS and
-                    filtering. Together, they give me a practical place to understand how services behave,
-                    where connectivity breaks, and what keeps a workload running.</p>
+                <h3 id="homelab-title">Two machines.<br>Real services.</h3>
+                <p>A small home environment I designed and operate, with a Debian server for workloads and a Raspberry Pi for DNS.</p>
                 <div class="tags" aria-label="Home lab technologies">
-                    <span class="tag">Debian</span><span class="tag">Linux</span>
-                    <span class="tag">Raspberry Pi</span><span class="tag">Pi-hole</span>
-                    <span class="tag">DNS</span><span class="tag">SSH</span><span class="tag">Minecraft Server</span>
+                    <span class="tag">Debian 12</span><span class="tag">Raspberry Pi</span>
+                    <span class="tag">Pi-hole / DNS</span><span class="tag">SSH</span>
                 </div>
                 <div class="homelab-explore">
                     <button id="homelabToggle" class="btn primary homelab-toggle" type="button"
                         aria-expanded="false" aria-controls="homelabDetails" hidden>Explore Home Lab</button>
-                    <span class="homelab-explore-note">Hardware, operations &amp; network design</span>
                 </div>
             </div>
-            <div class="homelab-overview-map" aria-label="Lab overview: a Debian home server and a Raspberry Pi for DNS filtering">
-                <p class="homelab-map-label">The physical lab</p>
-                <div class="homelab-overview-devices" aria-hidden="true">
-                    <img src="assets/homelab/thinkpad-t16-gen2-poster.webp" width="1200" height="900" alt="" loading="lazy" decoding="async" />
-                    <img src="assets/homelab/raspberry-pi-4-poster.webp" width="1200" height="900" alt="" loading="lazy" decoding="async" />
+            <div class="homelab-overview-map" role="img" aria-label="Home network connects a Debian server running workloads and a Raspberry Pi running Pi-hole and DNS.">
+                <p class="homelab-map-label">Home network</p>
+                <div class="homelab-preview-branches" aria-hidden="true">
+                    <div><strong>Debian server</strong><span>Compute / Prominence II</span></div>
+                    <div><strong>Raspberry Pi</strong><span>Pi-hole / DNS filtering</span></div>
                 </div>
-                <div class="homelab-overview-roles">
-                    <div><strong>Debian 12</strong><span>Server workloads</span></div>
-                    <div><strong>Raspberry Pi 4</strong><span>Pi-hole / DNS</span></div>
-                </div>
-                <p class="homelab-map-footer">One home network <span aria-hidden="true">&middot;</span> Two dedicated roles</p>
             </div>
         </header>
 
         <div id="homelabDetails">
+            <section class="homelab-part" aria-labelledby="homelab-overview">
+                <p class="homelab-eyebrow muted">01 / System overview</p>
+                <h4 id="homelab-overview">A small environment to operate.</h4>
+                <p class="homelab-description">I use this two-machine lab to run services, experiment with Linux and networking, and operate real workloads.</p>
+                <dl class="homelab-facts">
+                    <div><dt>Debian server</dt><dd>Compute-heavy / server workloads</dd></div>
+                    <div><dt>Raspberry Pi</dt><dd>Lightweight network services / DNS</dd></div>
+                    <div><dt>Administration</dt><dd>SSH / CPU and memory checks</dd></div>
+                </dl>
+            </section>
+
+            <section class="homelab-part" aria-labelledby="homelab-architecture">
+                <div class="homelab-part-heading">
+                    <div><p class="homelab-eyebrow muted">02 / Interactive architecture</p><h4 id="homelab-architecture">One network. Separate roles.</h4></div>
+                    <p class="homelab-heading-note">Select a node to explore its role.</p>
+                </div>
+                <div class="homelab-topology" role="group" aria-label="Conceptual network topology: Internet through Bell Giga Hub to the home network, branching to Debian and Raspberry Pi">
+                    <ol class="homelab-network-path" aria-label="Connection path">
+                        <li><details class="homelab-node"><summary>Internet</summary><p>External connectivity for the home network.</p></details></li>
+                        <li><details class="homelab-node"><summary>Bell Giga Hub</summary><p>The gateway between the Internet and the home network.</p></details></li>
+                        <li><details class="homelab-node"><summary>Home Network</summary><p>Local connectivity shared by both machines and home clients.</p></details></li>
+                    </ol>
+                    <ul class="homelab-network-branches" aria-label="Machines on the home network">
+                        <li>
+                            <details class="homelab-node homelab-node-server">
+                                <summary>Debian Server<span>Debian 12 / Compute &amp; server workloads</span></summary>
+                                <p>Runs Prominence II. Managed over SSH with CPU, memory, and process monitoring in htop.</p>
+                            </details>
+                        </li>
+                        <li>
+                            <details class="homelab-node homelab-node-pi">
+                                <summary>Raspberry Pi<span>Raspberry Pi 4 / Pi-hole &amp; local DNS</span></summary>
+                                <p>Handles DNS queries and domain filtering. Administered over SSH, separately from the server.</p>
+                            </details>
+                        </li>
+                    </ul>
+                </div>
+                <p class="homelab-decision"><em>Why this setup? Compute-heavy workloads stay on Debian; lightweight network services stay on the Raspberry Pi.</em></p>
+                <details class="homelab-technical">
+                    <summary>Technical detail</summary>
+                    <p>DNS resolution and service reachability are separate checks. Resolving a name does not confirm that the service itself is reachable.</p>
+                </details>
+            </section>
+
             <section class="homelab-part" aria-labelledby="homelab-hardware">
                 <div class="homelab-part-heading">
-                    <div><p class="homelab-eyebrow muted">01 / Physical infrastructure</p><h4 id="homelab-hardware">Meet the machines.</h4></div>
-                    <p class="homelab-heading-note">Explore the hardware behind the lab.<br>Drag to rotate &middot; Scroll/pinch to zoom</p>
+                    <div><p class="homelab-eyebrow muted">03 / Hardware explorer</p><h4 id="homelab-hardware">The hardware behind the services.</h4></div>
+                    <p class="homelab-heading-note">Drag or use arrow keys to rotate.<br>Scroll/pinch or use controls to zoom.</p>
                 </div>
                 <div class="homelab-hardware-grid">
                     <figure class="homelab-hardware homelab-hardware-server" aria-labelledby="homelab-thinkpad-title">
                         <header class="homelab-hardware-header">
-                            <p class="homelab-device-role">Debian home server <span class="homelab-device-index">01</span></p>
+                            <p class="homelab-device-role">Primary compute / server <span class="homelab-device-index">01</span></p>
                             <h5 id="homelab-thinkpad-title">Lenovo ThinkPad <span>T16 Gen 2</span></h5>
-                            <span class="homelab-device-meta">Debian 12 &middot; Linux &middot; SSH</span>
+                            <span class="homelab-device-meta">Debian 12 &middot; SSH &middot; Monitoring</span>
                         </header>
                         <div class="homelab-model-stage">
                             <model-viewer id="homelabThinkpad" data-model-src="assets/homelab/models/thinkpad-t16-gen2.glb"
@@ -591,6 +623,7 @@
                                 alt="Interactive 3D model of the Lenovo ThinkPad T16 Gen 2 used as my Debian home server, with keyboard, ports, and a redacted operations screen."
                                 aria-hidden="true" tabindex="-1" inert
                                 camera-controls disable-pan disable-tap touch-action="pan-y" interaction-prompt="none"
+                                auto-rotate rotation-per-second="12deg" auto-rotate-delay="0"
                                 camera-target="0m 0m 0m" camera-orbit="32deg 65deg 110%" data-initial-orbit="32deg 65deg 110%"
                                 min-camera-orbit="auto 0deg 85%" max-camera-orbit="auto 180deg 160%"
                                 environment-image="neutral" exposure="0.9" shadow-intensity="0.8" shadow-softness="1">
@@ -612,9 +645,9 @@
                     </figure>
                     <figure class="homelab-hardware homelab-hardware-pi" aria-labelledby="homelab-raspberry-title">
                         <header class="homelab-hardware-header">
-                            <p class="homelab-device-role">Network services / Pi-hole <span class="homelab-device-index">02</span></p>
+                            <p class="homelab-device-role">Network services node <span class="homelab-device-index">02</span></p>
                             <h5 id="homelab-raspberry-title">Raspberry Pi 4</h5>
-                            <span class="homelab-device-meta">Pi-hole &middot; Local DNS &middot; SSH</span>
+                            <span class="homelab-device-meta">Pi-hole &middot; DNS &middot; Filtering &middot; SSH</span>
                         </header>
                         <div class="homelab-model-stage">
                             <model-viewer id="homelabRaspberry" data-model-src="assets/homelab/models/raspberry-pi-4.glb"
@@ -622,6 +655,7 @@
                                 alt="Interactive 3D model of the Raspberry Pi 4 used for Pi-hole and local DNS, in an open metal case with its board, ports, cooling fan, and GPIO header."
                                 aria-hidden="true" tabindex="-1" inert
                                 camera-controls disable-pan disable-tap touch-action="pan-y" interaction-prompt="none"
+                                auto-rotate rotation-per-second="12deg" auto-rotate-delay="0"
                                 camera-target="0m 0m 0m" camera-orbit="50deg 42deg 105%" data-initial-orbit="50deg 42deg 105%"
                                 min-camera-orbit="auto 0deg 0.09m" max-camera-orbit="auto 180deg 0.7m"
                                 environment-image="neutral" exposure="0.92" shadow-intensity="0.8" shadow-softness="1">
@@ -642,125 +676,96 @@
                         <figcaption><span>Dedicated network device / DNS filtering</span><a href="#homelab-pi">See DNS activity <span aria-hidden="true">&darr;</span></a></figcaption>
                     </figure>
                 </div>
-                <p class="homelab-hardware-note">Interactive models of the hardware I use, with separate roles for compute and network services.</p>
+                <p class="homelab-decision"><em>Why this hardware? I repurposed existing devices instead of buying dedicated server equipment.</em></p>
             </section>
 
-            <section class="homelab-part" aria-labelledby="homelab-debian">
-                <div class="homelab-operations-intro">
+            <section class="homelab-part" aria-labelledby="homelab-operations">
+                <p class="homelab-eyebrow muted">04 / Operations</p>
+                <h4 id="homelab-operations">Running the lab.</h4>
+                <section class="homelab-operation" aria-labelledby="homelab-debian">
+                    <h5 id="homelab-debian">Linux administration</h5>
+                    <figure class="homelab-figure">
+                        <a class="homelab-image-link" href="assets/homelab/debian-operations.webp" target="_blank" rel="noopener"
+                            aria-label="Open the full-size Linux administration screenshot in a new tab">
+                            <img src="assets/homelab/debian-operations.webp"
+                                srcset="assets/homelab/debian-operations-960.webp 960w, assets/homelab/debian-operations.webp 1920w"
+                                sizes="(max-width: 480px) calc(100vw - 64px), (max-width: 768px) calc(100vw - 92px), (max-width: 1180px) calc(94vw - 56px), 1052px"
+                                width="1920" height="1200" loading="lazy" decoding="async"
+                                alt="Debian operations: server console, htop resource monitoring, and playit.gg tunnel client. Private connection details are redacted." />
+                        </a>
+                        <figcaption>Server console / htop / playit.gg <span aria-hidden="true">&middot;</span> Select image for full size <span aria-hidden="true">&nearr;</span></figcaption>
+                    </figure>
                     <div class="homelab-copy">
-                        <p class="homelab-eyebrow muted">02 / Server operations</p>
-                        <h4 id="homelab-debian">Debian 12. A working server.</h4>
-                        <p>I administer the server remotely over SSH, manage services and processes, and monitor
-                            CPU and memory while workloads run. Troubleshooting means following a problem from
-                            the running process through to its network connection.</p>
+                        <p>SSH, service/process management, and CPU/memory checks with htop.</p>
                     </div>
-                    <dl class="homelab-operation-facts">
-                        <div><dt>Remote administration</dt><dd>SSH / Linux</dd></div>
-                        <div><dt>Workload</dt><dd>Prominence II server</dd></div>
-                        <div><dt>Monitoring</dt><dd>htop / CPU, memory, processes</dd></div>
-                        <div><dt>Connectivity</dt><dd>playit.gg tunnel</dd></div>
-                    </dl>
-                </div>
-                <figure class="homelab-figure homelab-capture">
-                    <div class="homelab-capture-bar"><span>Operations capture</span><span>Debian / Minecraft / htop / playit.gg</span></div>
-                    <a class="homelab-image-link" href="assets/homelab/debian-operations.webp" target="_blank" rel="noopener"
-                        aria-label="Open the full-size Debian server operations screenshot in a new tab">
-                        <img src="assets/homelab/debian-operations.webp"
-                            srcset="assets/homelab/debian-operations-960.webp 960w, assets/homelab/debian-operations.webp 1920w"
-                            sizes="(max-width: 768px) calc(100vw - 72px), (max-width: 1180px) calc(100vw - 128px), 1052px"
-                            width="1920" height="1200" loading="lazy" decoding="async"
-                            alt="Real Debian server desktop with the Minecraft server console, htop CPU and memory monitoring, and the playit.gg tunnel client. Private connection details are redacted." />
-                    </a>
-                    <figcaption><span>The console, resource monitor, and tunnel client in one operational view. Private details are redacted.</span><a href="assets/homelab/debian-operations.webp" target="_blank" rel="noopener">View full-size capture <span aria-hidden="true">&nearr;</span></a></figcaption>
-                </figure>
-            </section>
-
-            <section class="homelab-part" aria-labelledby="homelab-workload">
-                <div class="homelab-part-heading">
-                    <div><p class="homelab-eyebrow muted">03 / A real-world workload</p><h4 id="homelab-workload">Hosting Prominence II.</h4></div>
-                    <span class="homelab-workload-label">Multiplayer Minecraft server</span>
-                </div>
-                <p class="homelab-description">A heavy multiplayer modpack gives the Debian server a real workload:
-                    balancing memory use and CPU load, managing the server process, troubleshooting connections,
-                    and keeping the service running. The playit.gg tunnel provides connectivity for players.</p>
-                <figure class="homelab-figure homelab-world">
-                    <img src="assets/homelab/prominence-ii-world.webp"
-                        srcset="assets/homelab/prominence-ii-world-960.webp 960w, assets/homelab/prominence-ii-world.webp 1914w"
-                        sizes="(max-width: 768px) calc(100vw - 72px), (max-width: 1180px) calc(100vw - 128px), 1052px"
-                        width="1914" height="1002" loading="lazy" decoding="async"
-                        alt="In-game view of the hosted Prominence II multiplayer world, with players beside a forest temple and the modpack interface." />
-                    <figcaption><span class="homelab-world-caption">The workload, from the other side of the connection.</span><span>Prominence II / Hosted on Debian</span></figcaption>
-                </figure>
-                <ul class="homelab-workload-points" aria-label="Game server engineering practice">
-                    <li><strong>Resource limits</strong><span>Memory allocation &amp; CPU load</span></li>
-                    <li><strong>Service operation</strong><span>Processes, troubleshooting &amp; uptime</span></li>
-                    <li><strong>Connectivity</strong><span>Multiplayer access through playit.gg</span></li>
-                </ul>
-            </section>
-
-            <section class="homelab-part" aria-labelledby="homelab-pi">
-                <div class="homelab-operations-intro">
+                    <details class="homelab-technical">
+                        <summary>Technical detail</summary>
+                        <p>Process-level readings in htop help distinguish a busy server process from overall host pressure. These are live checks rather than historical monitoring.</p>
+                    </details>
+                </section>
+                <section class="homelab-operation" aria-labelledby="homelab-workload">
+                    <h5 id="homelab-workload">Real workload — Prominence II</h5>
+                    <figure class="homelab-figure">
+                        <a class="homelab-image-link" href="assets/homelab/prominence-ii-world.webp" target="_blank" rel="noopener"
+                            aria-label="Open the full-size Real workload — Prominence II screenshot in a new tab">
+                            <img src="assets/homelab/prominence-ii-world.webp"
+                                srcset="assets/homelab/prominence-ii-world-960.webp 960w, assets/homelab/prominence-ii-world.webp 1914w"
+                                sizes="(max-width: 480px) calc(100vw - 64px), (max-width: 768px) calc(100vw - 92px), (max-width: 1180px) calc(94vw - 56px), 1052px"
+                                width="1914" height="1002" loading="lazy" decoding="async"
+                                alt="The hosted Prominence II multiplayer world beside a forest temple, with private player information redacted." />
+                        </a>
+                        <figcaption>Prominence II / Hosted on Debian <span aria-hidden="true">&middot;</span> Select image for full size <span aria-hidden="true">&nearr;</span></figcaption>
+                    </figure>
                     <div class="homelab-copy">
-                        <p class="homelab-eyebrow muted">04 / Dedicated network services</p>
-                        <h4 id="homelab-pi">Small machine. Clear responsibility.</h4>
-                        <p>The Raspberry Pi 4 runs Pi-hole for local DNS and domain filtering. I use SSH to
-                            administer it and trace DNS behavior when troubleshooting the network.</p>
-                        <p>Keeping this lightweight infrastructure on its own device separates DNS and
-                            filtering from the heavier workloads on the Debian server.</p>
+                        <p>A demanding multiplayer server provides practice with memory allocation, CPU/resource management, server processes, and connectivity.</p>
+                        <p class="homelab-decision"><em>Why this workload? A multiplayer server makes resource usage and service behavior observable.</em></p>
                     </div>
-                    <div class="homelab-dns-summary">
-                        <ol class="homelab-dns-flow" aria-label="DNS service stack"><li>Raspberry Pi 4</li><li>Pi-hole</li><li>Local DNS / filtering</li></ol>
-                        <p>The real dashboard shows DNS activity, blocked queries, domains on blocklists, and client activity.</p>
+                    <details class="homelab-technical">
+                        <summary>Technical detail</summary>
+                        <p>playit.gg provides player connectivity to the Prominence II server. The operations capture shows the tunnel client alongside the running workload.</p>
+                    </details>
+                </section>
+                <section class="homelab-operation" aria-labelledby="homelab-pi">
+                    <h5 id="homelab-pi">Network services — Pi-hole</h5>
+                    <figure class="homelab-figure">
+                        <a class="homelab-image-link" href="assets/homelab/pihole-dashboard.webp" target="_blank" rel="noopener"
+                            aria-label="Open the full-size Network services — Pi-hole screenshot in a new tab">
+                            <img src="assets/homelab/pihole-dashboard.webp"
+                                srcset="assets/homelab/pihole-dashboard-960.webp 960w, assets/homelab/pihole-dashboard.webp 1879w"
+                                sizes="(max-width: 480px) calc(100vw - 64px), (max-width: 768px) calc(100vw - 92px), (max-width: 1180px) calc(94vw - 56px), 1052px"
+                                width="1879" height="970" loading="lazy" decoding="async"
+                                alt="Pi-hole dashboard showing DNS queries, blocked requests, blocklist domains, and client activity. Private network information is redacted." />
+                        </a>
+                        <figcaption>Pi-hole / DNS activity <span aria-hidden="true">&middot;</span> Select image for full size <span aria-hidden="true">&nearr;</span></figcaption>
+                    </figure>
+                    <div class="homelab-copy">
+                        <p>The Pi-hole dashboard shows DNS queries, filtering, blocklists, and client activity on the home network.</p>
+                        <p class="homelab-decision"><em>Why a separate Pi? DNS stays independent from heavier workloads on the main server.</em></p>
                     </div>
-                </div>
-                <figure class="homelab-figure homelab-capture">
-                    <div class="homelab-capture-bar"><span>Network services capture</span><span>Raspberry Pi 4 / Pi-hole</span></div>
-                    <a class="homelab-image-link" href="assets/homelab/pihole-dashboard.webp" target="_blank" rel="noopener"
-                        aria-label="Open the full-size Pi-hole dashboard screenshot in a new tab">
-                        <img src="assets/homelab/pihole-dashboard.webp"
-                            srcset="assets/homelab/pihole-dashboard-960.webp 960w, assets/homelab/pihole-dashboard.webp 1879w"
-                            sizes="(max-width: 768px) calc(100vw - 72px), (max-width: 1180px) calc(100vw - 128px), 1052px"
-                            width="1879" height="970" loading="lazy" decoding="async"
-                            alt="Real Pi-hole dashboard on the Raspberry Pi showing DNS query activity, blocked queries, blocklist domains, and client activity graphs." />
-                    </a>
-                    <figcaption><span>A view into DNS requests and filtering on the home network, captured from Pi-hole.</span><a href="assets/homelab/pihole-dashboard.webp" target="_blank" rel="noopener">View full-size capture <span aria-hidden="true">&nearr;</span></a></figcaption>
-                </figure>
+                    <details class="homelab-technical">
+                        <summary>Technical detail</summary>
+                        <p>Filtering happens at the DNS/domain level. Blocked-query information helps distinguish filtering from other connectivity problems.</p>
+                    </details>
+                </section>
+                <p class="homelab-decision"><em>Privacy: Public screenshots and 3D model textures have private network and user information redacted.</em></p>
             </section>
 
-            <section class="homelab-part" aria-labelledby="homelab-architecture">
-                <p class="homelab-eyebrow muted">05 / How it connects</p>
-                <h4 id="homelab-architecture">One network, distinct responsibilities.</h4>
-                <p class="homelab-description">Shared connectivity, separate jobs. The Debian server hosts workloads;
-                    the Raspberry Pi handles DNS and filtering.</p>
-                <div class="homelab-topology" aria-label="Conceptual home network topology">
-                    <p class="homelab-topology-label">Network topology <span>Conceptual / Addresses omitted</span></p>
-                    <ol class="homelab-network-path" aria-label="Network connection path">
-                        <li><span class="homelab-node-kind">External</span><strong>Internet</strong></li>
-                        <li><span class="homelab-node-kind">Gateway</span><strong>Bell Router</strong></li>
-                        <li><span class="homelab-node-kind">Local</span><strong>Home Network</strong></li>
-                    </ol>
-                    <ul class="homelab-network-branches" aria-label="Devices and workloads on the home network">
-                        <li class="homelab-branch-server">
-                            <div class="homelab-network-device"><span class="homelab-node-kind">Compute</span><strong>Debian Home Server</strong><span>Lenovo ThinkPad T16 Gen 2</span></div>
-                            <div class="homelab-network-service"><strong>Prominence II</strong><span>Minecraft / Server workloads</span><span>Monitoring &amp; SSH administration</span></div>
-                        </li>
-                        <li class="homelab-branch-pi">
-                            <div class="homelab-network-device"><span class="homelab-node-kind">Network services</span><strong>Raspberry Pi 4</strong><span>Dedicated lightweight device</span></div>
-                            <div class="homelab-network-service"><strong>Pi-hole / DNS</strong><span>Local DNS / Domain filtering</span><span>SSH administration</span></div>
-                        </li>
-                    </ul>
+            <section class="homelab-part" aria-labelledby="homelab-roadmap">
+                <p class="homelab-eyebrow muted">05 / Roadmap</p>
+                <h4 id="homelab-roadmap">Current / Next</h4>
+                <div class="homelab-roadmap">
+                    <div><h5>Current <span>Running now</span></h5><ul>
+                        <li>Debian server / SSH administration</li>
+                        <li>Prominence II hosting</li>
+                        <li>Raspberry Pi / Pi-hole / local DNS &amp; filtering</li>
+                    </ul></div>
+                    <div><h5>Next <span>Planned</span></h5><ul>
+                        <li>Tailscale / secure remote networking</li>
+                        <li>Persistent monitoring &amp; metrics</li>
+                        <li>Automated backups</li>
+                        <li>Personal applications / containers &amp; service isolation</li>
+                    </ul></div>
                 </div>
-            </section>
-
-            <section class="homelab-part" aria-labelledby="homelab-lessons">
-                <p class="homelab-eyebrow muted">06 / Engineering practice</p>
-                <h4 id="homelab-lessons">What I learned.</h4>
-                <dl class="homelab-lessons">
-                    <div><dt>Think in services</dt><dd>Manage persistent Linux services and their processes remotely through SSH, beyond a desktop session.</dd></div>
-                    <div><dt>Trace connectivity problems</dt><dd>Distinguish DNS issues from network and service failures across real hardware and software.</dd></div>
-                    <div><dt>Work within resource limits</dt><dd>Use CPU and memory monitoring to understand the constraints of a running server workload.</dd></div>
-                    <div><dt>Separate responsibilities</dt><dd>Keep DNS and filtering on the Pi while the Debian server handles heavier workloads.</dd></div>
-                </dl>
             </section>
             <div class="homelab-collapse">
                 <button id="homelabCollapse" class="btn" type="button" aria-expanded="true" aria-controls="homelabDetails" hidden>Show Less</button>
