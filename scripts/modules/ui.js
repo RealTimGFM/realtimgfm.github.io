@@ -67,6 +67,8 @@ function initContactForm() {
         if (!sending && firstInteractionAt === null) firstInteractionAt = Date.now();
     });
     form.addEventListener('reset', () => { firstInteractionAt = null; });
+    // Warm the SDK on intent; submissions also await it for autofill/keyboard use.
+    form.addEventListener('focusin', () => { loadEmailJs().catch(() => {}); });
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -113,7 +115,7 @@ function initContactForm() {
         showStatus('Sending your message...', 'pending');
 
         try {
-            if (!window.emailjs) throw new Error('EmailJS is unavailable.');
+            await loadEmailJs();
             if (!window.__emailjs_inited) {
                 window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
                 window.__emailjs_inited = true;
@@ -143,6 +145,36 @@ function initContactForm() {
         }
     });
     button?.removeAttribute('disabled');
+}
+
+let emailJsPromise;
+function loadEmailJs() {
+    if (window.emailjs) return Promise.resolve(window.emailjs);
+    if (!emailJsPromise) {
+        emailJsPromise = new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+            script.async = true;
+            const finish = (error) => {
+                clearTimeout(timeout);
+                script.onload = script.onerror = null;
+                if (error) {
+                    script.remove();
+                    reject(error);
+                } else {
+                    resolve(window.emailjs);
+                }
+            };
+            const timeout = setTimeout(() => finish(new Error('EmailJS timed out.')), 15000);
+            script.onload = () => finish(window.emailjs ? null : new Error('EmailJS is unavailable.'));
+            script.onerror = () => finish(new Error('EmailJS could not load.'));
+            document.head.append(script);
+        }).catch(error => {
+            emailJsPromise = undefined;
+            throw error;
+        });
+    }
+    return emailJsPromise;
 }
 
 function initScrollProgress() {

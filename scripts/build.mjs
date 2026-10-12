@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -36,14 +36,36 @@ export async function build({ pages = false, check = false } = {}) {
     await writeFile(output, html);
     if (pages) {
         const site = resolve(root, '_site');
+        const css = await renderStyles();
+        // Rebuild the allowlisted artifact so removed assets cannot linger in deployments.
+        await rm(site, { recursive: true, force: true });
         await mkdir(site, { recursive: true });
         await writeFile(resolve(site, 'index.html'), html);
-        for (const entry of ['assets', 'styles', 'scripts/main.js', 'scripts/modules']) {
+        await mkdir(resolve(site, 'styles'));
+        await writeFile(resolve(site, 'styles/main.css'), css);
+        for (const entry of ['assets', 'scripts/main.js', 'scripts/modules']) {
             const destination = resolve(site, entry);
             await mkdir(dirname(destination), { recursive: true });
             await cp(resolve(root, entry), destination, { recursive: true });
         }
     }
+}
+
+// Keep authored CSS modular; avoid an extra render-blocking import waterfall in Pages.
+export async function renderStyles(directory = resolve(root, 'styles')) {
+    const source = await readFile(resolve(directory, 'main.css'), 'utf8');
+    const imports = [...source.matchAll(/@import url\("\.\/([^"\n]+)"\);/g)];
+    let css = '';
+    let cursor = 0;
+    for (const match of imports) {
+        const [statement, file] = match;
+        const path = resolve(directory, file);
+        if (!path.startsWith(resolve(directory) + sep)) throw new Error(`CSS outside site: ${file}`);
+        css += source.slice(cursor, match.index) + `/* ${file} */\n` + await readFile(path, 'utf8');
+        cursor = match.index + statement.length;
+    }
+    // Preserve the cascade, media queries, and any rules between imports.
+    return css + source.slice(cursor);
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

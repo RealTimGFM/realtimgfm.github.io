@@ -160,3 +160,33 @@ test('missing EmailJS is visible and recovers if the SDK becomes available', asy
     await ui.submit();
     assert.equal(ui.status.dataset.state, 'success');
 });
+
+test('EmailJS stays deferred, shares an in-flight load, and retries a blocked SDK request', async () => {
+    const ui = setup();
+    const transport = ui.context.window.emailjs;
+    delete ui.context.window.emailjs;
+    const scripts = [];
+    ui.context.document.createElement = () => ({ remove() { this.removed = true; } });
+    ui.context.document.head = { append(script) { scripts.push(script); } };
+    ui.context.setTimeout = setTimeout;
+    ui.context.clearTimeout = clearTimeout;
+    assert.equal(scripts.length, 0);
+    for (const focus of ui.listeners.get('focusin')) { focus(); focus(); }
+    assert.equal(scripts.length, 1, 'Repeated focus must share one SDK download');
+    scripts[0].onerror();
+    await new Promise(resolve => setImmediate(resolve));
+    assert.equal(scripts[0].removed, true);
+    ui.fill();
+    ui.advance();
+    const pending = ui.submit();
+    assert.equal(scripts.length, 2);
+    assert.equal(ui.status.dataset.state, 'pending');
+    assert.equal(ui.button.disabled, true);
+    assert.equal(ui.calls.length, 0);
+    ui.context.window.emailjs = transport;
+    scripts[1].onload();
+    await pending;
+    assert.equal(ui.calls.length, 1);
+    assert.equal(ui.status.dataset.state, 'success');
+    assert.equal(ui.button.disabled, false);
+});

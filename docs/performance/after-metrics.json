@@ -1,0 +1,440 @@
+[
+  {
+    "width": 1440,
+    "run": 0,
+    "lcp": 1876,
+    "cls": 0,
+    "longTasks": 0,
+    "tbt": 0,
+    "fcp": 1296,
+    "dcl": 1694.4000000003725,
+    "bytes": 223855,
+    "requests": 15,
+    "cssRequests": 1,
+    "modelRequests": 0,
+    "portrait": "http://127.0.0.1:8765/after/assets/me-360.webp",
+    "resources": [
+      {
+        "url": "/after/styles/main.css",
+        "bytes": 44525
+      },
+      {
+        "url": "/after/scripts/main.js",
+        "bytes": 1006
+      },
+      {
+        "url": "/after/assets/socials/git.png",
+        "bytes": 18662
+      },
+      {
+        "url": "/after/assets/socials/linkedin.png",
+        "bytes": 12370
+      },
+      {
+        "url": "/after/assets/me-360.webp",
+        "bytes": 56992
+      },
+      {
+        "url": "/after/scripts/modules/nav.js",
+        "bytes": 2170
+      },
+      {
+        "url": "/after/scripts/modules/skills-popup.js",
+        "bytes": 3285
+      },
+      {
+        "url": "/after/scripts/modules/experience-toggle.js",
+        "bytes": 808
+      },
+      {
+        "url": "/after/scripts/modules/projects-toggle.js",
+        "bytes": 1018
+      },
+      {
+        "url": "/after/scripts/modules/section-observer.js",
+        "bytes": 2079
+      },
+      {
+        "url": "/after/scripts/modules/homelab-toggle.js",
+        "bytes": 1021
+      },
+      {
+        "url": "/after/scripts/modules/homelab-viewers.js",
+        "bytes": 8301
+      },
+      {
+        "url": "/after/scripts/modules/ui.js",
+        "bytes": 7002
+      },
+      {
+        "url": "/favicon.ico",
+        "bytes": 0
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "run": 1,
+    "lcp": 1800,
+    "cls": 0,
+    "longTasks": 0,
+    "tbt": 0,
+    "fcp": 1224,
+    "dcl": 1624.3999999994412,
+    "bytes": 223855,
+    "requests": 15,
+    "cssRequests": 1,
+    "modelRequests": 0,
+    "portrait": "http://127.0.0.1:8765/after/assets/me-360.webp",
+    "resources": [
+      {
+        "url": "/after/styles/main.css",
+        "bytes": 44525
+      },
+      {
+        "url": "/after/scripts/main.js",
+        "bytes": 1006
+      },
+      {
+        "url": "/after/assets/socials/git.png",
+        "bytes": 18662
+      },
+      {
+        "url": "/after/assets/socials/linkedin.png",
+        "bytes": 12370
+      },
+      {
+        "url": "/after/assets/me-360.webp",
+        "bytes": 56992
+      },
+      {
+        "url": "/after/scripts/modules/nav.js",
+        "bytes": 2170
+      },
+      {
+        "url": "/after/scripts/modules/section-observer.js",
+        "bytes": 2079
+      },
+      {
+        "url": "/after/scripts/modules/skills-popup.js",
+        "bytes": 3285
+      },
+      {
+        "url": "/after/scripts/modules/experience-toggle.js",
+        "bytes": 808
+      },
+      {
+        "url": "/after/scripts/modules/projects-toggle.js",
+        "bytes": 1018
+      },
+      {
+        "url": "/after/scripts/modules/homelab-toggle.js",
+        "bytes": 1021
+      },
+      {
+        "url": "/after/scripts/modules/homelab-viewers.js",
+        "bytes": 8301
+      },
+      {
+        "url": "/after/scripts/modules/ui.js",
+        "bytes": 7002
+      },
+      {
+        "url": "/favicon.ico",
+        "bytes": 0
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "run": 2,
+    "lcp": 1820,
+    "cls": 0,
+    "longTasks": 1,
+    "tbt": 13,
+    "fcp": 1236,
+    "dcl": 1638.5,
+    "bytes": 223855,
+    "requests": 15,
+    "cssRequests": 1,
+    "modelRequests": 0,
+    "portrait": "http://127.0.0.1:8765/after/assets/me-360.webp",
+    "resources": [
+      {
+        "url": "/after/styles/main.css",
+        "bytes": 44525
+      },
+      {
+        "url": "/after/scripts/main.js",
+        "bytes": 1006
+      },
+      {
+        "url": "/after/assets/socials/git.png",
+        "bytes": 18662
+      },
+      {
+        "url": "/after/assets/socials/linkedin.png",
+        "bytes": 12370
+      },
+      {
+        "url": "/after/assets/me-360.webp",
+        "bytes": 56992
+      },
+      {
+        "url": "/after/scripts/modules/nav.js",
+        "bytes": 2170
+      },
+      {
+        "url": "/after/scripts/modules/skills-popup.js",
+        "bytes": 3285
+      },
+      {
+        "url": "/after/scripts/modules/section-observer.js",
+        "bytes": 2079
+      },
+      {
+        "url": "/after/scripts/modules/experience-toggle.js",
+        "bytes": 808
+      },
+      {
+        "url": "/after/scripts/modules/projects-toggle.js",
+        "bytes": 1018
+      },
+      {
+        "url": "/after/scripts/modules/homelab-toggle.js",
+        "bytes": 1021
+      },
+      {
+        "url": "/after/scripts/modules/homelab-viewers.js",
+        "bytes": 8301
+      },
+      {
+        "url": "/after/scripts/modules/ui.js",
+        "bytes": 7002
+      },
+      {
+        "url": "/favicon.ico",
+        "bytes": 0
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "run": 0,
+    "lcp": 1816,
+    "cls": 0,
+    "longTasks": 0,
+    "tbt": 0,
+    "fcp": 1232,
+    "dcl": 1629.5,
+    "bytes": 223855,
+    "requests": 15,
+    "cssRequests": 1,
+    "modelRequests": 0,
+    "portrait": "http://127.0.0.1:8765/after/assets/me-360.webp",
+    "resources": [
+      {
+        "url": "/after/styles/main.css",
+        "bytes": 44525
+      },
+      {
+        "url": "/after/scripts/main.js",
+        "bytes": 1006
+      },
+      {
+        "url": "/after/assets/socials/linkedin.png",
+        "bytes": 12370
+      },
+      {
+        "url": "/after/assets/socials/git.png",
+        "bytes": 18662
+      },
+      {
+        "url": "/after/assets/me-360.webp",
+        "bytes": 56992
+      },
+      {
+        "url": "/after/scripts/modules/nav.js",
+        "bytes": 2170
+      },
+      {
+        "url": "/after/scripts/modules/section-observer.js",
+        "bytes": 2079
+      },
+      {
+        "url": "/after/scripts/modules/skills-popup.js",
+        "bytes": 3285
+      },
+      {
+        "url": "/after/scripts/modules/projects-toggle.js",
+        "bytes": 1018
+      },
+      {
+        "url": "/after/scripts/modules/experience-toggle.js",
+        "bytes": 808
+      },
+      {
+        "url": "/after/scripts/modules/homelab-toggle.js",
+        "bytes": 1021
+      },
+      {
+        "url": "/after/scripts/modules/homelab-viewers.js",
+        "bytes": 8301
+      },
+      {
+        "url": "/after/scripts/modules/ui.js",
+        "bytes": 7002
+      },
+      {
+        "url": "/favicon.ico",
+        "bytes": 0
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "run": 1,
+    "lcp": 1776,
+    "cls": 0,
+    "longTasks": 0,
+    "tbt": 0,
+    "fcp": 1192,
+    "dcl": 1605.199999999255,
+    "bytes": 223855,
+    "requests": 15,
+    "cssRequests": 1,
+    "modelRequests": 0,
+    "portrait": "http://127.0.0.1:8765/after/assets/me-360.webp",
+    "resources": [
+      {
+        "url": "/after/styles/main.css",
+        "bytes": 44525
+      },
+      {
+        "url": "/after/scripts/main.js",
+        "bytes": 1006
+      },
+      {
+        "url": "/after/assets/socials/linkedin.png",
+        "bytes": 12370
+      },
+      {
+        "url": "/after/assets/socials/git.png",
+        "bytes": 18662
+      },
+      {
+        "url": "/after/assets/me-360.webp",
+        "bytes": 56992
+      },
+      {
+        "url": "/after/scripts/modules/nav.js",
+        "bytes": 2170
+      },
+      {
+        "url": "/after/scripts/modules/section-observer.js",
+        "bytes": 2079
+      },
+      {
+        "url": "/after/scripts/modules/skills-popup.js",
+        "bytes": 3285
+      },
+      {
+        "url": "/after/scripts/modules/experience-toggle.js",
+        "bytes": 808
+      },
+      {
+        "url": "/after/scripts/modules/projects-toggle.js",
+        "bytes": 1018
+      },
+      {
+        "url": "/after/scripts/modules/homelab-toggle.js",
+        "bytes": 1021
+      },
+      {
+        "url": "/after/scripts/modules/homelab-viewers.js",
+        "bytes": 8301
+      },
+      {
+        "url": "/after/scripts/modules/ui.js",
+        "bytes": 7002
+      },
+      {
+        "url": "/favicon.ico",
+        "bytes": 0
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "run": 2,
+    "lcp": 1780,
+    "cls": 0,
+    "longTasks": 0,
+    "tbt": 0,
+    "fcp": 1192,
+    "dcl": 1608.0999999996275,
+    "bytes": 223855,
+    "requests": 15,
+    "cssRequests": 1,
+    "modelRequests": 0,
+    "portrait": "http://127.0.0.1:8765/after/assets/me-360.webp",
+    "resources": [
+      {
+        "url": "/after/styles/main.css",
+        "bytes": 44525
+      },
+      {
+        "url": "/after/scripts/main.js",
+        "bytes": 1006
+      },
+      {
+        "url": "/after/assets/socials/git.png",
+        "bytes": 18662
+      },
+      {
+        "url": "/after/assets/socials/linkedin.png",
+        "bytes": 12370
+      },
+      {
+        "url": "/after/assets/me-360.webp",
+        "bytes": 56992
+      },
+      {
+        "url": "/after/scripts/modules/nav.js",
+        "bytes": 2170
+      },
+      {
+        "url": "/after/scripts/modules/section-observer.js",
+        "bytes": 2079
+      },
+      {
+        "url": "/after/scripts/modules/skills-popup.js",
+        "bytes": 3285
+      },
+      {
+        "url": "/after/scripts/modules/projects-toggle.js",
+        "bytes": 1018
+      },
+      {
+        "url": "/after/scripts/modules/experience-toggle.js",
+        "bytes": 808
+      },
+      {
+        "url": "/after/scripts/modules/homelab-toggle.js",
+        "bytes": 1021
+      },
+      {
+        "url": "/after/scripts/modules/homelab-viewers.js",
+        "bytes": 8301
+      },
+      {
+        "url": "/after/scripts/modules/ui.js",
+        "bytes": 7002
+      },
+      {
+        "url": "/favicon.ico",
+        "bytes": 0
+      }
+    ]
+  }
+]

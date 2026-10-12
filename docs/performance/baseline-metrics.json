@@ -1,0 +1,1280 @@
+[
+  {
+    "width": 1440,
+    "run": 0,
+    "lcp": 3552,
+    "cls": 0,
+    "longTasks": 0,
+    "tbt": 0,
+    "fcp": 1684,
+    "dcl": 2514.7999999998137,
+    "bytes": 626439,
+    "requests": 50,
+    "cssRequests": 18,
+    "modelRequests": 0,
+    "portrait": "http://127.0.0.1:8765/baseline/assets/me.webp",
+    "resources": [
+      {
+        "url": "/baseline/styles/main.css",
+        "bytes": 636
+      },
+      {
+        "url": "/baseline/scripts/main.js",
+        "bytes": 1006
+      },
+      {
+        "url": "/baseline/assets/socials/git.png",
+        "bytes": 18662
+      },
+      {
+        "url": "/baseline/assets/socials/linkedin.png",
+        "bytes": 12370
+      },
+      {
+        "url": "/baseline/assets/me.webp",
+        "bytes": 218782
+      },
+      {
+        "url": "/baseline/styles/tokens.css",
+        "bytes": 1305
+      },
+      {
+        "url": "/baseline/styles/base.css",
+        "bytes": 3696
+      },
+      {
+        "url": "/baseline/styles/layout.css",
+        "bytes": 127
+      },
+      {
+        "url": "/baseline/styles/components/navbar.css",
+        "bytes": 2938
+      },
+      {
+        "url": "/baseline/styles/components/buttons.css",
+        "bytes": 2403
+      },
+      {
+        "url": "/baseline/styles/components/cards.css",
+        "bytes": 1734
+      },
+      {
+        "url": "/baseline/styles/components/popups.css",
+        "bytes": 1779
+      },
+      {
+        "url": "/baseline/styles/sections/hero.css",
+        "bytes": 2733
+      },
+      {
+        "url": "/baseline/styles/sections/about.css",
+        "bytes": 889
+      },
+      {
+        "url": "/baseline/styles/sections/skills.css",
+        "bytes": 3563
+      },
+      {
+        "url": "/baseline/styles/sections/experience.css",
+        "bytes": 2159
+      },
+      {
+        "url": "/baseline/styles/sections/projects.css",
+        "bytes": 474
+      },
+      {
+        "url": "/baseline/styles/sections/homelab.css",
+        "bytes": 12284
+      },
+      {
+        "url": "/baseline/styles/sections/certifications.css",
+        "bytes": 760
+      },
+      {
+        "url": "/baseline/styles/sections/contact.css",
+        "bytes": 1301
+      },
+      {
+        "url": "/baseline/styles/sections/footer.css",
+        "bytes": 38
+      },
+      {
+        "url": "/baseline/styles/responsive.css",
+        "bytes": 6006
+      },
+      {
+        "url": "/baseline/assets/skills/python.png",
+        "bytes": 6643
+      },
+      {
+        "url": "/baseline/assets/skills/c%23.png",
+        "bytes": 22223
+      },
+      {
+        "url": "/baseline/assets/skills/sql.png",
+        "bytes": 13590
+      },
+      {
+        "url": "/baseline/assets/skills/asp.png",
+        "bytes": 32516
+      },
+      {
+        "url": "/baseline/assets/skills/tsql.png",
+        "bytes": 24147
+      },
+      {
+        "url": "/baseline/assets/skills/restapi.png",
+        "bytes": 15976
+      },
+      {
+        "url": "/baseline/assets/skills/azure.png",
+        "bytes": 11005
+      },
+      {
+        "url": "/baseline/assets/skills/github_actions.png",
+        "bytes": 12717
+      },
+      {
+        "url": "/baseline/assets/skills/github.png",
+        "bytes": 11006
+      },
+      {
+        "url": "/baseline/assets/skills/js.png",
+        "bytes": 10993
+      },
+      {
+        "url": "/baseline/assets/skills/ts.png",
+        "bytes": 5900
+      },
+      {
+        "url": "/baseline/assets/skills/html.png",
+        "bytes": 6503
+      },
+      {
+        "url": "/baseline/assets/skills/css.png",
+        "bytes": 6794
+      },
+      {
+        "url": "/baseline/assets/skills/php.png",
+        "bytes": 11833
+      },
+      {
+        "url": "/baseline/assets/skills/java.png",
+        "bytes": 13367
+      },
+      {
+        "url": "/baseline/assets/skills/swift.png",
+        "bytes": 11490
+      },
+      {
+        "url": "/baseline/assets/skills/terminal.png",
+        "bytes": 4194
+      },
+      {
+        "url": "/baseline/assets/skills/debian.png",
+        "bytes": 22852
+      },
+      {
+        "url": "/baseline/scripts/modules/nav.js",
+        "bytes": 2170
+      },
+      {
+        "url": "/baseline/scripts/modules/skills-popup.js",
+        "bytes": 3285
+      },
+      {
+        "url": "/baseline/scripts/modules/section-observer.js",
+        "bytes": 2079
+      },
+      {
+        "url": "/baseline/scripts/modules/experience-toggle.js",
+        "bytes": 808
+      },
+      {
+        "url": "/baseline/scripts/modules/projects-toggle.js",
+        "bytes": 1018
+      },
+      {
+        "url": "/baseline/scripts/modules/homelab-toggle.js",
+        "bytes": 1002
+      },
+      {
+        "url": "/baseline/scripts/modules/homelab-viewers.js",
+        "bytes": 7296
+      },
+      {
+        "url": "/baseline/scripts/modules/ui.js",
+        "bytes": 5698
+      },
+      {
+        "url": "/favicon.ico",
+        "bytes": 0
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "run": 1,
+    "lcp": 3536,
+    "cls": 0,
+    "longTasks": 0,
+    "tbt": 0,
+    "fcp": 1504,
+    "dcl": 2340.100000000559,
+    "bytes": 626439,
+    "requests": 50,
+    "cssRequests": 18,
+    "modelRequests": 0,
+    "portrait": "http://127.0.0.1:8765/baseline/assets/me.webp",
+    "resources": [
+      {
+        "url": "/baseline/styles/main.css",
+        "bytes": 636
+      },
+      {
+        "url": "/baseline/scripts/main.js",
+        "bytes": 1006
+      },
+      {
+        "url": "/baseline/assets/socials/git.png",
+        "bytes": 18662
+      },
+      {
+        "url": "/baseline/assets/socials/linkedin.png",
+        "bytes": 12370
+      },
+      {
+        "url": "/baseline/assets/me.webp",
+        "bytes": 218782
+      },
+      {
+        "url": "/baseline/styles/tokens.css",
+        "bytes": 1305
+      },
+      {
+        "url": "/baseline/styles/base.css",
+        "bytes": 3696
+      },
+      {
+        "url": "/baseline/styles/layout.css",
+        "bytes": 127
+      },
+      {
+        "url": "/baseline/styles/components/navbar.css",
+        "bytes": 2938
+      },
+      {
+        "url": "/baseline/styles/components/buttons.css",
+        "bytes": 2403
+      },
+      {
+        "url": "/baseline/styles/components/cards.css",
+        "bytes": 1734
+      },
+      {
+        "url": "/baseline/styles/components/popups.css",
+        "bytes": 1779
+      },
+      {
+        "url": "/baseline/styles/sections/hero.css",
+        "bytes": 2733
+      },
+      {
+        "url": "/baseline/styles/sections/about.css",
+        "bytes": 889
+      },
+      {
+        "url": "/baseline/styles/sections/skills.css",
+        "bytes": 3563
+      },
+      {
+        "url": "/baseline/styles/sections/experience.css",
+        "bytes": 2159
+      },
+      {
+        "url": "/baseline/styles/sections/projects.css",
+        "bytes": 474
+      },
+      {
+        "url": "/baseline/styles/sections/certifications.css",
+        "bytes": 760
+      },
+      {
+        "url": "/baseline/styles/sections/homelab.css",
+        "bytes": 12284
+      },
+      {
+        "url": "/baseline/styles/sections/contact.css",
+        "bytes": 1301
+      },
+      {
+        "url": "/baseline/styles/sections/footer.css",
+        "bytes": 38
+      },
+      {
+        "url": "/baseline/styles/responsive.css",
+        "bytes": 6006
+      },
+      {
+        "url": "/baseline/assets/skills/c%23.png",
+        "bytes": 22223
+      },
+      {
+        "url": "/baseline/assets/skills/python.png",
+        "bytes": 6643
+      },
+      {
+        "url": "/baseline/assets/skills/sql.png",
+        "bytes": 13590
+      },
+      {
+        "url": "/baseline/assets/skills/tsql.png",
+        "bytes": 24147
+      },
+      {
+        "url": "/baseline/assets/skills/asp.png",
+        "bytes": 32516
+      },
+      {
+        "url": "/baseline/assets/skills/restapi.png",
+        "bytes": 15976
+      },
+      {
+        "url": "/baseline/assets/skills/azure.png",
+        "bytes": 11005
+      },
+      {
+        "url": "/baseline/assets/skills/github_actions.png",
+        "bytes": 12717
+      },
+      {
+        "url": "/baseline/assets/skills/github.png",
+        "bytes": 11006
+      },
+      {
+        "url": "/baseline/assets/skills/js.png",
+        "bytes": 10993
+      },
+      {
+        "url": "/baseline/assets/skills/ts.png",
+        "bytes": 5900
+      },
+      {
+        "url": "/baseline/assets/skills/html.png",
+        "bytes": 6503
+      },
+      {
+        "url": "/baseline/assets/skills/css.png",
+        "bytes": 6794
+      },
+      {
+        "url": "/baseline/assets/skills/php.png",
+        "bytes": 11833
+      },
+      {
+        "url": "/baseline/assets/skills/java.png",
+        "bytes": 13367
+      },
+      {
+        "url": "/baseline/assets/skills/terminal.png",
+        "bytes": 4194
+      },
+      {
+        "url": "/baseline/assets/skills/swift.png",
+        "bytes": 11490
+      },
+      {
+        "url": "/baseline/assets/skills/debian.png",
+        "bytes": 22852
+      },
+      {
+        "url": "/baseline/scripts/modules/nav.js",
+        "bytes": 2170
+      },
+      {
+        "url": "/baseline/scripts/modules/skills-popup.js",
+        "bytes": 3285
+      },
+      {
+        "url": "/baseline/scripts/modules/section-observer.js",
+        "bytes": 2079
+      },
+      {
+        "url": "/baseline/scripts/modules/experience-toggle.js",
+        "bytes": 808
+      },
+      {
+        "url": "/baseline/scripts/modules/projects-toggle.js",
+        "bytes": 1018
+      },
+      {
+        "url": "/baseline/scripts/modules/homelab-toggle.js",
+        "bytes": 1002
+      },
+      {
+        "url": "/baseline/scripts/modules/homelab-viewers.js",
+        "bytes": 7296
+      },
+      {
+        "url": "/baseline/scripts/modules/ui.js",
+        "bytes": 5698
+      },
+      {
+        "url": "/favicon.ico",
+        "bytes": 0
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "run": 2,
+    "lcp": 3556,
+    "cls": 0,
+    "longTasks": 0,
+    "tbt": 0,
+    "fcp": 1528,
+    "dcl": 2353.2000000001863,
+    "bytes": 626439,
+    "requests": 50,
+    "cssRequests": 18,
+    "modelRequests": 0,
+    "portrait": "http://127.0.0.1:8765/baseline/assets/me.webp",
+    "resources": [
+      {
+        "url": "/baseline/styles/main.css",
+        "bytes": 636
+      },
+      {
+        "url": "/baseline/scripts/main.js",
+        "bytes": 1006
+      },
+      {
+        "url": "/baseline/assets/socials/git.png",
+        "bytes": 18662
+      },
+      {
+        "url": "/baseline/assets/socials/linkedin.png",
+        "bytes": 12370
+      },
+      {
+        "url": "/baseline/assets/me.webp",
+        "bytes": 218782
+      },
+      {
+        "url": "/baseline/styles/tokens.css",
+        "bytes": 1305
+      },
+      {
+        "url": "/baseline/styles/base.css",
+        "bytes": 3696
+      },
+      {
+        "url": "/baseline/styles/layout.css",
+        "bytes": 127
+      },
+      {
+        "url": "/baseline/styles/components/navbar.css",
+        "bytes": 2938
+      },
+      {
+        "url": "/baseline/styles/components/buttons.css",
+        "bytes": 2403
+      },
+      {
+        "url": "/baseline/styles/components/cards.css",
+        "bytes": 1734
+      },
+      {
+        "url": "/baseline/styles/components/popups.css",
+        "bytes": 1779
+      },
+      {
+        "url": "/baseline/styles/sections/about.css",
+        "bytes": 889
+      },
+      {
+        "url": "/baseline/styles/sections/hero.css",
+        "bytes": 2733
+      },
+      {
+        "url": "/baseline/styles/sections/skills.css",
+        "bytes": 3563
+      },
+      {
+        "url": "/baseline/styles/sections/experience.css",
+        "bytes": 2159
+      },
+      {
+        "url": "/baseline/styles/sections/projects.css",
+        "bytes": 474
+      },
+      {
+        "url": "/baseline/styles/sections/certifications.css",
+        "bytes": 760
+      },
+      {
+        "url": "/baseline/styles/sections/contact.css",
+        "bytes": 1301
+      },
+      {
+        "url": "/baseline/styles/sections/homelab.css",
+        "bytes": 12284
+      },
+      {
+        "url": "/baseline/styles/sections/footer.css",
+        "bytes": 38
+      },
+      {
+        "url": "/baseline/styles/responsive.css",
+        "bytes": 6006
+      },
+      {
+        "url": "/baseline/assets/skills/c%23.png",
+        "bytes": 22223
+      },
+      {
+        "url": "/baseline/assets/skills/python.png",
+        "bytes": 6643
+      },
+      {
+        "url": "/baseline/assets/skills/sql.png",
+        "bytes": 13590
+      },
+      {
+        "url": "/baseline/assets/skills/tsql.png",
+        "bytes": 24147
+      },
+      {
+        "url": "/baseline/assets/skills/asp.png",
+        "bytes": 32516
+      },
+      {
+        "url": "/baseline/assets/skills/restapi.png",
+        "bytes": 15976
+      },
+      {
+        "url": "/baseline/assets/skills/azure.png",
+        "bytes": 11005
+      },
+      {
+        "url": "/baseline/assets/skills/github_actions.png",
+        "bytes": 12717
+      },
+      {
+        "url": "/baseline/assets/skills/github.png",
+        "bytes": 11006
+      },
+      {
+        "url": "/baseline/assets/skills/js.png",
+        "bytes": 10993
+      },
+      {
+        "url": "/baseline/assets/skills/ts.png",
+        "bytes": 5900
+      },
+      {
+        "url": "/baseline/assets/skills/html.png",
+        "bytes": 6503
+      },
+      {
+        "url": "/baseline/assets/skills/css.png",
+        "bytes": 6794
+      },
+      {
+        "url": "/baseline/assets/skills/php.png",
+        "bytes": 11833
+      },
+      {
+        "url": "/baseline/assets/skills/java.png",
+        "bytes": 13367
+      },
+      {
+        "url": "/baseline/assets/skills/swift.png",
+        "bytes": 11490
+      },
+      {
+        "url": "/baseline/assets/skills/terminal.png",
+        "bytes": 4194
+      },
+      {
+        "url": "/baseline/assets/skills/debian.png",
+        "bytes": 22852
+      },
+      {
+        "url": "/baseline/scripts/modules/nav.js",
+        "bytes": 2170
+      },
+      {
+        "url": "/baseline/scripts/modules/skills-popup.js",
+        "bytes": 3285
+      },
+      {
+        "url": "/baseline/scripts/modules/section-observer.js",
+        "bytes": 2079
+      },
+      {
+        "url": "/baseline/scripts/modules/experience-toggle.js",
+        "bytes": 808
+      },
+      {
+        "url": "/baseline/scripts/modules/projects-toggle.js",
+        "bytes": 1018
+      },
+      {
+        "url": "/baseline/scripts/modules/homelab-toggle.js",
+        "bytes": 1002
+      },
+      {
+        "url": "/baseline/scripts/modules/homelab-viewers.js",
+        "bytes": 7296
+      },
+      {
+        "url": "/baseline/scripts/modules/ui.js",
+        "bytes": 5698
+      },
+      {
+        "url": "/favicon.ico",
+        "bytes": 0
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "run": 0,
+    "lcp": 3536,
+    "cls": 0,
+    "longTasks": 0,
+    "tbt": 0,
+    "fcp": 1552,
+    "dcl": 2500.0999999996275,
+    "bytes": 626439,
+    "requests": 50,
+    "cssRequests": 18,
+    "modelRequests": 0,
+    "portrait": "http://127.0.0.1:8765/baseline/assets/me.webp",
+    "resources": [
+      {
+        "url": "/baseline/styles/main.css",
+        "bytes": 636
+      },
+      {
+        "url": "/baseline/scripts/main.js",
+        "bytes": 1006
+      },
+      {
+        "url": "/baseline/assets/socials/git.png",
+        "bytes": 18662
+      },
+      {
+        "url": "/baseline/assets/socials/linkedin.png",
+        "bytes": 12370
+      },
+      {
+        "url": "/baseline/assets/me.webp",
+        "bytes": 218782
+      },
+      {
+        "url": "/baseline/styles/tokens.css",
+        "bytes": 1305
+      },
+      {
+        "url": "/baseline/styles/base.css",
+        "bytes": 3696
+      },
+      {
+        "url": "/baseline/styles/layout.css",
+        "bytes": 127
+      },
+      {
+        "url": "/baseline/styles/components/buttons.css",
+        "bytes": 2403
+      },
+      {
+        "url": "/baseline/styles/components/navbar.css",
+        "bytes": 2938
+      },
+      {
+        "url": "/baseline/styles/components/cards.css",
+        "bytes": 1734
+      },
+      {
+        "url": "/baseline/styles/components/popups.css",
+        "bytes": 1779
+      },
+      {
+        "url": "/baseline/styles/sections/hero.css",
+        "bytes": 2733
+      },
+      {
+        "url": "/baseline/styles/sections/about.css",
+        "bytes": 889
+      },
+      {
+        "url": "/baseline/styles/sections/skills.css",
+        "bytes": 3563
+      },
+      {
+        "url": "/baseline/styles/sections/experience.css",
+        "bytes": 2159
+      },
+      {
+        "url": "/baseline/styles/sections/projects.css",
+        "bytes": 474
+      },
+      {
+        "url": "/baseline/styles/sections/homelab.css",
+        "bytes": 12284
+      },
+      {
+        "url": "/baseline/styles/sections/certifications.css",
+        "bytes": 760
+      },
+      {
+        "url": "/baseline/styles/sections/contact.css",
+        "bytes": 1301
+      },
+      {
+        "url": "/baseline/styles/sections/footer.css",
+        "bytes": 38
+      },
+      {
+        "url": "/baseline/styles/responsive.css",
+        "bytes": 6006
+      },
+      {
+        "url": "/baseline/assets/skills/python.png",
+        "bytes": 6643
+      },
+      {
+        "url": "/baseline/assets/skills/c%23.png",
+        "bytes": 22223
+      },
+      {
+        "url": "/baseline/assets/skills/sql.png",
+        "bytes": 13590
+      },
+      {
+        "url": "/baseline/assets/skills/asp.png",
+        "bytes": 32516
+      },
+      {
+        "url": "/baseline/assets/skills/tsql.png",
+        "bytes": 24147
+      },
+      {
+        "url": "/baseline/assets/skills/restapi.png",
+        "bytes": 15976
+      },
+      {
+        "url": "/baseline/assets/skills/azure.png",
+        "bytes": 11005
+      },
+      {
+        "url": "/baseline/assets/skills/github_actions.png",
+        "bytes": 12717
+      },
+      {
+        "url": "/baseline/assets/skills/github.png",
+        "bytes": 11006
+      },
+      {
+        "url": "/baseline/assets/skills/js.png",
+        "bytes": 10993
+      },
+      {
+        "url": "/baseline/assets/skills/ts.png",
+        "bytes": 5900
+      },
+      {
+        "url": "/baseline/assets/skills/html.png",
+        "bytes": 6503
+      },
+      {
+        "url": "/baseline/assets/skills/css.png",
+        "bytes": 6794
+      },
+      {
+        "url": "/baseline/assets/skills/php.png",
+        "bytes": 11833
+      },
+      {
+        "url": "/baseline/assets/skills/java.png",
+        "bytes": 13367
+      },
+      {
+        "url": "/baseline/assets/skills/swift.png",
+        "bytes": 11490
+      },
+      {
+        "url": "/baseline/assets/skills/terminal.png",
+        "bytes": 4194
+      },
+      {
+        "url": "/baseline/assets/skills/debian.png",
+        "bytes": 22852
+      },
+      {
+        "url": "/baseline/scripts/modules/nav.js",
+        "bytes": 2170
+      },
+      {
+        "url": "/baseline/scripts/modules/skills-popup.js",
+        "bytes": 3285
+      },
+      {
+        "url": "/baseline/scripts/modules/section-observer.js",
+        "bytes": 2079
+      },
+      {
+        "url": "/baseline/scripts/modules/experience-toggle.js",
+        "bytes": 808
+      },
+      {
+        "url": "/baseline/scripts/modules/projects-toggle.js",
+        "bytes": 1018
+      },
+      {
+        "url": "/baseline/scripts/modules/homelab-toggle.js",
+        "bytes": 1002
+      },
+      {
+        "url": "/baseline/scripts/modules/homelab-viewers.js",
+        "bytes": 7296
+      },
+      {
+        "url": "/baseline/scripts/modules/ui.js",
+        "bytes": 5698
+      },
+      {
+        "url": "/favicon.ico",
+        "bytes": 0
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "run": 1,
+    "lcp": 3548,
+    "cls": 0,
+    "longTasks": 0,
+    "tbt": 0,
+    "fcp": 1496,
+    "dcl": 2353.600000000559,
+    "bytes": 626439,
+    "requests": 50,
+    "cssRequests": 18,
+    "modelRequests": 0,
+    "portrait": "http://127.0.0.1:8765/baseline/assets/me.webp",
+    "resources": [
+      {
+        "url": "/baseline/styles/main.css",
+        "bytes": 636
+      },
+      {
+        "url": "/baseline/scripts/main.js",
+        "bytes": 1006
+      },
+      {
+        "url": "/baseline/assets/socials/git.png",
+        "bytes": 18662
+      },
+      {
+        "url": "/baseline/assets/socials/linkedin.png",
+        "bytes": 12370
+      },
+      {
+        "url": "/baseline/assets/me.webp",
+        "bytes": 218782
+      },
+      {
+        "url": "/baseline/styles/tokens.css",
+        "bytes": 1305
+      },
+      {
+        "url": "/baseline/styles/base.css",
+        "bytes": 3696
+      },
+      {
+        "url": "/baseline/styles/layout.css",
+        "bytes": 127
+      },
+      {
+        "url": "/baseline/styles/components/navbar.css",
+        "bytes": 2938
+      },
+      {
+        "url": "/baseline/styles/components/buttons.css",
+        "bytes": 2403
+      },
+      {
+        "url": "/baseline/styles/components/cards.css",
+        "bytes": 1734
+      },
+      {
+        "url": "/baseline/styles/components/popups.css",
+        "bytes": 1779
+      },
+      {
+        "url": "/baseline/styles/sections/hero.css",
+        "bytes": 2733
+      },
+      {
+        "url": "/baseline/styles/sections/about.css",
+        "bytes": 889
+      },
+      {
+        "url": "/baseline/styles/sections/skills.css",
+        "bytes": 3563
+      },
+      {
+        "url": "/baseline/styles/sections/experience.css",
+        "bytes": 2159
+      },
+      {
+        "url": "/baseline/styles/sections/projects.css",
+        "bytes": 474
+      },
+      {
+        "url": "/baseline/styles/sections/homelab.css",
+        "bytes": 12284
+      },
+      {
+        "url": "/baseline/styles/sections/certifications.css",
+        "bytes": 760
+      },
+      {
+        "url": "/baseline/styles/sections/contact.css",
+        "bytes": 1301
+      },
+      {
+        "url": "/baseline/styles/sections/footer.css",
+        "bytes": 38
+      },
+      {
+        "url": "/baseline/styles/responsive.css",
+        "bytes": 6006
+      },
+      {
+        "url": "/baseline/assets/skills/c%23.png",
+        "bytes": 22223
+      },
+      {
+        "url": "/baseline/assets/skills/python.png",
+        "bytes": 6643
+      },
+      {
+        "url": "/baseline/assets/skills/sql.png",
+        "bytes": 13590
+      },
+      {
+        "url": "/baseline/assets/skills/asp.png",
+        "bytes": 32516
+      },
+      {
+        "url": "/baseline/assets/skills/tsql.png",
+        "bytes": 24147
+      },
+      {
+        "url": "/baseline/assets/skills/restapi.png",
+        "bytes": 15976
+      },
+      {
+        "url": "/baseline/assets/skills/azure.png",
+        "bytes": 11005
+      },
+      {
+        "url": "/baseline/assets/skills/github_actions.png",
+        "bytes": 12717
+      },
+      {
+        "url": "/baseline/assets/skills/github.png",
+        "bytes": 11006
+      },
+      {
+        "url": "/baseline/assets/skills/js.png",
+        "bytes": 10993
+      },
+      {
+        "url": "/baseline/assets/skills/ts.png",
+        "bytes": 5900
+      },
+      {
+        "url": "/baseline/assets/skills/html.png",
+        "bytes": 6503
+      },
+      {
+        "url": "/baseline/assets/skills/css.png",
+        "bytes": 6794
+      },
+      {
+        "url": "/baseline/assets/skills/php.png",
+        "bytes": 11833
+      },
+      {
+        "url": "/baseline/assets/skills/java.png",
+        "bytes": 13367
+      },
+      {
+        "url": "/baseline/assets/skills/swift.png",
+        "bytes": 11490
+      },
+      {
+        "url": "/baseline/assets/skills/terminal.png",
+        "bytes": 4194
+      },
+      {
+        "url": "/baseline/assets/skills/debian.png",
+        "bytes": 22852
+      },
+      {
+        "url": "/baseline/scripts/modules/nav.js",
+        "bytes": 2170
+      },
+      {
+        "url": "/baseline/scripts/modules/skills-popup.js",
+        "bytes": 3285
+      },
+      {
+        "url": "/baseline/scripts/modules/section-observer.js",
+        "bytes": 2079
+      },
+      {
+        "url": "/baseline/scripts/modules/experience-toggle.js",
+        "bytes": 808
+      },
+      {
+        "url": "/baseline/scripts/modules/projects-toggle.js",
+        "bytes": 1018
+      },
+      {
+        "url": "/baseline/scripts/modules/homelab-toggle.js",
+        "bytes": 1002
+      },
+      {
+        "url": "/baseline/scripts/modules/homelab-viewers.js",
+        "bytes": 7296
+      },
+      {
+        "url": "/baseline/scripts/modules/ui.js",
+        "bytes": 5698
+      },
+      {
+        "url": "/favicon.ico",
+        "bytes": 0
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "run": 2,
+    "lcp": 3556,
+    "cls": 0,
+    "longTasks": 0,
+    "tbt": 0,
+    "fcp": 1484,
+    "dcl": 2351.600000000559,
+    "bytes": 626439,
+    "requests": 50,
+    "cssRequests": 18,
+    "modelRequests": 0,
+    "portrait": "http://127.0.0.1:8765/baseline/assets/me.webp",
+    "resources": [
+      {
+        "url": "/baseline/styles/main.css",
+        "bytes": 636
+      },
+      {
+        "url": "/baseline/scripts/main.js",
+        "bytes": 1006
+      },
+      {
+        "url": "/baseline/assets/socials/git.png",
+        "bytes": 18662
+      },
+      {
+        "url": "/baseline/assets/socials/linkedin.png",
+        "bytes": 12370
+      },
+      {
+        "url": "/baseline/assets/me.webp",
+        "bytes": 218782
+      },
+      {
+        "url": "/baseline/styles/tokens.css",
+        "bytes": 1305
+      },
+      {
+        "url": "/baseline/styles/base.css",
+        "bytes": 3696
+      },
+      {
+        "url": "/baseline/styles/layout.css",
+        "bytes": 127
+      },
+      {
+        "url": "/baseline/styles/components/navbar.css",
+        "bytes": 2938
+      },
+      {
+        "url": "/baseline/styles/components/buttons.css",
+        "bytes": 2403
+      },
+      {
+        "url": "/baseline/styles/components/cards.css",
+        "bytes": 1734
+      },
+      {
+        "url": "/baseline/styles/components/popups.css",
+        "bytes": 1779
+      },
+      {
+        "url": "/baseline/styles/sections/hero.css",
+        "bytes": 2733
+      },
+      {
+        "url": "/baseline/styles/sections/about.css",
+        "bytes": 889
+      },
+      {
+        "url": "/baseline/styles/sections/skills.css",
+        "bytes": 3563
+      },
+      {
+        "url": "/baseline/styles/sections/experience.css",
+        "bytes": 2159
+      },
+      {
+        "url": "/baseline/styles/sections/projects.css",
+        "bytes": 474
+      },
+      {
+        "url": "/baseline/styles/sections/certifications.css",
+        "bytes": 760
+      },
+      {
+        "url": "/baseline/styles/sections/contact.css",
+        "bytes": 1301
+      },
+      {
+        "url": "/baseline/styles/sections/homelab.css",
+        "bytes": 12284
+      },
+      {
+        "url": "/baseline/styles/sections/footer.css",
+        "bytes": 38
+      },
+      {
+        "url": "/baseline/styles/responsive.css",
+        "bytes": 6006
+      },
+      {
+        "url": "/baseline/assets/skills/python.png",
+        "bytes": 6643
+      },
+      {
+        "url": "/baseline/assets/skills/c%23.png",
+        "bytes": 22223
+      },
+      {
+        "url": "/baseline/assets/skills/sql.png",
+        "bytes": 13590
+      },
+      {
+        "url": "/baseline/assets/skills/asp.png",
+        "bytes": 32516
+      },
+      {
+        "url": "/baseline/assets/skills/tsql.png",
+        "bytes": 24147
+      },
+      {
+        "url": "/baseline/assets/skills/restapi.png",
+        "bytes": 15976
+      },
+      {
+        "url": "/baseline/assets/skills/azure.png",
+        "bytes": 11005
+      },
+      {
+        "url": "/baseline/assets/skills/github_actions.png",
+        "bytes": 12717
+      },
+      {
+        "url": "/baseline/assets/skills/github.png",
+        "bytes": 11006
+      },
+      {
+        "url": "/baseline/assets/skills/js.png",
+        "bytes": 10993
+      },
+      {
+        "url": "/baseline/assets/skills/ts.png",
+        "bytes": 5900
+      },
+      {
+        "url": "/baseline/assets/skills/html.png",
+        "bytes": 6503
+      },
+      {
+        "url": "/baseline/assets/skills/css.png",
+        "bytes": 6794
+      },
+      {
+        "url": "/baseline/assets/skills/php.png",
+        "bytes": 11833
+      },
+      {
+        "url": "/baseline/assets/skills/java.png",
+        "bytes": 13367
+      },
+      {
+        "url": "/baseline/assets/skills/swift.png",
+        "bytes": 11490
+      },
+      {
+        "url": "/baseline/assets/skills/terminal.png",
+        "bytes": 4194
+      },
+      {
+        "url": "/baseline/assets/skills/debian.png",
+        "bytes": 22852
+      },
+      {
+        "url": "/baseline/scripts/modules/nav.js",
+        "bytes": 2170
+      },
+      {
+        "url": "/baseline/scripts/modules/skills-popup.js",
+        "bytes": 3285
+      },
+      {
+        "url": "/baseline/scripts/modules/section-observer.js",
+        "bytes": 2079
+      },
+      {
+        "url": "/baseline/scripts/modules/experience-toggle.js",
+        "bytes": 808
+      },
+      {
+        "url": "/baseline/scripts/modules/projects-toggle.js",
+        "bytes": 1018
+      },
+      {
+        "url": "/baseline/scripts/modules/homelab-toggle.js",
+        "bytes": 1002
+      },
+      {
+        "url": "/baseline/scripts/modules/homelab-viewers.js",
+        "bytes": 7296
+      },
+      {
+        "url": "/baseline/scripts/modules/ui.js",
+        "bytes": 5698
+      },
+      {
+        "url": "/favicon.ico",
+        "bytes": 0
+      }
+    ]
+  }
+]

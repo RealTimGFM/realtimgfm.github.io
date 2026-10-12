@@ -14,7 +14,7 @@ Live site: [https://realtimgfm.github.io](https://realtimgfm.github.io)
 - Light/Dark theme toggle
 - Projects and Experience sections
 - Contact form with EmailJS
-- LinkedIn badge embed
+- LinkedIn and GitHub profile links
 - Optional analytics integrations
 
 ## Tech stack
@@ -51,8 +51,8 @@ stays visible without JavaScript. With JavaScript, the first four projects are f
 and See More reveals the rest. Certifications remain under About.
 
 `npm run build:pages` also creates `_site/` containing only deployable HTML, assets,
-styles, and browser scripts. The existing GitHub Pages workflow runs this command
-before uploading; it needs no build dependencies or paid service. Commit the regenerated
+a stylesheet assembled from the modular CSS sources, and browser scripts. The existing
+GitHub Pages workflow runs this command before uploading; it needs no build dependencies or paid service. Commit the regenerated
 `index.html` alongside source edits. CI checks that it is current.
 
 ## Home lab case study
@@ -68,9 +68,12 @@ The large ThinkPad T16 Gen 2 and Raspberry Pi 4 viewers use the supplied local
 `model-viewer/model-viewer.min.js` runtime and self-contained GLBs in `models/`.
 The runtime and models load only after expansion as the hardware approaches the
 viewport. Drag or use the keyboard to orbit, scroll/pinch to zoom, or use the
-Zoom in, Zoom out, and Reset view controls. Models do not auto-rotate; reduced motion
+Zoom in, Zoom out, and Reset view controls. Models auto-rotate near the viewport and
+pause during interaction, when collapsed, offscreen, or in a hidden tab. Reduced motion
 is respected. Static WebP previews remain available during loading and if JavaScript,
-WebGL, or model loading is unavailable. No external viewer CDN is required.
+WebGL, or model loading is unavailable. No external viewer CDN is required. Embedded
+textures use lossless WebP via
+`EXT_texture_webp`, supported by the checked-in runtime without a decoder download.
 
 Three real screenshots document the running lab:
 
@@ -78,7 +81,8 @@ Three real screenshots document the running lab:
 - `prominence-ii-world.webp` shows the hosted Prominence II multiplayer workload.
 - `pihole-dashboard.webp` shows DNS activity and filtering on the Raspberry Pi.
 
-Each screenshot also has a `-960.webp` responsive variant. The Debian and Pi-hole
+Each screenshot also has a `-960.webp` responsive variant; Minecraft additionally
+has a `-1280.webp` variant for the full-width desktop layout. The Debian and Pi-hole
 images use lossless WebP to preserve fine text; the Minecraft image uses quality 90.
 All images preserve their aspect ratio and have intrinsic dimensions, descriptive
 alt text, and lazy loading. The network topology is conceptual HTML/CSS without
@@ -118,3 +122,11 @@ The Node regression tests use a fake EmailJS transport; they never send email.
 Before release, check desktop and mobile navigation, both themes, See More/See Less,
 experience details, and two consecutive real contact messages in one page session.
 Also check invalid email, immediate submission feedback, and a blocked EmailJS request.
+
+## Performance audit
+
+See [the performance report](docs/performance.md) for production asset measurements,
+controlled browser comparisons, validation, and original GLB recovery instructions.
+The Pages build keeps source CSS modular and writes one production stylesheet.
+Portraits have responsive variants; skill logos and the EmailJS SDK load when needed.
+Analytics remains asynchronous, and Google Fonts retains `display=swap` and preconnects.

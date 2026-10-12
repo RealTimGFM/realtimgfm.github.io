@@ -104,14 +104,6 @@
         width: 100%;
     }
 
-    .hero-hi {
-        font-size: clamp(20px, 5vw, 30px);
-    }
-
-    .hero-sub {
-        font-size: 14px;
-    }
-
     .hero-layout {
         grid-template-columns: 1fr;
         text-align: center;

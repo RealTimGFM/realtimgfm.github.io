@@ -1,0 +1,138 @@
+[
+  {
+    "width": 1440,
+    "portrait": {
+      "source": "http://127.0.0.1:8765/after/assets/me-360.webp",
+      "width": 302
+    },
+    "operations": [
+      {
+        "width": 1052,
+        "height": 657.5,
+        "source": "http://127.0.0.1:8765/after/assets/homelab/debian-operations.webp",
+        "ratio": 1.6012176560121765
+      },
+      {
+        "width": 1052,
+        "height": 550.65625,
+        "source": "http://127.0.0.1:8765/after/assets/homelab/prominence-ii-world-1280.webp",
+        "ratio": 1.9127272727272728
+      },
+      {
+        "width": 1052,
+        "height": 543.0625,
+        "source": "http://127.0.0.1:8765/after/assets/homelab/pihole-dashboard.webp",
+        "ratio": 1.9373848987108655
+      }
+    ],
+    "sdkAttempts": 2,
+    "modelRequests": [
+      "http://127.0.0.1:8765/after/assets/homelab/model-viewer/model-viewer.min.js",
+      "http://127.0.0.1:8765/after/assets/homelab/models/raspberry-pi-4.glb",
+      "http://127.0.0.1:8765/after/assets/homelab/models/thinkpad-t16-gen2.glb"
+    ],
+    "errors": []
+  },
+  {
+    "width": 820,
+    "portrait": {
+      "source": "http://127.0.0.1:8765/after/assets/me-360.webp",
+      "width": 254.921875
+    },
+    "operations": [
+      {
+        "width": 714.8125,
+        "height": 446.75,
+        "source": "http://127.0.0.1:8765/after/assets/homelab/debian-operations-960.webp",
+        "ratio": 1.600896860986547
+      },
+      {
+        "width": 714.8125,
+        "height": 374.53125,
+        "source": "http://127.0.0.1:8765/after/assets/homelab/prominence-ii-world-960.webp",
+        "ratio": 1.9090909090909092
+      },
+      {
+        "width": 714.8125,
+        "height": 369.3125,
+        "source": "http://127.0.0.1:8765/after/assets/homelab/pihole-dashboard-960.webp",
+        "ratio": 1.934959349593496
+      }
+    ],
+    "sdkAttempts": 2,
+    "modelRequests": [
+      "http://127.0.0.1:8765/after/assets/homelab/model-viewer/model-viewer.min.js",
+      "http://127.0.0.1:8765/after/assets/homelab/models/thinkpad-t16-gen2.glb",
+      "http://127.0.0.1:8765/after/assets/homelab/models/raspberry-pi-4.glb"
+    ],
+    "errors": []
+  },
+  {
+    "width": 390,
+    "portrait": {
+      "source": "http://127.0.0.1:8765/after/assets/me-360.webp",
+      "width": 122
+    },
+    "operations": [
+      {
+        "width": 326,
+        "height": 203.75,
+        "source": "http://127.0.0.1:8765/after/assets/homelab/debian-operations-960.webp",
+        "ratio": 1.6059113300492611
+      },
+      {
+        "width": 326,
+        "height": 170.796875,
+        "source": "http://127.0.0.1:8765/after/assets/homelab/prominence-ii-world-960.webp",
+        "ratio": 1.9176470588235295
+      },
+      {
+        "width": 326,
+        "height": 168.421875,
+        "source": "http://127.0.0.1:8765/after/assets/homelab/pihole-dashboard-960.webp",
+        "ratio": 1.9404761904761905
+      }
+    ],
+    "sdkAttempts": 2,
+    "modelRequests": [
+      "http://127.0.0.1:8765/after/assets/homelab/model-viewer/model-viewer.min.js",
+      "http://127.0.0.1:8765/after/assets/homelab/models/thinkpad-t16-gen2.glb",
+      "http://127.0.0.1:8765/after/assets/homelab/models/raspberry-pi-4.glb"
+    ],
+    "errors": []
+  },
+  {
+    "width": 320,
+    "portrait": {
+      "source": "http://127.0.0.1:8765/after/assets/me-360.webp",
+      "width": 122
+    },
+    "operations": [
+      {
+        "width": 256,
+        "height": 160,
+        "source": "http://127.0.0.1:8765/after/assets/homelab/debian-operations-960.webp",
+        "ratio": 1.6
+      },
+      {
+        "width": 256,
+        "height": 134.125,
+        "source": "http://127.0.0.1:8765/after/assets/homelab/prominence-ii-world-960.webp",
+        "ratio": 1.9104477611940298
+      },
+      {
+        "width": 256,
+        "height": 132.265625,
+        "source": "http://127.0.0.1:8765/after/assets/homelab/pihole-dashboard-960.webp",
+        "ratio": 1.9393939393939394
+      }
+    ],
+    "sdkAttempts": 2,
+    "modelRequests": [
+      "http://127.0.0.1:8765/after/assets/homelab/model-viewer/model-viewer.min.js",
+      "http://127.0.0.1:8765/after/assets/homelab/models/thinkpad-t16-gen2.glb",
+      "http://127.0.0.1:8765/after/assets/homelab/models/raspberry-pi-4.glb"
+    ],
+    "errors": []
+  }
+]

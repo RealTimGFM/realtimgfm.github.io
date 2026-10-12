@@ -9,6 +9,8 @@ export function initHomelabViewers(loadRuntime = () => import(
     if (!hardware.length) return;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const startModels = new Map();
+    const visibility = new Map();
+    const rotations = new Map();
     let runtimePromise;
     let observer;
 
@@ -38,6 +40,7 @@ export function initHomelabViewers(loadRuntime = () => import(
         if (!viewer || !fallback || !status || !tools) continue;
 
         card.dataset.modelState = 'idle';
+        visibility.set(card, typeof IntersectionObserver === 'undefined');
         viewer.inert = true;
         viewer.setAttribute('aria-hidden', 'true');
         viewer.setAttribute('tabindex', '-1');
@@ -46,7 +49,9 @@ export function initHomelabViewers(loadRuntime = () => import(
         const activeKeys = new Set();
         let rotationTimer;
         const updateRotation = () => {
-            if (reducedMotion.matches || activePointers.size || activeKeys.size || rotationTimer) {
+            if (details.hidden || document.hidden || !visibility.get(card)
+                || card.dataset.modelState !== 'ready' || reducedMotion.matches
+                || activePointers.size || activeKeys.size || rotationTimer) {
                 viewer.removeAttribute('auto-rotate');
             } else {
                 viewer.setAttribute('auto-rotate', '');
@@ -89,6 +94,14 @@ export function initHomelabViewers(loadRuntime = () => import(
             if (event.detail.source === 'user-interaction') pauseRotation();
         });
         reducedMotion.addEventListener('change', updateRotation);
+        rotations.set(card, updateRotation);
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                activePointers.clear();
+                activeKeys.clear();
+            }
+            updateRotation();
+        });
         updateRotation();
 
         const unavailable = () => {
@@ -99,6 +112,7 @@ export function initHomelabViewers(loadRuntime = () => import(
             fallback.hidden = false;
             tools.hidden = true;
             status.textContent = 'Interactive 3D unavailable. Hardware preview shown.';
+            updateRotation();
         };
 
         viewer.addEventListener('error', unavailable);
@@ -111,6 +125,7 @@ export function initHomelabViewers(loadRuntime = () => import(
             fallback.hidden = true;
             tools.hidden = false;
             status.textContent = 'Interactive 3D ready. Drag to rotate; scroll or pinch to zoom.';
+            updateRotation();
         });
 
         for (const button of tools.querySelectorAll('[data-model-action]')) {
@@ -137,11 +152,10 @@ export function initHomelabViewers(loadRuntime = () => import(
             if (details.hidden || card.dataset.modelState !== 'idle') return;
             card.dataset.modelState = 'loading';
             status.textContent = 'Loading interactive 3D. Hardware preview shown.';
-            observer?.unobserve(card);
             try {
                 await ensureRuntime();
                 // The visitor may collapse the case study while the runtime loads.
-                if (details.hidden) {
+                if (details.hidden || !visibility.get(card)) {
                     card.dataset.modelState = 'idle';
                     status.textContent = 'Hardware preview. Expand the lab to explore in 3D.';
                     return;
@@ -156,19 +170,29 @@ export function initHomelabViewers(loadRuntime = () => import(
     const observeHardware = () => {
         if (details.hidden) return;
         if (typeof IntersectionObserver === 'undefined') {
+            for (const update of rotations.values()) update();
             for (const start of startModels.values()) start();
             return;
         }
         observer ??= new IntersectionObserver(entries => {
             for (const entry of entries) {
+                visibility.set(entry.target, entry.isIntersecting);
+                rotations.get(entry.target)?.();
                 if (entry.isIntersecting) startModels.get(entry.target)?.();
             }
         }, { rootMargin: '240px 0px' });
         for (const card of hardware) {
-            if (card.dataset.modelState === 'idle') observer.observe(card);
+            observer.observe(card);
         }
     };
 
     details.addEventListener('homelab:expanded', observeHardware);
+    details.addEventListener('homelab:collapsed', () => {
+        for (const card of hardware) {
+            observer?.unobserve(card);
+            visibility.set(card, typeof IntersectionObserver === 'undefined');
+            rotations.get(card)?.();
+        }
+    });
     observeHardware();
 }

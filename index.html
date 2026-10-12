@@ -23,7 +23,6 @@
         gtag('js', new Date());
         gtag('config', 'G-Z6FYNPRYBW');
     </script>
-    <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script data-goatcounter="https://timgfm.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <script type="module" src="scripts/main.js"></script>
 </head>
@@ -109,7 +108,10 @@
 
             <div class="hero-photo-wrap">
                 <div class="hero-photo">
-                    <img src="assets/me.webp" alt="Portrait of Vu Luong Quy" width="1200" height="1800"
+                    <img src="assets/me.webp"
+                        srcset="assets/me-360.webp 360w, assets/me-720.webp 720w, assets/me.webp 1200w"
+                        sizes="(max-width: 480px) 122px, (max-width: 768px) 162px, 302px"
+                        alt="Portrait of Vu Luong Quy" width="1200" height="1800"
                         fetchpriority="high" />
                 </div>
             </div>
@@ -709,7 +711,7 @@
                         <a class="homelab-image-link" href="assets/homelab/prominence-ii-world.webp" target="_blank" rel="noopener"
                             aria-label="Open the full-size Real workload — Prominence II screenshot in a new tab">
                             <img src="assets/homelab/prominence-ii-world.webp"
-                                srcset="assets/homelab/prominence-ii-world-960.webp 960w, assets/homelab/prominence-ii-world.webp 1914w"
+                                srcset="assets/homelab/prominence-ii-world-960.webp 960w, assets/homelab/prominence-ii-world-1280.webp 1280w, assets/homelab/prominence-ii-world.webp 1914w"
                                 sizes="(max-width: 480px) calc(100vw - 64px), (max-width: 768px) calc(100vw - 92px), (max-width: 1180px) calc(94vw - 56px), 1052px"
                                 width="1914" height="1002" loading="lazy" decoding="async"
                                 alt="The hosted Prominence II multiplayer world beside a forest temple, with private player information redacted." />
@@ -785,7 +787,7 @@
             <div class="skills-row">
                 <div class="skill skill--primary skill--has-popup" tabindex="0" role="button" aria-haspopup="dialog"
                     aria-expanded="false" aria-label="C# repositories and work experience">
-                    <img class="logo" src="assets/skills/c%23.png" alt="C# logo" />
+                    <img class="logo" src="assets/skills/c%23.png" alt="C# logo" loading="lazy" decoding="async" />
                     <h4>C#</h4>
                     <div class="skill-popup">
                         <div class="skill-popup-links">
@@ -801,7 +803,7 @@
 
                 <div class="skill skill--primary skill--has-popup" tabindex="0" role="button" aria-haspopup="dialog"
                     aria-expanded="false" aria-label="Python repositories">
-                    <img class="logo" src="assets/skills/python.png" alt="Python logo" />
+                    <img class="logo" src="assets/skills/python.png" alt="Python logo" loading="lazy" decoding="async" />
                     <h4>Python</h4>
                     <div class="skill-popup">
                         <div class="skill-popup-links">
@@ -819,7 +821,7 @@
 
                 <div class="skill skill--primary skill--has-popup" tabindex="0" role="button" aria-haspopup="dialog"
                     aria-expanded="false" aria-label="SQL Server work experience">
-                    <img class="logo" src="assets/skills/sql.png" alt="SQL Server logo" />
+                    <img class="logo" src="assets/skills/sql.png" alt="SQL Server logo" loading="lazy" decoding="async" />
                     <h4>SQL Server</h4>
                     <div class="skill-popup">
                         <div class="skill-popup-links">
@@ -831,7 +833,7 @@
 
                 <div class="skill skill--primary skill--has-popup" tabindex="0" role="button" aria-haspopup="dialog"
                     aria-expanded="false" aria-label="ASP.NET Core work experience">
-                    <img class="logo" src="assets/skills/asp.png" alt="ASP.NET Core logo" />
+                    <img class="logo" src="assets/skills/asp.png" alt="ASP.NET Core logo" loading="lazy" decoding="async" />
                     <h4>ASP.NET</h4>
                     <div class="skill-popup">
                         <div class="skill-popup-links">
@@ -842,7 +844,7 @@
 
                 <div class="skill skill--primary skill--has-popup" tabindex="0" role="button" aria-haspopup="dialog"
                     aria-expanded="false" aria-label="T-SQL work experience">
-                    <img class="logo" src="assets/skills/tsql.png" alt="T-SQL logo" />
+                    <img class="logo" src="assets/skills/tsql.png" alt="T-SQL logo" loading="lazy" decoding="async" />
                     <h4>T-SQL</h4>
                     <div class="skill-popup">
                         <div class="skill-popup-links">
@@ -853,7 +855,7 @@
 
                 <div class="skill skill--primary skill--has-popup" tabindex="0" role="button" aria-haspopup="dialog"
                     aria-expanded="false" aria-label="REST API repositories">
-                    <img class="logo" src="assets/skills/restapi.png" alt="REST API logo" />
+                    <img class="logo" src="assets/skills/restapi.png" alt="REST API logo" loading="lazy" decoding="async" />
                     <h4>REST API</h4>
                     <div class="skill-popup">
                         <div class="skill-popup-links">
@@ -872,7 +874,7 @@
             <div class="skills-row">
                 <div class="skill skill--has-popup" tabindex="0" role="button" aria-haspopup="dialog"
                     aria-expanded="false" aria-label="Azure work experience">
-                    <img class="logo" src="assets/skills/azure.png" alt="Azure logo" />
+                    <img class="logo" src="assets/skills/azure.png" alt="Azure logo" loading="lazy" decoding="async" />
                     <h4>Azure</h4>
                     <div class="skill-popup">
                         <div class="skill-popup-links">
@@ -882,12 +884,12 @@
                 </div>
 
                 <div class="skill">
-                    <img class="logo" src="assets/skills/github_actions.png" alt="GitHub Actions logo" />
+                    <img class="logo" src="assets/skills/github_actions.png" alt="GitHub Actions logo" loading="lazy" decoding="async" />
                     <h4>GitHub Actions</h4>
                 </div>
 
                 <div class="skill">
-                    <img class="logo" src="assets/skills/github.png" alt="GitHub logo" />
+                    <img class="logo" src="assets/skills/github.png" alt="GitHub logo" loading="lazy" decoding="async" />
                     <h4>GitHub</h4>
                 </div>
             </div>
@@ -898,7 +900,7 @@
             <div class="skills-row">
                 <div class="skill skill--has-popup" tabindex="0" role="button" aria-haspopup="dialog"
                     aria-expanded="false" aria-label="JavaScript repositories">
-                    <img class="logo" src="assets/skills/js.png" alt="JavaScript logo" />
+                    <img class="logo" src="assets/skills/js.png" alt="JavaScript logo" loading="lazy" decoding="async" />
                     <h4>JavaScript</h4>
                     <div class="skill-popup">
                         <div class="skill-popup-links">
@@ -914,7 +916,7 @@
 
                 <div class="skill skill--has-popup" tabindex="0" role="button" aria-haspopup="dialog"
                     aria-expanded="false" aria-label="TypeScript repositories">
-                    <img class="logo" src="assets/skills/ts.png" alt="TypeScript logo" />
+                    <img class="logo" src="assets/skills/ts.png" alt="TypeScript logo" loading="lazy" decoding="async" />
                     <h4>TypeScript</h4>
                     <div class="skill-popup">
                         <div class="skill-popup-links">
@@ -928,7 +930,7 @@
 
                 <div class="skill skill--has-popup" tabindex="0" role="button" aria-haspopup="dialog"
                     aria-expanded="false" aria-label="HTML repositories">
-                    <img class="logo" src="assets/skills/html.png" alt="HTML logo" />
+                    <img class="logo" src="assets/skills/html.png" alt="HTML logo" loading="lazy" decoding="async" />
                     <h4>HTML</h4>
                     <div class="skill-popup">
                         <div class="skill-popup-links">
@@ -944,7 +946,7 @@
 
                 <div class="skill skill--has-popup" tabindex="0" role="button" aria-haspopup="dialog"
                     aria-expanded="false" aria-label="CSS repositories">
-                    <img class="logo" src="assets/skills/css.png" alt="CSS logo" />
+                    <img class="logo" src="assets/skills/css.png" alt="CSS logo" loading="lazy" decoding="async" />
                     <h4>CSS</h4>
                     <div class="skill-popup">
                         <div class="skill-popup-links">
@@ -960,7 +962,7 @@
 
                 <div class="skill skill--has-popup" tabindex="0" role="button" aria-haspopup="dialog"
                     aria-expanded="false" aria-label="PHP repositories">
-                    <img class="logo" src="assets/skills/php.png" alt="PHP logo" />
+                    <img class="logo" src="assets/skills/php.png" alt="PHP logo" loading="lazy" decoding="async" />
                     <h4>PHP</h4>
                     <div class="skill-popup">
                         <div class="skill-popup-links">
@@ -977,7 +979,7 @@
             <div class="skills-row">
                 <div class="skill skill--has-popup" tabindex="0" role="button" aria-haspopup="dialog"
                     aria-expanded="false" aria-label="Java repositories">
-                    <img class="logo" src="assets/skills/java.png" alt="Java logo" />
+                    <img class="logo" src="assets/skills/java.png" alt="Java logo" loading="lazy" decoding="async" />
                     <h4>Java</h4>
                     <div class="skill-popup">
                         <div class="skill-popup-links">
@@ -990,7 +992,7 @@
 
                 <div class="skill skill--has-popup" tabindex="0" role="button" aria-haspopup="dialog"
                     aria-expanded="false" aria-label="Swift repositories">
-                    <img class="logo" src="assets/skills/swift.png" alt="Swift logo" />
+                    <img class="logo" src="assets/skills/swift.png" alt="Swift logo" loading="lazy" decoding="async" />
                     <h4>Swift</h4>
                     <div class="skill-popup">
                         <div class="skill-popup-links">
@@ -1005,12 +1007,12 @@
             <p class="skills-label">Tools</p>
             <div class="skills-row">
                 <div class="skill">
-                    <img class="logo" src="assets/skills/terminal.png" alt="Windows Terminal logo" />
+                    <img class="logo" src="assets/skills/terminal.png" alt="Windows Terminal logo" loading="lazy" decoding="async" />
                     <h4>Windows Terminal</h4>
                 </div>
 
                 <div class="skill">
-                    <img class="logo" src="assets/skills/debian.png" alt="Debian logo" />
+                    <img class="logo" src="assets/skills/debian.png" alt="Debian logo" loading="lazy" decoding="async" />
                     <h4>Debian / Linux</h4>
                 </div>
             </div>
@@ -1045,7 +1047,10 @@
         </div>
 
         <div class="photo">
-            <img src="assets/me.webp" alt="Portrait of Vu Luong Quy" width="1200" height="1800" loading="lazy"
+            <img src="assets/me.webp"
+                srcset="assets/me-360.webp 360w, assets/me-720.webp 720w, assets/me.webp 1200w"
+                sizes="(max-width: 380px) calc(100vw - 12px), 348px"
+                alt="Portrait of Vu Luong Quy" width="1200" height="1800" loading="lazy"
                 decoding="async" />
         </div>
     </div>

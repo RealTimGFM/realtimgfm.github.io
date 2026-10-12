@@ -63,10 +63,11 @@ function setup({ intersection = true, webgl = true, reducedMotion = false, runti
     });
     details.querySelectorAll = () => cards;
     const context = vm.createContext({
-        document: {
+        document: Object.assign(new EventTarget(), {
+            hidden: false,
             getElementById: () => details,
             createElement: () => ({ getContext: () => webgl ? { getExtension: () => null } : null })
-        },
+        }),
         window,
         setTimeout(callback, delay) {
             timers.set(++timerId, { callback, at: now + delay });
@@ -102,14 +103,23 @@ function setup({ intersection = true, webgl = true, reducedMotion = false, runti
             timer.callback();
         }
     };
-    return { cards, details, expand, near, window, motion, advance, imports: () => imports, observer: () => observer };
+    return { document: context.document, cards, details, expand, near, window, motion, advance, imports: () => imports, observer: () => observer };
 }
 
 const emit = (target, type, properties = {}) => target.dispatchEvent(Object.assign(new Event(type), properties));
 const rotating = viewer => viewer.getAttribute('auto-rotate') !== undefined;
+const activeLab = () => {
+    const lab = setup();
+    lab.expand();
+    for (const card of lab.cards) {
+        lab.near(card);
+        emit(card.viewer, 'load');
+    }
+    return lab;
+};
 
 test('both models rotate unless reduced motion is requested, including live preference changes', () => {
-    const lab = setup();
+    const lab = activeLab();
     assert.ok(lab.cards.every(card => rotating(card.viewer)));
     lab.motion.matches = true;
     emit(lab.motion, 'change');
@@ -124,7 +134,7 @@ test('both models rotate unless reduced motion is requested, including live pref
 });
 
 test('held and multi-pointer gestures pause rotation until three seconds after the last release', () => {
-    const lab = setup();
+    const lab = activeLab();
     const viewer = lab.cards[0].viewer;
     emit(viewer, 'pointerdown', { pointerId: 1 });
     emit(viewer, 'pointerdown', { pointerId: 2 });
@@ -148,7 +158,7 @@ test('held and multi-pointer gestures pause rotation until three seconds after t
 });
 
 test('keyboard, wheel, user camera movement, and toolbar actions pause and restart the delay', () => {
-    const lab = setup();
+    const lab = activeLab();
     const card = lab.cards[0];
     emit(card.viewer, 'load');
     emit(card.viewer, 'keydown', { key: 'ArrowLeft' });
@@ -208,7 +218,7 @@ test('models and runtime stay deferred until the lab is expanded and hardware is
     lab.expand();
     await settle();
     assert.equal(lab.imports(), 1);
-    assert.equal(lab.observer().observed.size, 0);
+    assert.equal(lab.observer().observed.size, 2);
 });
 
 test('successful models expose camera controls and reduced motion zoom/reset snaps to its goal', async () => {
@@ -275,5 +285,48 @@ test('collapsing during the runtime download defers GLBs until the next expansio
     lab.near();
     await settle();
     assert.equal(lab.imports(), 1);
+    assert.equal(lab.cards[0].viewer.getAttribute('src'), lab.cards[0].viewer.dataset.modelSrc);
+});
+
+test('rotation pauses offscreen, on collapse, and in hidden tabs, then resumes only when eligible', () => {
+    const lab = activeLab();
+    const card = lab.cards[0];
+    lab.observer().callback([{ target: card, isIntersecting: false }]);
+    assert.equal(rotating(card.viewer), false);
+    lab.advance(5000);
+    assert.equal(rotating(card.viewer), false);
+    lab.near(card);
+    assert.equal(rotating(card.viewer), true);
+    lab.document.hidden = true;
+    emit(lab.document, 'visibilitychange');
+    assert.ok(lab.cards.every(c => !rotating(c.viewer)));
+    lab.document.hidden = false;
+    emit(lab.document, 'visibilitychange');
+    assert.ok(lab.cards.every(c => rotating(c.viewer)));
+    lab.details.hidden = true;
+    emit(lab.details, 'homelab:collapsed');
+    assert.ok(lab.cards.every(c => !rotating(c.viewer)));
+    lab.expand();
+    assert.ok(lab.cards.every(c => !rotating(c.viewer)));
+    lab.near(card);
+    assert.equal(rotating(card.viewer), true);
+    lab.motion.matches = true;
+    emit(lab.motion, 'change');
+    lab.near(card);
+    assert.equal(rotating(card.viewer), false);
+});
+
+test('leaving hardware during runtime loading postpones GLB assignment', async () => {
+    let ready;
+    const lab = setup({ runtime: () => new Promise(resolve => { ready = resolve; }) });
+    lab.expand();
+    lab.near();
+    await settle();
+    lab.observer().callback([{ target: lab.cards[0], isIntersecting: false }]);
+    ready();
+    await settle();
+    assert.equal(lab.cards[0].viewer.getAttribute('src'), undefined);
+    lab.near();
+    await settle();
     assert.equal(lab.cards[0].viewer.getAttribute('src'), lab.cards[0].viewer.dataset.modelSrc);
 });

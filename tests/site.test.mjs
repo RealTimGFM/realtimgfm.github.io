@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import test from 'node:test';
 import vm from 'node:vm';
-import { renderPage } from '../scripts/build.mjs';
+import { renderPage, renderStyles } from '../scripts/build.mjs';
 
 test('static page includes sections once in the intended order and all projects', async () => {
     const html = await renderPage();
@@ -86,7 +86,7 @@ test('Home Lab disclosure preserves accessible labels and returns focus when col
     assert.equal(toggle.textContent, 'Show Less');
     assert.equal(toggle['aria-expanded'], 'true');
     assert.equal(collapse['aria-expanded'], 'true');
-    assert.deepEqual(events, ['homelab:expanded']);
+    assert.deepEqual(events, ['homelab:collapsed', 'homelab:expanded']);
     collapse.handlers.get('click')();
     assert.equal(details.hidden, true);
     assert.equal(toggle.textContent, 'Explore Home Lab');
@@ -146,7 +146,12 @@ test('Home Lab ships both deferred interactive models and accessible real media 
         assert.ok(gltf.meshes.length > 0);
         assert.ok(gltf.buffers.every(buffer => !buffer.uri));
         assert.ok(gltf.images.every(image => image.bufferView !== undefined && !image.uri));
-        assert.equal((gltf.extensionsRequired || []).length, 0);
+        assert.deepEqual(gltf.extensionsRequired, ['EXT_texture_webp']);
+        for (const texture of gltf.textures) {
+            const source = texture.extensions?.EXT_texture_webp?.source ?? texture.source;
+            assert.ok(gltf.images[source]);
+            if (texture.extensions?.EXT_texture_webp) assert.equal(gltf.images[source].mimeType, 'image/webp');
+        }
     }
     for (const filename of ['debian-operations.webp', 'prominence-ii-world.webp', 'pihole-dashboard.webp',
         'thinkpad-t16-gen2-poster.webp', 'raspberry-pi-4-poster.webp']) {
@@ -155,4 +160,13 @@ test('Home Lab ships both deferred interactive models and accessible real media 
         assert.equal(bytes.toString('ascii', 8, 12), 'WEBP');
         assert.equal(bytes.readUInt32LE(4) + 8, bytes.length);
     }
+});
+
+test('production CSS resolves local imports in cascade order without a bundler dependency', async () => {
+    const css = await renderStyles();
+    assert.doesNotMatch(css, /@import/);
+    assert.ok(css.indexOf('/* tokens.css */') < css.indexOf('/* base.css */'));
+    assert.ok(css.indexOf('/* sections/homelab.css */') < css.indexOf('/* responsive.css */'));
+    assert.match(css, /@media/);
+    assert.match(css, /prefers-reduced-motion/);
 });

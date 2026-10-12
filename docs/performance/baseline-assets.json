@@ -1,0 +1,644 @@
+{
+  "total": 8586666,
+  "files": [
+    [
+      3763392,
+      "assets/homelab/models/thinkpad-t16-gen2.glb"
+    ],
+    [
+      1849388,
+      "assets/homelab/models/raspberry-pi-4.glb"
+    ],
+    [
+      979139,
+      "assets/homelab/model-viewer/model-viewer.min.js"
+    ],
+    [
+      319720,
+      "assets/homelab/prominence-ii-world.webp"
+    ],
+    [
+      218782,
+      "assets/me.webp"
+    ],
+    [
+      214054,
+      "assets/ITEssentialCisco.pdf"
+    ],
+    [
+      136994,
+      "assets/homelab/debian-operations-960.webp"
+    ],
+    [
+      135392,
+      "assets/homelab/pihole-dashboard-960.webp"
+    ],
+    [
+      124982,
+      "assets/QuyVuLuong_CV.pdf"
+    ],
+    [
+      111228,
+      "assets/homelab/prominence-ii-world-960.webp"
+    ],
+    [
+      97508,
+      "assets/homelab/thinkpad-t16-gen2-poster.webp"
+    ],
+    [
+      89446,
+      "assets/homelab/debian-operations.webp"
+    ],
+    [
+      63689,
+      "index.html"
+    ],
+    [
+      63350,
+      "assets/homelab/pihole-dashboard.webp"
+    ],
+    [
+      60196,
+      "assets/homelab/raspberry-pi-4-poster.webp"
+    ],
+    [
+      32516,
+      "assets/skills/asp.png"
+    ],
+    [
+      24147,
+      "assets/skills/tsql.png"
+    ],
+    [
+      22852,
+      "assets/skills/debian.png"
+    ],
+    [
+      22223,
+      "assets/skills/c#.png"
+    ],
+    [
+      18662,
+      "assets/socials/git.png"
+    ],
+    [
+      15976,
+      "assets/skills/restapi.png"
+    ],
+    [
+      13590,
+      "assets/skills/sql.png"
+    ],
+    [
+      13367,
+      "assets/skills/java.png"
+    ],
+    [
+      12717,
+      "assets/skills/github_actions.png"
+    ],
+    [
+      12370,
+      "assets/socials/linkedin.png"
+    ],
+    [
+      12284,
+      "styles/sections/homelab.css"
+    ],
+    [
+      11833,
+      "assets/skills/php.png"
+    ],
+    [
+      11490,
+      "assets/skills/swift.png"
+    ],
+    [
+      11358,
+      "assets/homelab/model-viewer/LICENSE"
+    ],
+    [
+      11006,
+      "assets/skills/github.png"
+    ],
+    [
+      11005,
+      "assets/skills/azure.png"
+    ],
+    [
+      10993,
+      "assets/skills/js.png"
+    ],
+    [
+      7296,
+      "scripts/modules/homelab-viewers.js"
+    ],
+    [
+      6794,
+      "assets/skills/css.png"
+    ],
+    [
+      6643,
+      "assets/skills/python.png"
+    ],
+    [
+      6503,
+      "assets/skills/html.png"
+    ],
+    [
+      6006,
+      "styles/responsive.css"
+    ],
+    [
+      5900,
+      "assets/skills/ts.png"
+    ],
+    [
+      5698,
+      "scripts/modules/ui.js"
+    ],
+    [
+      4194,
+      "assets/skills/terminal.png"
+    ],
+    [
+      4080,
+      "assets/homelab/model-viewer/THIRD-PARTY-NOTICES.txt"
+    ],
+    [
+      3696,
+      "styles/base.css"
+    ],
+    [
+      3563,
+      "styles/sections/skills.css"
+    ],
+    [
+      3285,
+      "scripts/modules/skills-popup.js"
+    ],
+    [
+      2938,
+      "styles/components/navbar.css"
+    ],
+    [
+      2733,
+      "styles/sections/hero.css"
+    ],
+    [
+      2403,
+      "styles/components/buttons.css"
+    ],
+    [
+      2170,
+      "scripts/modules/nav.js"
+    ],
+    [
+      2159,
+      "styles/sections/experience.css"
+    ],
+    [
+      2079,
+      "scripts/modules/section-observer.js"
+    ],
+    [
+      1779,
+      "styles/components/popups.css"
+    ],
+    [
+      1734,
+      "styles/components/cards.css"
+    ],
+    [
+      1305,
+      "styles/tokens.css"
+    ],
+    [
+      1301,
+      "styles/sections/contact.css"
+    ],
+    [
+      1018,
+      "scripts/modules/projects-toggle.js"
+    ],
+    [
+      1006,
+      "scripts/main.js"
+    ],
+    [
+      1002,
+      "scripts/modules/homelab-toggle.js"
+    ],
+    [
+      889,
+      "styles/sections/about.css"
+    ],
+    [
+      808,
+      "scripts/modules/experience-toggle.js"
+    ],
+    [
+      760,
+      "styles/sections/certifications.css"
+    ],
+    [
+      636,
+      "styles/main.css"
+    ],
+    [
+      474,
+      "styles/sections/projects.css"
+    ],
+    [
+      127,
+      "styles/layout.css"
+    ],
+    [
+      38,
+      "styles/sections/footer.css"
+    ]
+  ],
+  "images": {
+    "assets/homelab/prominence-ii-world.webp": {
+      "bytes": 319720,
+      "size": [
+        1914,
+        1002
+      ],
+      "mode": "RGB"
+    },
+    "assets/me.webp": {
+      "bytes": 218782,
+      "size": [
+        1200,
+        1800
+      ],
+      "mode": "RGB"
+    },
+    "assets/homelab/debian-operations-960.webp": {
+      "bytes": 136994,
+      "size": [
+        960,
+        600
+      ],
+      "mode": "RGB"
+    },
+    "assets/homelab/pihole-dashboard-960.webp": {
+      "bytes": 135392,
+      "size": [
+        960,
+        496
+      ],
+      "mode": "RGB"
+    },
+    "assets/homelab/prominence-ii-world-960.webp": {
+      "bytes": 111228,
+      "size": [
+        960,
+        503
+      ],
+      "mode": "RGB"
+    },
+    "assets/homelab/thinkpad-t16-gen2-poster.webp": {
+      "bytes": 97508,
+      "size": [
+        1200,
+        900
+      ],
+      "mode": "RGBA"
+    },
+    "assets/homelab/debian-operations.webp": {
+      "bytes": 89446,
+      "size": [
+        1920,
+        1200
+      ],
+      "mode": "RGB"
+    },
+    "assets/homelab/pihole-dashboard.webp": {
+      "bytes": 63350,
+      "size": [
+        1879,
+        970
+      ],
+      "mode": "RGB"
+    },
+    "assets/homelab/raspberry-pi-4-poster.webp": {
+      "bytes": 60196,
+      "size": [
+        1200,
+        900
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/asp.png": {
+      "bytes": 32516,
+      "size": [
+        300,
+        226
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/tsql.png": {
+      "bytes": 24147,
+      "size": [
+        275,
+        223
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/debian.png": {
+      "bytes": 22852,
+      "size": [
+        287,
+        285
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/c#.png": {
+      "bytes": 22223,
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA"
+    },
+    "assets/socials/git.png": {
+      "bytes": 18662,
+      "size": [
+        275,
+        265
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/restapi.png": {
+      "bytes": 15976,
+      "size": [
+        255,
+        251
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/sql.png": {
+      "bytes": 13590,
+      "size": [
+        282,
+        279
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/java.png": {
+      "bytes": 13367,
+      "size": [
+        265,
+        296
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/github_actions.png": {
+      "bytes": 12717,
+      "size": [
+        512,
+        512
+      ],
+      "mode": "P"
+    },
+    "assets/socials/linkedin.png": {
+      "bytes": 12370,
+      "size": [
+        278,
+        269
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/php.png": {
+      "bytes": 11833,
+      "size": [
+        308,
+        152
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/swift.png": {
+      "bytes": 11490,
+      "size": [
+        287,
+        256
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/github.png": {
+      "bytes": 11006,
+      "size": [
+        275,
+        265
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/azure.png": {
+      "bytes": 11005,
+      "size": [
+        325,
+        228
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/js.png": {
+      "bytes": 10993,
+      "size": [
+        339,
+        333
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/css.png": {
+      "bytes": 6794,
+      "size": [
+        262,
+        290
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/python.png": {
+      "bytes": 6643,
+      "size": [
+        291,
+        275
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/html.png": {
+      "bytes": 6503,
+      "size": [
+        274,
+        287
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/ts.png": {
+      "bytes": 5900,
+      "size": [
+        268,
+        261
+      ],
+      "mode": "RGBA"
+    },
+    "assets/skills/terminal.png": {
+      "bytes": 4194,
+      "size": [
+        263,
+        238
+      ],
+      "mode": "RGBA"
+    }
+  },
+  "glbs": {
+    "assets/homelab/models/thinkpad-t16-gen2.glb": {
+      "nodes": 42,
+      "meshes": 41,
+      "materials": 20,
+      "textures": 7,
+      "images": [
+        {
+          "name": "screen.png",
+          "mime": "image/png",
+          "size": [
+            1920,
+            1200
+          ],
+          "bytes": 2775253
+        },
+        {
+          "name": "key-legends.png",
+          "mime": "image/png",
+          "size": [
+            2048,
+            1024
+          ],
+          "bytes": 67626
+        },
+        {
+          "name": "speaker-grille.png",
+          "mime": "image/png",
+          "size": [
+            1536,
+            64
+          ],
+          "bytes": 1094
+        },
+        {
+          "name": "underside.png",
+          "mime": "image/png",
+          "size": [
+            1882,
+            1329
+          ],
+          "bytes": 13520
+        },
+        {
+          "name": "underside-normal.png",
+          "mime": "image/png",
+          "size": [
+            1882,
+            1329
+          ],
+          "bytes": 11572
+        },
+        {
+          "name": "thinkpad-decal.png",
+          "mime": "image/png",
+          "size": [
+            1024,
+            220
+          ],
+          "bytes": 27005
+        },
+        {
+          "name": "lenovo-decal.png",
+          "mime": "image/png",
+          "size": [
+            120,
+            500
+          ],
+          "bytes": 6799
+        }
+      ],
+      "accessors": 170,
+      "triangles": 28510,
+      "vertices": 26048,
+      "asset": {
+        "version": "2.0",
+        "generator": "Parametric reference reconstruction: ThinkPad T16 Gen 2 Intel 21HH001MUS",
+        "extras": {
+          "accuracy": "Verified closed envelope; other dimensions explicitly marked as photo estimates in measurements.json",
+          "machine_type": "21HH",
+          "mtm": "21HH001MUS",
+          "pose_open_degrees": 107.5,
+          "units": "metres"
+        }
+      },
+      "extensionsUsed": [],
+      "unusedMaterials": [],
+      "metadataBytes": 206
+    },
+    "assets/homelab/models/raspberry-pi-4.glb": {
+      "nodes": 22,
+      "meshes": 21,
+      "materials": 22,
+      "textures": 4,
+      "images": [
+        {
+          "name": "hat-top.png",
+          "mime": "image/png",
+          "size": [
+            1024,
+            1024
+          ],
+          "bytes": 95995
+        },
+        {
+          "name": "pi-top.png",
+          "mime": "image/png",
+          "size": [
+            1024,
+            1024
+          ],
+          "bytes": 80090
+        },
+        {
+          "name": "powder-coat-normal.png",
+          "mime": "image/png",
+          "size": [
+            256,
+            256
+          ],
+          "bytes": 148046
+        },
+        {
+          "name": "oled.png",
+          "mime": "image/png",
+          "size": [
+            512,
+            128
+          ],
+          "bytes": 2765
+        }
+      ],
+      "accessors": 165,
+      "triangles": 41610,
+      "vertices": 47126,
+      "asset": {
+        "version": "2.0",
+        "generator": "Photo-guided CadQuery reconstruction; Tim's Raspberry Pi assembly",
+        "extras": {
+          "units": "metres",
+          "source": "20 user photographs, IMG_4181 to IMG_4200",
+          "accuracy": "Visual reconstruction; case and vertical measurements estimated."
+        }
+      },
+      "extensionsUsed": [],
+      "unusedMaterials": [],
+      "metadataBytes": 130
+    }
+  }
+}
