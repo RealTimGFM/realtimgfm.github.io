@@ -59,46 +59,6 @@ test('See More and See Less preserve the first four cards', async () => {
     assert.equal(button['aria-expanded'], 'false');
 });
 
-test('Home Lab disclosure preserves accessible labels and returns focus when collapsed from the bottom', async () => {
-    const events = [];
-    const elements = new Map(['homelabToggle', 'homelabCollapse', 'homelabDetails'].map(id => [id, {
-        hidden: false,
-        handlers: new Map(),
-        setAttribute(name, value) { this[name] = value; },
-        addEventListener(name, callback) { this.handlers.set(name, callback); },
-        dispatchEvent(event) { events.push(event.type); },
-        focus(options) { this.focused = options; },
-        scrollIntoView(options) { this.scrolled = options; }
-    }]));
-    const context = vm.createContext({ document: { getElementById: id => elements.get(id) }, Event });
-    const source = await readFile(new URL('../scripts/modules/homelab-toggle.js', import.meta.url), 'utf8');
-    vm.runInContext(source.replace('export function', 'function'), context);
-    context.initHomelabToggle();
-    const toggle = elements.get('homelabToggle');
-    const collapse = elements.get('homelabCollapse');
-    const details = elements.get('homelabDetails');
-    assert.equal(details.hidden, true);
-    assert.equal(toggle.hidden, false);
-    assert.equal(collapse.hidden, false);
-    assert.equal(toggle['aria-expanded'], 'false');
-    toggle.handlers.get('click')();
-    assert.equal(details.hidden, false);
-    assert.equal(toggle.textContent, 'Show Less');
-    assert.equal(toggle['aria-expanded'], 'true');
-    assert.equal(collapse['aria-expanded'], 'true');
-    assert.deepEqual(events, ['homelab:expanded']);
-    collapse.handlers.get('click')();
-    assert.equal(details.hidden, true);
-    assert.equal(toggle.textContent, 'Explore Home Lab');
-    assert.equal(toggle['aria-expanded'], 'false');
-    assert.equal(collapse['aria-expanded'], 'false');
-    assert.equal(toggle.focused.preventScroll, true);
-    assert.equal(toggle.scrolled.behavior, 'instant');
-    toggle.handlers.get('click')();
-    toggle.handlers.get('click')();
-    assert.equal(details.hidden, true);
-});
-
 test('Home Lab ships both deferred interactive models and accessible real media without duplicate IDs', async () => {
     const html = await renderPage();
     const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);

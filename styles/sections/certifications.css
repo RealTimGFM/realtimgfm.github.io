@@ -1,46 +1,36 @@
-#certifications .cert-card {
-    background: var(--surface);
+#certifications {
+    padding-top: 56px;
+    padding-bottom: 0;
+}
+
+#certifications h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.cert-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 18px;
-    padding: 22px;
-}
-
-.cert-copy {
-    display: grid;
-    gap: 6px;
-}
-
-.cert-copy h4,
-.cert-copy p {
-    margin: 0;
+    gap: 20px;
+    padding-block: 24px;
+    border-top: 1px solid var(--rule);
+    border-radius: 0;
 }
 
 .cert-copy h4 {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 1.17em;
+    font-size: 19px;
+    margin-bottom: 6px;
+    font-weight: 600;
 }
 
 .cert-copy p {
     color: var(--muted);
-}
-
-.cert-copy .actions {
-    margin-top: 8px;
+    margin: 0;
 }
 
 .cert-badge {
-    flex: 0 0 auto;
-    padding: 10px 14px;
-    border: 3px solid var(--paper);
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--yellow), white 10%);
-    color: #0b0e12;
-    font: 800 12px/1 Manrope, sans-serif;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    color: var(--muted);
+    font-size: 18px;
+    letter-spacing: 0.05em;
 }
-
-
-

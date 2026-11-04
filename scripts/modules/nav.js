@@ -1,68 +1,28 @@
-const compactQuery = window.matchMedia('(max-width: 768px)');
-
-function isCompactLayout() {
-    return compactQuery.matches;
-}
+const compactQuery = window.matchMedia('(max-width: 1000px)');
 
 export function initNav() {
-    const navToggle = document.getElementById('navToggle');
-    const menuEl = document.getElementById('menu');
-    const headerEl = document.querySelector('.header');
-    const contactItem = document.querySelector('.menu .has-sub');
-
-    if (!navToggle || !menuEl) return;
-
-    const setMenuOpen = (open) => {
-        menuEl.classList.toggle('open', open);
-        navToggle.setAttribute('aria-expanded', String(open));
-        headerEl?.classList.toggle('menu-open', open);
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('menu');
+    const header = document.querySelector('.header');
+    if (!toggle || !menu || !header) return;
+    document.documentElement.classList.add('nav-ready');
+    toggle.hidden = false;
+    const setOpen = (open) => {
+        menu.classList.toggle('open', open);
+        header.classList.toggle('menu-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
     };
-
-    navToggle.addEventListener('click', () => {
-        setMenuOpen(!menuEl.classList.contains('open'));
+    toggle.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+    menu.addEventListener('click', event => {
+        if (event.target.closest('a') && compactQuery.matches) setOpen(false);
     });
-
-    menuEl.addEventListener('click', (event) => {
-        const link = event.target.closest('a');
-        if (link && isCompactLayout()) {
-            setMenuOpen(false);
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && menu.classList.contains('open')) {
+            setOpen(false);
+            toggle.focus();
         }
     });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            setMenuOpen(false);
-        }
-    });
-
-    if (contactItem) {
-        const trigger = contactItem.querySelector('a[href="#contact"]');
-        const setExpanded = (open) => trigger?.setAttribute('aria-expanded', String(open));
-
-        contactItem.addEventListener('mouseenter', () => {
-            if (!isCompactLayout()) setExpanded(true);
-        });
-        contactItem.addEventListener('mouseleave', () => setExpanded(false));
-        contactItem.addEventListener('focusin', () => setExpanded(true));
-        contactItem.addEventListener('focusout', () => {
-            window.requestAnimationFrame(() => {
-                if (!contactItem.contains(document.activeElement)) setExpanded(false);
-            });
-        });
-    }
-
-    const handleCompactChange = () => {
-        if (!isCompactLayout()) {
-            setMenuOpen(false);
-        }
-    };
-
-    if (typeof compactQuery.addEventListener === 'function') {
-        compactQuery.addEventListener('change', handleCompactChange);
-    } else if (typeof compactQuery.addListener === 'function') {
-        compactQuery.addListener(handleCompactChange);
-    }
+    const onResize = () => { if (!compactQuery.matches) setOpen(false); };
+    if (compactQuery.addEventListener) compactQuery.addEventListener('change', onResize);
+    else compactQuery.addListener(onResize);
 }
-
-
-

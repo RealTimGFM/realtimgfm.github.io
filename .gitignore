@@ -7,3 +7,8 @@ dist/
 build/
 coverage/
 _site/
+.impeccable
+PROVENANCE.md
+DESIGN.md
+PRODUCT.md
+assets/me.webp.json

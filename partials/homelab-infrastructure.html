@@ -1,0 +1,65 @@
+<section class="homelab-part" aria-labelledby="homelab-specifications">
+    <h4 id="homelab-specifications">Hardware &amp; workload register.</h4>
+    <dl class="lab-register">
+        <div><dt>Debian hardware</dt><dd>Lenovo ThinkPad T16 Gen 2 — identified in the existing lab record.</dd></div>
+        <div><dt>Operating system</dt><dd>Debian 12 — existing server configuration.</dd></div>
+        <div><dt>Network hardware</dt><dd>Raspberry Pi 4 — dedicated local DNS and Pi-hole filtering.</dd></div>
+        <div><dt>Reported server resources</dt><dd>13th Gen Intel Core i7, approximately 16 GB RAM and a 512 GB SSD. Owner-reported; these specifications have not yet been matched to the pictured ThinkPad.</dd></div>
+        <div><dt>Deployed / configured</dt><dd>Nextcloud with Docker Compose; private access through Tailscale Serve.</dd></div>
+        <div><dt>Services &amp; administration</dt><dd>Prominence II / Minecraft, playit.gg, htop, Pi-hole, and SSH administration.</dd></div>
+        </dl>
+</section>
+
+<section class="homelab-part" aria-labelledby="homelab-nextcloud">
+    <h4 id="homelab-nextcloud">Nextcloud with Docker Compose.</h4>
+    <p class="homelab-description">I used Docker Compose to host Nextcloud with separate application, database, and cron containers. Compose keeps the related service definitions together, making their dependencies and administration easier to understand.</p>
+    <figure class="lab-diagram" aria-labelledby="lab-containers-caption">
+        <div class="lab-flow-root"><strong>Debian Docker host</strong><span>Runs the container runtime</span></div>
+        <svg class="lab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18m-6-6 6 6 6-6"/></svg>
+        <div class="lab-flow-root"><strong>Docker Compose</strong><span>Coordinates application, database &amp; cron services</span></div>
+        <svg class="lab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18m-6-6 6 6 6-6"/></svg>
+        <dl class="lab-container-services">
+            <div><dt>Nextcloud application</dt><dd>Serves the web interface and file requests; reads and writes database records and file storage.</dd></div>
+            <div><dt>Database</dt><dd>Stores application metadata in a separate service, keeping database responsibilities apart from the web process.</dd></div>
+            <div><dt>Cron</dt><dd>Runs Nextcloud background jobs independently of visits to the web interface; needs access to the relevant application configuration and data.</dd></div>
+        </dl>
+        <p class="lab-storage-path"><strong>Application / cron → database &amp; persistent storage</strong><br>Database records and application files need persistence beyond a container's lifecycle.</p>
+        <figcaption id="lab-containers-caption">Conceptual container relationships. Application and cron use shared application resources; the database owns its separate data. Mount paths, volume types, database engine, and image versions are not published.</figcaption>
+    </figure>
+    <dl class="lab-register">
+        <div><dt>Persistence</dt><dd>Volumes or host bind mounts keep data outside a disposable container layer. Recreating a container can retain mounted data; deleting that storage can still lose it.</dd></div>
+        <div><dt>Administration &amp; restart</dt><dd>SSH is the documented administration route. Compose supports service inspection, logs, and explicit restarts.</dd></div>
+    </dl>
+    <p class="lab-reference">Background-job role: <a href="https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/background_jobs_configuration.html" target="_blank" rel="noopener noreferrer">Nextcloud administration documentation</a>.</p>
+</section>
+
+<section class="homelab-part" aria-labelledby="homelab-private-access">
+    <h4 id="homelab-private-access">Private Access &amp; Network Security.</h4>
+    <p class="homelab-description">Tailscale provides private connectivity between authorized devices in a tailnet. I configured Tailscale Serve to offer HTTPS access to Nextcloud and forward requests to a local loopback service on port 8080. This avoids adding a public Nextcloud endpoint just to reach files remotely.</p>
+    <figure class="lab-diagram" aria-labelledby="lab-network-caption">
+        <div class="lab-trust-zone">
+            <h5>Private tailnet path</h5>
+            <ol class="lab-access-flow">
+                <li><strong>Authorized remote device</strong><span>Connects through Tailscale</span><svg class="lab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18m-6-6 6 6 6-6"/></svg></li>
+                <li><strong>Debian server</strong><span>Receives permitted tailnet connections</span><svg class="lab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18m-6-6 6 6 6-6"/></svg></li>
+                <li><strong>Tailscale Serve</strong><span>HTTPS → local loopback service, port 8080</span><svg class="lab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18m-6-6 6 6 6-6"/></svg></li>
+                <li><strong>Nextcloud application</strong><span>Authenticates requests and accesses its data</span><svg class="lab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18m-6-6 6 6 6-6"/></svg></li>
+                <li><strong>Database / persistent storage</strong><span>Application metadata and file data</span></li>
+            </ol>
+            <p><strong>Separate administration route:</strong> authorized remote device → tailnet connection → SSH on Debian. SSH authentication and server access controls still apply; using Tailscale does not imply that Tailscale SSH is enabled.</p>
+        </div>
+        <div class="lab-trust-zone">
+            <h5>Public application path</h5>
+            <p>External Minecraft player → playit.gg tunnel → Prominence II server on Debian.</p>
+            <p>This documented game-service path is separate from private Nextcloud and administrative access. No tunnel endpoint is shown.</p>
+        </div>
+        <div class="lab-trust-zone">
+            <h5>Local network DNS</h5>
+            <p>Configured home-network clients → Raspberry Pi 4 → Pi-hole DNS / filtering.</p>
+            <p>The Pi's local role does not imply that it resolves or filters every tailnet device's traffic.</p>
+        </div>
+        <figcaption id="lab-network-caption">Conceptual trust boundaries and request directions, with no device identifiers, addresses, or real endpoints. Private access and public game access serve different audiences.</figcaption>
+    </figure>
+    <p class="homelab-description">Reducing public exposure narrows the reachable service surface, but it does not secure the whole server. Tailnet authorization, Nextcloud and SSH authentication, system updates, service configuration, and device security remain necessary. Private networking also makes access dependent on authorized, connected devices.</p>
+    <p class="lab-reference">Private HTTPS forwarding: <a href="https://tailscale.com/docs/features/tailscale-serve" target="_blank" rel="noopener noreferrer">Tailscale Serve documentation</a>.</p>
+</section>

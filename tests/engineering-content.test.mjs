@@ -1,0 +1,80 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import test from 'node:test';
+import { build, renderPage } from '../scripts/build.mjs';
+
+const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8');
+
+test('experience is ordered by backend relevance with all original dates and locations', async () => {
+    const html = await read('partials/experience-records.html');
+    assert.deepEqual([...html.matchAll(/<article class="featured-record" aria-labelledby="([^"]+)"/g)].map(m => m[1]),
+        ['workplace-machine-builder', 'workplace-activists', 'workplace-dart']);
+    for (const date of ['June 2023 – July 2026 · Montreal', 'May 2026 – July 2026 · Montreal', 'July 2026 – Present · Montreal']) assert.ok(html.includes(date));
+    assert.match(html, /thousands of financial transactions/);
+    assert.equal([...html.matchAll(/<div class="xp-details">/g)].length, 3);
+    assert.match(html, /Owner review: confirm/);
+});
+
+test('project overviews and direct evidence remain without engineering case-study disclosures', async () => {
+    const html = await renderPage();
+    assert.doesNotMatch(html, /class="project-case-study"|class="case-study-register"|engineering case study/i);
+    for (const slug of ['fincore', 'forexalert', 'pomodoroyt', 'schedule-booker']) {
+        assert.ok(html.includes('id="project-' + slug + '"'));
+    }
+    assert.match(html, /href="https:\/\/github.com\/RealTimGFM\/FinCore"/);
+    assert.match(html, /href="https:\/\/github.com\/RealTimGFM\/ForexAlert"/);
+    const projects = html.slice(html.indexOf('<section id="projects"'), html.indexOf('<section id="homelab"'));
+    assert.doesNotMatch(projects, />Account tests<|>Transaction tests<|>Connection tests<|>Notification tests<|>Architecture README<|Demo \(availability unverified\)|[Dd]emo availability is unverified/);
+    assert.match(projects, /href="https:\/\/schedulebooker-web.onrender.com"[\s\S]*?>Demo<\/a>/);
+    assert.doesNotMatch(html, /unverified|independently confirmed running|No live operational check/i);
+    assert.equal([...html.matchAll(/class="badge project-status"/g)].length, 11);
+});
+
+test('all fragment links and accessibility references resolve without duplicate IDs', async () => {
+    const html = await renderPage();
+    const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(m => m[1]);
+    const known = new Set(ids);
+    assert.equal(ids.length, known.size);
+    for (const [, fragment] of html.matchAll(/href="#([^"]+)"/g)) assert.ok(known.has(fragment), 'Missing anchor: ' + fragment);
+    for (const [, values] of html.matchAll(/(?:aria-labelledby|aria-describedby|aria-controls)="([^"]+)"/g)) {
+        for (const id of values.split(/\s+/)) assert.ok(known.has(id), 'Missing accessibility target: ' + id);
+    }
+});
+
+test('essential content is in static HTML and both diagrams carry explanations', async () => {
+    const html = await renderPage();
+    assert.match(html, /<div id="homelabDetails">/);
+    assert.equal([...html.matchAll(/<div class="xp-details">/g)].length, 3);
+    assert.equal([...html.matchAll(/<div class="card sticker-sm" data-stagger/g)].length, 11);
+    assert.doesNotMatch(html, /<div class="card sticker-sm"[^>]* hidden/);
+    for (const id of ['lab-containers-caption', 'lab-network-caption']) assert.ok(html.includes('id="' + id + '"'));
+    for (const text of ['Docker Compose', 'Nextcloud application', 'Cron', 'Tailscale Serve', 'Public application path', 'Local network DNS', 'Owner-reported']) assert.ok(html.toLowerCase().includes(text.toLowerCase()));
+    assert.match(html, /<noscript>[\s\S]*?LinkedIn/);
+});
+
+test('canonical, social preview, and Person data agree with the public identity', async () => {
+    const html = await renderPage();
+    assert.equal([...html.matchAll(/rel="canonical"/g)].length, 1);
+    assert.match(html, /rel="canonical" href="https:\/\/realtimgfm.github.io\/"/);
+    for (const field of ['og:title', 'og:description', 'og:url', 'og:type', 'og:image', 'og:image:alt', 'twitter:card', 'twitter:image', 'twitter:image:alt']) assert.ok(html.includes('"' + field + '"'));
+    assert.equal([...html.matchAll(/content="https:\/\/realtimgfm.github.io\/assets\/social-preview.png"/g)].length, 2);
+    const profile = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+    assert.equal(profile.name, 'Tim Vu');
+    assert.equal(profile['@type'], 'Person');
+    assert.equal(profile.url, 'https://realtimgfm.github.io/');
+    assert.equal(profile.sameAs.length, 2);
+    const png = await readFile(new URL('../assets/social-preview.png', import.meta.url));
+    assert.equal(png.subarray(1, 4).toString(), 'PNG');
+    assert.equal(png.readUInt32BE(16), 1200);
+    assert.equal(png.readUInt32BE(20), 630);
+});
+
+test('generated page matches its sources and Pages includes social and existing assets', async () => {
+    const expected = '<!-- Generated by npm run build. Edit index.template.html and partials/. -->\n' + await renderPage();
+    assert.equal((await read('index.html')).replace(/\r\n/g, '\n'), expected);
+    await build({ pages: true });
+    assert.equal(await read('_site/index.html'), expected);
+    for (const path of ['assets/social-preview.png', 'assets/QuyVuLuong_CV.pdf', 'assets/ITEssentialCisco.pdf', 'assets/homelab/models/thinkpad-t16-gen2.glb', 'assets/homelab/models/raspberry-pi-4.glb', 'scripts/services.js']) {
+        assert.deepEqual(await readFile(new URL('../_site/' + path, import.meta.url)), await readFile(new URL('../' + path, import.meta.url)));
+    }
+});

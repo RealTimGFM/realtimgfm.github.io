@@ -38,7 +38,7 @@ export async function build({ pages = false, check = false } = {}) {
         const site = resolve(root, '_site');
         await mkdir(site, { recursive: true });
         await writeFile(resolve(site, 'index.html'), html);
-        for (const entry of ['assets', 'styles', 'scripts/main.js', 'scripts/modules']) {
+        for (const entry of ['assets', 'styles', 'scripts/main.js', 'scripts/services.js', 'scripts/modules']) {
             const destination = resolve(site, entry);
             await mkdir(dirname(destination), { recursive: true });
             await cp(resolve(root, entry), destination, { recursive: true });

@@ -1,17 +1,9 @@
 <section id="projects" class="wrap section observe">
-    <h2>Featured Projects</h2>
+    <h2>Projects</h2>
     <div id="projectsGrid" class="grid projects-grid">
-        <div class="card sticker-sm" data-stagger>
-            <h3>FinCore</h3>
-            <div class="badges">
-                <span class="badge">In Development</span>
-            </div>
-            <p><strong>Problem:</strong> Keeping financial account balances and lifecycle changes consistent.</p>
-            <p><strong>Built:</strong> A .NET API for account creation, renaming, closing and reopening,
-                with transaction and balance behavior.</p>
-            <p><strong>Engineering:</strong> Separated Domain, Application, Infrastructure and API layers;
-                account rules record status history and reject transactions on closed accounts.</p>
-            <p><strong>Status:</strong> Backend in development, with account and transaction tests in the repository.</p>
+        <div class="card sticker-sm" data-stagger id="project-fincore">
+            <div class="project-identity"><h3>FinCore</h3><div class="badges"><span class="badge project-status">In Development</span></div></div>
+            <div class="project-description"><p>Account changes and transactions share domain rules, keeping lifecycle state and balances consistent as the API grows.</p><p><strong>Status:</strong> Backend in development. Account lifecycle and transaction behavior are implemented; classification, forecasting, and portfolio management remain future scope.</p>
             <div class="tags" aria-label="Tech stack">
                 <span class="tag">C#</span>
                 <span class="tag">ASP.NET Core</span>
@@ -21,17 +13,12 @@
             </div>
             <div class="actions">
                 <a class="btn" href="https://github.com/RealTimGFM/FinCore" target="_blank" rel="noopener">GitHub</a>
-            </div>
+            </div></div>
         </div>
 
-        <div class="card sticker-sm" data-stagger>
-            <h3>ForexAlert</h3>
-            <p><strong>Problem:</strong> Following currency movements without watching prices continuously.</p>
-            <p><strong>Built:</strong> An IBKR market-data monitor that evaluates movement thresholds and delivers
-                alerts through Twilio SMS or a local file.</p>
-            <p><strong>Engineering:</strong> Reconnects with backoff, clears stale state after disconnects, and
-                persists cooldowns and alert fingerprints to limit repeated notifications.</p>
-            <p><strong>Result:</strong> An alert-only monitor with offline tests for connection and notification behavior.</p>
+        <div class="card sticker-sm" data-stagger id="project-forexalert">
+            <div class="project-identity"><h3>ForexAlert</h3><div class="badges"><span class="badge project-status">Implemented</span></div></div>
+            <div class="project-description"><p>An alert-only currency monitor handles interrupted market-data connections and limits duplicate notifications with persisted delivery state.</p><p><strong>Status:</strong> Alert monitor implemented. It does not place trades or execute orders.</p>
             <div class="tags" aria-label="Tech stack">
                 <span class="tag">C#</span>
                 <span class="tag">.NET</span>
@@ -41,17 +28,12 @@
             </div>
             <div class="actions">
                 <a class="btn" href="https://github.com/RealTimGFM/ForexAlert" target="_blank" rel="noopener">GitHub</a>
-            </div>
+            </div></div>
         </div>
 
-        <div class="card sticker-sm" data-stagger>
-            <h3>PomodoroYT</h3>
-            <p><strong>Problem:</strong> Switching between a focus timer and YouTube interrupts a work session.</p>
-            <p><strong>Built:</strong> A Chrome extension that controls YouTube playback, mutes ads, and keeps focus
-                and break sessions in sync.</p>
-            <p><strong>Engineering:</strong> Built with TypeScript and Chrome APIs, with configurable timers, themes,
-                tasks, notifications, and saved settings.</p>
-            <p><strong>Result:</strong> A customizable focus tool that combines Pomodoro sessions and YouTube in one workflow.</p>
+        <div class="card sticker-sm" data-stagger id="project-pomodoroyt">
+            <div class="project-identity"><h3>PomodoroYT</h3><div class="badges"><span class="badge project-status">Published Extension</span></div></div>
+            <div class="project-description"><p>Focus and break sessions coordinate YouTube playback in a Chrome extension, with ad muting and saved preferences.</p><p><strong>Status:</strong> Published in the Chrome Web Store. This YouTube extension is separate from the separately linked SoundCloud web timer.</p>
             <div class="tags" aria-label="Tech stack">
                 <span class="tag">TypeScript</span>
                 <span class="tag">Chrome Extension</span>
@@ -66,20 +48,12 @@
                     rel="noopener">Web Timer (SoundCloud)</a>
                 <a class="btn" href="https://github.com/RealTimGFM/Pomodoro" target="_blank"
                     rel="noopener">Web Timer Source</a>
-            </div>
+            </div></div>
         </div>
 
-        <div class="card sticker-sm" data-stagger>
-            <h3>Schedule Booker</h3>
-            <div class="badges">
-                <span class="badge"><span class="dot"></span>Web app</span>
-                <span class="badge"><span class="dot"></span>Render</span>
-            </div>
-            <p><strong>Problem:</strong> Managing appointments and availability for a multilingual barbershop.</p>
-            <p><strong>Built:</strong> Guest and customer booking, appointment cancellation, and admin calendars.</p>
-            <p><strong>Engineering:</strong> Revalidates availability and assigns an available barber inside one
-                locked database transaction to prevent conflicting bookings.</p>
-            <p><strong>Status:</strong> Core booking flows implemented, with SQLite and PostgreSQL integration tests.</p>
+        <div class="card sticker-sm" data-stagger id="project-schedule-booker">
+            <div class="project-identity"><h3>Schedule Booker</h3><div class="badges"><span class="badge project-status">Implemented</span></div><p class="muted">Web app · Render</p></div>
+            <div class="project-description"><p>Booking requests recheck availability inside a locked database transaction before committing an appointment.</p><p><strong>Status:</strong> Core booking flows implemented. Demo hosted on Render.</p>
             <div class="tags" aria-label="Tech stack">
                 <span class="tag">Python</span>
                 <span class="tag">Flask</span>
@@ -91,20 +65,19 @@
             </div>
             <div class="actions">
                 <a class="btn primary" href="https://schedulebooker-web.onrender.com" target="_blank"
-                    rel="noopener">Live Demo</a>
-            </div>
+                    rel="noopener">Demo</a>
+            </div></div>
         </div>
 
         <div class="card sticker-sm" data-stagger>
-            <h3>AI Facial Authentication</h3>
+            <div class="project-identity"><h3>AI Facial Authentication</h3><div class="badges"><span class="badge project-status">Implemented</span></div>
 
             <div class="badges">
                 <span class="badge"><span class="dot"></span>CI-CD</span>
                 <span class="badge"><span class="dot"></span>CodeQL</span>
                 <span class="badge"><span class="dot"></span>Dependency review</span>
-            </div>
-
-            <p>Facial-recognition login flow rebuilt as a Python and Flask app to simplify hosting, testing, and
+            </div></div>
+            <div class="project-description"><p>Facial-recognition login flow rebuilt as a Python and Flask app to simplify hosting, testing, and
                 development.</p>
             <p>The original version combined JS face detection, PHP, and PhpMyAdmin before I moved it to a lighter
                 stack.</p>
@@ -119,22 +92,20 @@
             <div class="actions">
                 <a class="btn" href="https://www.linkedin.com/feed/update/urn:li:activity:7324262709003194368"
                     target="_blank" rel="noopener">LinkedIn Post</a>
-                <a class="btn primary" href="https://facerecognitionpython-vd5c.onrender.com" target="_blank" rel="noopener">Live
-                    Demo</a>
+                <a class="btn primary" href="https://facerecognitionpython-vd5c.onrender.com" target="_blank" rel="noopener">Demo</a>
                 <a class="btn" href="https://github.com/RealTimGFM/FaceRecognitionPython.git" target="_blank"
                     rel="noopener">GitHub</a>
-            </div>
+            </div></div>
         </div>
 
         <div class="card sticker-sm" data-stagger>
-            <h3>Mini ATS - Resume Scanner</h3>
+            <div class="project-identity"><h3>Mini ATS - Resume Scanner</h3><div class="badges"><span class="badge project-status">Implemented</span></div>
 
             <div class="badges">
                 <span class="badge"><span class="dot"></span>CI-CD</span>
                 <span class="badge"><span class="dot"></span>Render deploy</span>
-            </div>
-
-            <p>Upload a PDF resume, parse it into structured editable fields, and save the result back to SQLite.</p>
+            </div></div>
+            <div class="project-description"><p>Upload a PDF resume, parse it into structured editable fields, and save the result back to SQLite.</p>
             <p class="muted">
                 GitHub Actions CI runs checks; successful CI triggers an automated Render deploy hook.
             </p>
@@ -146,24 +117,21 @@
                 <span class="tag">Render</span>
             </div>
             <div class="actions">
-                <a class="btn primary" href="https://resumeparser-481l.onrender.com" target="_blank" rel="noopener">Live
-                    Demo</a>
+                <a class="btn primary" href="https://resumeparser-481l.onrender.com" target="_blank" rel="noopener">Demo</a>
                 <a class="btn" href="https://github.com/RealTimGFM/ProjectUnknown" target="_blank"
                     rel="noopener">GitHub</a>
-            </div>
+            </div></div>
         </div>
         <div class="card sticker-sm" data-stagger>
-            <h3>AI Note Search</h3>
+            <div class="project-identity"><h3>AI Note Search</h3><div class="badges"><span class="badge project-status">Implemented</span></div>
 
             <div class="badges">
                 <span class="badge"><span class="dot"></span>CI</span>
-                <span class="badge"><span class="dot"></span>Scheduled job</span>
-            </div>
-
-            <p>Flask app that categorizes and summarizes notes to make searching and reviewing faster.</p>
+                <span class="badge"><span class="dot"></span>Manual wake workflow</span>
+            </div></div>
+            <div class="project-description"><p>Streamlit app for searching notes by meaning, with category and tag filters, editing, and import/export.</p>
             <p class="muted">
-                Hosted on Streamlit Community Cloud. CI runs in GitHub Actions, plus a scheduled "wake" job to
-                keep the demo responsive.
+                The documented setup uses Streamlit Community Cloud, GitHub Actions CI, and a manually triggered wake workflow.
             </p>
 
             <div class="tags">
@@ -173,15 +141,15 @@
                 <span class="tag">GitHub Actions</span>
             </div>
             <div class="actions">
-                <a class="btn primary" href="https://smartnote.streamlit.app" target="_blank" rel="noopener">Live
-                    Demo</a>
+                <a class="btn primary" href="https://smartnote.streamlit.app" target="_blank" rel="noopener">Demo</a>
                 <a class="btn" href="https://github.com/RealTimGFM/SmartNoteSystem" target="_blank"
                     rel="noopener">GitHub</a>
-            </div>
+                <a class="btn" href="https://github.com/RealTimGFM/SmartNoteSystem/blob/main/README.md" target="_blank" rel="noopener noreferrer">Search architecture</a>
+            </div></div>
         </div>
         <div class="card sticker-sm" data-stagger>
-            <h3>Simple Stock Trading (Jakarta EE)</h3>
-            <p>Servlet/JSP app that loads 8 stock CSVs into H2 and lets users log in, view prices, and trade.</p>
+            <div class="project-identity"><h3>Simple Stock Trading (Jakarta EE)</h3><div class="badges"><span class="badge project-status">Implemented</span></div></div>
+            <div class="project-description"><p>Servlet/JSP app that loads 8 stock CSVs into H2 and lets users log in, view prices, and trade.</p>
             <div class="tags">
                 <span class="tag">Java</span>
                 <span class="tag">Jakarta EE</span>
@@ -192,12 +160,12 @@
             <div class="actions">
                 <a class="btn" href="https://github.com/RealTimGFM/PrjSimpleTrading" target="_blank"
                     rel="noopener">GitHub</a>
-            </div>
+            </div></div>
         </div>
 
         <div class="card sticker-sm" data-stagger>
-            <h3>Bank ATM (C# - First Project)</h3>
-            <p>Console ATM simulator with login, deposit/withdraw, and balance checks.</p>
+            <div class="project-identity"><h3>Bank ATM (C# - First Project)</h3><div class="badges"><span class="badge project-status">Implemented</span></div></div>
+            <div class="project-description"><p>Console ATM simulator with login, deposit/withdraw, and balance checks.</p>
             <div class="tags">
                 <span class="tag">C#</span>
                 <span class="tag">.NET</span>
@@ -205,16 +173,16 @@
             <div class="actions">
                 <a class="btn" href="https://github.com/RealTimGFM/Winter2024_PrjBankATM" target="_blank"
                     rel="noopener">GitHub</a>
-            </div>
+            </div></div>
         </div>
 
         <div class="card sticker-sm" data-stagger>
-            <h3>Water Reminder</h3>
+            <div class="project-identity"><h3>Water Reminder</h3><div class="badges"><span class="badge project-status">Implemented</span></div>
 
             <div class="badges">
                 <span class="badge"><span class="dot"></span>GitHub Pages</span>
-            </div>
-            <p>
+            </div></div>
+            <div class="project-description"><p>
                 Lightweight daily water-intake tracker with progress, goals, and local storage. This project was built
                 for a friend, for fun.
             </p>
@@ -227,22 +195,21 @@
             </div>
             <div class="actions">
                 <a class="btn primary" href="https://realtimgfm.github.io/WaterReminder" target="_blank"
-                    rel="noopener">Live Demo</a>
+                    rel="noopener">Demo</a>
                 <a class="btn" href="https://github.com/RealTimGFM/WaterReminder" target="_blank"
                     rel="noopener">GitHub</a>
-            </div>
+            </div></div>
         </div>
 
         <div class="card sticker-sm" data-stagger>
-            <h3>Personal Website</h3>
+            <div class="project-identity"><h3>Personal Website</h3><div class="badges"><span class="badge project-status">Implemented</span></div>
 
             <div class="badges">
                 <span class="badge"><span class="dot"></span>CI-CD</span>
                 <span class="badge"><span class="dot"></span>GitHub Pages</span>
                 <span class="badge"><span class="dot"></span>Link checks</span>
-            </div>
-
-            <p>Personal website with user analytics, scroll progress, contact form, and view count.</p>
+            </div></div>
+            <div class="project-description"><p>Personal website with user analytics, scroll progress, contact form, and view count.</p>
             <p class="muted">
                 GitHub Actions deploys to GitHub Pages on push, plus weekly automated link checking.
             </p>
@@ -257,10 +224,10 @@
                 <span class="tag">EmailJS</span>
             </div>
             <div class="actions">
-                <a class="btn primary" href="https://realtimgfm.github.io" target="_blank" rel="noopener">Live Demo</a>
+                <a class="btn primary" href="https://realtimgfm.github.io" target="_blank" rel="noopener">Demo</a>
                 <a class="btn" href="https://github.com/RealTimGFM/realtimgfm.github.io" target="_blank"
                     rel="noopener">GitHub</a>
-            </div>
+            </div></div>
         </div>
     </div>
 

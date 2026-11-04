@@ -8,40 +8,19 @@ function initTheme() {
     const root = document.documentElement;
     const themeBtn = document.getElementById('themeToggle');
     if (!themeBtn) return;
-
-    const detectInitialTheme = () => {
-        const saved = localStorage.getItem('theme');
-        if (saved === 'light' || saved === 'dark') return saved;
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    };
-
+    let initial = 'light';
+    try { if (localStorage.getItem('theme') === 'dark') initial = 'dark'; } catch { /* Storage is optional. */ }
     const applyTheme = (mode) => {
         root.setAttribute('data-theme', mode);
-        themeBtn.textContent = mode === 'dark' ? 'Dark' : 'Light';
+        themeBtn.setAttribute('aria-label', mode === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
         themeBtn.setAttribute('aria-pressed', String(mode === 'dark'));
     };
-
     themeBtn.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme') || detectInitialTheme();
-        const next = current === 'dark' ? 'light' : 'dark';
-        localStorage.setItem('theme', next);
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         applyTheme(next);
+        try { localStorage.setItem('theme', next); } catch { /* The theme still works without persistence. */ }
     });
-
-    const colorSchemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleSchemeChange = (event) => {
-        if (!localStorage.getItem('theme')) {
-            applyTheme(event.matches ? 'dark' : 'light');
-        }
-    };
-
-    if (typeof colorSchemeQuery.addEventListener === 'function') {
-        colorSchemeQuery.addEventListener('change', handleSchemeChange);
-    } else if (typeof colorSchemeQuery.addListener === 'function') {
-        colorSchemeQuery.addListener(handleSchemeChange);
-    }
-
-    applyTheme(detectInitialTheme());
+    applyTheme(initial);
 }
 
 function initContactForm() {
@@ -55,7 +34,6 @@ function initContactForm() {
     const EMAILJS_TEMPLATE_ID = 'template_8e39ouv';
     const EMAILJS_PUBLIC_KEY = 'MBOb696Mp80gE40Rf';
 
-    let firstInteractionAt = null;
     let sending = false;
     const button = form.querySelector('button[type="submit"]');
     const showStatus = (message, state = 'error') => {
@@ -63,10 +41,23 @@ function initContactForm() {
         status.textContent = message;
     };
 
-    form.addEventListener('input', () => {
-        if (!sending && firstInteractionAt === null) firstInteractionAt = Date.now();
+    const fieldIds = { name: 'name', email: 'email', message: 'msg' };
+    const setFieldError = (name, message = '') => {
+        const field = form.elements.namedItem(name);
+        const error = document.getElementById(fieldIds[name] + '-error');
+        if (message) field?.setAttribute('aria-invalid', 'true');
+        else field?.removeAttribute('aria-invalid');
+        if (error) {
+            error.textContent = message;
+            error.hidden = !message;
+        }
+    };
+    form.addEventListener('input', (event) => {
+        if (Object.hasOwn(fieldIds, event.target?.name)) setFieldError(event.target.name);
     });
-    form.addEventListener('reset', () => { firstInteractionAt = null; });
+    form.addEventListener('reset', () => {
+        for (const name of Object.keys(fieldIds)) setFieldError(name);
+    });
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -86,26 +77,26 @@ function initContactForm() {
             return;
         }
 
-        if (!name || !email || !message) {
-            showStatus('Please fill in all fields.');
+        for (const field of Object.keys(fieldIds)) setFieldError(field);
+        const missing = Object.entries({ name, email, message }).filter(([, value]) => !value);
+        if (missing.length) {
+            for (const [field] of missing) setFieldError(field, 'Please enter your ' + field + '.');
+            showStatus('Please fill in all required fields.');
+            form.elements.namedItem(missing[0][0])?.focus();
             return;
         }
 
         const emailInput = form.elements.namedItem('email');
         emailInput.value = email;
         if (!emailInput.checkValidity()) {
+            setFieldError('email', 'Enter an email address such as name@example.com.');
             showStatus('Please enter a valid email address.');
             emailInput.focus();
             return;
         }
 
-        // Autofill may not emit input; start the same waiting period on submit.
-        if (firstInteractionAt === null) firstInteractionAt = Date.now();
-        if (Date.now() - firstInteractionAt < 1200) {
-            showStatus('Please wait a moment before sending, then try again.');
-            return;
-        }
-
+        // Autofill and fast keyboard entry are legitimate. The honeypot and
+        // in-flight guard provide local protection; service limits apply remotely.
         sending = true;
         button?.setAttribute('disabled', 'true');
         button?.classList.add('is-loading');
@@ -113,7 +104,10 @@ function initContactForm() {
         showStatus('Sending your message...', 'pending');
 
         try {
-            if (!window.emailjs) throw new Error('EmailJS is unavailable.');
+            if (typeof window.emailjs?.send !== 'function' || typeof window.emailjs?.init !== 'function') {
+                showStatus('The email service has not loaded or is blocked. Your draft is still here. Try again, or message me on LinkedIn.');
+                return;
+            }
             if (!window.__emailjs_inited) {
                 window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
                 window.__emailjs_inited = true;
@@ -132,9 +126,9 @@ function initContactForm() {
             form.reset();
         } catch (error) {
             console.error(error);
-            showStatus(error?.status === 429
-                ? 'Too many messages. Please wait a minute and try again.'
-                : 'Oops, failed to send. Please try again.');
+            showStatus(Number(error?.status) === 429
+                ? 'Too many messages. Please wait a minute and try again. Your draft is saved in this form, or you can message me on LinkedIn.'
+                : 'The message failed to send. Your draft is still here. Please try again, or message me on LinkedIn.');
         } finally {
             sending = false;
             form.removeAttribute('aria-busy');
