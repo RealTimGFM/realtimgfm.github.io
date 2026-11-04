@@ -1,131 +1,111 @@
-.timeline {
-    position: relative;
-    display: grid;
-    gap: 22px;
-    padding-left: 28px;
-}
-
-.timeline::before {
-    content: "";
-    position: absolute;
-    left: 8px;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    border-radius: 999px;
-    background: var(--grad);
-}
-
-.timeline-item {
-    position: relative;
-    display: grid;
-    gap: 12px;
-    grid-template-columns: 150px 1fr;
-    align-items: start;
-    padding: 22px;
+.experience-panel {
+    padding: 0 26px 28px;
+    border-radius: 16px;
     background: var(--surface);
+    font-family: Roboto, sans-serif;
+    font-size: calc(18 * var(--u));
+    line-height: 1.35;
 }
 
-.timeline-item::before {
-    content: "";
-    position: absolute;
-    left: -28px;
-    top: 28px;
-    width: 16px;
-    height: 16px;
-    border: 4px solid var(--paper);
-    border-radius: 999px;
-    background: var(--yellow);
-    box-shadow: 0 0 0 4px var(--bg);
+.experience-panel .featured-record:first-child {
+    margin-top: 0;
+    border-top: 0;
 }
 
-.timeline-item--current {
-    position: relative;
+.record-employer, .record-contributions, .record-technologies, .record-detail-row {
+    min-width: 0;
 }
 
-.timeline-item--current::after {
-    content: "Current Role";
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    padding: 6px 10px;
-    border: 2px solid var(--paper);
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--aqua), white 10%);
-    color: #0b0e12;
-    font: 800 11px/1 Manrope, sans-serif;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+.record-brand {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 18px;
+    margin-bottom: 16px;
+    padding-right: 20px;
 }
 
-.timeline-date {
-    display: grid;
-    gap: 4px;
-    padding-top: 2px;
-}
-
-.timeline-date strong {
-    font-size: 15px;
-}
-
-.timeline-body h3,
-.timeline-body h4,
-.timeline-body p,
-.timeline-body ul {
+.record-brand h3 {
+    flex: 1 1 180px;
     margin: 0;
+    padding-top: 0;
 }
 
-.timeline-body h3 {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 24px;
-    line-height: 1.05;
+.record-company-logo {
+    flex: 0 0 auto;
+    display: block;
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
 }
 
-.timeline-body h4 {
-    color: var(--muted);
-    font-size: 15px;
-    font-weight: 700;
+.record-company-logo--dart {
+    width: 140px;
+    height: 70px;
 }
 
-.timeline-summary {
-    max-width: 68ch;
-    color: var(--muted);
+[data-theme="dark"] .record-company-logo {
+    background: #f3faff;
+    border-radius: 8px;
+    padding: 8px;
 }
 
-.xp-toggle {
-    margin-top: 4px;
+
+.record-detail-row {
+    grid-column: 2 / -1;
+    margin-top: 20px;
+    padding-left: calc(34 * var(--u));
 }
 
 .xp-details {
-    display: grid;
-    gap: 14px;
-    margin-top: 8px;
-    padding-top: 14px;
-    border-top: 1px solid var(--border-subtle);
+    margin-top: 24px;
+    max-width: 78ch;
 }
 
-.xp-details[hidden] {
-    display: none;
+.record-summary {
+    max-width: 72ch;
+    color: var(--muted);
+    margin-bottom: 20px;
 }
 
 .xp {
-    display: grid;
-    gap: 10px;
     padding-left: 20px;
-}
-
-.xp-tags {
-    display: grid;
-    gap: 10px;
-}
-
-.xp-tags h5 {
-    margin: 0;
-    font: 800 13px/1 Manrope, sans-serif;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    margin-block: 0 24px;
     color: var(--muted);
 }
 
+.xp li + li {
+    margin-top: 10px;
+}
 
+.xp-toggle::after, .homelab-toggle::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    flex: 0 0 auto;
+    margin-left: 4px;
+    border-right: 1.5px solid currentcolor;
+    border-bottom: 1.5px solid currentcolor;
+    transform: rotate(45deg);
+    transition: transform 200ms ease-in-out;
+}
 
+.xp-toggle[aria-expanded="true"]::after,
+.homelab-toggle[aria-expanded="true"]::after {
+    transform: rotate(225deg);
+}
+
+@media (width <= 1000px) {
+    .record-detail-row {
+        grid-column: 1 / -1;
+        margin-top: 0;
+        padding-left: 0;
+    }
+}
+
+@media (width <= 500px) {
+    .experience-panel {
+        padding: 0 16px 24px;
+        border-radius: 12px;
+    }
+}

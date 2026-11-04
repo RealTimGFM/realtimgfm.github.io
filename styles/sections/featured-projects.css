@@ -1,0 +1,784 @@
+.project-slide {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.project-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.project-slide-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 40px;
+    min-height: 118px;
+    margin-bottom: 28px;
+}
+
+.project-slide-header h2 {
+    font: 700 clamp(32px, 3vw, 46px)/1.12 Geist, sans-serif;
+    letter-spacing: -0.04em;
+    margin: 0;
+}
+
+.project-slide-subtitle {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.project-slide-summary {
+    margin: 8px 0 0;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 48ch;
+}
+
+.project-composition {
+    flex: 1;
+    min-width: 0;
+    min-height: 330px;
+    margin-bottom: 28px;
+}
+
+.project-composition h3 {
+    font: 650 clamp(20px, 1.7vw, 25px)/1.25 Geist, sans-serif;
+    letter-spacing: -0.03em;
+    margin: 0 0 24px;
+}
+
+.fincore-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 48px;
+}
+
+.account-operations {
+    position: relative;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.account-operations::before {
+    content: "";
+    position: absolute;
+    top: 21px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 1px;
+    background: var(--rule);
+}
+
+.account-operations li {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.operation-node {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 12px;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    background: var(--surface);
+}
+
+.operation-node .project-icon {
+    width: 21px;
+    height: 21px;
+}
+
+.account-rule {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+    border-top: 1px solid var(--rule);
+    margin-top: 28px;
+    padding-top: 24px;
+}
+
+.account-rule > .project-icon {
+    width: 30px;
+    height: 30px;
+    margin-top: 3px;
+}
+
+.account-rule strong {
+    font: 650 26px/1.2 Geist, sans-serif;
+    letter-spacing: -0.03em;
+}
+
+.account-rule p {
+    max-width: 36ch;
+    color: var(--muted);
+    margin: 12px 0 0;
+}
+
+.architecture-register {
+    margin: 0;
+}
+
+.architecture-register > div {
+    display: grid;
+    grid-template-columns: minmax(118px, 0.7fr) minmax(0, 1.3fr);
+    gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid var(--rule);
+}
+
+.architecture-register dt {
+    font-weight: 650;
+}
+
+.architecture-register dd {
+    margin: 0;
+    color: var(--muted);
+}
+
+.forex-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.forex-pipeline {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) 32px minmax(0, 1.4fr) 32px minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+}
+
+.forex-source > .project-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 12px;
+}
+
+.forex-source h3 {
+    font-size: 38px;
+    margin-bottom: 2px;
+}
+
+.forex-source p {
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+
+.pipeline-component {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.pipeline-arrow .project-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--muted);
+}
+
+.forex-evaluator {
+    padding: 24px;
+    border-radius: 12px;
+    background: var(--layer);
+}
+
+.forex-evaluator h3 {
+    font-size: clamp(24px, 2.1vw, 32px);
+    margin-bottom: 12px;
+}
+
+.forex-evaluator > p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.cooldown-check {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-top: 1px solid var(--rule);
+    margin-top: 24px;
+    padding-top: 16px;
+    font-size: 15px;
+}
+
+.forex-delivery h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.forex-delivery > div {
+    display: flex;
+    align-items: center;
+    min-height: 54px;
+    gap: 14px;
+    border-bottom: 1px solid var(--rule);
+}
+
+.forex-reliability {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    border-top: 1px solid var(--rule);
+    margin: 28px 0 0;
+    padding-top: 20px;
+}
+
+.forex-reliability dt {
+    font-weight: 650;
+}
+
+.forex-reliability dd {
+    font-size: 15px;
+    color: var(--muted);
+    margin: 4px 0 0;
+}
+
+.pomodoro-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.3fr);
+    gap: 48px;
+    align-items: center;
+}
+
+.focus-cycle {
+    margin: 0;
+    text-align: center;
+}
+
+.focus-orbit {
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 240px;
+    height: 240px;
+    margin: 0 auto;
+}
+
+.cycle-arrows {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--accent);
+}
+
+.focus-orbit strong, .focus-orbit span {
+    display: block;
+}
+
+.focus-orbit strong {
+    font: 650 38px/1.1 Geist, sans-serif;
+    letter-spacing: -0.04em;
+}
+
+.focus-orbit strong:last-child {
+    color: var(--muted);
+    font-size: 30px;
+}
+
+.focus-orbit span {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 8px 0;
+}
+
+.focus-cycle figcaption {
+    color: var(--muted);
+    margin-top: 8px;
+}
+
+.playback-panel {
+    border-radius: 12px;
+    padding: 22px 24px;
+    background: #08163f;
+    color: #e6f3ff;
+}
+
+.playback-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 14px;
+}
+
+.playback-message {
+    margin: 20px 0 24px;
+    text-align: center;
+}
+
+.playback-symbol {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 16px;
+    border: 1px solid #36516e;
+    border-radius: 50%;
+}
+
+.playback-message h3 {
+    color: inherit;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.playback-message p {
+    color: #aec9e7;
+    margin: 0;
+}
+
+.playback-features {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    border-top: 1px solid #36516e;
+    padding-top: 16px;
+    font-size: 14px;
+}
+
+.playback-features > span {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.playback-features .project-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.pomodoro-preferences {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 18px;
+}
+
+.pomodoro-preferences p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.pomodoro-preferences strong {
+    display: block;
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.booking-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 48px;
+}
+
+.booking-workflows {
+    display: grid;
+    gap: 24px;
+}
+
+.booking-role + .booking-role {
+    border-top: 1px solid var(--rule);
+    padding-top: 20px;
+}
+
+.booking-role h3 {
+    margin-bottom: 8px;
+}
+
+.booking-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.booking-steps > li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 0;
+}
+
+.booking-steps > li > span {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    background: var(--surface);
+}
+
+.booking-steps .project-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.booking-steps strong {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Keep this project's diagram readable when the carousel cannot initialize. */
+@media (scripting: none) {
+    .project-slide--schedule-booker {
+        grid-area: auto;
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        margin-top: 28px;
+        padding-top: 28px;
+        border-top: 1px solid var(--rule);
+        transition: none;
+    }
+}
+
+.booking-consistency {
+    padding: 24px;
+    border-radius: 12px;
+    background: var(--layer);
+}
+
+.booking-lock-heading {
+    display: flex;
+    gap: 16px;
+    align-items: start;
+}
+
+.booking-lock-heading > .project-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.booking-lock-heading h3 {
+    font-size: 26px;
+    margin-bottom: 16px;
+}
+
+.booking-consistency > p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.transaction-steps {
+    list-style: none;
+    margin: 18px 0 16px;
+    padding: 0;
+}
+
+.transaction-steps li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid var(--rule);
+}
+
+.transaction-steps .project-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.booking-status {
+    font-size: 14px;
+}
+
+.project-slide-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 20px;
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    margin-top: auto;
+}
+
+.project-stack, .project-proof {
+    margin: 0;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.project-proof, .project-explore {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.project-proof .project-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.project-explore {
+    min-height: 44px;
+    justify-self: end;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.project-explore .project-icon {
+    width: 19px;
+    height: 19px;
+}
+
+@media (width <= 1100px) {
+    .project-slide-header, .fincore-layout, .pomodoro-layout, .booking-layout {
+        gap: 28px;
+    }
+
+    .forex-pipeline {
+        gap: 16px;
+        grid-template-columns: minmax(0, 0.85fr) 24px minmax(0, 1.4fr) 24px minmax(0, 1fr);
+    }
+
+    .pipeline-arrow .project-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .forex-evaluator {
+        padding: 20px;
+    }
+
+    .architecture-register > div {
+        grid-template-columns: 108px minmax(0, 1fr);
+        gap: 12px;
+    }
+}
+
+@media (width <= 800px) {
+    .project-slide-header {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        min-height: 0;
+    }
+
+    .project-slide-summary {
+        max-width: none;
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .fincore-layout, .booking-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .project-composition {
+        min-height: 0;
+    }
+
+    .forex-pipeline {
+        gap: 10px;
+    }
+
+    .forex-evaluator {
+        padding: 16px;
+    }
+
+    .forex-delivery h3 {
+        font-size: 18px;
+    }
+
+    .forex-delivery > div {
+        gap: 8px;
+        font-size: 15px;
+    }
+
+    .project-slide-footer {
+        grid-template-columns: 1fr auto;
+        gap: 8px 16px;
+    }
+
+    .project-stack {
+        grid-column: 1 / -1;
+    }
+
+    .focus-orbit {
+        width: 200px;
+        height: 200px;
+    }
+
+    .focus-orbit strong {
+        font-size: 32px;
+    }
+
+    .focus-orbit strong:last-child {
+        font-size: 26px;
+    }
+}
+
+@media (width <= 640px) {
+    .project-slide-header h2 {
+        font-size: 36px;
+    }
+
+    .project-slide-subtitle {
+        font-size: 16px;
+    }
+
+    .project-composition h3 {
+        font-size: 23px;
+    }
+
+    .forex-layout {
+        justify-content: start;
+    }
+
+    .forex-pipeline {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .forex-source {
+        display: grid;
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 0 14px;
+    }
+
+    .forex-source > .project-icon {
+        grid-row: 1 / 4;
+        align-self: center;
+        margin: 0;
+    }
+
+    .forex-source h3 {
+        font-size: 30px;
+        margin: 0;
+    }
+
+    .forex-source p {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+
+    .pipeline-component br {
+        display: none;
+    }
+
+    .pipeline-arrow {
+        justify-self: center;
+        transform: rotate(90deg);
+        margin: 4px 0;
+    }
+
+    .forex-evaluator h3 br {
+        display: none;
+    }
+
+    .cooldown-check {
+        margin-top: 16px;
+    }
+
+    .forex-delivery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0 16px;
+    }
+
+    .forex-delivery h3 {
+        grid-column: 1 / -1;
+        margin-bottom: 4px;
+    }
+
+    .forex-reliability {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .forex-reliability > div {
+        display: grid;
+        grid-template-columns: 90px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .forex-reliability dd {
+        margin: 0;
+    }
+
+    .pomodoro-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .focus-orbit {
+        width: 200px;
+        height: 200px;
+    }
+
+    .focus-cycle figcaption br {
+        display: none;
+    }
+
+    .playback-panel, .booking-consistency {
+        padding: 20px;
+    }
+
+    .playback-features {
+        gap: 12px;
+        font-size: 13px;
+    }
+
+    .pomodoro-preferences {
+        gap: 16px;
+    }
+
+    .booking-lock-heading h3 {
+        font-size: 23px;
+    }
+
+    .project-slide-footer {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .project-explore {
+        justify-self: start;
+    }
+}
+
+@media (width <= 360px) {
+    .project-slide-header h2 {
+        font-size: 32px;
+    }
+
+    .account-operations li {
+        font-size: 14px;
+    }
+
+    .account-rule {
+        gap: 14px;
+    }
+
+    .account-rule strong {
+        font-size: 23px;
+    }
+
+    .architecture-register > div {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding-block: 12px;
+    }
+
+    .playback-features {
+        flex-direction: column;
+    }
+}

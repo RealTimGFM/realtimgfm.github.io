@@ -3,12 +3,17 @@ export function initHomelabViewers(loadRuntime = () => import(
     '../../assets/homelab/model-viewer/model-viewer.min.js'
 )) {
     const details = document.getElementById('homelabDetails');
-    if (!details) return;
+    if (!details || details.dataset.viewersInitialized) return;
 
     const hardware = [...details.querySelectorAll('.homelab-hardware')];
     if (!hardware.length) return;
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    details.dataset.viewersInitialized = 'true';
     const startModels = new Map();
+    const rotationStates = new Map();
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const syncRotations = () => {
+        for (const sync of rotationStates.values()) sync();
+    };
     let runtimePromise;
     let observer;
 
@@ -41,25 +46,54 @@ export function initHomelabViewers(loadRuntime = () => import(
         viewer.inert = true;
         viewer.setAttribute('aria-hidden', 'true');
         viewer.setAttribute('tabindex', '-1');
-
+        viewer.removeAttribute('auto-rotate');
+        viewer.setAttribute('rotation-per-second', '12deg');
+        // A single timer below owns the complete interaction resume delay.
+        viewer.setAttribute('auto-rotate-delay', '0');
+        const buttons = [...tools.querySelectorAll('[data-model-action]')];
+        const rotationButton = buttons.find(button => button.dataset.modelAction === 'rotate');
+        let rotationEnabled = !motion.matches;
+        let pausedByVisitor = false;
+        let nearViewport = typeof IntersectionObserver === 'undefined';
         const activePointers = new Set();
         const activeKeys = new Set();
         let rotationTimer;
-        const updateRotation = () => {
-            if (reducedMotion.matches || activePointers.size || activeKeys.size || rotationTimer) {
-                viewer.removeAttribute('auto-rotate');
-            } else {
-                viewer.setAttribute('auto-rotate', '');
-            }
-        };
-        // Own the resume delay so held gestures and toolbar controls also pause rotation.
-        const pauseRotation = () => {
+        const scheduleResume = () => {
             clearTimeout(rotationTimer);
             rotationTimer = setTimeout(() => {
                 rotationTimer = undefined;
-                updateRotation();
+                syncRotation();
             }, 3000);
-            updateRotation();
+        };
+        const syncRotation = () => {
+            const available = nearViewport && !details.hidden && !details.inert &&
+                !document.hidden && card.dataset.modelState === 'ready';
+            // A hidden/collapsed viewer cannot retain a held gesture indefinitely.
+            if (!available && (activePointers.size || activeKeys.size)) {
+                activePointers.clear();
+                activeKeys.clear();
+                scheduleResume();
+            }
+            const rotating = rotationEnabled && available && !activePointers.size &&
+                !activeKeys.size && rotationTimer === undefined;
+            if (rotating) viewer.setAttribute('auto-rotate', '');
+            else viewer.removeAttribute('auto-rotate');
+            if (rotationButton) {
+                rotationButton.textContent = rotationEnabled ? 'Pause rotation' : 'Start rotation';
+            }
+        };
+        rotationStates.set(card, syncRotation);
+        card.addEventListener('homelab:visibility', event => {
+            nearViewport = event.detail;
+            syncRotation();
+        });
+        motion.addEventListener('change', () => {
+            rotationEnabled = !motion.matches && !pausedByVisitor;
+            syncRotation();
+        });
+        const pauseRotation = () => {
+            scheduleResume();
+            syncRotation();
         };
         viewer.addEventListener('pointerdown', event => {
             activePointers.add(event.pointerId);
@@ -86,13 +120,12 @@ export function initHomelabViewers(loadRuntime = () => import(
             if (activeKeys.delete(event.key)) pauseRotation();
         });
         viewer.addEventListener('camera-change', event => {
-            if (event.detail.source === 'user-interaction') pauseRotation();
+            if (event.detail?.source === 'user-interaction') pauseRotation();
         });
-        reducedMotion.addEventListener('change', updateRotation);
-        updateRotation();
 
         const unavailable = () => {
             card.dataset.modelState = 'unavailable';
+            syncRotation();
             viewer.inert = true;
             viewer.hidden = true;
             viewer.setAttribute('aria-hidden', 'true');
@@ -110,14 +143,23 @@ export function initHomelabViewers(loadRuntime = () => import(
             viewer.removeAttribute('tabindex');
             fallback.hidden = true;
             tools.hidden = false;
+            syncRotation();
             status.textContent = 'Interactive 3D ready. Drag to rotate; scroll or pinch to zoom.';
         });
 
-        for (const button of tools.querySelectorAll('[data-model-action]')) {
+        for (const button of buttons) {
             button.addEventListener('click', () => {
                 if (card.dataset.modelState !== 'ready') return;
-                pauseRotation();
                 const action = button.dataset.modelAction;
+                if (action === 'rotate') {
+                    rotationEnabled = !rotationEnabled;
+                    pausedByVisitor = !rotationEnabled;
+                    clearTimeout(rotationTimer);
+                    rotationTimer = undefined;
+                    syncRotation();
+                    return;
+                }
+                pauseRotation();
                 if (action === 'reset') {
                     viewer.resetTurntableRotation();
                     viewer.cameraOrbit = viewer.dataset.initialOrbit;
@@ -127,21 +169,20 @@ export function initHomelabViewers(loadRuntime = () => import(
                 const orbit = viewer.getCameraOrbit();
                 const radius = orbit.radius * (action === 'zoom-in' ? 0.8 : 1.25);
                 viewer.cameraOrbit = `${orbit.theta}rad ${orbit.phi}rad ${radius}m`;
-                if (reducedMotion.matches) {
+                if (motion.matches) {
                     viewer.jumpCameraToGoal();
                 }
             });
         }
 
         startModels.set(card, async () => {
-            if (details.hidden || card.dataset.modelState !== 'idle') return;
+            if (details.hidden || details.inert || card.dataset.modelState !== 'idle') return;
             card.dataset.modelState = 'loading';
             status.textContent = 'Loading interactive 3D. Hardware preview shown.';
-            observer?.unobserve(card);
             try {
                 await ensureRuntime();
                 // The visitor may collapse the case study while the runtime loads.
-                if (details.hidden) {
+                if (details.hidden || details.inert) {
                     card.dataset.modelState = 'idle';
                     status.textContent = 'Hardware preview. Expand the lab to explore in 3D.';
                     return;
@@ -154,21 +195,32 @@ export function initHomelabViewers(loadRuntime = () => import(
     }
 
     const observeHardware = () => {
-        if (details.hidden) return;
+        if (details.hidden || details.inert) return;
         if (typeof IntersectionObserver === 'undefined') {
             for (const start of startModels.values()) start();
             return;
         }
         observer ??= new IntersectionObserver(entries => {
             for (const entry of entries) {
+                entry.target.dispatchEvent(new CustomEvent('homelab:visibility', {
+                    detail: entry.isIntersecting
+                }));
                 if (entry.isIntersecting) startModels.get(entry.target)?.();
             }
         }, { rootMargin: '240px 0px' });
         for (const card of hardware) {
-            if (card.dataset.modelState === 'idle') observer.observe(card);
+            // Re-observe even after an interrupted collapse: a still-intersecting
+            // card needs a fresh activation callback when its runtime was deferred.
+            observer.unobserve(card);
+            observer.observe(card);
         }
     };
 
-    details.addEventListener('homelab:expanded', observeHardware);
+    details.addEventListener('homelab:expanded', () => {
+        observeHardware();
+        syncRotations();
+    });
+    details.addEventListener('homelab:collapsed', syncRotations);
+    document.addEventListener('visibilitychange', syncRotations);
     observeHardware();
 }

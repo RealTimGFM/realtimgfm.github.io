@@ -1,6 +1,25 @@
-.footer {
-    display: contents;
+.site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-block: 28px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 13px;
 }
 
+.site-footer p {
+    margin: 0;
+}
 
+.site-footer strong {
+    color: var(--text);
+    font-size: 17px;
+    margin-right: 20px;
+}
 
+.site-footer > div {
+    display: flex;
+    gap: 24px;
+}

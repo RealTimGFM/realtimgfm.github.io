@@ -1,0 +1,25 @@
+<article id="featured-fincore" class="featured-slide project-slide project-slide--fincore is-active" role="group" aria-roledescription="slide" aria-label="1 of 4: FinCore">
+<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="https://github.com/RealTimGFM/FinCore" target="_blank" rel="noopener noreferrer">FinCore</a></h2><p class="project-slide-subtitle">Account lifecycle &amp; transaction rules · In development</p></div><p class="project-slide-summary">A .NET API for account creation, renaming, closing and reopening, with transaction and balance behavior.</p></header>
+<div class="fincore-layout project-composition">
+    <div class="account-domain">
+        <h3>Every account change has rules.</h3>
+        <ol class="account-operations" aria-label="Account lifecycle operations">
+            <li><span class="operation-node"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span><strong>Create</strong></li>
+            <li><span class="operation-node"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 16 11-11 4 4L8 20H4Zm9-9 4 4"/></svg></span><strong>Rename</strong></li>
+            <li><span class="operation-node"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></svg></span><strong>Close</strong></li>
+            <li><span class="operation-node"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10a9 9 0 1 1 1 8M3 4v6h6"/></svg></span><strong>Reopen</strong></li>
+        </ol>
+        <div class="account-rule"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></svg><div><strong>Closed account.<br />Transaction rejected.</strong><p>Account rules validate transactions and record status history.</p></div></div>
+    </div>
+    <div class="fincore-architecture" aria-label="FinCore architecture">
+        <h3>Four layers. Clear responsibilities.</h3>
+        <dl class="architecture-register">
+            <div><dt>API</dt><dd>HTTP endpoints</dd></div>
+            <div><dt>Application</dt><dd>Account &amp; transaction operations</dd></div>
+            <div><dt>Domain</dt><dd>Account lifecycle rules &amp; status history</dd></div>
+            <div><dt>Infrastructure</dt><dd>EF Core &amp; SQL Server</dd></div>
+        </dl>
+    </div>
+</div>
+<footer class="project-slide-footer"><p class="project-stack">C# · ASP.NET Core · EF Core · SQL Server</p><p class="project-proof"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Account &amp; transaction tests</p><a class="project-explore" href="https://github.com/RealTimGFM/FinCore" target="_blank" rel="noopener noreferrer">Explore repository<svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></footer>
+</article>

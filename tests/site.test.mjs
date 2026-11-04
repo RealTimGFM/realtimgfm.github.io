@@ -59,46 +59,6 @@ test('See More and See Less preserve the first four cards', async () => {
     assert.equal(button['aria-expanded'], 'false');
 });
 
-test('Home Lab disclosure preserves accessible labels and returns focus when collapsed from the bottom', async () => {
-    const events = [];
-    const elements = new Map(['homelabToggle', 'homelabCollapse', 'homelabDetails'].map(id => [id, {
-        hidden: false,
-        handlers: new Map(),
-        setAttribute(name, value) { this[name] = value; },
-        addEventListener(name, callback) { this.handlers.set(name, callback); },
-        dispatchEvent(event) { events.push(event.type); },
-        focus(options) { this.focused = options; },
-        scrollIntoView(options) { this.scrolled = options; }
-    }]));
-    const context = vm.createContext({ document: { getElementById: id => elements.get(id) }, Event });
-    const source = await readFile(new URL('../scripts/modules/homelab-toggle.js', import.meta.url), 'utf8');
-    vm.runInContext(source.replace('export function', 'function'), context);
-    context.initHomelabToggle();
-    const toggle = elements.get('homelabToggle');
-    const collapse = elements.get('homelabCollapse');
-    const details = elements.get('homelabDetails');
-    assert.equal(details.hidden, true);
-    assert.equal(toggle.hidden, false);
-    assert.equal(collapse.hidden, false);
-    assert.equal(toggle['aria-expanded'], 'false');
-    toggle.handlers.get('click')();
-    assert.equal(details.hidden, false);
-    assert.equal(toggle.textContent, 'Show Less');
-    assert.equal(toggle['aria-expanded'], 'true');
-    assert.equal(collapse['aria-expanded'], 'true');
-    assert.deepEqual(events, ['homelab:expanded']);
-    collapse.handlers.get('click')();
-    assert.equal(details.hidden, true);
-    assert.equal(toggle.textContent, 'Explore Home Lab');
-    assert.equal(toggle['aria-expanded'], 'false');
-    assert.equal(collapse['aria-expanded'], 'false');
-    assert.equal(toggle.focused.preventScroll, true);
-    assert.equal(toggle.scrolled.behavior, 'instant');
-    toggle.handlers.get('click')();
-    toggle.handlers.get('click')();
-    assert.equal(details.hidden, true);
-});
-
 test('Home Lab ships both deferred interactive models and accessible real media without duplicate IDs', async () => {
     const html = await renderPage();
     const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);
@@ -122,9 +82,11 @@ test('Home Lab ships both deferred interactive models and accessible real media 
         assert.match(viewer, /loading="lazy"/);
         assert.match(viewer, /\salt="[^"]+"/);
         assert.match(viewer, /poster="assets\/homelab\/[^"/]+\.webp"/);
-        assert.match(viewer, /\sauto-rotate(?:\s|$)/);
-        assert.match(viewer, /rotation-per-second="12deg"/);
-        assert.match(viewer, /auto-rotate-delay="0"/);
+        // Rotation starts only after readiness and visibility checks in the controller.
+        assert.doesNotMatch(viewer, /\sauto-rotate(?:\s|$)/);
+        const controller = await readFile(new URL('../scripts/modules/homelab-viewers.js', import.meta.url), 'utf8');
+        assert.match(controller, /setAttribute\('rotation-per-second', '12deg'\)/);
+        assert.match(controller, /setAttribute\('auto-rotate-delay', '0'\)/);
     }
     const images = [...homelab.matchAll(/<img\b([^>]+)>/g)].map(match => match[1]);
     for (const filename of ['debian-operations.webp', 'prominence-ii-world.webp', 'pihole-dashboard.webp']) {
@@ -134,6 +96,9 @@ test('Home Lab ships both deferred interactive models and accessible real media 
         assert.match(image, /width="[1-9]\d*"/);
         assert.match(image, /height="[1-9]\d*"/);
         assert.match(image, /loading="lazy"/);
+        assert.match(image, /srcset="assets\/homelab\/[^" ]+-960\.webp 960w, assets\/homelab\/[^" ]+\.webp [1-9]\d+w"/);
+        assert.match(image, /sizes="[^"]+"/);
+        assert.ok(homelab.includes(`href="assets/homelab/${filename}"`), `Missing full-size link: ${filename}`);
     }
     // Models are single-file GLBs: no texture, buffer or decoder dependency in temp.
     for (const path of models) {

@@ -1,52 +1,39 @@
 .about-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 26px;
+    grid-template-columns: minmax(0, 1.5fr) minmax(200px, 0.7fr);
     align-items: start;
+    gap: clamp(32px, 8vw, 120px);
 }
 
 .about-card {
-    position: relative;
-    background: color-mix(in srgb, var(--surface), var(--bg) 18%);
-    color: var(--text);
-    padding: 24px;
-    font-weight: 700;
-}
-
-.about-card::before {
-    content: "";
-    position: absolute;
-    inset: 16px auto 16px 16px;
-    width: 4px;
-    border-radius: 999px;
-    background: var(--grad);
+    border-radius: 0;
 }
 
 .about-copy {
-    display: grid;
-    gap: 18px;
-    padding-left: 18px;
+    max-width: 68ch;
+    color: var(--muted);
+    font-size: 18px;
 }
 
 .about-copy p {
-    margin: 0;
+    margin-bottom: 24px;
+}
+
+.about-copy p:first-child {
+    font-size: clamp(22px, 2.2vw, 30px);
+    line-height: 1.4;
+    color: var(--text);
+    letter-spacing: -0.025em;
 }
 
 .photo {
-    width: min(360px, 100%);
-    aspect-ratio: 1 / 1;
-    border-radius: 16px;
+    width: min(100%, 320px);
+    border-radius: 12px;
     overflow: hidden;
-    border: 6px solid var(--paper);
-    box-shadow: var(--shadow);
-    background: color-mix(in srgb, var(--surface), var(--bg) 18%);
+    justify-self: end;
 }
 
 .photo img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
 }
-
-
-

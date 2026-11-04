@@ -1,40 +1,100 @@
+.projects-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+}
+
+.projects-grid .card {
+    display: grid;
+    grid-template-columns: minmax(160px, 0.27fr) minmax(0, 1fr);
+    gap: 48px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--rule);
+    border-radius: 0;
+    background: transparent;
+}
+
+.project-identity h3 {
+    font-size: clamp(26px, 2.4vw, 36px);
+    margin-bottom: 12px;
+}
+
+.project-description {
+    max-width: 78ch;
+    min-width: 0;
+}
+
+.project-description p {
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.project-description p strong {
+    color: var(--text);
+    font-weight: 550;
+}
+
+.project-description .tags {
+    margin-top: 22px;
+}
+
 .actions {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 8px;
-}
-
-#projectsToggle[hidden] {
-    display: none;
+    margin-top: 20px;
 }
 
 .actions .btn {
-    min-width: 130px;
-}
-
-.card p {
-    margin: 4px 0;
-    line-height: 1.6;
-}
-
-.card p.muted {
     font-size: 14px;
 }
 
-.projects-grid > .card[hidden] {
-    display: none;
-}
-
 .projects-more {
+    margin-top: 28px;
     display: flex;
     justify-content: center;
-    margin-top: 24px;
 }
 
 .projects-more .btn {
-    width: min(100%, 240px);
+    min-width: 220px;
 }
 
+.project-status {
+    margin-bottom: 8px;
+}
 
+/* Native details remain fully functional when the optional enhancement is absent. */
+.project-case-study > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 44px;
+    cursor: pointer;
+    list-style: none;
+    transition: color 160ms ease-out;
+}
 
+.project-case-study > summary::-webkit-details-marker {
+    display: none;
+}
+
+.project-case-study > summary::after {
+    content: "";
+    flex: 0 0 auto;
+    width: 8px;
+    height: 8px;
+    margin-right: 4px;
+    border-right: 1.5px solid currentcolor;
+    border-bottom: 1.5px solid currentcolor;
+    transform: rotate(45deg);
+    transition: transform 200ms ease-in-out;
+}
+
+.project-case-study[open]:not([data-expanded="false"]) > summary::after {
+    transform: rotate(225deg);
+}
+
+.project-case-study > summary:hover {
+    color: var(--muted);
+}

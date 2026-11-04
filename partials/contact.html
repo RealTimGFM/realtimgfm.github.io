@@ -3,6 +3,7 @@
         <div class="contact-left">
             <h2 class="splash">Let's build something together.</h2>
 
+            <p class="contact-fallback">Prefer another way to reach me? Send a message on LinkedIn.</p>
             <div class="social-links">
                 <a class="social-card sticker-sm" href="https://www.linkedin.com/in/timvu2003" target="_blank"
                     rel="me noopener noreferrer">
@@ -25,20 +26,24 @@
         </div>
 
         <form id="contactForm" class="sticker-sm" novalidate>
-            <label for="name">Name</label>
-            <input id="name" name="name" required placeholder="Name" />
+            <p class="helper">All fields are required.</p>
+            <label for="name">Name (required)</label>
+            <input id="name" name="name" autocomplete="name" required placeholder="Name" aria-describedby="name-error" />
+            <p id="name-error" class="field-error" hidden></p>
 
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required placeholder="Email Address" />
+            <label for="email">Email (required)</label>
+            <input id="email" name="email" autocomplete="email" type="email" required placeholder="Email Address" aria-describedby="email-error" />
+            <p id="email-error" class="field-error" hidden></p>
 
-            <label for="msg">Message</label>
-            <textarea id="msg" name="message" required placeholder="Message"></textarea>
+            <label for="msg">Message (required)</label>
+            <textarea id="msg" name="message" required placeholder="Message" aria-describedby="msg-error"></textarea>
+            <p id="msg-error" class="field-error" hidden></p>
 
             <input type="text" name="website" class="hp" autocomplete="off" tabindex="-1" aria-hidden="true" />
-            <small class="helper">Don't hesitate to contact me.</small>
-            <div style="margin-top:12px"><button class="btn" type="submit" disabled>Send</button></div>
+            <small class="helper">You can also <a href="https://www.linkedin.com/in/timvu2003" target="_blank" rel="noopener noreferrer">message me on LinkedIn</a> if the form is unavailable.</small>
+            <div style="margin-top:12px"><button class="btn primary" type="submit" disabled>Send message</button></div>
             <noscript><p>Please enable JavaScript to send a message, or use the LinkedIn link.</p></noscript>
-            <p id="status" style="margin-top:10px" aria-live="polite"></p>
+            <p id="status" style="margin-top:10px" role="status" aria-live="polite" aria-atomic="true"></p>
         </form>
     </div>
 </section>

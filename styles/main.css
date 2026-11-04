@@ -15,6 +15,5 @@
 @import url("./sections/contact.css");
 @import url("./sections/footer.css");
 @import url("./responsive.css");
-
-
-
+@import url("./sections/featured-carousel.css");
+@import url("./sections/featured-projects.css");

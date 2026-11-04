@@ -1,7 +1,7 @@
 export function initSectionObservers() {
     if (!('IntersectionObserver' in window)) return;
     initScrollSpy();
-    initRevealAnimations();
+
 }
 
 function initScrollSpy() {
@@ -9,6 +9,8 @@ function initScrollSpy() {
     const sections = links
         .map((anchor) => document.querySelector(anchor.getAttribute('href')))
         .filter(Boolean);
+    const home = document.getElementById('home');
+    if (home) sections.push(home);
 
     if (!sections.length) return;
 
@@ -17,9 +19,15 @@ function initScrollSpy() {
             entries.forEach((entry) => {
                 const id = `#${entry.target.id}`;
                 const link = links.find((anchor) => anchor.getAttribute('href') === id);
-                if (!link || !entry.isIntersecting) return;
-                links.forEach((anchor) => anchor.classList.remove('active'));
+                if (!entry.isIntersecting) return;
+                if (id === '#home') {
+                    links.forEach(anchor => { anchor.classList.remove('active'); anchor.removeAttribute('aria-current'); });
+                    return;
+                }
+                if (!link) return;
+                links.forEach((anchor) => { anchor.classList.remove('active'); anchor.removeAttribute('aria-current'); });
                 link.classList.add('active');
+                link.setAttribute('aria-current', 'location');
             });
         },
         { rootMargin: '-45% 0px -45% 0px', threshold: 0.01 }
@@ -27,39 +35,4 @@ function initScrollSpy() {
 
     sections.forEach((section) => spy.observe(section));
 }
-
-function initRevealAnimations() {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (prefersReducedMotion) {
-        document.querySelectorAll('.observe').forEach((element) => {
-            element.setAttribute('data-inview', 'true');
-        });
-        return;
-    }
-
-    const revealObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-                entry.target.setAttribute('data-inview', 'true');
-
-                const staggerItems = [...entry.target.querySelectorAll('[data-stagger]')];
-                staggerItems.forEach((item, index) => {
-                    item.style.transitionDelay = `${index * 60}ms`;
-                });
-
-                revealObserver.unobserve(entry.target);
-            });
-        },
-        { threshold: 0.01 }
-    );
-
-    document.querySelectorAll('.observe').forEach((element) => {
-        revealObserver.observe(element);
-        element.classList.add('reveal-pending');
-    });
-}
-
-
 

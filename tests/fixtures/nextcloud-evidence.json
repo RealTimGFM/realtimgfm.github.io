@@ -1,0 +1,109 @@
+{
+  "assets": [
+    {
+      "path": "assets/homelab/nextcloud-files.png",
+      "width": 1874,
+      "height": 970,
+      "sha256": "fd2dae08f03b9d6e7c3accd1e53798383864715a47f21caf167604988bcbe35c",
+      "bytes": 103011
+    },
+    {
+      "path": "assets/homelab/nextcloud-files-960.png",
+      "width": 960,
+      "height": 497,
+      "sha256": "aa4ef8f8f9466f6fb416b422a23ffccb947df9e3905672f16bf0e086352bcd5d",
+      "bytes": 88994
+    },
+    {
+      "path": "assets/homelab/nextcloud-docker.png",
+      "width": 1919,
+      "height": 474,
+      "sha256": "ad3a61b3b6a258487b5ef0cfa8bef863ad07f9eb40d4de86675492fc5b98c7e8",
+      "bytes": 54549
+    },
+    {
+      "path": "assets/homelab/nextcloud-docker-960.png",
+      "width": 960,
+      "height": 237,
+      "sha256": "3157acda0efe378236469ad656ad93c1b24ca030cec60c252c359fce73923dd6",
+      "bytes": 106670
+    }
+  ],
+  "originals": [
+    {
+      "bytes": 114164,
+      "sha256": "724b88d3f853c95911427ff625f630483c0c565e7583f89c9e07ed40d60dbcb7"
+    },
+    {
+      "bytes": 104983,
+      "sha256": "47e32bffb65d61c2f41f49bb17fbcd82ee49e7f0be6ba6516f8c3596cb7cf45e"
+    }
+  ],
+  "masks": {
+    "assets/homelab/nextcloud-files.png": [
+      [
+        397,
+        131,
+        90,
+        23
+      ],
+      [
+        554,
+        432,
+        88,
+        25
+      ],
+      [
+        776,
+        432,
+        88,
+        25
+      ]
+    ],
+    "assets/homelab/nextcloud-docker.png": [
+      [
+        0,
+        7,
+        154,
+        28
+      ],
+      [
+        0,
+        35,
+        390,
+        30
+      ],
+      [
+        0,
+        211,
+        154,
+        29
+      ],
+      [
+        0,
+        299,
+        154,
+        29
+      ],
+      [
+        603,
+        268,
+        510,
+        29
+      ],
+      [
+        0,
+        326,
+        213,
+        148
+      ]
+    ]
+  },
+  "unchanged": {
+    "assets/homelab/models/thinkpad-t16-gen2.glb": "60934466941905fae676e540854ce641712a40e6ff08e58da10f833d42268dff",
+    "assets/homelab/models/raspberry-pi-4.glb": "12cc843d708f0bb7d326908911e44d6df5b8452364b071e0f519f682d36d2f17",
+    "assets/homelab/thinkpad-t16-gen2-poster.webp": "e601fd3e64320c15ed22f4d6bbeee0ca320f204ab823e99202d15fe0886dc421",
+    "assets/homelab/raspberry-pi-4-poster.webp": "af882125d238cd07d1284dbcf37e8984f6190ddca0af392a3e0a351c46f64dee",
+    "scripts/modules/homelab-toggle.js": "daa0eacd11d48fd49de3a3e2a28af452d03dfe1475de7e78db53a5531be10005"
+  }
+}
