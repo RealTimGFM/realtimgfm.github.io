@@ -21,6 +21,14 @@ class Element extends EventTarget {
 function setup({ intersection = true, webgl = true, reducedMotion = false, runtime } = {}) {
     let imports = 0;
     let observer;
+    let now = 0;
+    let timerId = 0;
+    const timers = new Map();
+    const motion = Object.assign(new EventTarget(), { matches: reducedMotion });
+    const window = Object.assign(new EventTarget(), {
+        customElements: { get: () => class {} },
+        matchMedia: () => motion
+    });
     const details = new Element();
     details.hidden = true;
     const cards = ['thinkpad-t16-gen2', 'raspberry-pi-4'].map(name => {
@@ -33,6 +41,8 @@ function setup({ intersection = true, webgl = true, reducedMotion = false, runti
         viewer.getCameraOrbit = () => ({ theta: 1, phi: 1.2, radius: 1 });
         viewer.jumps = 0;
         viewer.jumpCameraToGoal = () => viewer.jumps++;
+        viewer.turntableRotation = 1;
+        viewer.resetTurntableRotation = () => { viewer.turntableRotation = 0; };
         const fallback = new Element();
         const status = new Element();
         const tools = new Element();
@@ -52,18 +62,17 @@ function setup({ intersection = true, webgl = true, reducedMotion = false, runti
         return Object.assign(card, { viewer, fallback, status, tools, buttons });
     });
     details.querySelectorAll = () => cards;
-    const motion = new Element();
-    motion.matches = reducedMotion;
     const document = Object.assign(new Element(), {
         getElementById: () => details,
         createElement: () => ({ getContext: () => webgl ? { getExtension: () => null } : null })
     });
     const context = vm.createContext({
-        document, CustomEvent,
-        window: {
-            customElements: { get: () => class {} },
-            matchMedia: () => motion
+        document, CustomEvent, window,
+        setTimeout(callback, delay) {
+            timers.set(++timerId, { callback, at: now + delay });
+            return timerId;
         },
+        clearTimeout: id => timers.delete(id),
         ...(intersection ? { IntersectionObserver: class {
             constructor(callback, options) {
                 observer = this;
@@ -87,8 +96,98 @@ function setup({ intersection = true, webgl = true, reducedMotion = false, runti
         details.dispatchEvent(new Event('homelab:expanded'));
     };
     const near = (card = cards[0]) => observer.callback([{ target: card, isIntersecting: true }]);
-    return { cards, details, document, motion, expand, near, imports: () => imports, observer: () => observer };
+    const advance = milliseconds => {
+        now += milliseconds;
+        for (const [id, timer] of timers) {
+            if (timer.at > now) continue;
+            timers.delete(id);
+            timer.callback();
+        }
+    };
+    return { cards, details, document, context, expand, near, window, motion, advance, pendingTimers: () => timers.size, imports: () => imports, observer: () => observer };
 }
+
+const emit = (target, type, properties = {}) => target.dispatchEvent(Object.assign(new Event(type), properties));
+const rotating = viewer => viewer.getAttribute('auto-rotate') !== undefined;
+const readyModels = (options = {}) => {
+    const lab = setup({ intersection: false, ...options });
+    lab.expand();
+    for (const card of lab.cards) emit(card.viewer, 'load');
+    return lab;
+};
+
+test('both models rotate unless reduced motion is requested, including live preference changes', () => {
+    const lab = readyModels();
+    assert.ok(lab.cards.every(card => rotating(card.viewer)));
+    lab.motion.matches = true;
+    emit(lab.motion, 'change');
+    assert.ok(lab.cards.every(card => !rotating(card.viewer)));
+    emit(lab.cards[0].viewer, 'wheel');
+    lab.advance(5000);
+    assert.ok(lab.cards.every(card => !rotating(card.viewer)));
+    lab.motion.matches = false;
+    emit(lab.motion, 'change');
+    assert.ok(lab.cards.every(card => rotating(card.viewer)));
+    assert.ok(readyModels({ reducedMotion: true }).cards.every(card => !rotating(card.viewer)));
+});
+
+test('held and multi-pointer gestures pause rotation until three seconds after the last release', () => {
+    const lab = readyModels();
+    const viewer = lab.cards[0].viewer;
+    emit(viewer, 'pointerdown', { pointerId: 1 });
+    emit(viewer, 'pointerdown', { pointerId: 2 });
+    assert.equal(rotating(viewer), false);
+    assert.equal(rotating(lab.cards[1].viewer), true);
+    lab.advance(10000);
+    assert.equal(rotating(viewer), false);
+    emit(lab.window, 'pointerup', { pointerId: 1 });
+    lab.advance(5000);
+    assert.equal(rotating(viewer), false);
+    emit(lab.window, 'pointercancel', { pointerId: 2 });
+    lab.advance(2999);
+    assert.equal(rotating(viewer), false);
+    lab.advance(1);
+    assert.equal(rotating(viewer), true);
+
+    emit(viewer, 'pointerdown', { pointerId: 3 });
+    emit(viewer, 'lostpointercapture', { pointerId: 3 });
+    lab.advance(3000);
+    assert.equal(rotating(viewer), true);
+});
+
+test('keyboard, wheel, user camera movement, and toolbar actions pause and restart the delay', () => {
+    const lab = readyModels();
+    const card = lab.cards[0];
+    emit(card.viewer, 'load');
+    emit(card.viewer, 'keydown', { key: 'ArrowLeft' });
+    lab.advance(10000);
+    assert.equal(rotating(card.viewer), false);
+    emit(lab.window, 'keyup', { key: 'ArrowLeft' });
+    lab.advance(3000);
+    assert.equal(rotating(card.viewer), true);
+
+    for (const action of [
+        () => emit(card.viewer, 'wheel'),
+        () => emit(card.viewer, 'camera-change', { detail: { source: 'user-interaction' } }),
+        ...card.buttons.filter(button => button.dataset.modelAction !== 'rotate')
+            .map(button => () => emit(button, 'click'))
+    ]) {
+        action();
+        assert.equal(rotating(card.viewer), false);
+        lab.advance(2000);
+        action();
+        lab.advance(2000);
+        assert.equal(rotating(card.viewer), false);
+        lab.advance(1000);
+        assert.equal(rotating(card.viewer), true);
+    }
+    emit(card.viewer, 'camera-change', { detail: { source: 'none' } });
+    assert.equal(rotating(card.viewer), true);
+    emit(card.viewer, 'keydown', { key: 'ArrowLeft' });
+    emit(lab.window, 'blur');
+    lab.advance(3000);
+    assert.equal(rotating(card.viewer), true);
+});
 
 test('models and runtime stay deferred until the lab is expanded and hardware is near the viewport', async () => {
     const lab = setup();
@@ -140,6 +239,7 @@ test('successful models expose camera controls and reduced motion zoom/reset sna
     assert.equal(card.viewer.cameraOrbit, '1rad 1.2rad 1.25m');
     card.buttons[2].dispatchEvent(new Event('click'));
     assert.equal(card.viewer.cameraOrbit, card.viewer.dataset.initialOrbit);
+    assert.equal(card.viewer.turntableRotation, 0);
     assert.equal(card.viewer.jumps, 3);
     assert.match(card.status.textContent, /Interactive 3D ready/);
 
@@ -273,4 +373,75 @@ test('runtime resolving during animated collapse defers the GLB and retries afte
     await settle();
     assert.equal(lab.imports(), 1);
     assert.equal(lab.cards[0].viewer.getAttribute('src'), lab.cards[0].viewer.dataset.modelSrc);
+});
+
+test('manual pause survives gestures, timeout expiry and visibility changes; explicit start clears cooldown', () => {
+    const lab = readyModels();
+    const { viewer, buttons } = lab.cards[0];
+    emit(buttons[3], 'click');
+    emit(viewer, 'wheel');
+    emit(viewer, 'pointerdown', { pointerId: 1 });
+    emit(lab.window, 'pointerup', { pointerId: 1 });
+    lab.advance(3000);
+    lab.document.hidden = true;
+    emit(lab.document, 'visibilitychange');
+    lab.document.hidden = false;
+    emit(lab.document, 'visibilitychange');
+    assert.equal(rotating(viewer), false);
+    assert.equal(buttons[3].textContent, 'Start rotation');
+    lab.motion.matches = true;
+    emit(lab.motion, 'change');
+    lab.motion.matches = false;
+    emit(lab.motion, 'change');
+    assert.equal(rotating(viewer), false, 'a preference change cannot undo manual pause');
+    emit(viewer, 'wheel');
+    emit(buttons[3], 'click');
+    assert.equal(rotating(viewer), true);
+    assert.equal(lab.pendingTimers(), 0);
+});
+
+test('visibility and collapse cannot be overridden by a pending interaction resume timer', () => {
+    for (const reason of ['tab', 'collapse', 'offscreen']) {
+        const lab = readyModels();
+        const { viewer } = lab.cards[0];
+        emit(viewer, 'pointerdown', { pointerId: 1 });
+        if (reason === 'tab') {
+            lab.document.hidden = true;
+            emit(lab.document, 'visibilitychange');
+        } else if (reason === 'collapse') {
+            lab.details.inert = true;
+            emit(lab.details, 'homelab:collapsed');
+        } else {
+            emit(lab.cards[0], 'homelab:visibility', { detail: false });
+        }
+        lab.advance(3000);
+        assert.equal(rotating(viewer), false, reason);
+        lab.document.hidden = false;
+        lab.details.inert = false;
+        emit(lab.cards[0], 'homelab:visibility', { detail: true });
+        assert.equal(rotating(viewer), true, 'interrupted gestures must not strand rotation: ' + reason);
+        emit(viewer, 'pointerdown', { pointerId: 2 });
+        emit(lab.window, 'pointerup', { pointerId: 2 });
+        lab.advance(3000);
+        assert.equal(rotating(viewer), true, 'next gesture still works: ' + reason);
+    }
+});
+
+test('reinitialization does not duplicate listeners or timers and explicit reduced-motion rotation still respects gestures', () => {
+    const lab = readyModels({ reducedMotion: true });
+    lab.context.initHomelabViewers();
+    const { viewer, buttons } = lab.cards[0];
+    emit(buttons[3], 'click');
+    assert.equal(rotating(viewer), true, 'one click enables rotation even after repeat initialization');
+    emit(viewer, 'pointerdown', { pointerId: 1 });
+    for (let i = 0; i < 10; i++) emit(viewer, 'wheel');
+    assert.equal(lab.pendingTimers(), 1);
+    lab.advance(5000);
+    assert.equal(rotating(viewer), false, 'held pointer wins over an expired timer');
+    emit(lab.window, 'blur');
+    lab.advance(2999);
+    assert.equal(rotating(viewer), false);
+    lab.advance(1);
+    assert.equal(rotating(viewer), true);
+    assert.equal(lab.pendingTimers(), 0);
 });

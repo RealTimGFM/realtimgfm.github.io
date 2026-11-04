@@ -244,7 +244,12 @@ test('Pages packages all five captures and sanitized variants, excludes original
     for (const path of files) assert.deepEqual(await readFile(new URL('../_site/' + path, import.meta.url)), await readFile(new URL('../' + path, import.meta.url)));
     for (const [path, expected] of Object.entries(fixture.unchanged)) {
         assert.equal(digest(await readFile(new URL('../' + path, import.meta.url))), expected, 'Existing model/viewer/disclosure changed: ' + path);
+        assert.deepEqual(await readFile(new URL('../_site/' + path, import.meta.url)), await readFile(new URL('../' + path, import.meta.url)));
     }
+    // Viewer behavior is intentionally integrated and covered in homelab-viewers.test.mjs.
+    // Check the deployed module against its source rather than freezing the old implementation.
+    const viewerModule = 'scripts/modules/homelab-viewers.js';
+    assert.deepEqual(await readFile(new URL('../_site/' + viewerModule, import.meta.url)), await readFile(new URL('../' + viewerModule, import.meta.url)));
     const scan = async directory => {
         for (const entry of await readdir(directory, { withFileTypes: true })) {
             const path = new URL(encodeURIComponent(entry.name) + (entry.isDirectory() ? '/' : ''), directory);

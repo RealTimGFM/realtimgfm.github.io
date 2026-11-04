@@ -104,7 +104,6 @@
     "assets/homelab/models/raspberry-pi-4.glb": "12cc843d708f0bb7d326908911e44d6df5b8452364b071e0f519f682d36d2f17",
     "assets/homelab/thinkpad-t16-gen2-poster.webp": "e601fd3e64320c15ed22f4d6bbeee0ca320f204ab823e99202d15fe0886dc421",
     "assets/homelab/raspberry-pi-4-poster.webp": "af882125d238cd07d1284dbcf37e8984f6190ddca0af392a3e0a351c46f64dee",
-    "scripts/modules/homelab-toggle.js": "daa0eacd11d48fd49de3a3e2a28af452d03dfe1475de7e78db53a5531be10005",
-    "scripts/modules/homelab-viewers.js": "fa9c328cde97e3585470fc1d80f39ae13ac66451f5ba29063b5848446a05dbf7"
+    "scripts/modules/homelab-toggle.js": "daa0eacd11d48fd49de3a3e2a28af452d03dfe1475de7e78db53a5531be10005"
   }
 }

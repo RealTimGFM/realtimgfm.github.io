@@ -3,10 +3,11 @@ export function initHomelabViewers(loadRuntime = () => import(
     '../../assets/homelab/model-viewer/model-viewer.min.js'
 )) {
     const details = document.getElementById('homelabDetails');
-    if (!details) return;
+    if (!details || details.dataset.viewersInitialized) return;
 
     const hardware = [...details.querySelectorAll('.homelab-hardware')];
     if (!hardware.length) return;
+    details.dataset.viewersInitialized = 'true';
     const startModels = new Map();
     const rotationStates = new Map();
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -47,14 +48,34 @@ export function initHomelabViewers(loadRuntime = () => import(
         viewer.setAttribute('tabindex', '-1');
         viewer.removeAttribute('auto-rotate');
         viewer.setAttribute('rotation-per-second', '12deg');
-        viewer.setAttribute('auto-rotate-delay', '1000');
+        // A single timer below owns the complete interaction resume delay.
+        viewer.setAttribute('auto-rotate-delay', '0');
         const buttons = [...tools.querySelectorAll('[data-model-action]')];
         const rotationButton = buttons.find(button => button.dataset.modelAction === 'rotate');
         let rotationEnabled = !motion.matches;
+        let pausedByVisitor = false;
         let nearViewport = typeof IntersectionObserver === 'undefined';
+        const activePointers = new Set();
+        const activeKeys = new Set();
+        let rotationTimer;
+        const scheduleResume = () => {
+            clearTimeout(rotationTimer);
+            rotationTimer = setTimeout(() => {
+                rotationTimer = undefined;
+                syncRotation();
+            }, 3000);
+        };
         const syncRotation = () => {
-            const rotating = rotationEnabled && nearViewport && !details.hidden && !details.inert &&
+            const available = nearViewport && !details.hidden && !details.inert &&
                 !document.hidden && card.dataset.modelState === 'ready';
+            // A hidden/collapsed viewer cannot retain a held gesture indefinitely.
+            if (!available && (activePointers.size || activeKeys.size)) {
+                activePointers.clear();
+                activeKeys.clear();
+                scheduleResume();
+            }
+            const rotating = rotationEnabled && available && !activePointers.size &&
+                !activeKeys.size && rotationTimer === undefined;
             if (rotating) viewer.setAttribute('auto-rotate', '');
             else viewer.removeAttribute('auto-rotate');
             if (rotationButton) {
@@ -67,8 +88,39 @@ export function initHomelabViewers(loadRuntime = () => import(
             syncRotation();
         });
         motion.addEventListener('change', () => {
-            rotationEnabled = !motion.matches;
+            rotationEnabled = !motion.matches && !pausedByVisitor;
             syncRotation();
+        });
+        const pauseRotation = () => {
+            scheduleResume();
+            syncRotation();
+        };
+        viewer.addEventListener('pointerdown', event => {
+            activePointers.add(event.pointerId);
+            pauseRotation();
+        }, { passive: true });
+        const endPointer = event => {
+            if (activePointers.delete(event.pointerId)) pauseRotation();
+        };
+        window.addEventListener('pointerup', endPointer, { passive: true });
+        window.addEventListener('pointercancel', endPointer, { passive: true });
+        viewer.addEventListener('lostpointercapture', endPointer);
+        window.addEventListener('blur', () => {
+            if (!activePointers.size && !activeKeys.size) return;
+            activePointers.clear();
+            activeKeys.clear();
+            pauseRotation();
+        });
+        viewer.addEventListener('wheel', pauseRotation, { passive: true });
+        viewer.addEventListener('keydown', event => {
+            activeKeys.add(event.key);
+            pauseRotation();
+        });
+        window.addEventListener('keyup', event => {
+            if (activeKeys.delete(event.key)) pauseRotation();
+        });
+        viewer.addEventListener('camera-change', event => {
+            if (event.detail?.source === 'user-interaction') pauseRotation();
         });
 
         const unavailable = () => {
@@ -101,10 +153,15 @@ export function initHomelabViewers(loadRuntime = () => import(
                 const action = button.dataset.modelAction;
                 if (action === 'rotate') {
                     rotationEnabled = !rotationEnabled;
+                    pausedByVisitor = !rotationEnabled;
+                    clearTimeout(rotationTimer);
+                    rotationTimer = undefined;
                     syncRotation();
                     return;
                 }
+                pauseRotation();
                 if (action === 'reset') {
+                    viewer.resetTurntableRotation();
                     viewer.cameraOrbit = viewer.dataset.initialOrbit;
                     viewer.jumpCameraToGoal();
                     return;

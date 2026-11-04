@@ -73,6 +73,7 @@
         <ul>
             <li>Devices must be authorized and connected. Nextcloud and SSH authentication, updates, device security and access controls remain necessary; private networking does not secure the whole host.</li>
             <li>SSH over the tailnet is the administration route. This does not imply that Tailscale SSH is enabled.</li>
+            <li>DNS resolution and service reachability are separate checks. Resolving a name does not confirm that the service itself is reachable. Pi-hole filters at the DNS/domain level.</li>
             <li>The home network connects through a Bell router. Device identifiers, real addresses, credentials and tunnel endpoints are omitted.</li>
         </ul>
         <p class="lab-reference"><a href="https://tailscale.com/docs/features/tailscale-serve" target="_blank" rel="noopener noreferrer">Tailscale Serve documentation</a></p>

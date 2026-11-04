@@ -82,7 +82,11 @@ test('Home Lab ships both deferred interactive models and accessible real media 
         assert.match(viewer, /loading="lazy"/);
         assert.match(viewer, /\salt="[^"]+"/);
         assert.match(viewer, /poster="assets\/homelab\/[^"/]+\.webp"/);
+        // Rotation starts only after readiness and visibility checks in the controller.
         assert.doesNotMatch(viewer, /\sauto-rotate(?:\s|$)/);
+        const controller = await readFile(new URL('../scripts/modules/homelab-viewers.js', import.meta.url), 'utf8');
+        assert.match(controller, /setAttribute\('rotation-per-second', '12deg'\)/);
+        assert.match(controller, /setAttribute\('auto-rotate-delay', '0'\)/);
     }
     const images = [...homelab.matchAll(/<img\b([^>]+)>/g)].map(match => match[1]);
     for (const filename of ['debian-operations.webp', 'prominence-ii-world.webp', 'pihole-dashboard.webp']) {
