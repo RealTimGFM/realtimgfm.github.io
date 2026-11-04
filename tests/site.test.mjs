@@ -92,6 +92,9 @@ test('Home Lab ships both deferred interactive models and accessible real media 
         assert.match(image, /width="[1-9]\d*"/);
         assert.match(image, /height="[1-9]\d*"/);
         assert.match(image, /loading="lazy"/);
+        assert.match(image, /srcset="assets\/homelab\/[^" ]+-960\.webp 960w, assets\/homelab\/[^" ]+\.webp [1-9]\d+w"/);
+        assert.match(image, /sizes="[^"]+"/);
+        assert.ok(homelab.includes(`href="assets/homelab/${filename}"`), `Missing full-size link: ${filename}`);
     }
     // Models are single-file GLBs: no texture, buffer or decoder dependency in temp.
     for (const path of models) {

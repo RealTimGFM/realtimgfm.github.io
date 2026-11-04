@@ -416,120 +416,128 @@
 
         <section id="homelab" class="wrap section observe" aria-labelledby="homelab-heading">
     <h2 id="homelab-heading">Home Lab &amp; Infrastructure</h2>
-    <p class="homelab-intro muted">Physical hardware, real workloads, and hands-on practice in Linux administration,
-        networking, DNS, self-hosting, service reliability, and resource management.</p>
+    <p class="homelab-intro muted">Two machines. Private services, local DNS, and real workloads.</p>
 
     <article class="homelab-study sticker-sm" aria-labelledby="homelab-title">
         <header class="homelab-study-header">
-            <div class="homelab-overview-copy">
-                <h3 id="homelab-title">Two machines.<br>Distinct responsibilities.</h3>
-                <p>In this lab setup, a Debian server takes on the heavier workloads. A dedicated Raspberry Pi handles DNS and
-                    filtering. Together, they give me a practical place to understand how services behave,
-                    where connectivity breaks, and what keeps a workload running.</p>
-                <div class="tags" aria-label="Home lab technologies">
-                    <span class="tag">Debian</span><span class="tag">Linux</span>
-                    <span class="tag">Raspberry Pi</span><span class="tag">Pi-hole</span>
-                    <span class="tag">Docker Compose</span><span class="tag">Nextcloud</span><span class="tag">Tailscale</span>
-                    <span class="tag">DNS</span><span class="tag">SSH</span><span class="tag">Minecraft Server</span>
-                </div>
-                <div class="homelab-explore">
-                    <button id="homelabToggle" class="btn primary homelab-toggle" type="button"
-                        aria-expanded="false" aria-controls="homelabDetails" hidden>Explore Home Lab</button>
-                    <span class="homelab-explore-note">Hardware, operations &amp; network design</span>
-                </div>
+            <h3 id="homelab-title">Home Lab at a Glance</h3>
+            <div class="homelab-glance-grid">
+                <section class="homelab-glance-device" aria-labelledby="lab-server-title">
+                    <div class="homelab-glance-heading"><svg class="lab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="1"/><rect x="3" y="14" width="18" height="7" rx="1"/><path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6"/></svg><div><h4 id="lab-server-title">Debian Server</h4><p>Applications &amp; Compute</p></div></div>
+                    <ul class="homelab-service-list" aria-label="Debian services and tools">
+                        <li>Docker Compose</li><li>Nextcloud</li><li>Minecraft / Prominence II</li><li>SSH administration</li><li>htop monitoring</li><li>Tailscale</li>
+                    </ul>
+                </section>
+                <section class="homelab-glance-device" aria-labelledby="lab-pi-title">
+                    <div class="homelab-glance-heading"><svg class="lab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="3" width="8" height="6" rx="1"/><rect x="2" y="16" width="7" height="5" rx="1"/><rect x="15" y="16" width="7" height="5" rx="1"/><path d="M12 9v4M5.5 16v-3h13v3"/></svg><div><h4 id="lab-pi-title">Raspberry Pi 4</h4><p>Network Services</p></div></div>
+                    <ul class="homelab-service-list" aria-label="Raspberry Pi services and tools">
+                        <li>Pi-hole</li><li>Local DNS</li><li>Domain filtering</li><li>SSH administration</li>
+                    </ul>
+                </section>
             </div>
-            <div class="homelab-overview-map" aria-label="Lab overview: a Debian home server and a Raspberry Pi for DNS filtering">
-                <p class="homelab-map-label">The physical lab</p>
-                <div class="homelab-overview-devices" aria-hidden="true">
-                    <img src="assets/homelab/thinkpad-t16-gen2-poster.webp" width="1200" height="900" alt="" loading="lazy" decoding="async" />
-                    <img src="assets/homelab/raspberry-pi-4-poster.webp" width="1200" height="900" alt="" loading="lazy" decoding="async" />
-                </div>
-                <div class="homelab-overview-roles">
-                    <div><strong>Debian 12</strong><span>Server workloads</span></div>
-                    <div><strong>Raspberry Pi 4</strong><span>Pi-hole / DNS</span></div>
-                </div>
-                <p class="homelab-map-footer">One home network <span aria-hidden="true">&middot;</span> Two dedicated roles</p>
+            <div id="homelab-specifications" class="homelab-specifications">
+                <ul aria-label="Server operating system and reported resources"><li>Debian 12</li><li>13th Gen Intel Core i7</li><li>~16 GB RAM</li><li>512 GB SSD</li></ul>
+                <p>Owner-reported resources; not yet matched to the pictured ThinkPad.</p>
+            </div>
+            <div class="homelab-explore">
+                <button id="homelabToggle" class="btn primary homelab-toggle" type="button"
+                    aria-expanded="false" aria-controls="homelabDetails" hidden>Explore Home Lab</button>
+                <span class="homelab-explore-note">Architecture, hardware &amp; evidence</span>
             </div>
         </header>
 
         <div id="homelabDetails">
-            <section class="homelab-part" aria-labelledby="homelab-specifications">
-    <h4 id="homelab-specifications">Hardware &amp; workload register.</h4>
-    <dl class="lab-register">
-        <div><dt>Debian hardware</dt><dd>Lenovo ThinkPad T16 Gen 2 — identified in the existing lab record.</dd></div>
-        <div><dt>Operating system</dt><dd>Debian 12 — existing server configuration.</dd></div>
-        <div><dt>Network hardware</dt><dd>Raspberry Pi 4 — dedicated local DNS and Pi-hole filtering.</dd></div>
-        <div><dt>Reported server resources</dt><dd>13th Gen Intel Core i7, approximately 16 GB RAM and a 512 GB SSD. Owner-reported; these specifications have not yet been matched to the pictured ThinkPad.</dd></div>
-        <div><dt>Deployed / configured</dt><dd>Nextcloud with Docker Compose; private access through Tailscale Serve.</dd></div>
-        <div><dt>Services &amp; administration</dt><dd>Prominence II / Minecraft, playit.gg, htop, Pi-hole, and SSH administration.</dd></div>
-        </dl>
-</section>
-
-<section class="homelab-part" aria-labelledby="homelab-nextcloud">
-    <h4 id="homelab-nextcloud">Nextcloud with Docker Compose.</h4>
-    <p class="homelab-description">I used Docker Compose to host Nextcloud with separate application, database, and cron containers. Compose keeps the related service definitions together, making their dependencies and administration easier to understand.</p>
+            <section class="homelab-part" aria-labelledby="homelab-nextcloud">
+    <h4 id="homelab-nextcloud">Nextcloud Deployment</h4>
     <figure class="lab-diagram" aria-labelledby="lab-containers-caption">
-        <div class="lab-flow-root"><strong>Debian Docker host</strong><span>Runs the container runtime</span></div>
+        <ol class="lab-access-flow lab-request-flow" aria-label="Private Nextcloud request, in order"><li><strong>Authorized device</strong><span>Sends a private request</span></li><li><strong>Tailscale</strong><span>Connects authorized devices</span></li><li><strong>Tailscale Serve</strong><span>Forwards HTTPS to the application</span></li></ol>
         <svg class="lab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18m-6-6 6 6 6-6"/></svg>
-        <div class="lab-flow-root"><strong>Docker Compose</strong><span>Coordinates application, database &amp; cron services</span></div>
-        <svg class="lab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18m-6-6 6 6 6-6"/></svg>
-        <dl class="lab-container-services">
-            <div><dt>Nextcloud application</dt><dd>Serves the web interface and file requests; reads and writes database records and file storage.</dd></div>
-            <div><dt>Database</dt><dd>Stores application metadata in a separate service, keeping database responsibilities apart from the web process.</dd></div>
-            <div><dt>Cron</dt><dd>Runs Nextcloud background jobs independently of visits to the web interface; needs access to the relevant application configuration and data.</dd></div>
-        </dl>
-        <p class="lab-storage-path"><strong>Application / cron → database &amp; persistent storage</strong><br>Database records and application files need persistence beyond a container's lifecycle.</p>
-        <figcaption id="lab-containers-caption">Conceptual container relationships. Application and cron use shared application resources; the database owns its separate data. Mount paths, volume types, database engine, and image versions are not published.</figcaption>
+        <div class="lab-compose-host">
+            <h5>Debian Server <span>Docker Compose environment</span></h5>
+            <div class="lab-compose-layout">
+                <dl class="lab-application">
+                    <div class="lab-service" data-container="nextcloud-app-1"><dt>Nextcloud App</dt><dd>Web interface and file access.<span class="lab-service-image">nextcloud:apache</span></dd></div>
+                </dl>
+                <div class="lab-resource-link"><svg class="lab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18m-6-6 6 6 6-6"/></svg><span>Application database &amp; Redis service</span></div>
+                <dl class="lab-dependencies">
+                    <div class="lab-service" data-container="nextcloud-db-1"><dt>PostgreSQL 17</dt><dd>Application database; file metadata.<span class="lab-service-image">postgres:17-alpine</span></dd></div>
+                    <div class="lab-service" data-container="nextcloud-redis-1"><dt>Redis 7</dt><dd>Redis service.<span class="lab-service-image">redis:7-alpine</span></dd></div>
+                </dl>
+                <dl class="lab-cron">
+                    <div class="lab-service" data-container="nextcloud-cron-1"><dt>Cron</dt><dd>Scheduled Nextcloud background jobs.<span class="lab-service-image">nextcloud:apache</span></dd></div>
+                    <div class="lab-cron-resources"><dt>Uses shared application resources</dt><dd>Shared application configuration and file storage; runs independently of web visits.</dd></div>
+                </dl>
+                <dl class="lab-storage">
+                    <div class="lab-service"><dt>Persistent Storage</dt><dd>Durable application files and database data.</dd></div>
+                </dl>
+            </div>
+        </div>
+        <figcaption id="lab-containers-caption">Conceptual request flow and service responsibilities, not a literal Docker network topology. Files live in persistent storage; metadata lives in the database.</figcaption>
     </figure>
-    <dl class="lab-register">
-        <div><dt>Persistence</dt><dd>Volumes or host bind mounts keep data outside a disposable container layer. Recreating a container can retain mounted data; deleting that storage can still lose it.</dd></div>
-        <div><dt>Administration &amp; restart</dt><dd>SSH is the documented administration route. Compose supports service inspection, logs, and explicit restarts.</dd></div>
-    </dl>
-    <p class="lab-reference">Background-job role: <a href="https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/background_jobs_configuration.html" target="_blank" rel="noopener noreferrer">Nextcloud administration documentation</a>.</p>
+    <div class="lab-capture-summary">
+        <p><strong>4 running at capture</strong><span>Compose project: nextcloud &middot; Up ~7 days &middot; PostgreSQL healthy</span></p>
+        <a href="#homelab-nextcloud-docker">Inspect deployment capture <span aria-hidden="true">&nearr;</span></a>
+    </div>
+    <details class="lab-notes">
+        <summary>Technical notes</summary>
+        <ul>
+            <li>Separate containers keep the application, PostgreSQL, Redis and scheduled jobs independently manageable.</li>
+            <li>Volumes or bind mounts preserve data beyond a container's lifecycle. Deleting that storage can still lose data; the database retains its own persistent records.</li>
+            <li>Cron uses shared application configuration and data so jobs can run without web traffic.</li>
+            <li>Compose groups service definitions and dependencies for inspection, logs and explicit restarts over SSH.</li>
+            <li>Tailscale Serve forwards HTTPS to the local loopback service on port 8080. Redis caching and locking settings, mount paths and backup procedures are not established by the capture.</li>
+        </ul>
+        <p class="lab-reference"><a href="https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/background_jobs_configuration.html" target="_blank" rel="noopener noreferrer">Nextcloud background-job documentation</a></p>
+    </details>
 </section>
 
 <section class="homelab-part" aria-labelledby="homelab-private-access">
-    <h4 id="homelab-private-access">Private Access &amp; Network Security.</h4>
-    <p class="homelab-description">Tailscale provides private connectivity between authorized devices in a tailnet. I configured Tailscale Serve to offer HTTPS access to Nextcloud and forward requests to a local loopback service on port 8080. This avoids adding a public Nextcloud endpoint just to reach files remotely.</p>
-    <figure class="lab-diagram" aria-labelledby="lab-network-caption">
-        <div class="lab-trust-zone">
-            <h5>Private tailnet path</h5>
-            <ol class="lab-access-flow">
-                <li><strong>Authorized remote device</strong><span>Connects through Tailscale</span><svg class="lab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18m-6-6 6 6 6-6"/></svg></li>
-                <li><strong>Debian server</strong><span>Receives permitted tailnet connections</span><svg class="lab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18m-6-6 6 6 6-6"/></svg></li>
-                <li><strong>Tailscale Serve</strong><span>HTTPS → local loopback service, port 8080</span><svg class="lab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18m-6-6 6 6 6-6"/></svg></li>
-                <li><strong>Nextcloud application</strong><span>Authenticates requests and accesses its data</span><svg class="lab-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18m-6-6 6 6 6-6"/></svg></li>
-                <li><strong>Database / persistent storage</strong><span>Application metadata and file data</span></li>
-            </ol>
-            <p><strong>Separate administration route:</strong> authorized remote device → tailnet connection → SSH on Debian. SSH authentication and server access controls still apply; using Tailscale does not imply that Tailscale SSH is enabled.</p>
+    <h4 id="homelab-private-access">Network &amp; Access</h4>
+    <figure id="homelab-architecture" class="lab-network-diagram" aria-labelledby="lab-network-caption">
+        <div class="lab-access-grid">
+            <section class="lab-access-region" aria-labelledby="lab-private-title">
+                <h5 id="lab-private-title">Private <span>Nextcloud &amp; Administration</span></h5>
+                <ol class="lab-access-flow " aria-label="Private access, in order"><li><strong>My Device</strong><span>Authorized to connect</span></li><li><strong>Tailscale</strong><span>Private tailnet</span></li><li><strong>Debian Server</strong><span>Receives permitted connections</span></li></ol>
+                <dl class="lab-private-branches" aria-label="Separate services on Debian">
+                    <div><dt>Tailscale Serve <span>HTTPS</span></dt><dd>Forwards to Nextcloud</dd></div>
+                    <div><dt>SSH</dt><dd>Connects to administration</dd></div>
+                </dl>
+                <p>Private services are accessed through authorized devices without exposing unnecessary public endpoints.</p>
+            </section>
+            <section class="lab-access-region" aria-labelledby="lab-public-title">
+                <h5 id="lab-public-title">Public <span>Minecraft</span></h5>
+                <ol class="lab-access-flow " aria-label="Public game access, in order"><li><strong>External Players</strong><span>Connect for multiplayer</span></li><li><strong>playit.gg</strong><span>Separate public tunnel</span></li><li><strong>Minecraft Server</strong><span>Prominence II on Debian</span></li></ol>
+                <p>The game server uses a separate public tunnel for multiplayer access.</p>
+            </section>
+            <section class="lab-access-region" aria-labelledby="lab-local-title">
+                <h5 id="lab-local-title">Local <span>DNS Filtering</span></h5>
+                <ol class="lab-access-flow " aria-label="Local DNS request, in order"><li><strong>Home Devices</strong><span>Configured DNS clients</span></li><li><strong>Raspberry Pi 4</strong><span>Dedicated network device</span></li><li><strong>Pi-hole / DNS</strong><span>Resolves and filters domains</span></li></ol>
+                <p>Configured home devices use the Raspberry Pi for DNS resolution and filtering.</p>
+            </section>
         </div>
-        <div class="lab-trust-zone">
-            <h5>Public application path</h5>
-            <p>External Minecraft player → playit.gg tunnel → Prominence II server on Debian.</p>
-            <p>This documented game-service path is separate from private Nextcloud and administrative access. No tunnel endpoint is shown.</p>
-        </div>
-        <div class="lab-trust-zone">
-            <h5>Local network DNS</h5>
-            <p>Configured home-network clients → Raspberry Pi 4 → Pi-hole DNS / filtering.</p>
-            <p>The Pi's local role does not imply that it resolves or filters every tailnet device's traffic.</p>
-        </div>
-        <figcaption id="lab-network-caption">Conceptual trust boundaries and request directions, with no device identifiers, addresses, or real endpoints. Private access and public game access serve different audiences.</figcaption>
+        <figcaption id="lab-network-caption">Three separate access paths. The public tunnel serves Minecraft; Nextcloud stays on the private path. Local DNS applies to configured home devices, not automatically to every tailnet device.</figcaption>
     </figure>
-    <p class="homelab-description">Reducing public exposure narrows the reachable service surface, but it does not secure the whole server. Tailnet authorization, Nextcloud and SSH authentication, system updates, service configuration, and device security remain necessary. Private networking also makes access dependent on authorized, connected devices.</p>
-    <p class="lab-reference">Private HTTPS forwarding: <a href="https://tailscale.com/docs/features/tailscale-serve" target="_blank" rel="noopener noreferrer">Tailscale Serve documentation</a>.</p>
+    <details class="lab-notes">
+        <summary>Access &amp; security notes</summary>
+        <ul>
+            <li>Devices must be authorized and connected. Nextcloud and SSH authentication, updates, device security and access controls remain necessary; private networking does not secure the whole host.</li>
+            <li>SSH over the tailnet is the administration route. This does not imply that Tailscale SSH is enabled.</li>
+            <li>The home network connects through a Bell router. Device identifiers, real addresses, credentials and tunnel endpoints are omitted.</li>
+        </ul>
+        <p class="lab-reference"><a href="https://tailscale.com/docs/features/tailscale-serve" target="_blank" rel="noopener noreferrer">Tailscale Serve documentation</a></p>
+    </details>
 </section>
 
             <section class="homelab-part" aria-labelledby="homelab-hardware">
                 <div class="homelab-part-heading">
-                    <div><h4 id="homelab-hardware">Meet the machines.</h4></div>
+                    <div><h4 id="homelab-hardware">Meet the Machines</h4></div>
                     <p class="homelab-heading-note">Explore the hardware behind the lab.<br>Drag to rotate &middot; Scroll/pinch to zoom</p>
                 </div>
                 <div class="homelab-hardware-grid">
                     <figure class="homelab-hardware homelab-hardware-server" aria-labelledby="homelab-thinkpad-title">
                         <header class="homelab-hardware-header">
-                            <p class="homelab-device-role">Debian home server </p>
                             <h5 id="homelab-thinkpad-title">Lenovo ThinkPad <span>T16 Gen 2</span></h5>
-                            <span class="homelab-device-meta">Debian 12 &middot; Linux &middot; SSH</span>
+                            <span class="homelab-device-meta">Debian 12 &middot; Application Hosting &middot; Remote Administration</span>
                         </header>
                         <div class="homelab-model-stage">
                             <model-viewer id="homelabThinkpad" data-model-src="assets/homelab/models/thinkpad-t16-gen2.glb"
@@ -559,9 +567,8 @@
                     </figure>
                     <figure class="homelab-hardware homelab-hardware-pi" aria-labelledby="homelab-raspberry-title">
                         <header class="homelab-hardware-header">
-                            <p class="homelab-device-role">Network services / Pi-hole </p>
                             <h5 id="homelab-raspberry-title">Raspberry Pi 4</h5>
-                            <span class="homelab-device-meta">Pi-hole &middot; Local DNS &middot; SSH</span>
+                            <span class="homelab-device-meta">Pi-hole &middot; Local DNS &middot; Network Filtering</span>
                         </header>
                         <div class="homelab-model-stage">
                             <model-viewer id="homelabRaspberry" data-model-src="assets/homelab/models/raspberry-pi-4.glb"
@@ -590,120 +597,85 @@
                         <figcaption><span>Dedicated network device / DNS filtering</span><a href="#homelab-pi">See DNS activity <span aria-hidden="true">&darr;</span></a></figcaption>
                     </figure>
                 </div>
-                <p class="homelab-hardware-note">Interactive models of the hardware I use, with separate roles for compute and network services.</p>
             </section>
 
-            <section class="homelab-part" aria-labelledby="homelab-debian">
-                <div class="homelab-operations-intro">
-                    <div class="homelab-copy">
-                        <h4 id="homelab-debian">Debian 12. Server operations.</h4>
-                        <p>I administer the server remotely over SSH, manage services and processes, and monitor
-                            CPU and memory while workloads run. Troubleshooting means following a problem from
-                            the running process through to its network connection.</p>
-                    </div>
-                    <dl class="homelab-operation-facts">
-                        <div><dt>Remote administration</dt><dd>SSH / Linux</dd></div>
-                        <div><dt>Workload</dt><dd>Prominence II server</dd></div>
-                        <div><dt>Monitoring</dt><dd>htop / CPU, memory, processes</dd></div>
-                        <div><dt>Connectivity</dt><dd>playit.gg tunnel</dd></div>
-                    </dl>
+
+            <section class="homelab-part" aria-labelledby="homelab-evidence">
+                <div class="homelab-part-heading">
+                    <h4 id="homelab-evidence">Operational Evidence</h4>
+                    <p class="homelab-heading-note">Historical captures &middot; Private details redacted</p>
                 </div>
-                <figure class="homelab-figure homelab-capture">
-                    <div class="homelab-capture-bar"><span>Operations capture</span><span>Debian / Minecraft / htop / playit.gg</span></div>
-                    <a class="homelab-image-link" href="assets/homelab/debian-operations.webp" target="_blank" rel="noopener"
-                        aria-label="Open the full-size Debian server operations screenshot in a new tab">
-                        <img src="assets/homelab/debian-operations.webp"
+                <div class="homelab-evidence-grid">
+                    <figure id="homelab-debian" class="homelab-figure homelab-capture homelab-evidence-lead" aria-labelledby="homelab-debian-title">
+                        <h5 id="homelab-debian-title" class="homelab-capture-bar">Debian Operations</h5>
+                        <a class="homelab-image-link" href="assets/homelab/debian-operations.webp" target="_blank" rel="noopener" aria-label="Open the full-size Debian Operations screenshot in a new tab">
+                            <img src="assets/homelab/debian-operations.webp"
                             srcset="assets/homelab/debian-operations-960.webp 960w, assets/homelab/debian-operations.webp 1920w"
-                            sizes="(max-width: 768px) calc(100vw - 72px), (max-width: 1180px) calc(100vw - 128px), 1052px"
+                            sizes="(max-width: 500px) calc(100vw - 74px), (max-width: 1000px) calc(100vw - 98px), calc(min(100vw - 106px, 1430px) - 90px)"
                             width="1920" height="1200" loading="lazy" decoding="async"
                             alt="Real Debian server desktop with the Minecraft server console, htop CPU and memory monitoring, and the playit.gg tunnel client. Private connection details are redacted." />
-                    </a>
-                    <figcaption><span>The console, resource monitor, and tunnel client in one operational view. Private details are redacted.</span><a href="assets/homelab/debian-operations.webp" target="_blank" rel="noopener">View full-size capture <span aria-hidden="true">&nearr;</span></a></figcaption>
-                </figure>
-            </section>
-
-            <section class="homelab-part" aria-labelledby="homelab-workload">
-                <div class="homelab-part-heading">
-                    <div><h4 id="homelab-workload">Hosting Prominence II.</h4></div>
-                    <span class="homelab-workload-label">Multiplayer Minecraft server</span>
-                </div>
-                <p class="homelab-description">A heavy multiplayer modpack gives the Debian server a real workload:
-                    balancing memory use and CPU load, managing the server process, troubleshooting connections,
-                    and keeping the service running. The playit.gg tunnel provides connectivity for players.</p>
-                <figure class="homelab-figure homelab-world">
-                    <img src="assets/homelab/prominence-ii-world.webp"
+                        </a>
+                        <figcaption><span>Minecraft console, htop monitoring, and playit.gg connectivity.</span><a href="assets/homelab/debian-operations.webp" target="_blank" rel="noopener">View full-size <span aria-hidden="true">&nearr;</span></a></figcaption>
+                    </figure>
+                    <figure id="homelab-workload" class="homelab-figure homelab-capture" aria-labelledby="homelab-workload-title">
+                        <h5 id="homelab-workload-title" class="homelab-capture-bar">Prominence II</h5>
+                        <a class="homelab-image-link" href="assets/homelab/prominence-ii-world.webp" target="_blank" rel="noopener" aria-label="Open the full-size Prominence II screenshot in a new tab">
+                            <img src="assets/homelab/prominence-ii-world.webp"
                         srcset="assets/homelab/prominence-ii-world-960.webp 960w, assets/homelab/prominence-ii-world.webp 1914w"
-                        sizes="(max-width: 768px) calc(100vw - 72px), (max-width: 1180px) calc(100vw - 128px), 1052px"
+                        sizes="(max-width: 500px) calc(100vw - 74px), (max-width: 700px) calc(100vw - 98px), (max-width: 1000px) calc((100vw - 126px) / 2), calc((min(100vw - 106px, 1430px) - 118px) / 2)"
                         width="1914" height="1002" loading="lazy" decoding="async"
                         alt="In-game view of the hosted Prominence II multiplayer world, with players beside a forest temple and the modpack interface." />
-                    <figcaption><span class="homelab-world-caption">The workload, from the other side of the connection.</span><span>Prominence II / Hosted on Debian</span></figcaption>
-                </figure>
-                <ul class="homelab-workload-points" aria-label="Game server engineering practice">
-                    <li><strong>Resource limits</strong><span>Memory allocation &amp; CPU load</span></li>
-                    <li><strong>Service operation</strong><span>Processes, troubleshooting &amp; uptime</span></li>
-                    <li><strong>Connectivity</strong><span>Multiplayer access through playit.gg</span></li>
-                </ul>
-            </section>
-
-            <section class="homelab-part" aria-labelledby="homelab-pi">
-                <div class="homelab-operations-intro">
-                    <div class="homelab-copy">
-                        <h4 id="homelab-pi">Small machine. Clear responsibility.</h4>
-                        <p>The Raspberry Pi 4 was configured with Pi-hole for local DNS and domain filtering. I use SSH to
-                            administer it and trace DNS behavior when troubleshooting the network.</p>
-                        <p>Keeping this lightweight infrastructure on its own device separates DNS and
-                            filtering from the heavier workloads on the Debian server.</p>
-                    </div>
-                    <div class="homelab-dns-summary">
-                        <ol class="homelab-dns-flow" aria-label="DNS service stack"><li>Raspberry Pi 4</li><li>Pi-hole</li><li>Local DNS / filtering</li></ol>
-                        <p>The real dashboard shows DNS activity, blocked queries, domains on blocklists, and client activity.</p>
-                    </div>
-                </div>
-                <figure class="homelab-figure homelab-capture">
-                    <div class="homelab-capture-bar"><span>Network services capture</span><span>Raspberry Pi 4 / Pi-hole</span></div>
-                    <a class="homelab-image-link" href="assets/homelab/pihole-dashboard.webp" target="_blank" rel="noopener"
-                        aria-label="Open the full-size Pi-hole dashboard screenshot in a new tab">
-                        <img src="assets/homelab/pihole-dashboard.webp"
+                        </a>
+                        <figcaption><span>Real multiplayer workload hosted on Debian.<small class="homelab-evidence-note">Memory allocation &middot; CPU load &middot; Process management &middot; Connectivity &amp; reliability</small></span><a href="assets/homelab/prominence-ii-world.webp" target="_blank" rel="noopener">View full-size <span aria-hidden="true">&nearr;</span></a></figcaption>
+                    </figure>
+                    <figure id="homelab-pi" class="homelab-figure homelab-capture" aria-labelledby="homelab-pi-title">
+                        <h5 id="homelab-pi-title" class="homelab-capture-bar">Pi-hole Dashboard</h5>
+                        <a class="homelab-image-link" href="assets/homelab/pihole-dashboard.webp" target="_blank" rel="noopener" aria-label="Open the full-size Pi-hole Dashboard screenshot in a new tab">
+                            <img src="assets/homelab/pihole-dashboard.webp"
                             srcset="assets/homelab/pihole-dashboard-960.webp 960w, assets/homelab/pihole-dashboard.webp 1879w"
-                            sizes="(max-width: 768px) calc(100vw - 72px), (max-width: 1180px) calc(100vw - 128px), 1052px"
+                            sizes="(max-width: 500px) calc(100vw - 74px), (max-width: 700px) calc(100vw - 98px), (max-width: 1000px) calc((100vw - 126px) / 2), calc((min(100vw - 106px, 1430px) - 118px) / 2)"
                             width="1879" height="970" loading="lazy" decoding="async"
                             alt="Real Pi-hole dashboard on the Raspberry Pi showing DNS query activity, blocked queries, blocklist domains, and client activity graphs." />
-                    </a>
-                    <figcaption><span>A view into DNS requests and filtering on the home network, captured from Pi-hole.</span><a href="assets/homelab/pihole-dashboard.webp" target="_blank" rel="noopener">View full-size capture <span aria-hidden="true">&nearr;</span></a></figcaption>
-                </figure>
-            </section>
-
-            <section class="homelab-part" aria-labelledby="homelab-architecture">
-                <h4 id="homelab-architecture">One network, distinct responsibilities.</h4>
-                <p class="homelab-description">Shared connectivity, separate jobs. The Debian server hosts workloads;
-                    the Raspberry Pi handles DNS and filtering.</p>
-                <div class="homelab-topology" aria-label="Conceptual home network topology">
-                    <p class="homelab-topology-label">Network topology <span>Conceptual / Addresses omitted</span></p>
-                    <ol class="homelab-network-path" aria-label="Network connection path">
-                        <li><span class="homelab-node-kind">External</span><strong>Internet</strong></li>
-                        <li><span class="homelab-node-kind">Gateway</span><strong>Bell Router</strong></li>
-                        <li><span class="homelab-node-kind">Local</span><strong>Home Network</strong></li>
-                    </ol>
-                    <ul class="homelab-network-branches" aria-label="Devices and workloads on the home network">
-                        <li class="homelab-branch-server">
-                            <div class="homelab-network-device"><span class="homelab-node-kind">Compute</span><strong>Debian Home Server</strong><span>Lenovo ThinkPad T16 Gen 2</span></div>
-                            <div class="homelab-network-service"><strong>Prominence II</strong><span>Minecraft / Server workloads</span><span>Monitoring &amp; SSH administration</span></div>
-                        </li>
-                        <li class="homelab-branch-pi">
-                            <div class="homelab-network-device"><span class="homelab-node-kind">Network services</span><strong>Raspberry Pi 4</strong><span>Dedicated lightweight device</span></div>
-                            <div class="homelab-network-service"><strong>Pi-hole / DNS</strong><span>Local DNS / Domain filtering</span><span>SSH administration</span></div>
-                        </li>
-                    </ul>
+                        </a>
+                        <figcaption><span>DNS requests, filtering activity, and client statistics.</span><a href="assets/homelab/pihole-dashboard.webp" target="_blank" rel="noopener">View full-size <span aria-hidden="true">&nearr;</span></a></figcaption>
+                    </figure>
+                    <div class="homelab-evidence-group" role="group" aria-labelledby="homelab-file-storage-title">
+                        <h5 id="homelab-file-storage-title">Self-hosted File Storage</h5>
+                        <div class="homelab-evidence-grid">
+                            <figure id="homelab-nextcloud-files" class="homelab-figure homelab-capture" aria-labelledby="homelab-nextcloud-files-title">
+                                <h6 id="homelab-nextcloud-files-title" class="homelab-capture-bar">Nextcloud Files</h6>
+                                <a class="homelab-image-link" href="assets/homelab/nextcloud-files.png" target="_blank" rel="noopener" aria-label="Open the full-size Nextcloud Files screenshot in a new tab">
+                                    <img src="assets/homelab/nextcloud-files.png"
+                                        srcset="assets/homelab/nextcloud-files-960.png 960w, assets/homelab/nextcloud-files.png 1874w"
+                                        sizes="(max-width: 500px) calc(100vw - 74px), (max-width: 700px) calc(100vw - 98px), (max-width: 1000px) calc((100vw - 126px) / 2), calc((min(100vw - 106px, 1430px) - 118px) / 2)"
+                                        width="1874" height="970" loading="lazy" decoding="async"
+                                        alt="Working Nextcloud Files interface with file navigation, folder cards, and upload controls. Personal folder names are permanently redacted." />
+                                </a>
+                                <figcaption><span>Nextcloud Files — Self-hosted file management running on my Debian server.</span><a href="assets/homelab/nextcloud-files.png" target="_blank" rel="noopener">View full-size <span aria-hidden="true">&nearr;</span></a></figcaption>
+                            </figure>
+                            <figure id="homelab-nextcloud-docker" class="homelab-figure homelab-capture" aria-labelledby="homelab-nextcloud-docker-title">
+                                <h6 id="homelab-nextcloud-docker-title" class="homelab-capture-bar">Docker Compose</h6>
+                                <a class="homelab-image-link" href="assets/homelab/nextcloud-docker.png" target="_blank" rel="noopener" aria-label="Open the full-size Docker Compose screenshot in a new tab">
+                                    <img src="assets/homelab/nextcloud-docker.png"
+                                        srcset="assets/homelab/nextcloud-docker-960.png 960w, assets/homelab/nextcloud-docker.png 1919w"
+                                        sizes="(max-width: 500px) calc(100vw - 74px), (max-width: 700px) calc(100vw - 98px), (max-width: 1000px) calc((100vw - 126px) / 2), calc((min(100vw - 106px, 1430px) - 118px) / 2)"
+                                        width="1919" height="474" loading="lazy" decoding="async"
+                                        alt="Debian terminal showing docker ps, docker compose ls, and docker stats for four Nextcloud services. All are up seven days at capture; PostgreSQL is healthy. Shell identity, local path, and container IDs are permanently redacted." />
+                                </a>
+                                <figcaption><span>Docker Compose — Nextcloud, PostgreSQL, Redis, and Cron running as separate services.</span><a href="assets/homelab/nextcloud-docker.png" target="_blank" rel="noopener">View full-size <span aria-hidden="true">&nearr;</span></a></figcaption>
+                            </figure>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section class="homelab-part" aria-labelledby="homelab-lessons">
-                <h4 id="homelab-lessons">What I learned.</h4>
+                <h4 id="homelab-lessons">What I Learned</h4>
                 <dl class="homelab-lessons">
-                    <div><dt>Think in services</dt><dd>Manage persistent Linux services and their processes remotely through SSH, beyond a desktop session.</dd></div>
-                    <div><dt>Trace connectivity problems</dt><dd>Distinguish DNS issues from network and service failures across real hardware and software.</dd></div>
-                    <div><dt>Work within resource limits</dt><dd>Use CPU and memory monitoring to understand the constraints of a running server workload.</dd></div>
-                    <div><dt>Separate responsibilities</dt><dd>Keep DNS and filtering on the Pi while the Debian server handles heavier workloads.</dd></div>
+                    <div><dt><svg class="lab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5M12 13v8"/></svg>Containers</dt><dd>Separate services and persist data.</dd></div>
+                    <div><dt><svg class="lab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="3" width="8" height="6" rx="1"/><rect x="2" y="16" width="7" height="5" rx="1"/><rect x="15" y="16" width="7" height="5" rx="1"/><path d="M12 9v4M5.5 16v-3h13v3"/></svg>Networking</dt><dd>Trace DNS, connectivity, and service failures.</dd></div>
+                    <div><dt><svg class="lab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>Operations</dt><dd>Monitor processes and resource usage.</dd></div>
+                    <div><dt><svg class="lab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></svg>Security</dt><dd>Separate private and public access.</dd></div>
                 </dl>
             </section>
             <div class="homelab-collapse">

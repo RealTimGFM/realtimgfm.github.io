@@ -297,14 +297,6 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .homelab-study-header, .homelab-operations-intro {
-        gap: 28px;
-    }
-
-    .homelab-explore-note {
-        max-width: none;
-    }
-
     .contact {
         gap: 32px;
     }
@@ -363,38 +355,6 @@
     .skills-label {
         margin: 0;
         font-size: 16px;
-    }
-
-    .homelab-study-header, .homelab-hardware-grid, .homelab-operations-intro {
-        grid-template-columns: 1fr;
-    }
-
-    .homelab-heading-note {
-        text-align: left;
-    }
-
-    .homelab-part-heading {
-        flex-wrap: wrap;
-    }
-
-    .homelab-overview-map {
-        max-width: 520px;
-        width: 100%;
-        justify-self: center;
-    }
-
-    .homelab-model-stage {
-        height: 340px;
-    }
-
-    .homelab-workload-points {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .homelab-dns-summary {
-        border: 0;
-        padding: 0;
     }
 
     .about-grid {
@@ -645,94 +605,6 @@
 
     .skill h4 {
         font-size: 14px;
-    }
-
-    .homelab-intro {
-        font-size: 16px;
-    }
-
-    .homelab-study {
-        padding: 22px 16px;
-    }
-
-    .homelab-study h3 {
-        font-size: 30px;
-    }
-
-    .homelab-study h4 {
-        font-size: 24px;
-    }
-
-    .homelab-overview-map {
-        padding: 18px 12px;
-    }
-
-    .homelab-overview-devices img {
-        height: 130px;
-    }
-
-    .homelab-overview-roles strong {
-        font-size: 13px;
-    }
-
-    .homelab-overview-roles span {
-        font-size: 12px;
-    }
-
-    .homelab-part {
-        margin-top: 34px;
-        padding-top: 30px;
-    }
-
-    .homelab-hardware-header {
-        padding: 20px 16px;
-    }
-
-    .homelab-model-stage {
-        height: 280px;
-    }
-
-    .homelab-operation-facts {
-        padding: 18px 14px;
-        gap: 18px 12px;
-    }
-
-    .homelab-operation-facts dd {
-        font-size: 14px;
-    }
-
-    .homelab-capture figcaption {
-        padding: 14px;
-    }
-
-    .homelab-topology {
-        padding: 20px 14px;
-    }
-
-    .homelab-network-branches {
-        gap: 12px;
-    }
-
-    .homelab-network-branches::before {
-        width: calc(50% + 6px);
-        left: calc(25% - 3px);
-    }
-
-    .homelab-network-device, .homelab-network-service {
-        padding: 12px 8px;
-    }
-
-    .homelab-network-device strong, .homelab-network-service strong {
-        font-size: 14px;
-    }
-
-    .homelab-network-device > span:last-child, .homelab-network-service span {
-        font-size: 12px;
-    }
-
-    .homelab-lessons {
-        grid-template-columns: 1fr;
-        gap: 24px;
     }
 
     .about-grid {

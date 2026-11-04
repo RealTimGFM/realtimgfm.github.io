@@ -78,18 +78,24 @@ Zoom in, Zoom out, and Reset view controls. Models rotate gently only while expa
 controls are respected. Static WebP previews remain available during loading and if JavaScript,
 WebGL, or model loading is unavailable. No external viewer CDN is required.
 
-Three real screenshots document earlier lab operation; they are not live status checks:
+Five real screenshots document earlier lab operation; they are not live status checks:
 
 - `debian-operations.webp` shows the server console, htop, and playit.gg.
 - `prominence-ii-world.webp` shows the hosted Prominence II multiplayer workload.
 - `pihole-dashboard.webp` shows DNS activity and filtering on the Raspberry Pi.
+- `nextcloud-files.png` shows the working Nextcloud Files interface.
+- `nextcloud-docker.png` shows the four-service Compose deployment and resource usage.
 
-Each screenshot also has a `-960.webp` responsive variant. The Debian and Pi-hole
+The two Nextcloud captures share **Self-hosted File Storage** in the expanded Operational Evidence gallery, with full-size links. The deployment diagram distinguishes the Nextcloud Apache application, PostgreSQL 17 database, Redis 7 service, independent Cron container, and durable application/database storage. Four running containers, seven-day uptime, and PostgreSQL health describe the capture only. Redis caching/locking settings and backup configuration are not inferred.
+
+Each screenshot also has a 960px responsive variant (`-960.webp` or `-960.png`). The new PNGs preserve terminal text losslessly and total about 155 KiB for the two full-size images. The Debian and Pi-hole
 images use lossless WebP to preserve fine text; the Minecraft image uses quality 90.
 All images preserve their aspect ratio and have intrinsic dimensions, descriptive
 alt text, and lazy loading. The network topology is conceptual HTML/CSS without
 addresses. Original privacy redactions are retained; tunnel/resolver identifiers and
 player names are additionally masked, and every raster carries its known repository origin as provenance metadata.
+
+Nextcloud folder labels, shell identities (including the sudo prompt), the local Compose path, and container IDs were permanently painted out on fresh opaque bitmaps; the terminal title bar and trailing prompt were cropped. Only sanitized PNGs and thumbnails enter `assets/`. `scripts/prepare-nextcloud-evidence.ps1` reproduces the masks from the original 1874 × 970 and 1919 × 662 images supplied via `-FilesImage` and `-DockerImage`; keep originals outside the repository. Privacy regression checks validate opaque pixels, reviewed file hashes, original exclusion, and Pages copies. Review `tests/fixtures/nextcloud-evidence.json` after any intentional asset replacement.
 
 When replacing media, retain redactions and inspect both standalone screenshots and
 any embedded model screen textures. Never publish private addresses, hostnames,
