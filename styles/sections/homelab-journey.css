@@ -1,0 +1,410 @@
+.lab-journey {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    grid-template-areas:
+        "meta meta"
+        "scenario status"
+        "playback status"
+        "stage stage"
+        "legend legend";
+    align-content: start;
+    gap: 20px 48px;
+}
+
+.lab-topline, .lab-scenario, .lab-playback, .lab-legend {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+}
+
+.lab-topline {
+    grid-area: meta;
+    order: 0;
+    justify-content: space-between;
+}
+
+.lab-topline .journey-evidence {
+    margin: 0;
+}
+
+.lab-count, .lab-legend {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.lab-scenario {
+    grid-area: scenario;
+    order: 1;
+    font-size: 14px;
+    gap: 16px;
+}
+
+.lab-scenario label {
+    font-weight: 600;
+}
+
+.lab-scenario select {
+    min-height: 44px;
+    max-width: 100%;
+    padding: 8px 32px 8px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 7px;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+}
+
+.lab-stage {
+    grid-area: stage;
+    order: 4;
+    margin-top: 12px;
+    padding: 24px 16px;
+    background: var(--surface);
+    border-block: 1px solid var(--rule);
+}
+
+.lab-svg {
+    display: block;
+    width: 100%;
+    max-height: 520px;
+    color: var(--text);
+    overflow: visible;
+}
+
+/* Keep the canvas and SVG ink together when browsers auto-darken HTML surfaces. */
+.lab-canvas {
+    fill: var(--surface);
+}
+
+.lab-context {
+    max-width: 78ch;
+    margin: 16px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.lab-private-zone {
+    fill: var(--layer);
+    stroke: var(--muted);
+    stroke-width: 1;
+    stroke-dasharray: 5 5;
+}
+
+.lab-boundary-label {
+    font: 500 14px Geist, sans-serif;
+    letter-spacing: 0.06em;
+    fill: var(--muted);
+}
+
+.lab-wires {
+    color: var(--muted);
+}
+
+.lab-dependency {
+    stroke-dasharray: 6 4;
+}
+
+.lab-background {
+    stroke-dasharray: 2 5;
+}
+
+.lab-wires .is-current {
+    stroke: var(--text);
+    stroke-width: 3;
+}
+
+.lab-hit {
+    fill: transparent;
+    stroke: transparent;
+    stroke-width: 1.5;
+}
+
+.lab-device, .lab-container {
+    fill: var(--surface);
+    stroke: currentcolor;
+    stroke-width: 1.6;
+    stroke-linejoin: round;
+}
+
+.lab-screen {
+    fill: var(--layer);
+    stroke: var(--muted);
+    stroke-width: 1;
+}
+
+.lab-detail, .lab-tunnel, .lab-cloud {
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.lab-cloud {
+    fill: var(--layer);
+}
+
+.lab-led {
+    fill: currentcolor;
+}
+
+.lab-label, .lab-port-label {
+    fill: currentcolor;
+    text-anchor: middle;
+    font: 550 17px Geist, sans-serif;
+}
+
+.lab-port-label {
+    fill: var(--muted);
+    font-size: 15px;
+}
+
+.lab-actor.is-current .lab-device, .lab-actor.is-current .lab-container {
+    fill: var(--layer);
+    stroke-width: 2.5;
+}
+
+.lab-actor.is-current .lab-label {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 3px;
+}
+
+.lab-actor.is-failed .lab-device, .lab-actor.is-failed .lab-tunnel, .lab-actor.is-failed .lab-container {
+    stroke-dasharray: 4 3;
+}
+
+.lab-fault-line {
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 3;
+}
+
+.lab-packet rect, .lab-stop > path:first-child {
+    fill: var(--accent);
+    stroke: var(--text);
+    stroke-width: 1.5;
+}
+
+.lab-packet path, .lab-stop > path:last-child {
+    fill: none;
+    stroke: #08163f;
+    stroke-width: 1.5;
+}
+
+[data-flow="response"] .lab-packet rect {
+    fill: var(--text);
+}
+
+[data-flow="response"] .lab-packet path {
+    stroke: var(--surface);
+}
+
+.lab-legend {
+    grid-area: legend;
+    order: 5;
+    gap: 12px 28px;
+    margin-bottom: 8px;
+}
+
+.lab-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lab-legend span::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    border-top: 2px solid currentcolor;
+}
+
+.lab-legend .lab-key-request::before {
+    width: 10px;
+    height: 8px;
+    background: var(--accent);
+    border: 1px solid var(--text);
+}
+
+.lab-legend .lab-key-response::before {
+    width: 10px;
+    height: 10px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--text);
+}
+
+.lab-legend .lab-key-dependency::before {
+    border-top-style: dashed;
+}
+
+.lab-legend .lab-key-background::before {
+    border-top-style: dotted;
+}
+
+.lab-playback {
+    grid-area: playback;
+    order: 2;
+    gap: 12px;
+}
+
+.lab-play {
+    background: var(--accent);
+    border-color: transparent;
+    color: #08163f;
+    font-weight: 650;
+    min-width: 124px;
+}
+
+.lab-play:not([aria-disabled="true"]):hover {
+    background: var(--accent);
+    border-color: var(--text);
+}
+
+.project-slide--homelab .project-slide-header {
+    min-height: 0;
+    margin-bottom: 32px;
+}
+
+.lab-status {
+    grid-area: status;
+    order: 3;
+    align-self: start;
+    min-height: 82px;
+    max-width: 78ch;
+}
+
+.lab-status strong {
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.lab-status p {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.carousel-rotation {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+@media (width <= 1000px) {
+    .lab-journey {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (720px < width <= 1000px) {
+    .lab-svg {
+        max-height: 640px;
+    }
+
+    .lab-label {
+        font-size: 20px;
+    }
+
+    .lab-port-label {
+        font-size: 17px;
+    }
+}
+
+@media (width <= 720px) {
+    .lab-journey {
+        gap: 20px;
+    }
+
+    .lab-stage {
+        padding: 20px 0;
+    }
+
+    .project-slide--homelab .project-slide-header {
+        min-height: 0;
+        margin-bottom: 24px;
+    }
+
+    .project-slide--homelab .project-slide-summary {
+        display: none;
+    }
+
+    .lab-topline {
+        gap: 8px;
+    }
+
+    .lab-topline .journey-evidence {
+        font-size: 12px;
+    }
+
+    .lab-scenario {
+        gap: 8px 16px;
+    }
+
+    .lab-scenario select {
+        flex: 1;
+        min-width: 0;
+        font-size: 13px;
+    }
+
+    .lab-svg {
+        max-width: 480px;
+        max-height: none;
+        margin-inline: auto;
+    }
+
+    .lab-label {
+        font-size: 18px;
+    }
+
+    .lab-port-label, .lab-boundary-label {
+        font-size: 15px;
+    }
+
+    .lab-legend {
+        gap: 12px 20px;
+        font-size: 12px;
+        margin-block: 0 4px;
+    }
+
+    .lab-playback {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .lab-playback .journey-control {
+        font-size: 13px;
+        padding: 10px 8px;
+        min-width: 0;
+    }
+
+    .lab-playback .lab-play {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+        font-size: 14px;
+    }
+
+    .lab-count {
+        grid-column: 3;
+        grid-row: 1;
+        text-align: center;
+    }
+
+    .lab-status {
+        min-height: 80px;
+    }
+
+    .lab-status strong {
+        font-size: 18px;
+    }
+
+    .lab-status p {
+        font-size: 14px;
+    }
+
+}

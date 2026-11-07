@@ -56,14 +56,15 @@
         <section id="home" class="folio" aria-label="Engineering Folio">
 <div class="folio-intro"><div class="intro-identity"><span class="folio-mark" aria-hidden="true"></span><h1>Tim Vu</h1></div><div class="intro-summary"><p class="folio-role">Backend Developer</p><p class="folio-proof">Production experience in financial systems</p><p class="folio-stack">C# / ASP.NET / SQL Server / Python</p></div></div>
 <div class="folio-exhibit">
+<div class="hero-journey-intro"><p class="hero-journey-lead">See what happens after the click.</p><p>Follow a request, a booking, a focus session, or a market alert through the systems I built.</p></div>
 <section class="featured-carousel" role="region" aria-roledescription="carousel" aria-label="Featured projects" data-featured-carousel>
 <div class="carousel-toolbar" hidden>
-<div class="carousel-projects" role="group" aria-label="Choose a featured project"><button class="carousel-project" type="button" data-slide-to="0" aria-controls="featured-fincore" aria-label="Show FinCore" aria-current="true">FinCore</button><button class="carousel-project" type="button" data-slide-to="1" aria-controls="featured-forexalert" aria-label="Show ForexAlert">ForexAlert</button><button class="carousel-project" type="button" data-slide-to="2" aria-controls="featured-pomodoroyt" aria-label="Show PomodoroYT">PomodoroYT</button><button class="carousel-project" type="button" data-slide-to="3" aria-controls="featured-schedule-booker" aria-label="Show Schedule Booker">Schedule Booker</button></div>
-<div class="carousel-navigation" role="group" aria-label="Project playback controls"><span class="carousel-count" data-carousel-count>1 / 4</span><button class="carousel-control carousel-playback" type="button" data-carousel-playback aria-label="Pause automatic project rotation">Pause</button><button class="carousel-control" type="button" data-carousel-previous aria-label="Previous featured project"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button><button class="carousel-control" type="button" data-carousel-next aria-label="Next featured project"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button></div>
+<div class="carousel-projects" role="group" aria-label="Choose a featured project"><button class="carousel-project" type="button" data-slide-to="0" aria-controls="featured-fincore" aria-label="Show FinCore, 1 of 5" aria-current="true">FinCore</button><button class="carousel-project" type="button" data-slide-to="1" aria-controls="featured-forexalert" aria-label="Show ForexAlert, 2 of 5">ForexAlert</button><button class="carousel-project" type="button" data-slide-to="2" aria-controls="featured-schedule-booker" aria-label="Show Schedule Booker, 3 of 5">Schedule Booker</button><button class="carousel-project" type="button" data-slide-to="3" aria-controls="featured-pomodoroyt" aria-label="Show PomodoroYT, 4 of 5">PomodoroYT</button><button class="carousel-project" type="button" data-slide-to="4" aria-controls="featured-homelab" aria-label="Show Home Lab, 5 of 5">Home Lab</button></div>
+<button class="carousel-project carousel-rotation" type="button" data-carousel-resume aria-label="Pause project rotation">Pause project rotation</button>
 </div>
 <div class="carousel-slides">
-<article id="featured-fincore" class="featured-slide project-slide project-slide--fincore is-active" role="group" aria-roledescription="slide" aria-label="1 of 4: FinCore">
-<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="https://github.com/RealTimGFM/FinCore" target="_blank" rel="noopener noreferrer">FinCore</a></h2><p class="project-slide-subtitle">Account lifecycle &amp; transaction rules · In development</p></div><p class="project-slide-summary">A .NET API for account creation, renaming, closing and reopening, with transaction and balance behavior.</p></header>
+<article id="featured-fincore" class="featured-slide project-slide project-slide--fincore is-active" role="group" aria-roledescription="slide" aria-label="1 of 5: FinCore">
+<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="https://github.com/RealTimGFM/FinCore" target="_blank" rel="noopener noreferrer">FinCore</a></h2><p class="project-slide-subtitle">Account lifecycle &amp; transaction rules · In development</p></div><p class="project-slide-summary">A .NET backend built around account lifecycle rules and persistence. Account and transaction capabilities are still in development.</p></header>
 <div class="fincore-layout project-composition">
     <div class="account-domain">
         <h3>Every account change has rules.</h3>
@@ -88,58 +89,208 @@
 <footer class="project-slide-footer"><p class="project-stack">C# · ASP.NET Core · EF Core · SQL Server</p><p class="project-proof"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Account &amp; transaction tests</p><a class="project-explore" href="https://github.com/RealTimGFM/FinCore" target="_blank" rel="noopener noreferrer">Explore repository<svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></footer>
 </article>
 
-<article id="featured-forexalert" class="featured-slide project-slide project-slide--forexalert" role="group" aria-roledescription="slide" aria-label="2 of 4: ForexAlert" aria-hidden="true" inert>
-<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="https://github.com/RealTimGFM/ForexAlert" target="_blank" rel="noopener noreferrer">ForexAlert</a></h2><p class="project-slide-subtitle">Market movement. A timely notification.</p></div><p class="project-slide-summary">An IBKR market-data monitor that evaluates movement thresholds and delivers alerts through Twilio SMS or a local file.</p></header>
-<div class="forex-layout project-composition">
-    <div class="forex-pipeline" aria-label="Market data is evaluated against thresholds and cooldowns, then sent through Twilio SMS or a local file">
-        <div class="forex-source"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17h3l3-10 4 14 3-10h5"/></svg><h3>IBKR</h3><p>Market data</p><span class="pipeline-component">ForexMonitor <br />MarketDataState</span></div>
-        <span class="pipeline-arrow" aria-hidden="true"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
-        <div class="forex-evaluator"><h3>Movement <br />meets a threshold.</h3><p>AlertEvaluator</p><div class="cooldown-check"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg><span>Check saved cooldowns</span></div></div>
-        <span class="pipeline-arrow" aria-hidden="true"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
-        <div class="forex-delivery"><h3>Send the alert</h3><div><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg><strong>Twilio SMS</strong></div><div><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 2h9l5 5v15H5Zm9 0v6h5M9 12h6m-6 4h6"/></svg><strong>Local file</strong></div></div>
-    </div>
-    <dl class="forex-reliability"><div><dt>Reconnect</dt><dd>Backoff after disconnects</dd></div><div><dt>Refresh</dt><dd>Clear stale state</dd></div><div><dt>Remember</dt><dd>Persist cooldowns &amp; fingerprints</dd></div></dl>
+<article id="featured-forexalert" class="featured-slide project-slide project-slide--forexalert" role="group" aria-roledescription="slide" aria-label="2 of 5: ForexAlert" aria-hidden="true" inert>
+<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="https://github.com/RealTimGFM/ForexAlert" target="_blank" rel="noopener noreferrer">ForexAlert</a></h2><p class="project-slide-subtitle">From a price change to an alert</p></div><p class="project-slide-summary">See when a price change leads to an alert, and when ForexAlert holds back.</p></header>
+<div class="project-composition fx-journey" data-forexalert-journey>
+<div class="fx-heading"><strong>EUR/USD <span>Market signal</span></strong><p>Demo prices · No real alerts</p></div>
+<div class="fx-instrument">
+<div class="fx-market"><div><span data-fx-market>Wednesday · market open</span><small data-fx-clock>08 Jul 2026 · 16:00 UTC</small></div></div>
+<div class="fx-quotes"><span>Bid<strong data-fx-bid>1.1001</strong></span><span>Ask<strong data-fx-ask>1.1003</strong></span><span>Price<strong data-fx-mid>1.1002</strong></span><small data-fx-integrity>Recent quotes · in sync</small></div>
+<div class="fx-plot">
+<div class="fx-plot-heading"><div class="fx-movement">Price change <strong data-fx-movement>+0.02%</strong></div><span data-fx-plot-note>Made-up prices for this demo</span></div>
+<svg class="fx-chart" data-fx-chart viewBox="0 0 640 250" role="img" aria-labelledby="fx-chart-title fx-chart-desc">
+<title id="fx-chart-title">Fictional EUR/USD daily movement</title><desc id="fx-chart-desc" data-fx-chart-desc>Previous completed daily close 1.1000. Example +0.50% trigger at 1.1055. Run the signal to follow the decisions.</desc>
+<g class="fx-grid" fill="none"><path data-fx-grid></path></g>
+<path class="fx-baseline" data-fx-baseline></path><text class="fx-axis" data-fx-baseline-label></text>
+<path class="fx-trigger" data-fx-trigger></path><text class="fx-trigger-label" data-fx-trigger-label></text>
+<g class="fx-axis" data-fx-axes></g>
+<path class="fx-trace-preview" data-fx-preview></path><path class="fx-trace" data-fx-trace></path><g class="fx-samples" data-fx-samples></g>
+<path class="fx-cursor" data-fx-cursor></path>
+<g data-fx-marker><circle class="fx-marker-ring" r="10"></circle><circle class="fx-marker-dot" r="4"></circle><path class="fx-marker-stop" d="M-4-4 4 4M4-4-4 4"></path></g>
+<g class="fx-crossing" data-fx-crossing visibility="hidden"><circle r="13"></circle><path d="M-4 0-1 3 5-4"></path></g>
+</svg>
 </div>
-<footer class="project-slide-footer"><p class="project-stack">C# · .NET · IBKR · Twilio · JSON persistence</p><p class="project-proof"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Offline connection &amp; notification tests</p><a class="project-explore" href="https://github.com/RealTimGFM/ForexAlert" target="_blank" rel="noopener noreferrer">Explore repository<svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></footer>
+<ol class="fx-gates" aria-label="Alert evaluation gates">
+<li data-fx-gate="market"><span class="fx-gate-mark" data-fx-mark>1</span><span>Is the market open?<small>Check trading hours</small></span></li>
+<li data-fx-gate="quote"><span class="fx-gate-mark" data-fx-mark>2</span><span>Is the price reliable?<small>Recent quotes that agree</small></span></li>
+<li data-fx-gate="rule"><span class="fx-gate-mark" data-fx-mark>3</span><span>A big enough change?<small>At least 0.50%</small></span></li>
+<li data-fx-gate="cooldown"><span class="fx-gate-mark" data-fx-mark>4</span><span>Ready for another alert?<small>No repeats or alerts too soon</small></span></li>
+<li data-fx-gate="send"><span class="fx-gate-mark" data-fx-mark>5</span><span>Record the alert<small>Demo log only</small></span></li>
+<li data-fx-gate="commit"><span class="fx-gate-mark" data-fx-mark>6</span><span>Remember this alert<small>After it is recorded</small></span></li>
+</ol>
+<div class="fx-artifacts">
+<div class="fx-log"><svg viewBox="0 0 44 52" aria-hidden="true"><path d="M5 2H29L40 13V50H5ZM29 2V13H40M12 24H32M12 31H32M12 38H25"></path><path class="fx-log-check" d="M23 40 28 45 40 32"></path></svg><span><strong>Alert log <span>demo only</span></strong><small data-fx-output>No alert recorded in this run</small><span class="fx-log-line" data-fx-log-line>0 alerts in the demo log</span></span></div>
+<div class="fx-ledger"><strong>Alert history <span data-fx-ledger-status>unchanged</span></strong><small data-fx-memory>No earlier alert saved.</small><small>Remembered in this demo only</small></div>
+</div>
+</div>
+<div class="fx-actions" data-fx-controls hidden>
+<label class="fx-scenario">Choose scenario<select data-fx-scenario><option value="valid">Price goes up</option><option value="below">Small price change</option><option value="duplicate">Repeated alert</option><option value="cooldown">Another alert too soon</option><option value="closed">Market closed</option></select></label>
+<div class="fx-playback"><button type="button" class="fx-run" data-fx-play>Run signal</button><div class="fx-secondary"><button type="button" data-fx-previous aria-label="Previous step (look back)">Previous</button><button type="button" data-fx-next>Next step</button><button type="button" data-fx-replay>Try the same prices again</button><button type="button" data-fx-reset>Reset demo</button></div></div>
+</div>
+<div class="fx-result" role="status" aria-live="polite" aria-atomic="true"><strong data-fx-result>Ready to try it?</strong><p data-fx-detail>See whether a 0.60% price rise leads to an alert.</p></div>
+<p class="fx-fixture" data-fx-fixture>Each example starts with its own demo alert history.</p>
+<div class="fx-recovery"><span data-fx-confirm hidden>Clear the demo alert history? <button type="button" data-fx-confirm-reset>Clear demo records</button><button type="button" data-fx-cancel-reset>Keep records</button></span></div>
+</div>
+<footer class="project-slide-footer"><p class="project-stack">C# &middot; .NET &middot; IBKR &middot; Twilio &middot; JSON persistence</p><p class="project-proof">Offline connection &amp; notification tests</p><a class="project-explore" href="https://github.com/RealTimGFM/ForexAlert" target="_blank" rel="noopener noreferrer">Explore source &rarr;</a></footer>
 </article>
 
-<article id="featured-pomodoroyt" class="featured-slide project-slide project-slide--pomodoroyt" role="group" aria-roledescription="slide" aria-label="3 of 4: PomodoroYT" aria-hidden="true" inert>
-<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="https://chromewebstore.google.com/detail/pomodoroyt/dkhilbkmbjlphkofidchfbnapbmfcnam" target="_blank" rel="noopener noreferrer">PomodoroYT</a></h2><p class="project-slide-subtitle">Your focus session. Your YouTube. Together.</p></div><p class="project-slide-summary">A Chrome extension that controls YouTube playback, mutes ads, and keeps focus and break sessions in sync.</p></header>
-<div class="pomodoro-layout project-composition">
-    <figure class="focus-cycle"><div class="focus-orbit"><svg class="cycle-arrows" viewBox="0 0 240 240" fill="none" aria-hidden="true"><defs><marker id="pomodoro-cycle-arrowhead" viewBox="0 0 12 12" markerWidth="14" markerHeight="14" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="m2 2 8 4-8 4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><g stroke="currentColor" stroke-width="3" stroke-linecap="round" marker-end="url(#pomodoro-cycle-arrowhead)"><path d="M32.993 160.571A96 96 0 0 1 187.882 52.118"/><path d="M207.007 79.429A96 96 0 0 1 52.118 187.882"/></g></svg><div><strong>Focus</strong><span>then</span><strong>Break</strong></div></div><figcaption>Configurable timers. <br />One connected rhythm.</figcaption></figure>
-    <div class="youtube-workflow"><div class="playback-panel"><div class="playback-title"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3Z"/></svg><span>YouTube playback</span></div><div class="playback-message"><span class="playback-symbol"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 11 7-11 7Z"/></svg></span><h3>Stay in the session.</h3><p>Playback follows your focus<br />and break workflow.</p></div><div class="playback-features"><span><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Playback controls</span><span><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Ad muting</span></div></div><div class="pomodoro-preferences"><p><strong>Make it yours</strong>Tasks &amp; notifications</p><p><strong>Keep it yours</strong>Themes &amp; saved settings</p></div></div>
+<article id="featured-schedule-booker" class="featured-slide project-slide project-slide--schedule-booker" role="group" aria-roledescription="slide" aria-label="3 of 5: Schedule Booker" aria-hidden="true" inert>
+<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="https://schedulebooker-web.onrender.com" target="_blank" rel="noopener noreferrer">Schedule Booker</a></h2><p class="project-slide-subtitle">Two customers, one appointment</p></div><p class="project-slide-summary">Two people can pick the same time. Watch how the system confirms one booking and asks the other person to choose again.</p></header>
+<div class="project-composition sb-journey" data-schedulebooker-journey>
+<div class="sb-toolbar" data-sb-controls hidden>
+<label class="sb-example">Example<select data-sb-scenario><option value="race">Two customers, one appointment</option><option value="single">One customer books</option></select></label>
+<div class="sb-playback"><button class="sb-button sb-primary" type="button" data-sb-play>See what happens</button><button class="sb-button" type="button" data-sb-previous aria-disabled="true">Previous step</button><button class="sb-button" type="button" data-sb-next>Next step</button><button class="sb-button sb-reset" type="button" data-sb-reset>Start over</button></div>
 </div>
-<footer class="project-slide-footer"><p class="project-stack">TypeScript · Chrome APIs · Chrome Storage</p><p class="project-proof"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Focus &amp; break session sync</p><a class="project-explore" href="https://chromewebstore.google.com/detail/pomodoroyt/dkhilbkmbjlphkofidchfbnapbmfcnam" target="_blank" rel="noopener noreferrer">View extension<svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></footer>
+<div class="sb-narration" role="status" aria-live="polite" aria-atomic="true"><strong data-sb-title>Both see 2:00 PM available</strong><p data-sb-message>Both customers picked Friday at 2:00 PM.</p></div>
+<p class="sb-history" data-sb-history hidden></p>
+<div class="sb-desk">
+<section class="sb-browser sb-browser--a" aria-label="Customer A booking window">
+<div class="sb-chrome"><span class="sb-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><strong>Customer A</strong></div>
+<div class="sb-form"><div class="sb-shop">The barbershop</div><dl class="sb-fields"><div><dt>Service</dt><dd>Haircut <small>30 min</small></dd></div><div><dt>Day</dt><dd>Friday</dd></div><div><dt>Time selected</dt><dd class="sb-time" data-sb-time-a>2:00 PM</dd></div></dl><div class="sb-receipt" data-sb-receipt-a><svg viewBox="0 0 24 24" aria-hidden="true"><path data-sb-mark-a d="M5 12h14"/></svg><div><strong data-sb-status-a>Ready to book</strong><small data-sb-detail-a>Time looks available</small></div></div></div>
+</section>
+<section class="sb-calendar" aria-label="Shared Friday appointment calendar">
+<div class="sb-calendar-heading"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 11h18"/></svg><span><strong>Friday appointments</strong><small>One available barber</small></span></div>
+<div class="sb-week" aria-hidden="true"><span>M</span><span>T</span><span>W</span><span>T</span><strong>F</strong><span>S</span><span>S</span></div>
+<ol class="sb-slots"><li><time>1:30 PM</time><span>Available</span></li><li data-sb-slot="14:00"><time>2:00 PM</time><span data-sb-slot-a>Available</span></li><li data-sb-slot="14:30"><time>2:30 PM</time><span data-sb-slot-b>Available</span></li><li><time>3:00 PM</time><span>Available</span></li></ol>
+</section>
+<section class="sb-browser sb-browser--b" aria-label="Customer B booking window">
+<div class="sb-chrome"><span class="sb-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><strong>Customer B</strong></div>
+<div class="sb-form"><p class="sb-shop">The barbershop</p><dl class="sb-fields"><div><dt>Service</dt><dd>Haircut <small>30 min</small></dd></div><div><dt>Day</dt><dd>Friday</dd></div><div><dt>Time selected</dt><dd class="sb-time" data-sb-time-b>2:00 PM</dd></div></dl><div class="sb-receipt" data-sb-receipt-b><svg viewBox="0 0 24 24" aria-hidden="true"><path data-sb-mark-b d="M5 12h14"/></svg><div><strong data-sb-status-b>Ready to book</strong><small data-sb-detail-b>Time looks available</small></div></div><button class="sb-button sb-primary sb-recover" type="button" data-sb-recover hidden>Try 2:30 PM</button></div>
+</section>
+<div class="sb-requests" aria-label="Booking requests" data-sb-requests>
+<svg class="sb-wires" viewBox="0 0 100 16" preserveAspectRatio="none" aria-hidden="true"><path d="M15 0V7H50V16M85 0V7H50"/></svg>
+<span class="sb-ticket" data-sb-ticket-a hidden>A · 2:00 PM</span><span class="sb-ticket sb-ticket--b" data-sb-ticket-b hidden>B · 2:00 PM</span>
+<span class="sb-queue" data-sb-queue hidden>B is waiting</span>
+</div>
+<div class="sb-storage">
+<div class="sb-database"><svg class="sb-cylinder" viewBox="0 0 52 54" aria-hidden="true"><path d="M4 10v32c0 12 44 12 44 0V10M4 26c0 12 44 12 44 0"/><ellipse cx="26" cy="10" rx="22" ry="8"/></svg><span><strong>Saved appointments</strong><small data-sb-records>No bookings yet</small></span></div>
+<div class="sb-lock" data-sb-lock="open"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="sb-shackle" d="M7 11V7a5 5 0 0 1 10 0v4"/><rect x="4" y="11" width="16" height="11" rx="2"/><path d="M12 15v3"/></svg><span><strong data-sb-lock-title>Ready for a booking</strong><small data-sb-lock-detail>Check again, then save</small></span></div>
+</div>
+</div>
+<div class="sb-footnote"><p>The app checks again before saving. That prevents two people from taking the same appointment.</p><small data-sb-fixture>Fictional local demo. A goes first in this example. No real bookings.</small></div>
+<noscript><p>Two guests see 2:00 PM available. The first booking passes a final check under a database lock and is saved. The second checks again, finds the slot taken, and chooses 2:30 PM. Each time has one booking. This is a fictional illustration of the implemented booking rules.</p></noscript>
+</div>
+<footer class="project-slide-footer"><p class="project-stack">Python &middot; Flask &middot; PostgreSQL &middot; SQLite</p><p class="project-proof">SQLite &amp; PostgreSQL integration tests</p><a class="project-explore" href="https://schedulebooker-web.onrender.com" target="_blank" rel="noopener noreferrer">Open booking demo &rarr;</a></footer>
 </article>
 
-<article id="featured-schedule-booker" class="featured-slide project-slide project-slide--schedule-booker" role="group" aria-roledescription="slide" aria-label="4 of 4: Schedule Booker">
-<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="https://schedulebooker-web.onrender.com" target="_blank" rel="noopener noreferrer">Schedule Booker</a></h2><p class="project-slide-subtitle">Book appointments. Run the barbershop.</p></div><p class="project-slide-summary">Appointment booking and business administration for a multilingual barbershop, backed by transaction-safe scheduling.</p></header>
-<div class="booking-layout project-composition">
-    <div class="booking-workflows">
-        <section class="booking-role" aria-labelledby="booking-customer-title">
-            <h3 id="booking-customer-title">Customer</h3>
-            <ol class="booking-steps">
-                <li><span><svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6m10-6v6M3 11h18m-13 4h2m4 0h2m-8 3h2"/></svg></span><strong>Find availability</strong></li>
-                <li><span><svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4"/><path d="M2 21v-3a7 7 0 0 1 14 0v3m2-12 2 2 3-4"/></svg></span><strong>Book appointments</strong></li>
-                <li><span><svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6m10-6v6M3 11h18m-12 4 4 4m0-4-4 4"/></svg></span><strong>Manage / cancel bookings</strong></li>
-            </ol>
-        </section>
-        <section class="booking-role" aria-labelledby="booking-admin-title">
-            <h3 id="booking-admin-title">Administrator</h3>
-            <ul class="booking-steps">
-                <li><span><svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12m4-8h4m-4 4h4"/></svg></span><strong>Admin console</strong></li>
-                <li><span><svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6m10-6v6M3 11h18m-13 4h2m4 0h2m-8 3h2"/></svg></span><strong>Booking calendar</strong></li>
-                <li><span><svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18M7 16v-4m5 4V6m5 10V9"/></svg></span><strong>Financial charts</strong></li>
-            </ul>
-        </section>
-    </div>
-    <div class="booking-consistency"><div class="booking-lock-heading"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></svg><h3>One transaction.<br />Availability rechecked.</h3></div><p>Availability is rechecked and a barber assigned inside one locked database transaction.</p><ol class="transaction-steps"><li><span>Revalidate availability</span><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></li><li><span>Assign an available barber</span><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></li><li><span>Commit the booking</span><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></li></ol><p class="booking-status">Core booking flows implemented</p></div>
+<article id="featured-pomodoroyt" class="featured-slide project-slide project-slide--pomodoroyt" role="group" aria-roledescription="slide" aria-label="4 of 5: PomodoroYT" aria-hidden="true" inert>
+<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="https://chromewebstore.google.com/detail/pomodoroyt/dkhilbkmbjlphkofidchfbnapbmfcnam" target="_blank" rel="noopener noreferrer">PomodoroYT</a></h2><p class="project-slide-subtitle">Focus meets playback.</p></div><p class="project-slide-summary">Your chosen video plays when you focus, pauses when you rest, and goes quiet during ads.</p></header>
+<div class="project-composition py-journey" data-pomodoroyt-journey>
+<div class="py-controls" data-py-controls hidden>
+<label class="py-example" for="py-example">Try an example<select id="py-example" data-py-scenario><option value="start">Start focusing</option><option value="break">Time for a break</option><option value="pause">Pause and resume</option><option value="ad">An ad appears</option><option value="disconnected">No video connected</option></select></label>
+<div class="py-transport"><button type="button" class="py-primary" data-py-play>Watch it work</button><button type="button" data-py-previous aria-disabled="true">Previous moment</button><button type="button" data-py-next>Next moment</button><button type="button" data-py-replay>Watch again</button></div>
 </div>
-<footer class="project-slide-footer"><p class="project-stack">Python · Flask · PostgreSQL · SQLite</p><p class="project-proof"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>SQLite &amp; PostgreSQL integration tests</p><a class="project-explore" href="https://schedulebooker-web.onrender.com" target="_blank" rel="noopener noreferrer">Open live demo<svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></footer>
+<p class="py-disclaimer">Illustrative demo — no actual video or extension connection.</p>
+<div class="py-browser" role="group" aria-label="Illustrative browser with a selected YouTube tab and Pomodoro timer">
+<div class="py-tabbar"><span class="py-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="py-tab py-tab--selected"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="4"></rect><path d="m10 9 6 3-6 3z"></path></svg><span>YouTube · Study playlist</span><strong data-py-connection>Connected</strong></span><span class="py-tab py-tab--other">Notes <small>Not controlled</small></span></div>
+<div class="py-address"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5-7 7 7 7M3 12h18"></path></svg><span>youtube.com / watch / example</span><small>Simulated browser</small></div>
+<div class="py-browser-content">
+<div class="py-watch">
+<div class="py-player" data-py-player>
+<div class="py-cover" aria-hidden="true"><svg class="py-cover-art" viewBox="0 0 640 300" preserveAspectRatio="xMidYMid slice"><path fill="#284568" d="M390 0h250v300H390z"></path><circle cx="480" cy="145" r="114" fill="#ff8d7c"></circle><g fill="none" stroke="#14263f" stroke-width="2"><circle cx="480" cy="145" r="84"></circle><circle cx="480" cy="145" r="58"></circle><circle cx="480" cy="145" r="30"></circle><path d="M200 0v300M220 0v300M240 0v300"></path></g><circle cx="480" cy="145" r="6" fill="#14263f"></circle></svg><div class="py-cover-type">A little room<br>to focus.<span>STUDY PLAYLIST / ORIGINAL DEMO ARTWORK</span></div></div>
+<span class="py-ad-label" data-py-ad hidden>Ad playing · simulated</span>
+<div class="py-player-bottom"><div class="py-timeline" role="img" aria-label="Simulated video progress" data-py-progress><span></span></div><div class="py-player-status"><svg class="py-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path data-py-play-icon d="m8 5 11 7-11 7z"></path></svg><strong data-py-video>Paused</strong><span class="py-video-time" data-py-video-time>0:00</span><span class="py-volume"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 4-6 5H2v6h3l6 5zM15 8c3 2 3 6 0 8M18 5c5 4 5 10 0 14"></path></svg><span data-py-volume>Sound 60%</span></span></div></div>
+</div>
+<div class="py-video-title"><strong>Study playlist</strong><span>Fictional video · silent illustration</span></div>
+<p class="py-tab-note">Video control: selected YouTube tab only. Notes stays untouched.</p>
+</div>
+<section class="py-widget" aria-label="PomodoroYT timer">
+<div class="py-widget-heading"><strong>PomodoroYT</strong><span class="py-grip" aria-hidden="true"></span></div>
+<div class="py-clock"><svg viewBox="0 0 160 160" aria-hidden="true"><circle class="py-ring-track" cx="80" cy="80" r="72"></circle><circle class="py-ring" data-py-ring cx="80" cy="80" r="72" pathLength="100"></circle></svg><div><span class="py-phase" data-py-phase>Focus</span><strong data-py-time>25:00</strong><span class="py-session-status" data-py-session-status>Ready when you are</span></div></div>
+<div class="py-session-controls" data-py-session-controls hidden><button type="button" data-py-session>Start focus</button><button type="button" class="py-primary" data-py-connect hidden>Connect example tab</button></div>
+<p class="py-command" data-py-command>Choose when to begin.</p>
+</section>
+</div>
+<div class="py-browser-footer"><span data-py-cue>One timer. One chosen video.</span><span data-py-timeline-status>Static preview</span></div>
+</div>
+<div class="py-outcome" role="status" aria-live="polite" aria-atomic="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"></path></svg><div><strong data-py-outcome>Ready to focus?</strong><p data-py-message>Start the timer and watch the selected video respond.</p></div></div>
+<p class="py-timeline-note">Demo timeline — time moves faster here. <span data-py-example-note>All playback and sound changes are simulated.</span></p>
+<p class="py-history" data-py-history hidden>Earlier moment — read-only snapshot. Continue returns to the current session.</p>
+</div>
+<footer class="project-slide-footer"><p class="project-stack">TypeScript &middot; Chrome APIs &middot; Chrome Storage</p><p class="project-proof">Published Chrome extension · Illustrated locally</p><a class="project-explore" href="https://chromewebstore.google.com/detail/pomodoroyt/dkhilbkmbjlphkofidchfbnapbmfcnam" target="_blank" rel="noopener noreferrer">View Chrome extension &rarr;</a></footer>
+</article>
+
+<article id="featured-homelab" class="featured-slide project-slide project-slide--homelab" role="group" aria-roledescription="slide" aria-label="5 of 5: Home Lab" aria-hidden="true" inert>
+<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="#homelab">Home Lab</a></h2><p class="project-slide-subtitle">Journey of a private file request</p></div><p class="project-slide-summary">A small lab. A private route. Follow the request in, and the response home.</p></header>
+<div class="project-composition lab-journey" data-homelab-journey>
+<div class="lab-topline"><p class="journey-evidence">Illustrative simulation &middot; No live connection</p></div>
+<div class="lab-scenario" data-lab-controls hidden><label for="lab-scenario">Try a scenario</label><select id="lab-scenario" data-lab-scenario><option value="success">Private file request</option><option value="denied">Device outside tailnet</option></select></div>
+<div class="lab-playback" data-lab-controls hidden role="group" aria-label="Home Lab playback"><button class="journey-control lab-play" type="button" data-lab-play>Play journey</button><button class="journey-control" type="button" data-lab-previous>Previous</button><button class="journey-control" type="button" data-lab-next>Next</button><button class="journey-control" type="button" data-lab-replay>Replay</button><span class="lab-count" data-lab-count>Ready</span></div>
+<div class="lab-stage">
+<svg class="lab-svg" data-lab-svg viewBox="0 0 1200 520" aria-label="Private request travels from laptop through Tailscale Serve and Debian to Nextcloud. Database, Redis, storage and Cron are separate branches." aria-describedby="lab-context" role="group">
+<rect class="lab-canvas" width="100%" height="100%" aria-hidden="true"/>
+<defs><marker id="lab-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 7 4 1 7" fill="none" stroke="context-stroke" stroke-width="1.2"/></marker></defs>
+<path class="lab-private-zone" data-lab-boundary d="M276 44H1180V264H276Z"/>
+<text class="lab-boundary-label" data-lab-boundary-label x="300" y="68">PRIVATE SERVICE ROUTE</text>
+<g class="lab-wires" fill="none" stroke="currentColor" stroke-width="2">
+<path data-lab-path="entry" d="M144 148H300" marker-end="url(#lab-arrow)"/>
+<path data-lab-path="serve" d="M420 148H600" marker-end="url(#lab-arrow)"/>
+<path data-lab-path="upstream" d="M720 148H940" marker-end="url(#lab-arrow)"/>
+<path class="lab-dependency" data-lab-path="database" d="M1054 140H1080V308H840V361"/>
+<path class="lab-dependency" data-lab-path="redis" d="M1054 160H1108V284H590V369"/>
+<path class="lab-dependency" data-lab-path="storage" d="M1054 175H1136V332H1090V374"/>
+<path class="lab-background" data-lab-path="cron" d="M394 399H450V496H1170V429H1140"/>
+</g>
+<text class="lab-port-label" data-lab-https-label x="222" y="128">HTTPS</text>
+<text class="lab-port-label" data-lab-http-label x="830" y="128">Local HTTP</text>
+<g class="lab-actor" data-lab-actor="client" transform="translate(24 100)" aria-label="client laptop">
+<rect class="lab-hit" x="-4" y="-10" width="128" height="122" rx="8"/>
+<rect class="lab-device" x="10" y="0" width="100" height="66" rx="5"/><rect class="lab-screen" x="17" y="8" width="86" height="50" rx="2"/>
+<path class="lab-detail" d="M18 19H102M25 13H27M32 13H34M39 13H41"/>
+<g data-lab-window="idle"><path class="lab-detail" d="M53 36V31A7 7 0 0 1 67 31V36M51 36H69V49H51Z"/></g>
+<g data-lab-window="waiting" visibility="hidden"><circle class="lab-detail" cx="60" cy="38" r="10"/><path class="lab-detail" d="M60 30V38L66 42"/></g>
+<g data-lab-window="loaded" visibility="hidden"><path class="lab-detail" d="M28 29H38V37H28ZM44 32H88M28 42H38V50H28ZM44 46H78"/></g>
+<g data-lab-window="error" visibility="hidden"><path class="lab-fault-line" d="M51 29 69 47M69 29 51 47"/></g>
+<path class="lab-device" d="M10 66H110L120 77Q60 84 0 77Z"/><path class="lab-detail" d="M27 70H93M47 76H73"/>
+<text class="lab-label" x="60" y="104">Your device</text></g>
+<g class="lab-actor" data-lab-actor="gate" transform="translate(300 100)" aria-label="Tailscale Serve private gate">
+<rect class="lab-hit" x="-4" y="-10" width="128" height="122" rx="8"/>
+<path class="lab-tunnel" d="M10 72V38A50 50 0 0 1 110 38V72M25 72V38A35 35 0 0 1 95 38V72"/>
+<path class="lab-detail" d="M60 13 80 21V40Q80 55 60 64Q40 55 40 40V21Z"/><path class="lab-detail" data-lab-gate-check d="M49 37 57 45 72 29"/>
+<path class="lab-fault-line" data-lab-gate-stop d="M45 28 75 52M75 28 45 52" visibility="hidden"/>
+<text class="lab-label" x="60" y="104">Tailscale Serve</text></g>
+<g class="lab-actor" data-lab-actor="host" transform="translate(600 100)" aria-label="Debian host and Docker port mapping">
+<rect class="lab-hit" x="-4" y="-10" width="128" height="134" rx="8"/>
+<rect class="lab-device" x="12" y="0" width="96" height="65" rx="4"/><rect class="lab-screen" x="19" y="7" width="82" height="49" rx="2"/>
+<path class="lab-detail" d="M60 16C38 13 35 46 59 46C78 46 81 24 64 23C51 21 47 36 60 38M24 51H41M80 51H94"/>
+<path class="lab-device" d="M12 65H108L119 79H1Z"/><path class="lab-detail" d="M22 69H98M28 73H92M54 76H66"/><circle cx="67" cy="73" r="2" class="lab-led"/>
+<text class="lab-label" x="60" y="104">Debian host</text><text class="lab-port-label" x="60" y="123">8080 → 80</text></g>
+<g class="lab-actor" data-lab-actor="app" transform="translate(940 100)" aria-label="Docker and Nextcloud application">
+<rect class="lab-hit" x="-4" y="-10" width="128" height="122" rx="8"/>
+<path class="lab-container" d="M6 8H114V79H6Z"/><path class="lab-detail" d="M15 16V70M23 16V70M97 16V70M105 16V70M6 66H114"/>
+<path class="lab-cloud" d="M43 49H80A12 12 0 0 0 81 25A20 20 0 0 0 44 25A12 12 0 0 0 43 49Z"/>
+<path class="lab-detail" d="M53 31H67L73 37V52H53ZM67 31V38H73"/>
+<text class="lab-label" x="60" y="104">Nextcloud</text></g>
+<g class="lab-actor" data-lab-actor="database" transform="translate(780 360)" aria-label="PostgreSQL 17 and database volume">
+<rect class="lab-hit" x="0" y="-8" width="120" height="108" rx="8"/>
+<path class="lab-device" d="M25 13V62C25 80 95 80 95 62V13Z"/><ellipse class="lab-device" cx="60" cy="13" rx="35" ry="12"/><path class="lab-detail" d="M25 36C25 52 95 52 95 36M25 57C25 73 95 73 95 57"/>
+<text class="lab-label" x="60" y="98">PostgreSQL 17</text><text class="lab-port-label" x="60" y="117">DB volume</text></g>
+<g class="lab-actor" data-lab-actor="redis" transform="translate(530 360)" aria-label="Redis 7 internal service">
+<rect class="lab-hit" x="0" y="-8" width="120" height="108" rx="8"/>
+<path class="lab-device" d="M60 9 105 30 60 51 15 30ZM15 43 60 64 105 43V54L60 75 15 54ZM15 60 60 81 105 60"/>
+<path class="lab-detail" d="M46 29H74M60 22V36"/><text class="lab-label" x="60" y="98">Redis 7</text></g>
+<g class="lab-actor" data-lab-actor="storage" transform="translate(1030 360)" aria-label="persistent application storage">
+<rect class="lab-hit" x="0" y="-8" width="120" height="108" rx="8"/>
+<path class="lab-device" d="M23 14H97L110 62V76H10V62Z"/><path class="lab-detail" d="M10 62H110M30 24H90M33 33H87M36 42H84"/><circle class="lab-led" cx="96" cy="69" r="2"/>
+<text class="lab-label" x="60" y="98">App volume</text></g>
+<g class="lab-actor" data-lab-actor="cron" transform="translate(300 360)" aria-label="independent Nextcloud Cron background work">
+<rect class="lab-hit" x="0" y="-8" width="120" height="108" rx="8"/>
+<circle class="lab-device" cx="60" cy="39" r="34"/><path class="lab-detail" d="M60 16V39L77 49M60 9V14M60 64V69M30 39H35M85 39H90"/>
+<text class="lab-label" x="60" y="98">Cron · background</text></g>
+<g class="lab-packet" data-lab-packet visibility="hidden" aria-hidden="true"><rect x="-9" y="-7" width="18" height="14" rx="2"/><path d="M-5 -3 0 2 5 -3"/></g>
+<g class="lab-stop" data-lab-stop visibility="hidden" aria-hidden="true"><path d="M-10 -10H10V10H-10Z"/><path d="M-5 -5 5 5M5 -5 -5 5"/></g>
+</svg>
+<p id="lab-context" class="lab-context">Redis, app storage and Cron show configured relationships; their activity is not simulated in this request.</p>
+</div>
+<div class="lab-legend" aria-label="Connection legend"><span class="lab-key-request">Request →</span><span class="lab-key-response">← Response</span><span class="lab-key-dependency">Dependency</span><span class="lab-key-background">Background</span></div>
+
+<div class="lab-status"><strong data-lab-result role="status" aria-live="polite" aria-atomic="true">Open private files</strong><p data-lab-phase>Follow a fictional file-list request. Nothing connects to the lab.</p></div>
+</div>
+<footer class="project-slide-footer"><p class="project-stack">Debian &middot; Tailscale &middot; Docker &middot; Nextcloud</p><p class="project-proof">Redacted configuration &amp; captured state</p><a class="project-explore" href="#homelab">Explore Home Lab &rarr;</a></footer>
 </article>
 
 </div>
-<p class="sr-only" data-carousel-announcement aria-live="polite" aria-atomic="true"></p>
+<p class="carousel-announcement" data-carousel-announcement aria-live="polite" aria-atomic="true"></p>
 </section>
 
 </div></section>

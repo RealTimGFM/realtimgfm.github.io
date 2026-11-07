@@ -17,3 +17,8 @@
 @import url("./responsive.css");
 @import url("./sections/featured-carousel.css");
 @import url("./sections/featured-projects.css");
+@import url("./sections/featured-journeys.css");
+@import url("./sections/homelab-journey.css");
+@import url("./sections/forexalert-journey.css");
+@import url("./sections/schedulebooker-journey.css");
+@import url("./sections/pomodoroyt-journey.css");

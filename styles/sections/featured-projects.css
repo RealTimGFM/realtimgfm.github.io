@@ -42,9 +42,7 @@
 }
 
 .project-composition {
-    flex: 1;
     min-width: 0;
-    min-height: 330px;
     margin-bottom: 28px;
 }
 
@@ -436,20 +434,6 @@
     font-weight: 600;
 }
 
-/* Keep this project's diagram readable when the carousel cannot initialize. */
-@media (scripting: none) {
-    .project-slide--schedule-booker {
-        grid-area: auto;
-        visibility: visible;
-        opacity: 1;
-        pointer-events: auto;
-        margin-top: 28px;
-        padding-top: 28px;
-        border-top: 1px solid var(--rule);
-        transition: none;
-    }
-}
-
 .booking-consistency {
     padding: 24px;
     border-radius: 12px;
@@ -508,7 +492,7 @@
     gap: 20px;
     border-top: 1px solid var(--rule);
     padding-top: 16px;
-    margin-top: auto;
+    margin-top: 0;
 }
 
 .project-stack, .project-proof {

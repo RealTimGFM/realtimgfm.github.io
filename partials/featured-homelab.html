@@ -1,0 +1,78 @@
+<article id="featured-homelab" class="featured-slide project-slide project-slide--homelab" role="group" aria-roledescription="slide" aria-label="5 of 5: Home Lab" aria-hidden="true" inert>
+<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="#homelab">Home Lab</a></h2><p class="project-slide-subtitle">Journey of a private file request</p></div><p class="project-slide-summary">A small lab. A private route. Follow the request in, and the response home.</p></header>
+<div class="project-composition lab-journey" data-homelab-journey>
+<div class="lab-topline"><p class="journey-evidence">Illustrative simulation &middot; No live connection</p></div>
+<div class="lab-scenario" data-lab-controls hidden><label for="lab-scenario">Try a scenario</label><select id="lab-scenario" data-lab-scenario><option value="success">Private file request</option><option value="denied">Device outside tailnet</option></select></div>
+<div class="lab-playback" data-lab-controls hidden role="group" aria-label="Home Lab playback"><button class="journey-control lab-play" type="button" data-lab-play>Play journey</button><button class="journey-control" type="button" data-lab-previous>Previous</button><button class="journey-control" type="button" data-lab-next>Next</button><button class="journey-control" type="button" data-lab-replay>Replay</button><span class="lab-count" data-lab-count>Ready</span></div>
+<div class="lab-stage">
+<svg class="lab-svg" data-lab-svg viewBox="0 0 1200 520" aria-label="Private request travels from laptop through Tailscale Serve and Debian to Nextcloud. Database, Redis, storage and Cron are separate branches." aria-describedby="lab-context" role="group">
+<rect class="lab-canvas" width="100%" height="100%" aria-hidden="true"/>
+<defs><marker id="lab-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 7 4 1 7" fill="none" stroke="context-stroke" stroke-width="1.2"/></marker></defs>
+<path class="lab-private-zone" data-lab-boundary d="M276 44H1180V264H276Z"/>
+<text class="lab-boundary-label" data-lab-boundary-label x="300" y="68">PRIVATE SERVICE ROUTE</text>
+<g class="lab-wires" fill="none" stroke="currentColor" stroke-width="2">
+<path data-lab-path="entry" d="M144 148H300" marker-end="url(#lab-arrow)"/>
+<path data-lab-path="serve" d="M420 148H600" marker-end="url(#lab-arrow)"/>
+<path data-lab-path="upstream" d="M720 148H940" marker-end="url(#lab-arrow)"/>
+<path class="lab-dependency" data-lab-path="database" d="M1054 140H1080V308H840V361"/>
+<path class="lab-dependency" data-lab-path="redis" d="M1054 160H1108V284H590V369"/>
+<path class="lab-dependency" data-lab-path="storage" d="M1054 175H1136V332H1090V374"/>
+<path class="lab-background" data-lab-path="cron" d="M394 399H450V496H1170V429H1140"/>
+</g>
+<text class="lab-port-label" data-lab-https-label x="222" y="128">HTTPS</text>
+<text class="lab-port-label" data-lab-http-label x="830" y="128">Local HTTP</text>
+<g class="lab-actor" data-lab-actor="client" transform="translate(24 100)" aria-label="client laptop">
+<rect class="lab-hit" x="-4" y="-10" width="128" height="122" rx="8"/>
+<rect class="lab-device" x="10" y="0" width="100" height="66" rx="5"/><rect class="lab-screen" x="17" y="8" width="86" height="50" rx="2"/>
+<path class="lab-detail" d="M18 19H102M25 13H27M32 13H34M39 13H41"/>
+<g data-lab-window="idle"><path class="lab-detail" d="M53 36V31A7 7 0 0 1 67 31V36M51 36H69V49H51Z"/></g>
+<g data-lab-window="waiting" visibility="hidden"><circle class="lab-detail" cx="60" cy="38" r="10"/><path class="lab-detail" d="M60 30V38L66 42"/></g>
+<g data-lab-window="loaded" visibility="hidden"><path class="lab-detail" d="M28 29H38V37H28ZM44 32H88M28 42H38V50H28ZM44 46H78"/></g>
+<g data-lab-window="error" visibility="hidden"><path class="lab-fault-line" d="M51 29 69 47M69 29 51 47"/></g>
+<path class="lab-device" d="M10 66H110L120 77Q60 84 0 77Z"/><path class="lab-detail" d="M27 70H93M47 76H73"/>
+<text class="lab-label" x="60" y="104">Your device</text></g>
+<g class="lab-actor" data-lab-actor="gate" transform="translate(300 100)" aria-label="Tailscale Serve private gate">
+<rect class="lab-hit" x="-4" y="-10" width="128" height="122" rx="8"/>
+<path class="lab-tunnel" d="M10 72V38A50 50 0 0 1 110 38V72M25 72V38A35 35 0 0 1 95 38V72"/>
+<path class="lab-detail" d="M60 13 80 21V40Q80 55 60 64Q40 55 40 40V21Z"/><path class="lab-detail" data-lab-gate-check d="M49 37 57 45 72 29"/>
+<path class="lab-fault-line" data-lab-gate-stop d="M45 28 75 52M75 28 45 52" visibility="hidden"/>
+<text class="lab-label" x="60" y="104">Tailscale Serve</text></g>
+<g class="lab-actor" data-lab-actor="host" transform="translate(600 100)" aria-label="Debian host and Docker port mapping">
+<rect class="lab-hit" x="-4" y="-10" width="128" height="134" rx="8"/>
+<rect class="lab-device" x="12" y="0" width="96" height="65" rx="4"/><rect class="lab-screen" x="19" y="7" width="82" height="49" rx="2"/>
+<path class="lab-detail" d="M60 16C38 13 35 46 59 46C78 46 81 24 64 23C51 21 47 36 60 38M24 51H41M80 51H94"/>
+<path class="lab-device" d="M12 65H108L119 79H1Z"/><path class="lab-detail" d="M22 69H98M28 73H92M54 76H66"/><circle cx="67" cy="73" r="2" class="lab-led"/>
+<text class="lab-label" x="60" y="104">Debian host</text><text class="lab-port-label" x="60" y="123">8080 → 80</text></g>
+<g class="lab-actor" data-lab-actor="app" transform="translate(940 100)" aria-label="Docker and Nextcloud application">
+<rect class="lab-hit" x="-4" y="-10" width="128" height="122" rx="8"/>
+<path class="lab-container" d="M6 8H114V79H6Z"/><path class="lab-detail" d="M15 16V70M23 16V70M97 16V70M105 16V70M6 66H114"/>
+<path class="lab-cloud" d="M43 49H80A12 12 0 0 0 81 25A20 20 0 0 0 44 25A12 12 0 0 0 43 49Z"/>
+<path class="lab-detail" d="M53 31H67L73 37V52H53ZM67 31V38H73"/>
+<text class="lab-label" x="60" y="104">Nextcloud</text></g>
+<g class="lab-actor" data-lab-actor="database" transform="translate(780 360)" aria-label="PostgreSQL 17 and database volume">
+<rect class="lab-hit" x="0" y="-8" width="120" height="108" rx="8"/>
+<path class="lab-device" d="M25 13V62C25 80 95 80 95 62V13Z"/><ellipse class="lab-device" cx="60" cy="13" rx="35" ry="12"/><path class="lab-detail" d="M25 36C25 52 95 52 95 36M25 57C25 73 95 73 95 57"/>
+<text class="lab-label" x="60" y="98">PostgreSQL 17</text><text class="lab-port-label" x="60" y="117">DB volume</text></g>
+<g class="lab-actor" data-lab-actor="redis" transform="translate(530 360)" aria-label="Redis 7 internal service">
+<rect class="lab-hit" x="0" y="-8" width="120" height="108" rx="8"/>
+<path class="lab-device" d="M60 9 105 30 60 51 15 30ZM15 43 60 64 105 43V54L60 75 15 54ZM15 60 60 81 105 60"/>
+<path class="lab-detail" d="M46 29H74M60 22V36"/><text class="lab-label" x="60" y="98">Redis 7</text></g>
+<g class="lab-actor" data-lab-actor="storage" transform="translate(1030 360)" aria-label="persistent application storage">
+<rect class="lab-hit" x="0" y="-8" width="120" height="108" rx="8"/>
+<path class="lab-device" d="M23 14H97L110 62V76H10V62Z"/><path class="lab-detail" d="M10 62H110M30 24H90M33 33H87M36 42H84"/><circle class="lab-led" cx="96" cy="69" r="2"/>
+<text class="lab-label" x="60" y="98">App volume</text></g>
+<g class="lab-actor" data-lab-actor="cron" transform="translate(300 360)" aria-label="independent Nextcloud Cron background work">
+<rect class="lab-hit" x="0" y="-8" width="120" height="108" rx="8"/>
+<circle class="lab-device" cx="60" cy="39" r="34"/><path class="lab-detail" d="M60 16V39L77 49M60 9V14M60 64V69M30 39H35M85 39H90"/>
+<text class="lab-label" x="60" y="98">Cron · background</text></g>
+<g class="lab-packet" data-lab-packet visibility="hidden" aria-hidden="true"><rect x="-9" y="-7" width="18" height="14" rx="2"/><path d="M-5 -3 0 2 5 -3"/></g>
+<g class="lab-stop" data-lab-stop visibility="hidden" aria-hidden="true"><path d="M-10 -10H10V10H-10Z"/><path d="M-5 -5 5 5M5 -5 -5 5"/></g>
+</svg>
+<p id="lab-context" class="lab-context">Redis, app storage and Cron show configured relationships; their activity is not simulated in this request.</p>
+</div>
+<div class="lab-legend" aria-label="Connection legend"><span class="lab-key-request">Request →</span><span class="lab-key-response">← Response</span><span class="lab-key-dependency">Dependency</span><span class="lab-key-background">Background</span></div>
+
+<div class="lab-status"><strong data-lab-result role="status" aria-live="polite" aria-atomic="true">Open private files</strong><p data-lab-phase>Follow a fictional file-list request. Nothing connects to the lab.</p></div>
+</div>
+<footer class="project-slide-footer"><p class="project-stack">Debian &middot; Tailscale &middot; Docker &middot; Nextcloud</p><p class="project-proof">Redacted configuration &amp; captured state</p><a class="project-explore" href="#homelab">Explore Home Lab &rarr;</a></footer>
+</article>

@@ -1,14 +1,44 @@
-<article id="featured-forexalert" class="featured-slide project-slide project-slide--forexalert" role="group" aria-roledescription="slide" aria-label="2 of 4: ForexAlert" aria-hidden="true" inert>
-<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="https://github.com/RealTimGFM/ForexAlert" target="_blank" rel="noopener noreferrer">ForexAlert</a></h2><p class="project-slide-subtitle">Market movement. A timely notification.</p></div><p class="project-slide-summary">An IBKR market-data monitor that evaluates movement thresholds and delivers alerts through Twilio SMS or a local file.</p></header>
-<div class="forex-layout project-composition">
-    <div class="forex-pipeline" aria-label="Market data is evaluated against thresholds and cooldowns, then sent through Twilio SMS or a local file">
-        <div class="forex-source"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17h3l3-10 4 14 3-10h5"/></svg><h3>IBKR</h3><p>Market data</p><span class="pipeline-component">ForexMonitor <br />MarketDataState</span></div>
-        <span class="pipeline-arrow" aria-hidden="true"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
-        <div class="forex-evaluator"><h3>Movement <br />meets a threshold.</h3><p>AlertEvaluator</p><div class="cooldown-check"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg><span>Check saved cooldowns</span></div></div>
-        <span class="pipeline-arrow" aria-hidden="true"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span>
-        <div class="forex-delivery"><h3>Send the alert</h3><div><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg><strong>Twilio SMS</strong></div><div><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 2h9l5 5v15H5Zm9 0v6h5M9 12h6m-6 4h6"/></svg><strong>Local file</strong></div></div>
-    </div>
-    <dl class="forex-reliability"><div><dt>Reconnect</dt><dd>Backoff after disconnects</dd></div><div><dt>Refresh</dt><dd>Clear stale state</dd></div><div><dt>Remember</dt><dd>Persist cooldowns &amp; fingerprints</dd></div></dl>
+<article id="featured-forexalert" class="featured-slide project-slide project-slide--forexalert" role="group" aria-roledescription="slide" aria-label="2 of 5: ForexAlert" aria-hidden="true" inert>
+<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="https://github.com/RealTimGFM/ForexAlert" target="_blank" rel="noopener noreferrer">ForexAlert</a></h2><p class="project-slide-subtitle">From a price change to an alert</p></div><p class="project-slide-summary">See when a price change leads to an alert, and when ForexAlert holds back.</p></header>
+<div class="project-composition fx-journey" data-forexalert-journey>
+<div class="fx-heading"><strong>EUR/USD <span>Market signal</span></strong><p>Demo prices · No real alerts</p></div>
+<div class="fx-instrument">
+<div class="fx-market"><div><span data-fx-market>Wednesday · market open</span><small data-fx-clock>08 Jul 2026 · 16:00 UTC</small></div></div>
+<div class="fx-quotes"><span>Bid<strong data-fx-bid>1.1001</strong></span><span>Ask<strong data-fx-ask>1.1003</strong></span><span>Price<strong data-fx-mid>1.1002</strong></span><small data-fx-integrity>Recent quotes · in sync</small></div>
+<div class="fx-plot">
+<div class="fx-plot-heading"><div class="fx-movement">Price change <strong data-fx-movement>+0.02%</strong></div><span data-fx-plot-note>Made-up prices for this demo</span></div>
+<svg class="fx-chart" data-fx-chart viewBox="0 0 640 250" role="img" aria-labelledby="fx-chart-title fx-chart-desc">
+<title id="fx-chart-title">Fictional EUR/USD daily movement</title><desc id="fx-chart-desc" data-fx-chart-desc>Previous completed daily close 1.1000. Example +0.50% trigger at 1.1055. Run the signal to follow the decisions.</desc>
+<g class="fx-grid" fill="none"><path data-fx-grid></path></g>
+<path class="fx-baseline" data-fx-baseline></path><text class="fx-axis" data-fx-baseline-label></text>
+<path class="fx-trigger" data-fx-trigger></path><text class="fx-trigger-label" data-fx-trigger-label></text>
+<g class="fx-axis" data-fx-axes></g>
+<path class="fx-trace-preview" data-fx-preview></path><path class="fx-trace" data-fx-trace></path><g class="fx-samples" data-fx-samples></g>
+<path class="fx-cursor" data-fx-cursor></path>
+<g data-fx-marker><circle class="fx-marker-ring" r="10"></circle><circle class="fx-marker-dot" r="4"></circle><path class="fx-marker-stop" d="M-4-4 4 4M4-4-4 4"></path></g>
+<g class="fx-crossing" data-fx-crossing visibility="hidden"><circle r="13"></circle><path d="M-4 0-1 3 5-4"></path></g>
+</svg>
 </div>
-<footer class="project-slide-footer"><p class="project-stack">C# · .NET · IBKR · Twilio · JSON persistence</p><p class="project-proof"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Offline connection &amp; notification tests</p><a class="project-explore" href="https://github.com/RealTimGFM/ForexAlert" target="_blank" rel="noopener noreferrer">Explore repository<svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></footer>
+<ol class="fx-gates" aria-label="Alert evaluation gates">
+<li data-fx-gate="market"><span class="fx-gate-mark" data-fx-mark>1</span><span>Is the market open?<small>Check trading hours</small></span></li>
+<li data-fx-gate="quote"><span class="fx-gate-mark" data-fx-mark>2</span><span>Is the price reliable?<small>Recent quotes that agree</small></span></li>
+<li data-fx-gate="rule"><span class="fx-gate-mark" data-fx-mark>3</span><span>A big enough change?<small>At least 0.50%</small></span></li>
+<li data-fx-gate="cooldown"><span class="fx-gate-mark" data-fx-mark>4</span><span>Ready for another alert?<small>No repeats or alerts too soon</small></span></li>
+<li data-fx-gate="send"><span class="fx-gate-mark" data-fx-mark>5</span><span>Record the alert<small>Demo log only</small></span></li>
+<li data-fx-gate="commit"><span class="fx-gate-mark" data-fx-mark>6</span><span>Remember this alert<small>After it is recorded</small></span></li>
+</ol>
+<div class="fx-artifacts">
+<div class="fx-log"><svg viewBox="0 0 44 52" aria-hidden="true"><path d="M5 2H29L40 13V50H5ZM29 2V13H40M12 24H32M12 31H32M12 38H25"></path><path class="fx-log-check" d="M23 40 28 45 40 32"></path></svg><span><strong>Alert log <span>demo only</span></strong><small data-fx-output>No alert recorded in this run</small><span class="fx-log-line" data-fx-log-line>0 alerts in the demo log</span></span></div>
+<div class="fx-ledger"><strong>Alert history <span data-fx-ledger-status>unchanged</span></strong><small data-fx-memory>No earlier alert saved.</small><small>Remembered in this demo only</small></div>
+</div>
+</div>
+<div class="fx-actions" data-fx-controls hidden>
+<label class="fx-scenario">Choose scenario<select data-fx-scenario><option value="valid">Price goes up</option><option value="below">Small price change</option><option value="duplicate">Repeated alert</option><option value="cooldown">Another alert too soon</option><option value="closed">Market closed</option></select></label>
+<div class="fx-playback"><button type="button" class="fx-run" data-fx-play>Run signal</button><div class="fx-secondary"><button type="button" data-fx-previous aria-label="Previous step (look back)">Previous</button><button type="button" data-fx-next>Next step</button><button type="button" data-fx-replay>Try the same prices again</button><button type="button" data-fx-reset>Reset demo</button></div></div>
+</div>
+<div class="fx-result" role="status" aria-live="polite" aria-atomic="true"><strong data-fx-result>Ready to try it?</strong><p data-fx-detail>See whether a 0.60% price rise leads to an alert.</p></div>
+<p class="fx-fixture" data-fx-fixture>Each example starts with its own demo alert history.</p>
+<div class="fx-recovery"><span data-fx-confirm hidden>Clear the demo alert history? <button type="button" data-fx-confirm-reset>Clear demo records</button><button type="button" data-fx-cancel-reset>Keep records</button></span></div>
+</div>
+<footer class="project-slide-footer"><p class="project-stack">C# &middot; .NET &middot; IBKR &middot; Twilio &middot; JSON persistence</p><p class="project-proof">Offline connection &amp; notification tests</p><a class="project-explore" href="https://github.com/RealTimGFM/ForexAlert" target="_blank" rel="noopener noreferrer">Explore source &rarr;</a></footer>
 </article>

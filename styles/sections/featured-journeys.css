@@ -1,0 +1,325 @@
+.hero-journey-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px 40px;
+    padding-block: 8px 24px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--rule);
+}
+
+.hero-journey-intro p {
+    margin: 0;
+    max-width: 54ch;
+    color: var(--muted);
+    font-size: 16px;
+}
+
+.hero-journey-intro .hero-journey-lead {
+    font: 650 clamp(21px, 2vw, 28px)/1.25 Geist, sans-serif;
+    letter-spacing: -0.03em;
+    color: var(--text);
+}
+
+.journey-evidence {
+    margin: 0 0 20px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.journey-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 32px;
+}
+
+.journey-scene {
+    align-self: start;
+    min-width: 0;
+}
+
+.journey-node {
+    position: relative;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    padding: 14px 12px;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    color: var(--muted);
+}
+
+.journey-node > span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+}
+
+.journey-node strong {
+    display: block;
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: 650;
+}
+
+.journey-node small {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.journey-node.is-current {
+    background: var(--layer);
+    color: var(--text);
+    border-color: var(--muted);
+}
+
+.journey-node.is-current > span {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+}
+
+.journey-reading {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border-top: 1px solid var(--rule);
+    padding-top: 20px;
+}
+
+.journey-inspector {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.journey-inspector li + li {
+    margin-top: 24px;
+}
+
+.journey-inspector h3 {
+    margin-bottom: 12px;
+}
+
+.journey-inspector p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.journey-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 24px;
+    font-size: 14px;
+}
+
+.journey-count {
+    flex-basis: 100%;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.journey-control {
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 7px;
+    background: var(--surface);
+    color: var(--text);
+}
+
+.journey-control[aria-disabled="true"] {
+    color: var(--muted);
+    cursor: default;
+    border-color: transparent;
+}
+
+.journey-control:not([aria-disabled="true"]):hover {
+    background: var(--layer);
+    border-color: var(--muted);
+}
+
+.lab-request-route {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(0, 2.3fr);
+    align-items: stretch;
+    gap: 12px;
+}
+
+.lab-exposure-boundary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 10px;
+    border: 1px dashed var(--muted);
+    background: var(--layer);
+}
+
+.lab-exposure-boundary > p {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.lab-supporting-route {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 16px;
+    margin: 20px 0 0 28%;
+    padding-top: 16px;
+    border-top: 1px dashed var(--rule);
+}
+
+.lab-supporting-route .journey-node {
+    border-style: dashed;
+}
+
+.booking-request-route, .focus-command-route {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.booking-request-route .journey-node, .focus-command-route .journey-node {
+    border-width: 0 0 1px;
+    padding-bottom: 20px;
+}
+
+.booking-write-route {
+    margin-block: 20px;
+    padding: 16px;
+    background: var(--layer);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+}
+
+.booking-write-route > p, .focus-tab-route > p {
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.booking-write-route .journey-node {
+    border-color: transparent;
+}
+
+.journey-scene--booking > .journey-node {
+    width: 75%;
+    margin-left: auto;
+    border-width: 1px 0 0;
+}
+
+.focus-tab-route {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 16px;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    background: var(--layer);
+}
+
+.focus-tab-route > p {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+.focus-tab-route .journey-node:last-child {
+    border-radius: 12px;
+}
+
+.journey-scene--signal {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+}
+
+.signal-gates {
+    border-block: 1px solid var(--rule);
+}
+
+.signal-gates .journey-node {
+    border-width: 0 0 1px;
+}
+
+.signal-gates .journey-node:last-child {
+    border-bottom: 0;
+}
+
+.signal-output > p {
+    margin: 16px 0 0;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+@media (width <= 1100px) {
+    .journey-layout {
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .lab-request-route {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lab-exposure-boundary {
+        grid-column: 1 / -1;
+    }
+
+    .lab-supporting-route {
+        margin-left: 0;
+    }
+}
+
+@media (width <= 800px) {
+    .hero-journey-intro {
+        display: block;
+    }
+
+    .hero-journey-intro p + p {
+        margin-top: 12px;
+    }
+
+    .journey-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .journey-node {
+        padding: 12px 10px;
+    }
+
+    .journey-controls {
+        margin-top: 0;
+    }
+}
+
+@media (width <= 500px) {
+    .journey-scene--signal {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .signal-gates {
+        margin-inline: 16px;
+        padding-left: 12px;
+        border-left: 1px dashed var(--muted);
+    }
+
+    .journey-node strong {
+        font-size: 14px;
+    }
+
+    .focus-tab-route {
+        grid-template-columns: 1fr;
+    }
+}

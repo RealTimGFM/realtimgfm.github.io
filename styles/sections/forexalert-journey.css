@@ -1,0 +1,743 @@
+.fx-journey {
+    --fx-signal-position: 0;
+    --fx-rail-step: 54px;
+
+    font-variant-numeric: tabular-nums;
+}
+
+.fx-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 24px;
+    padding-bottom: 16px;
+}
+
+.fx-heading > strong {
+    font: 650 25px/1.2 Geist, sans-serif;
+    letter-spacing: -0.03em;
+}
+
+.fx-heading strong span {
+    margin-left: 12px;
+    color: var(--muted);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.fx-heading p, .fx-fixture {
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.fx-instrument {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 270px;
+    grid-template-areas: "quotes market" "plot gates" "artifacts artifacts";
+    gap: 12px 28px;
+    padding: 12px 24px 20px;
+    background: var(--surface);
+    border-block: 1px solid var(--rule);
+}
+
+.fx-journey button, .fx-scenario select {
+    color: var(--text);
+    font: inherit;
+    text-align: left;
+    min-height: 44px;
+}
+
+.fx-journey button {
+    border: 1px solid transparent;
+    background: transparent;
+    border-radius: 7px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.fx-journey button:hover {
+    background: var(--layer);
+    border-color: var(--rule);
+}
+
+.fx-journey :where(button, select, summary):focus-visible {
+    outline: 2px solid var(--muted);
+    outline-offset: 3px;
+}
+
+.fx-journey button[aria-disabled="true"] {
+    color: var(--muted);
+    cursor: default;
+}
+
+.fx-market {
+    grid-area: market;
+    align-self: center;
+}
+
+.fx-market > div {
+    width: 100%;
+    font-size: 13px;
+}
+
+.fx-market small {
+    display: block;
+    color: var(--muted);
+    margin-top: 2px;
+}
+
+.fx-quotes {
+    grid-area: quotes;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 28px;
+    align-items: center;
+}
+
+.fx-quotes > span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.fx-quotes strong {
+    display: block;
+    color: var(--text);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.fx-quotes small {
+    margin-left: 12px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.fx-plot {
+    grid-area: plot;
+    min-width: 0;
+}
+
+.fx-plot-heading {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0 20px;
+    margin-top: 0;
+}
+
+.fx-movement {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.fx-plot-heading strong {
+    font-size: 23px;
+    color: var(--text);
+    margin-left: 8px;
+}
+
+.fx-plot-heading > span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.fx-chart {
+    display: block;
+    width: 100%;
+    height: 280px;
+    overflow: visible;
+}
+
+.fx-chart path {
+    fill: none;
+}
+
+.fx-grid {
+    stroke: var(--rule);
+    stroke-width: 0.7;
+}
+
+.fx-baseline {
+    stroke: var(--muted);
+    stroke-width: 1;
+}
+
+.fx-trigger {
+    stroke: var(--muted);
+    stroke-width: 1;
+    stroke-dasharray: 5 5;
+}
+
+.fx-trigger-label, .fx-axis {
+    fill: var(--muted);
+    font: 12px Geist, sans-serif;
+}
+
+.fx-trigger-label {
+    font-weight: 600;
+}
+
+.fx-trace-preview {
+    stroke: var(--muted);
+    stroke-width: 1;
+    stroke-dasharray: 3 5;
+}
+
+.fx-trace {
+    stroke: var(--text);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.fx-samples {
+    fill: var(--muted);
+}
+
+.fx-cursor {
+    stroke: var(--muted);
+    stroke-dasharray: 2 4;
+}
+
+.fx-marker-ring {
+    fill: var(--surface);
+    stroke: var(--text);
+    stroke-width: 1.5;
+}
+
+.fx-marker-dot {
+    fill: var(--text);
+}
+
+.fx-marker-stop {
+    visibility: hidden;
+    stroke: var(--text);
+    stroke-width: 2;
+}
+
+.fx-crossing circle {
+    fill: var(--accent);
+    stroke: var(--text);
+    stroke-width: 1;
+}
+
+.fx-crossing path {
+    stroke: #08163f;
+    stroke-width: 1.5;
+}
+
+.fx-gates {
+    grid-area: gates;
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-self: start;
+}
+
+.fx-gates::before {
+    content: "";
+    position: absolute;
+    left: 13px;
+    top: 14px;
+    height: calc(5 * var(--fx-rail-step));
+    width: 1px;
+    background: var(--rule);
+}
+
+.fx-gates::after {
+    content: "!";
+    position: absolute;
+    left: 8px;
+    top: 6px;
+    width: 11px;
+    height: 14px;
+    border: 1px solid var(--text);
+    border-radius: 2px;
+    background: var(--accent);
+    color: #08163f;
+    font: 700 10px/12px Geist, sans-serif;
+    text-align: center;
+    transform: translateY(calc(var(--fx-signal-position) * var(--fx-rail-step)));
+    visibility: hidden;
+}
+
+.fx-gates li {
+    display: flex;
+    position: relative;
+    gap: 14px;
+    height: var(--fx-rail-step);
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+.fx-gate-mark {
+    display: grid;
+    place-items: center;
+    width: 27px;
+    height: 27px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    font-size: 12px;
+}
+
+.fx-gates small {
+    display: block;
+    margin-top: 5px;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.fx-gates [data-status="passed"] {
+    color: var(--text);
+}
+
+.fx-gates [data-status="passed"] .fx-gate-mark {
+    border-color: var(--muted);
+}
+
+.fx-gates [data-status="active"], .fx-gates [data-status="blocked"] {
+    color: var(--text);
+    font-weight: 650;
+}
+
+.fx-gates [data-status="blocked"] .fx-gate-mark {
+    border: 2px solid var(--text);
+    font-size: 19px;
+    background: var(--accent);
+    color: #08163f;
+}
+
+.fx-gates [data-status="active"] .fx-gate-mark {
+    background: var(--layer);
+    border-color: var(--text);
+}
+
+.fx-journey[data-stage="0"] .fx-gates {
+    opacity: 0.8;
+}
+
+.fx-journey[data-crossed="true"] .fx-trigger {
+    stroke: var(--accent);
+    stroke-width: 2;
+}
+
+.fx-journey[data-crossed="true"] .fx-trace {
+    stroke: var(--accent);
+}
+
+.fx-journey[data-stage="5"] .fx-gates::after, .fx-journey[data-stage="6"] .fx-gates::after, .fx-journey[data-stage="7"] .fx-gates::after {
+    visibility: visible;
+}
+
+.fx-journey:not([data-outcome=""]) .fx-gates::after {
+    visibility: hidden;
+}
+
+.fx-journey[data-outcome="unreliable"] .fx-marker-dot, .fx-journey[data-outcome="closed"] .fx-marker-dot {
+    visibility: hidden;
+}
+
+.fx-journey[data-outcome="unreliable"] .fx-marker-stop, .fx-journey[data-outcome="closed"] .fx-marker-stop {
+    visibility: visible;
+}
+
+.fx-artifacts {
+    grid-area: artifacts;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+    margin-top: 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+}
+
+.fx-log {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.fx-log svg {
+    width: 44px;
+    height: 52px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: var(--muted);
+    stroke-width: 1.5;
+}
+
+.fx-log strong, .fx-ledger strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.fx-log strong span, .fx-ledger strong span {
+    font-weight: 400;
+    color: var(--muted);
+    margin-left: 6px;
+}
+
+.fx-log small, .fx-ledger small {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.fx-log-line {
+    display: block;
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.fx-log-check {
+    visibility: hidden;
+}
+
+.fx-journey[data-stage="6"][data-outcome=""] .fx-log-check, .fx-journey[data-outcome="success"] .fx-log-check {
+    visibility: visible;
+    stroke: var(--text);
+    stroke-width: 3;
+}
+
+.fx-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    align-items: end;
+    margin-top: 20px;
+}
+
+.fx-scenario {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.fx-scenario select {
+    width: 100%;
+    min-width: 180px;
+    padding: 8px 28px 8px 10px;
+    border: 1px solid var(--rule);
+    border-radius: 7px;
+    background: var(--surface);
+    font-size: 14px;
+}
+
+.fx-playback, .fx-secondary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.fx-playback button, .fx-recovery button {
+    font-size: 13px;
+    padding: 8px 12px;
+    border-color: var(--rule);
+}
+
+.fx-playback .fx-run {
+    background: var(--accent);
+    color: #08163f;
+    font-weight: 650;
+    border-color: transparent;
+}
+
+.fx-playback .fx-run:hover {
+    background: var(--accent);
+    border-color: var(--text);
+}
+
+.fx-result {
+    margin-top: 18px;
+}
+
+.fx-result > strong {
+    font: 650 21px/1.3 Geist, sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.fx-result p {
+    margin: 6px 0 12px;
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 80ch;
+}
+
+.fx-fixture {
+    font-size: 12px;
+}
+
+.fx-recovery {
+    margin-top: 8px;
+}
+
+.fx-recovery > span {
+    font-size: 14px;
+}
+
+
+.fx-quotes, .fx-market > div, .fx-movement, .fx-log, .fx-ledger {
+    padding: 8px;
+}
+
+@media (width <= 1000px) {
+    .fx-instrument {
+        padding-inline: 12px;
+        column-gap: 24px;
+        grid-template-columns: minmax(0, 1fr) 240px;
+    }
+
+    .fx-quotes {
+        column-gap: 20px;
+    }
+
+    .fx-quotes small {
+        flex-basis: 100%;
+        margin-left: 0;
+    }
+
+    .fx-plot-heading > span {
+        padding-left: 8px;
+    }
+}
+
+@media (width <= 600px) {
+    .fx-journey {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .fx-instrument {
+        display: contents;
+    }
+
+    .fx-heading {
+        order: 0;
+        padding-bottom: 0;
+        gap: 6px;
+    }
+
+    .fx-heading > strong {
+        font-size: 23px;
+    }
+
+    .fx-heading strong span {
+        font-size: 14px;
+        margin-left: 8px;
+    }
+
+    .fx-heading p {
+        font-size: 12px;
+    }
+
+    .fx-market {
+        order: 1;
+        grid-area: auto;
+    }
+
+    .fx-market > div {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0 12px;
+        min-height: 44px;
+    }
+
+    .fx-market small {
+        font-size: 11px;
+    }
+
+    .fx-quotes {
+        order: 2;
+        grid-area: auto;
+        padding: 10px 12px;
+        background: var(--surface);
+        gap: 0 24px;
+    }
+
+    .fx-quotes strong {
+        font-size: 20px;
+    }
+
+    .fx-quotes small {
+        margin-top: 4px;
+        font-size: 11px;
+    }
+
+    .fx-plot {
+        order: 3;
+        grid-area: auto;
+        margin-top: -4px;
+    }
+
+    .fx-plot-heading {
+        margin-top: 0;
+        gap: 0;
+    }
+
+    .fx-plot-heading > span {
+        font-size: 10px;
+        padding-left: 8px;
+    }
+
+    .fx-chart {
+        height: auto;
+        aspect-ratio: 340 / 250;
+    }
+
+    .fx-plot-heading strong {
+        font-size: 20px;
+    }
+
+    .fx-actions {
+        display: contents;
+    }
+
+    .fx-scenario {
+        order: 4;
+        width: 100%;
+    }
+
+    .fx-scenario select {
+        min-width: 0;
+    }
+
+    .fx-playback {
+        display: contents;
+    }
+
+    .fx-secondary {
+        order: 8;
+        gap: 6px;
+    }
+
+    .fx-playback button {
+        flex: 1 0 auto;
+        font-size: 12px;
+        padding-inline: 10px;
+        text-align: center;
+    }
+
+    .fx-playback .fx-run {
+        order: 5;
+        flex-basis: 100%;
+        font-size: 14px;
+    }
+
+    .fx-result {
+        order: 6;
+        margin-top: 0;
+    }
+
+    .fx-result > strong {
+        font-size: 20px;
+    }
+
+    .fx-result p {
+        font-size: 13px;
+        margin-bottom: 0;
+    }
+
+    .fx-gates {
+        order: 9;
+        grid-area: auto;
+        display: flex;
+        padding-top: 0;
+        margin: 8px 0;
+    }
+
+    .fx-gates li {
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        font-size: 10px;
+        text-align: center;
+        height: auto;
+        min-width: 0;
+    }
+
+    .fx-gates li > span:last-child {
+        padding-inline: 1px;
+    }
+
+    .fx-gates small {
+        display: none;
+    }
+
+    .fx-gates::before {
+        top: 13px;
+        left: 8.333%;
+        width: 83.333%;
+        height: 1px;
+    }
+
+    .fx-gates::after {
+        left: calc(8.333% - 5px + var(--fx-signal-position) * 16.666%);
+        top: 6px;
+        transform: none;
+    }
+
+    .fx-artifacts {
+        order: 10;
+        grid-area: auto;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+        padding-top: 8px;
+        margin-top: 0;
+    }
+
+    .fx-log {
+        gap: 12px;
+    }
+
+    .fx-log svg {
+        width: 35px;
+        height: 44px;
+    }
+
+    .fx-log-line {
+        margin-top: 4px;
+    }
+
+    .fx-ledger {
+        border-top: 1px solid var(--rule);
+    }
+
+    .fx-fixture {
+        order: 11;
+        font-size: 11px;
+    }
+
+    .fx-recovery {
+        order: 12;
+        margin: 0;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fx-journey *, .fx-journey *::after {
+        transition: none;
+    }
+}
+
+.fx-market > div, .fx-movement, .fx-log, .fx-ledger {
+    font-family: inherit;
+    text-align: left;
+}

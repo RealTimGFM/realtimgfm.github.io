@@ -1,25 +1,38 @@
-<article id="featured-schedule-booker" class="featured-slide project-slide project-slide--schedule-booker" role="group" aria-roledescription="slide" aria-label="4 of 4: Schedule Booker">
-<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="https://schedulebooker-web.onrender.com" target="_blank" rel="noopener noreferrer">Schedule Booker</a></h2><p class="project-slide-subtitle">Book appointments. Run the barbershop.</p></div><p class="project-slide-summary">Appointment booking and business administration for a multilingual barbershop, backed by transaction-safe scheduling.</p></header>
-<div class="booking-layout project-composition">
-    <div class="booking-workflows">
-        <section class="booking-role" aria-labelledby="booking-customer-title">
-            <h3 id="booking-customer-title">Customer</h3>
-            <ol class="booking-steps">
-                <li><span><svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6m10-6v6M3 11h18m-13 4h2m4 0h2m-8 3h2"/></svg></span><strong>Find availability</strong></li>
-                <li><span><svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4"/><path d="M2 21v-3a7 7 0 0 1 14 0v3m2-12 2 2 3-4"/></svg></span><strong>Book appointments</strong></li>
-                <li><span><svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6m10-6v6M3 11h18m-12 4 4 4m0-4-4 4"/></svg></span><strong>Manage / cancel bookings</strong></li>
-            </ol>
-        </section>
-        <section class="booking-role" aria-labelledby="booking-admin-title">
-            <h3 id="booking-admin-title">Administrator</h3>
-            <ul class="booking-steps">
-                <li><span><svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12m4-8h4m-4 4h4"/></svg></span><strong>Admin console</strong></li>
-                <li><span><svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6m10-6v6M3 11h18m-13 4h2m4 0h2m-8 3h2"/></svg></span><strong>Booking calendar</strong></li>
-                <li><span><svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18M7 16v-4m5 4V6m5 10V9"/></svg></span><strong>Financial charts</strong></li>
-            </ul>
-        </section>
-    </div>
-    <div class="booking-consistency"><div class="booking-lock-heading"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></svg><h3>One transaction.<br />Availability rechecked.</h3></div><p>Availability is rechecked and a barber assigned inside one locked database transaction.</p><ol class="transaction-steps"><li><span>Revalidate availability</span><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></li><li><span>Assign an available barber</span><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></li><li><span>Commit the booking</span><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></li></ol><p class="booking-status">Core booking flows implemented</p></div>
+<article id="featured-schedule-booker" class="featured-slide project-slide project-slide--schedule-booker" role="group" aria-roledescription="slide" aria-label="3 of 5: Schedule Booker" aria-hidden="true" inert>
+<header class="project-slide-header"><div><span class="folio-mark folio-mark--project" aria-hidden="true"></span><h2><a href="https://schedulebooker-web.onrender.com" target="_blank" rel="noopener noreferrer">Schedule Booker</a></h2><p class="project-slide-subtitle">Two customers, one appointment</p></div><p class="project-slide-summary">Two people can pick the same time. Watch how the system confirms one booking and asks the other person to choose again.</p></header>
+<div class="project-composition sb-journey" data-schedulebooker-journey>
+<div class="sb-toolbar" data-sb-controls hidden>
+<label class="sb-example">Example<select data-sb-scenario><option value="race">Two customers, one appointment</option><option value="single">One customer books</option></select></label>
+<div class="sb-playback"><button class="sb-button sb-primary" type="button" data-sb-play>See what happens</button><button class="sb-button" type="button" data-sb-previous aria-disabled="true">Previous step</button><button class="sb-button" type="button" data-sb-next>Next step</button><button class="sb-button sb-reset" type="button" data-sb-reset>Start over</button></div>
 </div>
-<footer class="project-slide-footer"><p class="project-stack">Python · Flask · PostgreSQL · SQLite</p><p class="project-proof"><svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>SQLite &amp; PostgreSQL integration tests</p><a class="project-explore" href="https://schedulebooker-web.onrender.com" target="_blank" rel="noopener noreferrer">Open live demo<svg class="project-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a></footer>
+<div class="sb-narration" role="status" aria-live="polite" aria-atomic="true"><strong data-sb-title>Both see 2:00 PM available</strong><p data-sb-message>Both customers picked Friday at 2:00 PM.</p></div>
+<p class="sb-history" data-sb-history hidden></p>
+<div class="sb-desk">
+<section class="sb-browser sb-browser--a" aria-label="Customer A booking window">
+<div class="sb-chrome"><span class="sb-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><strong>Customer A</strong></div>
+<div class="sb-form"><div class="sb-shop">The barbershop</div><dl class="sb-fields"><div><dt>Service</dt><dd>Haircut <small>30 min</small></dd></div><div><dt>Day</dt><dd>Friday</dd></div><div><dt>Time selected</dt><dd class="sb-time" data-sb-time-a>2:00 PM</dd></div></dl><div class="sb-receipt" data-sb-receipt-a><svg viewBox="0 0 24 24" aria-hidden="true"><path data-sb-mark-a d="M5 12h14"/></svg><div><strong data-sb-status-a>Ready to book</strong><small data-sb-detail-a>Time looks available</small></div></div></div>
+</section>
+<section class="sb-calendar" aria-label="Shared Friday appointment calendar">
+<div class="sb-calendar-heading"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 11h18"/></svg><span><strong>Friday appointments</strong><small>One available barber</small></span></div>
+<div class="sb-week" aria-hidden="true"><span>M</span><span>T</span><span>W</span><span>T</span><strong>F</strong><span>S</span><span>S</span></div>
+<ol class="sb-slots"><li><time>1:30 PM</time><span>Available</span></li><li data-sb-slot="14:00"><time>2:00 PM</time><span data-sb-slot-a>Available</span></li><li data-sb-slot="14:30"><time>2:30 PM</time><span data-sb-slot-b>Available</span></li><li><time>3:00 PM</time><span>Available</span></li></ol>
+</section>
+<section class="sb-browser sb-browser--b" aria-label="Customer B booking window">
+<div class="sb-chrome"><span class="sb-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><strong>Customer B</strong></div>
+<div class="sb-form"><p class="sb-shop">The barbershop</p><dl class="sb-fields"><div><dt>Service</dt><dd>Haircut <small>30 min</small></dd></div><div><dt>Day</dt><dd>Friday</dd></div><div><dt>Time selected</dt><dd class="sb-time" data-sb-time-b>2:00 PM</dd></div></dl><div class="sb-receipt" data-sb-receipt-b><svg viewBox="0 0 24 24" aria-hidden="true"><path data-sb-mark-b d="M5 12h14"/></svg><div><strong data-sb-status-b>Ready to book</strong><small data-sb-detail-b>Time looks available</small></div></div><button class="sb-button sb-primary sb-recover" type="button" data-sb-recover hidden>Try 2:30 PM</button></div>
+</section>
+<div class="sb-requests" aria-label="Booking requests" data-sb-requests>
+<svg class="sb-wires" viewBox="0 0 100 16" preserveAspectRatio="none" aria-hidden="true"><path d="M15 0V7H50V16M85 0V7H50"/></svg>
+<span class="sb-ticket" data-sb-ticket-a hidden>A · 2:00 PM</span><span class="sb-ticket sb-ticket--b" data-sb-ticket-b hidden>B · 2:00 PM</span>
+<span class="sb-queue" data-sb-queue hidden>B is waiting</span>
+</div>
+<div class="sb-storage">
+<div class="sb-database"><svg class="sb-cylinder" viewBox="0 0 52 54" aria-hidden="true"><path d="M4 10v32c0 12 44 12 44 0V10M4 26c0 12 44 12 44 0"/><ellipse cx="26" cy="10" rx="22" ry="8"/></svg><span><strong>Saved appointments</strong><small data-sb-records>No bookings yet</small></span></div>
+<div class="sb-lock" data-sb-lock="open"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="sb-shackle" d="M7 11V7a5 5 0 0 1 10 0v4"/><rect x="4" y="11" width="16" height="11" rx="2"/><path d="M12 15v3"/></svg><span><strong data-sb-lock-title>Ready for a booking</strong><small data-sb-lock-detail>Check again, then save</small></span></div>
+</div>
+</div>
+<div class="sb-footnote"><p>The app checks again before saving. That prevents two people from taking the same appointment.</p><small data-sb-fixture>Fictional local demo. A goes first in this example. No real bookings.</small></div>
+<noscript><p>Two guests see 2:00 PM available. The first booking passes a final check under a database lock and is saved. The second checks again, finds the slot taken, and chooses 2:30 PM. Each time has one booking. This is a fictional illustration of the implemented booking rules.</p></noscript>
+</div>
+<footer class="project-slide-footer"><p class="project-stack">Python &middot; Flask &middot; PostgreSQL &middot; SQLite</p><p class="project-proof">SQLite &amp; PostgreSQL integration tests</p><a class="project-explore" href="https://schedulebooker-web.onrender.com" target="_blank" rel="noopener noreferrer">Open booking demo &rarr;</a></footer>
 </article>

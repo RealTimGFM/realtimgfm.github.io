@@ -1,0 +1,671 @@
+.py-journey {
+    --py-player-bg: #14263f;
+    --py-player-text: #e6f3ff;
+    --py-player-muted: #aec9e7;
+    --py-player-accent: #ff8d7c;
+
+    font-size: 15px;
+}
+
+.py-journey [hidden] {
+    display: none;
+}
+
+.py-controls, .py-transport {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 8px;
+}
+
+.py-controls {
+    justify-content: space-between;
+    gap: 16px 24px;
+}
+
+.py-example {
+    display: grid;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.py-journey button, .py-example select {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 10px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 7px;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    line-height: 1.4;
+}
+
+.py-example select {
+    width: 100%;
+    padding-right: 32px;
+}
+
+.py-journey button {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.py-journey button.py-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #08163f;
+}
+
+.py-journey button:where(:not(:disabled, [aria-disabled="true"])):hover {
+    border-color: var(--muted);
+}
+
+.py-journey :is(button:disabled, button[aria-disabled="true"]) {
+    opacity: 0.55;
+    cursor: default;
+}
+
+.py-journey :is(button, select, summary):focus-visible {
+    outline: 2px solid var(--muted);
+    outline-offset: 4px;
+}
+
+.py-disclaimer {
+    margin: 16px 0 12px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.py-browser {
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    background: var(--layer);
+}
+
+.py-tabbar {
+    display: flex;
+    align-items: end;
+    gap: 8px;
+    padding: 12px 16px 0;
+}
+
+.py-window-dots {
+    display: flex;
+    gap: 5px;
+    padding: 0 12px 17px 0;
+}
+
+.py-window-dots i {
+    width: 7px;
+    height: 7px;
+    border: 1px solid var(--muted);
+    border-radius: 50%;
+}
+
+.py-tab {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.py-tab--selected {
+    border-radius: 9px 9px 0 0;
+    background: var(--surface);
+    color: var(--text);
+}
+
+.py-tab svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--accent);
+    stroke: var(--text);
+    stroke-width: 1.5;
+}
+
+.py-tab strong {
+    padding: 2px 7px;
+    background: var(--layer);
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.py-tab strong[data-connected="false"] {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.py-tab small {
+    font-size: 12px;
+}
+
+.py-address {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 20px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.py-address svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 1.5;
+}
+
+.py-address > span {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.py-address small {
+    font-size: 12px;
+}
+
+.py-browser-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    align-items: start;
+    gap: 28px;
+    padding: 28px;
+}
+
+.py-watch {
+    min-width: 0;
+}
+
+.py-player {
+    position: relative;
+    overflow: hidden;
+    border-radius: 7px;
+    background: var(--py-player-bg);
+    color: var(--py-player-text);
+}
+
+.py-cover {
+    position: relative;
+    height: clamp(190px, 22vw, 300px);
+    min-height: 190px;
+    overflow: hidden;
+}
+
+.py-cover-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.py-cover-type {
+    position: relative;
+    padding: 32px;
+    font-size: clamp(26px, 3.5vw, 52px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+}
+
+.py-cover-type span {
+    display: block;
+    margin-top: 28px;
+    font-size: 10px;
+    line-height: 1.4;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+}
+
+.py-player-bottom {
+    padding: 14px 20px;
+}
+
+.py-timeline {
+    height: 3px;
+    background: #47617e;
+}
+
+.py-timeline > span {
+    display: block;
+    width: var(--py-progress, 12%);
+    height: 100%;
+    background: var(--py-player-accent);
+    position: relative;
+}
+
+.py-timeline > span::after {
+    content: "";
+    position: absolute;
+    right: -4px;
+    top: -3px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--py-player-accent);
+}
+
+.py-player-status {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+}
+
+.py-play-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentcolor;
+}
+
+.py-video-time {
+    color: var(--py-player-muted);
+}
+
+.py-volume {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.py-volume svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 1.5;
+}
+
+.py-ad-label {
+    display: block;
+    padding: 6px 10px;
+    background: var(--py-player-accent);
+    color: var(--py-player-bg);
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.py-player[data-ad="true"] .py-volume {
+    color: var(--py-player-accent);
+}
+
+.py-video-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 16px;
+    margin: 14px 0 6px;
+}
+
+.py-video-title > strong {
+    font-size: 18px;
+}
+
+.py-video-title > span, .py-tab-note {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.py-tab-note {
+    margin: 0;
+}
+
+.py-widget {
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    background: var(--surface);
+    padding: 16px;
+}
+
+.py-widget-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.py-grip {
+    width: 16px;
+    height: 5px;
+    border-block: 1px solid var(--muted);
+}
+
+.py-clock {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 200px;
+    max-width: 100%;
+    aspect-ratio: 1;
+    margin: 16px auto;
+}
+
+.py-clock > svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    fill: none;
+    stroke-width: 3;
+}
+
+.py-ring-track {
+    stroke: var(--rule);
+}
+
+.py-ring {
+    stroke: var(--accent);
+}
+
+.py-ring[data-phase="break"] {
+    stroke: var(--muted);
+}
+
+.py-clock > div {
+    position: relative;
+    display: grid;
+    gap: 2px;
+    text-align: center;
+}
+
+.py-phase {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.py-clock strong {
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.25;
+}
+
+.py-session-status {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.py-session-controls {
+    display: grid;
+    gap: 8px;
+}
+
+.py-command {
+    margin: 12px 0 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.py-browser-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    padding: 12px 20px;
+    background: var(--surface);
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.py-outcome {
+    display: flex;
+    align-items: start;
+    gap: 12px;
+    padding: 20px 0 12px;
+}
+
+.py-outcome > svg {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    stroke: var(--muted);
+    fill: none;
+    stroke-width: 1.5;
+}
+
+.py-outcome strong {
+    font-size: 20px;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+}
+
+.py-outcome p {
+    margin: 4px 0 0;
+    color: var(--muted);
+}
+
+.py-timeline-note {
+    margin: 0 0 20px 36px;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.py-history {
+    padding: 12px;
+    margin: 0 0 16px;
+    border: 1px dashed var(--muted);
+    color: var(--muted);
+}
+
+@media (width <= 1000px) {
+    .py-browser-content {
+        grid-template-columns: minmax(0, 1fr) 224px;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .py-cover-type {
+        padding: 24px;
+        font-size: 32px;
+    }
+
+    .py-cover-type span {
+        max-width: 20ch;
+        margin-top: 24px;
+    }
+
+    .py-window-dots {
+        display: none;
+    }
+}
+
+@media (width <= 650px) {
+    .py-controls, .py-example {
+        width: 100%;
+    }
+
+    .py-transport {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+    }
+
+    .py-transport > .py-primary {
+        grid-column: 1 / -1;
+    }
+
+    .py-transport > button {
+        padding-inline: 8px;
+        font-size: 13px;
+    }
+
+    .py-tabbar {
+        padding: 8px 8px 0;
+        gap: 4px;
+    }
+
+    .py-tab {
+        gap: 4px;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .py-tab--selected {
+        flex: 1;
+    }
+
+    .py-tab--selected > span {
+        flex: 1;
+    }
+
+    .py-tab--other {
+        display: none;
+    }
+
+    .py-address {
+        padding: 10px 12px;
+        gap: 8px;
+        font-size: 12px;
+    }
+
+    .py-address small {
+        display: none;
+    }
+
+    .py-browser-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 12px;
+    }
+
+    .py-cover {
+        height: 190px;
+        min-height: 160px;
+    }
+
+    .py-cover-type {
+        padding: 24px 16px;
+        font-size: 30px;
+    }
+
+    .py-cover-type span {
+        font-size: 9px;
+    }
+
+    .py-player-bottom {
+        padding: 12px;
+    }
+
+    .py-player-status {
+        gap: 8px;
+        font-size: 13px;
+    }
+
+    .py-volume {
+        gap: 4px;
+    }
+
+    .py-widget {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        column-gap: 12px;
+        align-items: center;
+        padding: 12px;
+    }
+
+    .py-widget-heading {
+        grid-column: 1 / -1;
+    }
+
+    .py-clock {
+        width: 160px;
+        margin: 12px 0 0;
+    }
+
+    .py-clock strong {
+        font-size: 32px;
+    }
+
+    .py-phase {
+        font-size: 12px;
+    }
+
+    .py-session-status {
+        font-size: 12px;
+    }
+
+    .py-session-controls button {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+
+    .py-command {
+        grid-column: 1 / -1;
+        margin-top: 4px;
+    }
+
+    .py-browser-footer {
+        padding: 12px;
+    }
+
+    .py-timeline-note {
+        margin-left: 0;
+    }
+}
+
+@media (width <= 360px) {
+    .py-widget {
+        grid-template-columns: 1fr;
+    }
+
+    .py-clock {
+        width: 170px;
+        margin-inline: auto;
+    }
+
+    .py-session-status {
+        font-size: 12px;
+    }
+
+    .py-player-status {
+        gap: 6px;
+    }
+
+    .py-volume svg {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .py-journey *, .py-journey *::after {
+        transition: none;
+        animation: none;
+    }
+}
+
+@media (forced-colors: active) {
+    .py-player, .py-cover {
+        background: Canvas;
+        color: CanvasText;
+    }
+
+    .py-cover-art {
+        opacity: 0.15;
+    }
+
+    .py-ring, .py-ring-track {
+        stroke: CanvasText;
+    }
+
+    .py-timeline > span, .py-timeline > span::after {
+        background: Highlight;
+        forced-color-adjust: none;
+    }
+}
